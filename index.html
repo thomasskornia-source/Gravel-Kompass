@@ -329,7 +329,8 @@
       '</div>' +
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
-        '<div class="actions"><button class="btn" data-gpx-all disabled>GPX gesamt herunterladen</button></div>' +
+        '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button><button class="btn ghost" data-gpx-all disabled>Alle Etappen in einer Datei</button></div>' +
+        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke (in Komoot eine einzige Tour). „Alle Etappen“ = eine Datei mit jeder Etappe als eigener Strecke. Einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
@@ -431,10 +432,25 @@
       var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
       statusEl.textContent = "Route: " + sources.join(", ") + (fromCache ? " (gespeichert)" : "") + (results.some(function(r){ return r.fallback; }) ? " – gestrichelte Abschnitte sind Luftlinie, Routing war nicht erreichbar." : "");
 
+      var oneBtn = el.querySelector("[data-gpx-one]");
+      oneBtn.disabled = false;
+      oneBtn.addEventListener("click", function(){
+        // All stages joined into one continuous track (shared start/end points not duplicated)
+        var joined = [];
+        results.forEach(function(r){
+          r.coords.forEach(function(c, j){
+            var prev = joined[joined.length - 1];
+            if (j === 0 && prev && Math.abs(prev[0] - c[0]) < 1e-6 && Math.abs(prev[1] - c[1]) < 1e-6) return;
+            joined.push(c);
+          });
+        });
+        download(slug(tour.title) + "-komplett.gpx", buildGpx(tour.title, [{name: tour.title + " (komplett)", coords: joined}]));
+      });
+
       var allBtn = el.querySelector("[data-gpx-all]");
       allBtn.disabled = false;
       allBtn.addEventListener("click", function(){
-        download(slug(tour.title) + ".gpx", buildGpx(tour.title, results.map(function(r, i){ return {name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}; })));
+        download(slug(tour.title) + "-etappen.gpx", buildGpx(tour.title, results.map(function(r, i){ return {name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}; })));
       });
     })();
   }
