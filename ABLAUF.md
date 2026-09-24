@@ -8,17 +8,23 @@
   - Tour = Tour-ID bei Kommentaren
 - Bereits erledigte Zeilen stehen (Zeitstempel) in `data/eingang-erledigt.json`.
 
+## Auslöser
+- Sofort: Ein Apps Script in der Tabelle (`apps-script/eingang-ausloeser.gs`) startet bei jeder neuen
+  Formular-Antwort die Claude-Routine „Gravel Kompass täglich abarbeiten“ über ihren API-Auslöser.
+  Der Schlüssel liegt nur in den Skripteigenschaften (`ROUTINE_TOKEN`), nicht im Repo.
+- Kein fester Zeitplan. Nach jedem Lauf kommt eine Push-Nachricht der Claude-App („🚴 Neue Tour online: …“ bei neuen Touren).
+
 ## Abarbeiten
 1. Tabelle lesen, alle Zeilen, deren Zeitstempel nicht in `data/eingang-erledigt.json` steht, sind offen.
 2. Pro Eintrag:
-   - **Anfrage** → recherchieren (Quellen aus `data/sources.json`), Tour in `data/tours.json` anlegen, Eintrag in `data/requests.json` (ohne Namen!).
-   - **Kommentar** → kleine Änderung direkt umsetzen und unter `aenderungen` der Tour dokumentieren (Datum, Kommentar, Antwort); große Umbauten oder Fragen erst mit Thomas klären.
+   - **Anfrage** → recherchieren (Quellen aus `data/sources.json`), Tour in `data/tours.json` anlegen, Eintrag in `data/requests.json` (Name der anfragenden Person im Feld `name`, falls angegeben).
+   - **Kommentar** → kleine Änderung direkt umsetzen und unter `aenderungen` der Tour dokumentieren (Datum, `von` = Name falls angegeben, Kommentar, Antwort); große Umbauten oder Fragen erst mit Thomas klären.
    - **Quelle** → Seite prüfen, bei Eignung in `data/sources.json` aufnehmen (alphabetisch).
 3. Zeitstempel in `data/eingang-erledigt.json` eintragen.
 4. Hochladen, Thomas kurz berichten, was erledigt ist und was offen bleibt.
 
 ## Regeln
-- Keine Namen von Anfragenden auf der Website.
+- Namen von Anfragenden/Kommentierenden werden angezeigt, wenn sie angegeben wurden (`name` in requests.json, `von` in `aenderungen`); nur Vorname bzw. wie eingetragen, keine weiteren persönlichen Daten.
 - Rennrad-Touren: `"profil": ["fastbike-lowtraffic", "fastbike"]`; Gravel ohne Profil (Standard gravel → trekking).
 - Quellen der Recherche in `quellen` der Tour verlinken.
 
