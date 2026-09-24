@@ -1,5 +1,343 @@
 [
   {
+    "id": "bayern-altmuehltal-5-tage",
+    "title": "Altmühltal-Runde: Donau, Kalkfelsen & Fränkisches Seenland",
+    "subtitle": "5-Tage-Gravel-Rundtour ab Ingolstadt, mit dem Zug erreichbar",
+    "createdAt": "2026-09-24",
+    "requestId": "uli-2026-09",
+    "fuer": "Uli",
+    "land": "Deutschland",
+    "region": "Bayern (Altmühltal / Donau)",
+    "saison": "Sommer",
+    "tage": 5,
+    "fahrradtyp": "Gravel",
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Mittelfeiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "beschreibung": "Start und Ziel ist Ingolstadt Hbf (ICE-Halt zwischen München und Nürnberg). Die Runde folgt großteils dem Altmühltal-Radweg – viel feiner Schotter und ruhige Radwege, genau passend zu Champagner Gravel und moderatem Anspruch – und schließt über das Fränkische Seenland, die Fränkische Alb und die Donau den Kreis. Die Etappen sind eher kurz gehalten; wer mehr will, verlängert an Altmühlsee oder Brombachsee.",
+    "quellen": [
+      {
+        "name": "Gravelbike im Naturpark Altmühltal",
+        "url": "https://www.naturpark-altmuehltal.de/radfahren/gravelbike/"
+      },
+      {
+        "name": "8 Gravelbike-Touren in Bayern (erlebe.bayern)",
+        "url": "https://erlebe.bayern/listicles/8-gravelbike-touren/"
+      },
+      {
+        "name": "Bikepacking auf dem GeoRadweg Altmühltal (Berge Aktiv)",
+        "url": "https://www.bergeaktiv.de/georadweg-altmuehltal-bikepacking-bayern/"
+      }
+    ],
+    "etappen": [
+      {
+        "von": "Ingolstadt",
+        "nach": "Kelheim",
+        "hmPlan": 400,
+        "text": "Entlang der Donau nach Osten, Abstecher zum Kloster Weltenburg am Donaudurchbruch (dort ist die Uferstrecke nicht befahrbar, die Route geht über die Höhe).",
+        "wegpunkte": [
+          [
+            48.7665,
+            11.4258,
+            "Ingolstadt Hbf"
+          ],
+          [
+            48.896,
+            11.821,
+            "Kloster Weltenburg"
+          ],
+          [
+            48.917,
+            11.887,
+            "Kelheim"
+          ]
+        ]
+      },
+      {
+        "von": "Kelheim",
+        "nach": "Kipfenberg",
+        "hmPlan": 650,
+        "text": "Hinein ins Altmühltal: am Main-Donau-Kanal nach Riedenburg und Beilngries, vorbei an Kalkfelsen und Burgen.",
+        "wegpunkte": [
+          [
+            48.917,
+            11.887,
+            "Kelheim"
+          ],
+          [
+            48.967,
+            11.687,
+            "Riedenburg"
+          ],
+          [
+            49.034,
+            11.472,
+            "Beilngries"
+          ],
+          [
+            48.95,
+            11.397,
+            "Kipfenberg"
+          ]
+        ]
+      },
+      {
+        "von": "Kipfenberg",
+        "nach": "Treuchtlingen",
+        "hmPlan": 550,
+        "text": "Das schönste Stück des Tals: Bischofsstadt Eichstätt, die Felsen der Zwölf Apostel bei Solnhofen und Pappenheim mit seiner Burg.",
+        "wegpunkte": [
+          [
+            48.95,
+            11.397,
+            "Kipfenberg"
+          ],
+          [
+            48.891,
+            11.184,
+            "Eichstätt"
+          ],
+          [
+            48.896,
+            10.996,
+            "Solnhofen"
+          ],
+          [
+            48.934,
+            10.975,
+            "Pappenheim"
+          ],
+          [
+            48.954,
+            10.909,
+            "Treuchtlingen"
+          ]
+        ]
+      },
+      {
+        "von": "Treuchtlingen",
+        "nach": "Weißenburg",
+        "hmPlan": 500,
+        "text": "Ins Fränkische Seenland: Altmühlsee bei Gunzenhausen und Brombachsee – Badepause inklusive –, dann zur Römerstadt Weißenburg.",
+        "wegpunkte": [
+          [
+            48.954,
+            10.909,
+            "Treuchtlingen"
+          ],
+          [
+            49.115,
+            10.756,
+            "Gunzenhausen"
+          ],
+          [
+            49.103,
+            10.98,
+            "Pleinfeld (Brombachsee)"
+          ],
+          [
+            49.031,
+            10.972,
+            "Weißenburg"
+          ]
+        ]
+      },
+      {
+        "von": "Weißenburg",
+        "nach": "Ingolstadt",
+        "hmPlan": 700,
+        "text": "Über die Waldwege der Fränkischen Alb hinunter zur Donau, durch die Residenzstadt Neuburg und am Fluss zurück nach Ingolstadt.",
+        "wegpunkte": [
+          [
+            49.031,
+            10.972,
+            "Weißenburg"
+          ],
+          [
+            48.733,
+            11.185,
+            "Neuburg an der Donau"
+          ],
+          [
+            48.7665,
+            11.4258,
+            "Ingolstadt Hbf"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mv-seenplatte-5-tage",
+    "title": "Seenplatten-Runde: Müritz, Mecklenburgische Schweiz & Heide",
+    "subtitle": "5-Tage-Gravel-Rundtour ab Neustrelitz, mit dem Zug erreichbar",
+    "createdAt": "2026-09-24",
+    "requestId": "uli-2026-09",
+    "fuer": "Uli",
+    "land": "Deutschland",
+    "region": "Mecklenburg-Vorpommern (Seenplatte)",
+    "saison": "Sommer",
+    "tage": 5,
+    "fahrradtyp": "Gravel",
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Mittelfeiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "beschreibung": "Start und Ziel ist Neustrelitz (Regionalzug ab Berlin in gut einer Stunde). Flaches bis welliges Gelände, viele Seen zum Baden, Wald- und Schotterwege durch den Müritz-Nationalpark und die Nossentiner/Schwinzer Heide. Achtung: In MV sind manche Waldwege sandig – mit breiten Reifen (ab ca. 45 mm) macht es deutlich mehr Spaß. Der erste Teil folgt einer Bikepacking-Route aus dem MV-Tourismusmagazin.",
+    "quellen": [
+      {
+        "name": "Bikepacking in der Seenplatte und der Mecklenburgischen Schweiz (auf-nach-mv.de)",
+        "url": "https://www.auf-nach-mv.de/magazin/bikepacking-seenplatte-mecklenburgische-schweiz"
+      },
+      {
+        "name": "Gravel-Touren Mecklenburgische Seenplatte (Tourismusverband)",
+        "url": "https://www.mecklenburgische-seenplatte.de/mountainbiker-gravelbiker-touren"
+      },
+      {
+        "name": "5 Gravelbike-Touren durch die Mecklenburgische Seenplatte (Saddle Stories)",
+        "url": "https://www.saddlestories.at/mecklenburgische-seenplatte/"
+      }
+    ],
+    "etappen": [
+      {
+        "von": "Neustrelitz",
+        "nach": "Waren (Müritz)",
+        "hmPlan": 350,
+        "text": "Quer durch den Müritz-Nationalpark: Kiefern- und Buchenwälder, Moore und kleine Seen auf Wald- und Schotterwegen.",
+        "wegpunkte": [
+          [
+            53.362,
+            13.063,
+            "Neustrelitz"
+          ],
+          [
+            53.429,
+            12.94,
+            "Kratzeburg"
+          ],
+          [
+            53.517,
+            12.68,
+            "Waren (Müritz)"
+          ]
+        ]
+      },
+      {
+        "von": "Waren (Müritz)",
+        "nach": "Teterow",
+        "hmPlan": 450,
+        "text": "Nördlich der Müritz in die hügelige Mecklenburgische Schweiz, vorbei an Schloss Ulrichshusen und am Malchiner See.",
+        "wegpunkte": [
+          [
+            53.517,
+            12.68,
+            "Waren (Müritz)"
+          ],
+          [
+            53.74,
+            12.76,
+            "Malchin"
+          ],
+          [
+            53.775,
+            12.575,
+            "Teterow"
+          ]
+        ]
+      },
+      {
+        "von": "Teterow",
+        "nach": "Krakow am See",
+        "hmPlan": 400,
+        "text": "Über die Barlachstadt Güstrow in die waldreiche Nossentiner/Schwinzer Heide.",
+        "wegpunkte": [
+          [
+            53.775,
+            12.575,
+            "Teterow"
+          ],
+          [
+            53.794,
+            12.175,
+            "Güstrow"
+          ],
+          [
+            53.653,
+            12.27,
+            "Krakow am See"
+          ]
+        ]
+      },
+      {
+        "von": "Krakow am See",
+        "nach": "Röbel/Müritz",
+        "hmPlan": 350,
+        "text": "Am Plauer See entlang, über Malchow mit seiner Drehbrücke zwischen Fleesensee und Plauer See an die Westseite der Müritz.",
+        "wegpunkte": [
+          [
+            53.653,
+            12.27,
+            "Krakow am See"
+          ],
+          [
+            53.458,
+            12.261,
+            "Plau am See"
+          ],
+          [
+            53.476,
+            12.424,
+            "Malchow"
+          ],
+          [
+            53.375,
+            12.6,
+            "Röbel/Müritz"
+          ]
+        ]
+      },
+      {
+        "von": "Röbel/Müritz",
+        "nach": "Neustrelitz",
+        "hmPlan": 300,
+        "text": "Durch die Kleinseenplatte mit ihren unzähligen Seen über Mirow und Wesenberg zurück nach Neustrelitz.",
+        "wegpunkte": [
+          [
+            53.375,
+            12.6,
+            "Röbel/Müritz"
+          ],
+          [
+            53.278,
+            12.815,
+            "Mirow"
+          ],
+          [
+            53.28,
+            12.97,
+            "Wesenberg"
+          ],
+          [
+            53.362,
+            13.063,
+            "Neustrelitz"
+          ]
+        ]
+      }
+    ]
+  },
+  {
     "id": "girona-pirinexus-6-tage",
     "title": "Pirinexus-Runde: Girona, Pyrenäenrand & Costa Brava",
     "subtitle": "6-Tage-Gravel-Rundtour, angelehnt an die offizielle Pirinexus-Route",
