@@ -82,5 +82,12 @@
     "region": "Europa",
     "art": "Kartendienst / Planer",
     "notiz": "Karten & Übersicht offizieller Radrouten inkl. EuroVelo"
+  },
+  {
+    "name": "Waymarked Trails – Cycling",
+    "url": "https://cycling.waymarkedtrails.org/",
+    "region": "Europa / weltweit",
+    "art": "Karte aller beschilderten Radrouten (OpenStreetMap)",
+    "notiz": "Internationale, nationale, regionale und lokale Radfernwege auf einer Karte; GPX pro Route; Daten von OSM-Freiwilligen, daher nicht überall lückenlos"
   }
 ]
