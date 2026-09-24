@@ -43,7 +43,10 @@
   .brand h1{font-size:22px;}
   .tabs{display:flex;gap:16px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;}
   .tabs a{color:var(--ink-soft);text-decoration:none;}
+  .tabs a{padding-block:3px;border-bottom:2px solid transparent;}
   .tabs a:hover{color:var(--moss-deep);}
+  .tabs a.active{color:var(--ink);border-bottom-color:var(--blaze);}
+  [data-panel][hidden]{display:none!important;}
 
   .lede{color:var(--ink-soft);margin:16px 0 8px;max-width:60ch;}
   .section{scroll-margin-top:70px;margin-block:28px;}
@@ -120,15 +123,15 @@
     <nav class="tabs"><a href="#touren">Touren</a><a href="#anfrage">Anfrage</a><a href="#quellen">Quellen</a></nav>
   </header>
 
-  <p class="lede">Mehrtägige Gravel-Touren, gemeinsam mit Claude geplant: Wünsche beschreiben, Claude recherchiert und stellt die fertige Tour hier ein – mit Karte, Etappen und GPX für Komoot.</p>
+  <p class="lede" data-panel="touren">Mehrtägige Gravel-Touren, gemeinsam mit Claude geplant: Wünsche beschreiben, Claude recherchiert und stellt die fertige Tour hier ein – mit Karte, Etappen und GPX für Komoot.</p>
 
-  <section id="touren" class="section">
+  <section id="touren" class="section" data-panel="touren">
     <h2>Touren</h2>
     <p class="sub">Karte, Etappen und GPX-Dateien. Die Linie wird beim Laden über Rad-Routing auf echten Wegen berechnet.</p>
     <div id="tour-list" class="list"><p class="sub">Lade Touren …</p></div>
   </section>
 
-  <section id="anfrage" class="section card">
+  <section id="anfrage" class="section card" data-panel="anfrage">
     <h2>Neue Tour-Anfrage</h2>
     <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen – es öffnet sich das Teilen-Menü deines Handys (WhatsApp, iMessage, Mail …). Schick die Anfrage an Thomas, er gibt sie an Claude weiter.</p>
     <form id="request-form">
@@ -177,12 +180,12 @@
     </form>
   </section>
 
-  <section class="section">
+  <section class="section" data-panel="anfrage">
     <h2>Bisherige Anfragen</h2>
     <div id="request-list" class="list"></div>
   </section>
 
-  <section id="quellen" class="section">
+  <section id="quellen" class="section" data-panel="quellen">
     <h2>Quellen-Datenbank</h2>
     <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Du kennst eine gute Seite? Unten vorschlagen – der Vorschlag geht per Messenger an Thomas.</p>
     <div id="source-list" class="list"></div>
@@ -208,6 +211,7 @@
 <script>
 (function(){
   "use strict";
+  var MAPS = [];
   var STAGE_COLORS = ["#C1501E","#2F6FAB","#46613C","#8E44AD","#B08A1E","#1F8A87","#A63D5A","#5B6553"];
 
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
@@ -324,7 +328,9 @@
 
     var allPts = [];
     tour.etappen.forEach(function(e){ e.wegpunkte.forEach(function(p){ allPts.push([p[0],p[1]]); }); });
-    map.fitBounds(L.latLngBounds(allPts), {padding:[20,20]});
+    var mapState = {map: map, bounds: L.latLngBounds(allPts)};
+    MAPS.push(mapState);
+    map.fitBounds(mapState.bounds, {padding:[20,20]});
 
     // Stage endpoints
     tour.etappen.forEach(function(e, i){
@@ -366,7 +372,7 @@
       // Finish marker
       var last = tour.etappen[tour.etappen.length-1].wegpunkte.slice(-1)[0];
       L.circleMarker([last[0],last[1]], {radius:8, color:"#fff", weight:2, fillColor:"#202A1E", fillOpacity:1}).addTo(map).bindPopup("<b>Ziel</b><br>" + esc(last[2] || ""));
-      if (bounds.length) map.fitBounds(L.latLngBounds(bounds), {padding:[20,20]});
+      if (bounds.length){ mapState.bounds = L.latLngBounds(bounds); map.fitBounds(mapState.bounds, {padding:[20,20]}); }
 
       el.querySelector("[data-km]").textContent = fmtKm(totalM).toLocaleString("de-DE");
       if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
@@ -465,6 +471,22 @@
       "Warum: " + (document.getElementById("s-notiz").value.trim() || "–");
     shareText("Gravel Kompass – Quellen-Vorschlag", text, document.getElementById("source-result"));
   });
+
+  // Tabs: one panel at a time, driven by the URL hash (#touren, #anfrage, #quellen)
+  var PANELS = ["touren", "anfrage", "quellen"];
+  function showPanel(){
+    var name = (location.hash || "").replace("#", "");
+    if (PANELS.indexOf(name) < 0) name = "touren";
+    document.querySelectorAll("[data-panel]").forEach(function(el){ el.hidden = el.getAttribute("data-panel") !== name; });
+    document.querySelectorAll(".tabs a").forEach(function(a){ a.classList.toggle("active", a.getAttribute("href") === "#" + name); });
+    window.scrollTo(0, 0);
+    if (name === "touren"){
+      // Leaflet maps created while hidden need a size refresh once visible
+      setTimeout(function(){ MAPS.forEach(function(m){ m.map.invalidateSize(); m.map.fitBounds(m.bounds, {padding:[20,20]}); }); }, 0);
+    }
+  }
+  window.addEventListener("hashchange", showPanel);
+  showPanel();
 
   Promise.all([
     fetch("data/tours.json").then(function(r){ return r.json(); }),
