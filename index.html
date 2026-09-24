@@ -306,7 +306,8 @@
   }
 
   function cacheKey(tour){
-    var s = JSON.stringify(tour.etappen.map(function(e){ return e.wegpunkte.map(function(p){ return [p[0],p[1]]; }); }));
+    // routing profile is part of the key, so a profile change re-routes instead of showing the cached line
+    var s = JSON.stringify([tour.profil || null, tour.etappen.map(function(e){ return e.wegpunkte.map(function(p){ return [p[0],p[1]]; }); })]);
     var h = 5381; for (var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
     return "gk-route-v1-" + tour.id + "-" + (h >>> 0).toString(36);
   }
