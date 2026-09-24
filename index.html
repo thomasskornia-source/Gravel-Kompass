@@ -47,7 +47,7 @@
   .wrap{max-width:900px;margin-inline:auto;}
 
   .topbar{position:sticky;top:0;z-index:1000;background:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 14px) 0 10px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);}
-  .brand{display:flex;align-items:center;gap:10px;}
+  .brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;}
   .brand-mark{width:34px;height:34px;border-radius:8px;background:var(--moss);color:var(--surface);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders',sans-serif;font-weight:700;font-size:15px;}
   .brand h1{font-size:22px;}
   .tabs{display:flex;gap:16px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;}
@@ -159,11 +159,11 @@
 <body>
 <div class="wrap">
   <header class="topbar">
-    <div class="brand"><span class="brand-mark">GK</span><h1>Gravel Kompass</h1></div>
+    <a class="brand" href="#touren" id="brand-link"><span class="brand-mark">GK</span><h1>Gravel Kompass</h1></a>
     <nav class="tabs"><a href="#touren">Touren</a><a href="#anfrage">Anfrage</a><a href="#quellen">Quellen</a></nav>
   </header>
 
-  <p class="lede" data-panel="touren">Mehrtägige Gravel-Touren, gemeinsam mit Claude geplant: Wünsche beschreiben, Claude recherchiert und stellt die fertige Tour hier ein – mit Karte, Etappen und GPX für Komoot.</p>
+  <p class="lede" data-panel="touren">Hier findest Du Tourplanungen, die Claude auf Basis von Nutzeranfragen automatisch erstellt. Claude nutzt dafür verschiedene Quellen. Die Quellen können ergänzt, korrigiert und erweitert werden. Nach Anfrage einer Tourplanung dauert es ein wenig, dann wird die Tour mit Beschreibung, Quellenangaben und GPX-Datei hier unter Touren angezeigt.</p>
 
   <section id="touren" class="section" data-panel="touren">
     <h2>Touren</h2>
@@ -181,9 +181,9 @@
 
   <section id="anfrage" class="section card" data-panel="anfrage">
     <h2>Neue Tour-Anfrage</h2>
-    <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen – die Anfrage landet direkt bei Thomas und Claude. Mit „Text kopieren“ kannst du sie auch selbst weitergeben.</p>
+    <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen. Das war’s schon und Claude rennt los. Ein bisschen Geduld, dann wird die neue Tour auf TOUREN gepusht. Viel Spaß!</p>
     <form id="request-form">
-      <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="damit Thomas weiß, von wem die Anfrage ist"></div>
+      <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="erscheint bei „Bisherige Anfragen“"></div>
       <div class="row">
         <div class="field"><label for="f-saison">Saison</label>
           <select id="f-saison"><option>Frühling</option><option>Sommer</option><option>Herbst</option></select></div>
@@ -216,14 +216,12 @@
           <select id="f-anspruch"><option>Entspannt</option><option selected>Moderat</option><option>Anspruchsvoll</option></select></div>
       </div>
       <div class="row">
-        <div class="field"><label for="f-anreise">An-/Abreise</label>
-          <select id="f-anreise"><option>Zug</option><option>Flug + Rad</option><option>Auto</option><option>Fähre</option><option>Sonstiges</option></select></div>
         <div class="field"><label>Streckenform</label>
           <div class="radios"><label><input type="radio" name="form" value="Rundtour" checked> Rundtour</label><label><input type="radio" name="form" value="Einweg (A → B)"> Einweg (A → B)</label></div></div>
       </div>
       <div class="field"><label for="f-stil">Stil &amp; Vorlieben (optional)</label>
         <textarea id="f-stil" placeholder="z. B. lieber bekannte Fernradwege, Geheimtipps, Sehenswürdigkeiten, gute Einkehr … oder leer lassen"></textarea></div>
-      <div class="actions"><button type="submit" class="btn">Anfrage senden</button><button type="button" class="btn ghost" id="req-copy">Text kopieren</button></div>
+      <div class="actions"><button type="submit" class="btn">Anfrage senden</button></div>
       <div id="copy-result" class="hint" hidden></div>
     </form>
   </section>
@@ -353,8 +351,8 @@
       '</div>' +
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
-        '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button><button class="btn ghost" data-gpx-all disabled>Alle Etappen in einer Datei</button></div>' +
-        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke (in Komoot eine einzige Tour). „Alle Etappen“ = eine Datei mit jeder Etappe als eigener Strecke. Einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
+        '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
+        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke (in Komoot eine einzige Tour). Einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
@@ -470,12 +468,6 @@
         });
         download(slug(tour.title) + "-komplett.gpx", buildGpx(tour.title, [{name: tour.title + " (komplett)", coords: joined}]));
       });
-
-      var allBtn = el.querySelector("[data-gpx-all]");
-      allBtn.disabled = false;
-      allBtn.addEventListener("click", function(){
-        download(slug(tour.title) + "-etappen.gpx", buildGpx(tour.title, results.map(function(r, i){ return {name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}; })));
-      });
     })();
   }
 
@@ -541,13 +533,6 @@
     });
   }
 
-  function copyText(text, out){
-    function ok(){ out.hidden = false; out.innerHTML = "<b>Kopiert.</b>" + '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>'; }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(ok, function(){ showFallback(out, "Gravel Kompass", text, "Kopieren nicht möglich – Text markieren oder senden über:"); });
-    } else { showFallback(out, "Gravel Kompass", text, "Kopieren nicht möglich – Text markieren oder senden über:"); }
-  }
-
   // Request form -> message text
   function requestText(){
     var ober = Array.from(document.querySelectorAll('input[name=ober]:checked')).map(function(i){ return i.value; });
@@ -563,16 +548,12 @@
       "Oberfläche: " + (ober.length ? ober.join(", ") : "egal") + "\n" +
       "Etappenlänge: " + document.getElementById("f-von").value + "–" + document.getElementById("f-bis").value + " km/Tag\n" +
       "Anspruch: " + document.getElementById("f-anspruch").value + "\n" +
-      "An-/Abreise: " + document.getElementById("f-anreise").value + "\n" +
       "Streckenform: " + (form ? form.value : "Rundtour") + "\n" +
       "Stil & Vorlieben: " + (document.getElementById("f-stil").value.trim() || "überrasch mich");
   }
   document.getElementById("request-form").addEventListener("submit", function(ev){
     ev.preventDefault();
     sendToInbox("Anfrage", document.getElementById("f-name").value.trim(), "", requestText(), "Gravel Kompass – Tour-Anfrage", document.getElementById("copy-result"), null);
-  });
-  document.getElementById("req-copy").addEventListener("click", function(){
-    copyText(requestText(), document.getElementById("copy-result"));
   });
 
   // Source suggestion -> message text
@@ -684,6 +665,10 @@
     if (panel !== "tour") document.title = "Gravel Kompass";
   }
   window.addEventListener("hashchange", route);
+  // Brand link: back to the tour overview, also when it is already open
+  document.getElementById("brand-link").addEventListener("click", function(){
+    if (location.hash === "#touren") window.scrollTo(0, 0);
+  });
   route();
 
   Promise.all([
