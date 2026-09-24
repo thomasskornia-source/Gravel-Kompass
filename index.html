@@ -255,9 +255,10 @@
   }
 
   // Routing: BRouter (gravel -> trekking), then FOSSGIS OSRM bike, then straight lines.
-  async function routeStage(wps){
+  async function routeStage(wps, profile){
     var lonlats = wps.map(function(p){ return p[1]+","+p[0]; }).join("|");
-    var profiles = ["gravel","trekking"];
+    // Tour can set its own BRouter profile (e.g. "fastbike" for road bikes); default is gravel
+    var profiles = profile ? [profile, "trekking"] : ["gravel","trekking"];
     for (var i=0;i<profiles.length;i++){
       try{
         var j = await fetchJson("https://brouter.de/brouter?lonlats="+lonlats+"&profile="+profiles[i]+"&alternativeidx=0&format=geojson", 45000);
@@ -400,7 +401,7 @@
         results = [];
         for (var i=0;i<tour.etappen.length;i++){
           statusEl.textContent = "Berechne Etappe " + (i+1) + " von " + tour.etappen.length + " …";
-          results.push(await routeStage(tour.etappen[i].wegpunkte));
+          results.push(await routeStage(tour.etappen[i].wegpunkte, tour.profil));
         }
         if (!results.some(function(r){ return r.fallback; })) saveCache(tour, results);
       }

@@ -1,5 +1,27 @@
 [
   {
+    "id": "mannheim-2026-09",
+    "createdAt": "2026-09-24",
+    "status": "fertig",
+    "saison": "Sommer",
+    "tage": 2,
+    "land": "Deutschland",
+    "region": "Baden-Württemberg (ab Mannheim)",
+    "fahrradtyp": "Rennrad",
+    "oberflaeche": [
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 100,
+    "etappenlaengeBis": 120,
+    "anspruch": "Moderat",
+    "anreise": "Zug",
+    "streckenform": "Rundtour",
+    "stil": "Start und Ziel Mannheim, eher Richtung Süden oder Westen raus.",
+    "tourIds": [
+      "mannheim-pfalz-rennrad-2-tage"
+    ]
+  },
+  {
     "id": "uli-2026-09",
     "createdAt": "2026-09-24",
     "status": "fertig",
