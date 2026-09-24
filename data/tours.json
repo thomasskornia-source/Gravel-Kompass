@@ -1,0 +1,55 @@
+[
+  {
+    "id": "girona-pirinexus-6-tage",
+    "title": "Pirinexus-Runde: Girona, Pyrenäenrand & Costa Brava",
+    "subtitle": "6-Tage-Gravel-Rundtour, angelehnt an die offizielle Pirinexus-Route",
+    "createdAt": "2026-09-24",
+    "requestId": "girona-2026-09",
+    "land": "Spanien (kurz Frankreich)",
+    "region": "Girona / Garrotxa / Empordà / Costa Brava",
+    "saison": "Frühling",
+    "tage": 6,
+    "fahrradtyp": "Gravel",
+    "anspruch": "Anspruchsvoll",
+    "streckenform": "Rundtour",
+    "oberflaeche": ["Mittelfeiner Schotter", "Grober Schotter", "Feld- und Waldwege", "Radwege", "Asphalt"],
+    "beschreibung": "Grundgerüst ist die offizielle Pirinexus-Route, ein rund 360 km langer Rundkurs von Girona über den Pyrenäenrand und Frankreich zurück an die Costa Brava. Für 6 Tage und euren Anspruch habe ich die Runde erweitert: über Banyoles und Besalú in die Vulkanlandschaft der Garrotxa, über den Coll d'Ares (1.513 m) nach Frankreich und mit dem Abstecher nach Cadaqués. Die Linie auf der Karte wird beim Öffnen der Seite automatisch über echte Rad-Routing-Dienste berechnet; Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
+    "quellen": [
+      {"name": "Bikepacking the Pirinexus (Eat Sleep Cycle)", "url": "https://www.eatsleepcycle.com/bikepacking-the-pirinexus/"},
+      {"name": "Gravel cycling Girona (Epic Road Rides)", "url": "https://epicroadrides.com/cycling-blog/gravel-cycling-girona/"},
+      {"name": "Gravel biking in Girona (Komoot Guide)", "url": "https://www.komoot.com/guide/3453961/gravel-biking-in-girona"}
+    ],
+    "etappen": [
+      {
+        "von": "Girona", "nach": "Olot", "hmPlan": 900,
+        "text": "Über den See von Banyoles zur mittelalterlichen Brücke von Besalú, dann in die Vulkanlandschaft der Garrotxa. Castellfollit de la Roca thront auf einer Basaltklippe.",
+        "wegpunkte": [[41.9794, 2.8214, "Girona"], [42.1167, 2.7667, "Banyoles"], [42.1990, 2.6994, "Besalú"], [42.2203, 2.5494, "Castellfollit de la Roca"], [42.1817, 2.4900, "Olot"]]
+      },
+      {
+        "von": "Olot", "nach": "Prats-de-Mollo (F)", "hmPlan": 1450,
+        "text": "Der Königsanstieg der Tour: über Sant Joan de les Abadesses und Camprodon hinauf zum Coll d'Ares (1.513 m) und hinunter nach Frankreich.",
+        "wegpunkte": [[42.1817, 2.4900, "Olot"], [42.2336, 2.2856, "Sant Joan de les Abadesses"], [42.3138, 2.3654, "Camprodon"], [42.4053, 2.4779, "Prats-de-Mollo-la-Preste"]]
+      },
+      {
+        "von": "Prats-de-Mollo (F)", "nach": "La Jonquera", "hmPlan": 1100,
+        "text": "Das Vallespir talabwärts über Arles-sur-Tech nach Céret, dann über den Col du Perthus zurück nach Spanien.",
+        "wegpunkte": [[42.4053, 2.4779, "Prats-de-Mollo-la-Preste"], [42.4567, 2.6347, "Arles-sur-Tech"], [42.4856, 2.7481, "Céret"], [42.4640, 2.8630, "Le Perthus"], [42.4189, 2.8747, "La Jonquera"]]
+      },
+      {
+        "von": "La Jonquera", "nach": "Cadaqués", "hmPlan": 700,
+        "text": "Durchs flache Empordà nach Figueres, über Roses und den Bergrücken nach Cadaqués. Cap de Creus als Abstecher am Abend.",
+        "wegpunkte": [[42.4189, 2.8747, "La Jonquera"], [42.2662, 2.9622, "Figueres"], [42.2620, 3.1770, "Roses"], [42.2888, 3.2777, "Cadaqués"]]
+      },
+      {
+        "von": "Cadaqués", "nach": "Begur", "hmPlan": 950,
+        "text": "Entlang der Bucht von Roses durch die Aiguamolls de l'Empordà, über L'Escala und Torroella de Montgrí an die Küste bei Begur.",
+        "wegpunkte": [[42.2888, 3.2777, "Cadaqués"], [42.2620, 3.1770, "Roses"], [42.1880, 3.0830, "Sant Pere Pescador"], [42.1250, 3.1330, "L'Escala"], [42.0430, 3.1270, "Torroella de Montgrí"], [41.9539, 3.2079, "Begur"]]
+      },
+      {
+        "von": "Begur", "nach": "Girona", "hmPlan": 1250,
+        "text": "Über Palafrugell und La Bisbal d'Empordà durch die Gavarres zurück nach Girona. Wer noch Beine hat: Rocacorba als Zugabe (nicht in der Linie enthalten).",
+        "wegpunkte": [[41.9539, 3.2079, "Begur"], [41.9180, 3.1631, "Palafrugell"], [41.9600, 3.0380, "La Bisbal d'Empordà"], [41.9794, 2.8214, "Girona"]]
+      }
+    ]
+  }
+]

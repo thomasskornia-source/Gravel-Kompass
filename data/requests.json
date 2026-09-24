@@ -1,0 +1,6 @@
+[
+  {"id": "girona-2026-09", "createdAt": "2026-09-24", "status": "fertig", "saison": "Frühling", "tage": 6, "land": "Spanien", "region": "", "fahrradtyp": "Gravel",
+   "oberflaeche": ["Mittelfeiner Schotter", "Grober Schotter", "Feld- und Waldwege", "Radwege", "Asphalt"],
+   "etappenlaengeVon": 80, "etappenlaengeBis": 140, "anspruch": "Anspruchsvoll", "anreise": "Auto", "streckenform": "Rundtour",
+   "stil": "gerne um Girona rum.", "tourId": "girona-pirinexus-6-tage"}
+]

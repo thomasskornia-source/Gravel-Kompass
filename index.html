@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gravel Kompass</title>
+<meta name="description" content="Mehrtägige Gravel-Touren – Kriterien, Quellen und fertige Routen mit Karte und GPX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root{
+    --paper:#F1F4EC; --surface:#FBFCF8; --surface-2:#EEF1E4;
+    --ink:#202A1E; --ink-soft:#5B6553; --line:#D9DFC9;
+    --moss:#46613C; --moss-deep:#2E4029; --blaze:#C1501E; --contour:#8C7A54;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#10140D; --surface:#181D13; --surface-2:#1F2517;
+      --ink:#E9EEE1; --ink-soft:#AAB59B; --line:#2A3322;
+      --moss:#8FBB7B; --moss-deep:#B9D6A8; --blaze:#E2764B; --contour:#C7AD7C;
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font:15px/1.5 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-inline:16px; padding-block:0 40px;
+  }
+  h1,h2,h3{font-family:'Big Shoulders','Arial Narrow',sans-serif;font-weight:700;letter-spacing:.01em;text-wrap:balance;margin:0;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  a{color:var(--moss-deep);}
+  @media (prefers-color-scheme: dark){ a{color:var(--moss);} }
+  .wrap{max-width:900px;margin-inline:auto;}
+
+  .topbar{position:sticky;top:0;z-index:1000;background:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 14px) 0 10px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:34px;height:34px;border-radius:8px;background:var(--moss);color:var(--surface);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders',sans-serif;font-weight:700;font-size:15px;}
+  .brand h1{font-size:22px;}
+  .tabs{display:flex;gap:16px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;}
+  .tabs a{color:var(--ink-soft);text-decoration:none;}
+  .tabs a:hover{color:var(--moss-deep);}
+
+  .lede{color:var(--ink-soft);margin:16px 0 8px;max-width:60ch;}
+  .section{scroll-margin-top:70px;margin-block:28px;}
+  .section > h2{font-size:22px;margin-bottom:4px;}
+  .sub{color:var(--ink-soft);font-size:14px;margin:0 0 16px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;}
+
+  /* Tour */
+  .tour{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .tour-head{padding:18px 18px 12px;}
+  .tour-head h3{font-size:24px;}
+  .tour-sub{color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .tag{font-size:11.5px;color:var(--contour);border:1px solid var(--line);border-radius:99px;padding:2px 9px;}
+  .map{height:420px;background:var(--surface-2);}
+  @media (max-width:520px){ .map{height:340px;} }
+  .route-status{font-size:12.5px;color:var(--ink-soft);padding:8px 18px 0;min-height:1.5em;}
+  .stats{display:flex;gap:22px;flex-wrap:wrap;padding:12px 18px;}
+  .stat{display:flex;flex-direction:column;}
+  .stat b{font-family:'IBM Plex Mono',monospace;font-size:19px;font-variant-numeric:tabular-nums;}
+  .stat span{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+  .tour-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:14px;}
+  .tour-body p{margin:0;max-width:70ch;}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn{font-family:'Big Shoulders',sans-serif;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;border-radius:8px;padding:10px 16px;cursor:pointer;border:1px solid var(--blaze);background:var(--blaze);color:#fff;text-decoration:none;display:inline-block;}
+  .btn.ghost{background:transparent;color:var(--moss-deep);border-color:var(--moss);}
+  .btn:disabled{opacity:.5;cursor:default;}
+
+  .stages{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+  .stage{display:grid;grid-template-columns:34px 1fr auto;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start;}
+  .stage-num{width:26px;height:26px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;margin-top:2px;}
+  .stage-title{font-weight:600;}
+  .stage-text{grid-column:2 / 4;font-size:13.5px;color:var(--ink-soft);}
+  .stage-meta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;white-space:nowrap;}
+  .stage-gpx{grid-column:2 / 4;}
+  .stage-gpx button{font:inherit;font-size:12.5px;background:none;border:none;color:var(--moss-deep);text-decoration:underline;cursor:pointer;padding:0;}
+  .quellen{font-size:13px;color:var(--ink-soft);}
+  .quellen a{color:var(--ink-soft);}
+
+  /* Form */
+  form{display:flex;flex-direction:column;gap:14px;}
+  .row{display:flex;gap:12px;flex-wrap:wrap;}
+  .row > .field{flex:1 1 170px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field > label, legend{font-size:12.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;padding:0;}
+  input,select,textarea{font:inherit;font-size:15px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%;}
+  textarea{min-height:70px;resize:vertical;}
+  fieldset{border:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;}
+  .checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px 14px;}
+  .checks label,.radios label{display:flex;align-items:center;gap:7px;font-size:14.5px;}
+  .radios{display:flex;gap:18px;flex-wrap:wrap;padding-top:8px;}
+  input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--moss);}
+  .hint{font-size:13.5px;background:var(--surface-2);border-radius:8px;padding:10px 12px;}
+  .copybox{white-space:pre-wrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;}
+
+  /* Lists */
+  .list{display:flex;flex-direction:column;gap:10px;}
+  .item{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface);}
+  .item a.name{font-weight:600;text-decoration:none;}
+  .item a.name:hover{text-decoration:underline;}
+  .item .note{font-size:13.5px;color:var(--ink-soft);margin-top:4px;}
+  .req-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .pill{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;padding:3px 9px;border-radius:99px;color:#fff;background:#3F7D4A;}
+  .pill.neu{background:#3E6B8C;}
+  .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:12.5px;}
+
+  .leaflet-popup-content{font-family:'Work Sans',sans-serif;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">GK</span><h1>Gravel Kompass</h1></div>
+    <nav class="tabs"><a href="#touren">Touren</a><a href="#anfrage">Anfrage</a><a href="#quellen">Quellen</a></nav>
+  </header>
+
+  <p class="lede">Mehrtägige Gravel-Touren, gemeinsam mit Claude geplant: Wünsche beschreiben, Claude recherchiert und stellt die fertige Tour hier ein – mit Karte, Etappen und GPX für Komoot.</p>
+
+  <section id="touren" class="section">
+    <h2>Touren</h2>
+    <p class="sub">Karte, Etappen und GPX-Dateien. Die Linie wird beim Laden über Rad-Routing auf echten Wegen berechnet.</p>
+    <div id="tour-list" class="list"><p class="sub">Lade Touren …</p></div>
+  </section>
+
+  <section id="anfrage" class="section card">
+    <h2>Neue Tour-Anfrage</h2>
+    <p class="sub">Formular ausfüllen, auf „Anfrage kopieren“ tippen und den Text in den Chat mit Claude einfügen. Du kannst auch einfach frei beschreiben oder diktieren, was du willst.</p>
+    <form id="request-form">
+      <div class="row">
+        <div class="field"><label for="f-saison">Saison</label>
+          <select id="f-saison"><option>Frühling</option><option>Sommer</option><option>Herbst</option></select></div>
+        <div class="field"><label for="f-tage">Anzahl Tage</label><input id="f-tage" type="number" min="1" max="30" value="5"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-land">Land</label>
+          <select id="f-land">
+            <option>Deutschland</option><option>Österreich</option><option>Schweiz</option><option>Frankreich</option><option>Italien</option><option>Spanien</option><option>Portugal</option><option>Niederlande</option><option>Belgien</option><option>Dänemark</option><option>Norwegen</option><option>Schweden</option><option>Kroatien</option><option>Slowenien</option><option>Griechenland</option><option>Polen</option><option>Tschechien</option><option>Ungarn</option><option>Rumänien</option><option>Großbritannien</option><option>Irland</option>
+          </select></div>
+        <div class="field"><label for="f-region">Region</label><input id="f-region" list="regions" placeholder="leer lassen für 3 Vorschläge">
+          <datalist id="regions"><option value="Allgäu"><option value="Schwarzwald"><option value="Provence"><option value="Dordogne"><option value="Elsass"><option value="Toskana"><option value="Apulien"><option value="Istrien"><option value="Peloponnes"><option value="Mallorca"><option value="Andalusien"><option value="Algarve"><option value="Girona / Costa Brava"><option value="Fjordnorwegen"><option value="Ardennen"><option value="Vogesen"><option value="Dolomiten"><option value="Auvergne"><option value="Bornholm"></datalist></div>
+      </div>
+      <div class="field"><label for="f-rad">Fahrradtyp</label>
+        <select id="f-rad"><option>Gravel</option><option>Rennrad</option><option>Trekking</option><option>Mountainbike</option></select></div>
+      <fieldset><legend>Oberfläche</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="ober" value="Feiner Schotter (Champagner Gravel)"> Feiner Schotter („Champagner Gravel“)</label>
+          <label><input type="checkbox" name="ober" value="Mittelfeiner Schotter"> Mittelfeiner Schotter</label>
+          <label><input type="checkbox" name="ober" value="Grober Schotter"> Grober Schotter</label>
+          <label><input type="checkbox" name="ober" value="Feld- und Waldwege"> Feld- und Waldwege</label>
+          <label><input type="checkbox" name="ober" value="Radwege"> Radwege</label>
+          <label><input type="checkbox" name="ober" value="Asphalt"> Asphalt</label>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="field"><label for="f-von">Etappe von (km/Tag)</label><input id="f-von" type="number" min="10" max="250" step="5" value="80"></div>
+        <div class="field"><label for="f-bis">Etappe bis (km/Tag)</label><input id="f-bis" type="number" min="10" max="250" step="5" value="120"></div>
+        <div class="field"><label for="f-anspruch">Anspruch</label>
+          <select id="f-anspruch"><option>Entspannt</option><option selected>Moderat</option><option>Anspruchsvoll</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-anreise">An-/Abreise</label>
+          <select id="f-anreise"><option>Zug</option><option>Flug + Rad</option><option>Auto</option><option>Fähre</option><option>Sonstiges</option></select></div>
+        <div class="field"><label>Streckenform</label>
+          <div class="radios"><label><input type="radio" name="form" value="Rundtour" checked> Rundtour</label><label><input type="radio" name="form" value="Einweg (A → B)"> Einweg (A → B)</label></div></div>
+      </div>
+      <div class="field"><label for="f-stil">Stil &amp; Vorlieben (optional)</label>
+        <textarea id="f-stil" placeholder="z. B. lieber bekannte Fernradwege, Geheimtipps, Sehenswürdigkeiten, gute Einkehr … oder leer lassen"></textarea></div>
+      <div class="actions"><button type="submit" class="btn">Anfrage kopieren</button></div>
+      <div id="copy-result" class="hint" hidden></div>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2>Bisherige Anfragen</h2>
+    <div id="request-list" class="list"></div>
+  </section>
+
+  <section id="quellen" class="section">
+    <h2>Quellen-Datenbank</h2>
+    <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Neue Quellen einfach im Chat nennen.</p>
+    <div id="source-list" class="list"></div>
+  </section>
+
+  <footer class="foot">Gravel Kompass · Karten © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende · Routing: BRouter / FOSSGIS OSRM</footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  "use strict";
+  var STAGE_COLORS = ["#C1501E","#2F6FAB","#46613C","#8E44AD","#B08A1E","#1F8A87","#A63D5A","#5B6553"];
+
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  function slug(s){ return String(s||"tour").toLowerCase().replace(/[äöü]/g,function(c){return {"ä":"ae","ö":"oe","ü":"ue"}[c];}).replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"") || "tour"; }
+  function fmtKm(m){ return Math.round(m/1000); }
+  function haversine(a,b){ var R=6371000,t=Math.PI/180,dLat=(b[0]-a[0])*t,dLon=(b[1]-a[1])*t; var x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(dLon/2)*Math.sin(dLon/2); return 2*R*Math.asin(Math.sqrt(x)); }
+  function lineLength(pts){ var d=0; for(var i=1;i<pts.length;i++) d+=haversine(pts[i-1],pts[i]); return d; }
+
+  function fetchJson(url, ms){
+    var ctrl = new AbortController(); var t = setTimeout(function(){ ctrl.abort(); }, ms||30000);
+    return fetch(url, {signal: ctrl.signal}).then(function(r){ clearTimeout(t); if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); });
+  }
+
+  // Routing: BRouter (gravel -> trekking), then FOSSGIS OSRM bike, then straight lines.
+  async function routeStage(wps){
+    var lonlats = wps.map(function(p){ return p[1]+","+p[0]; }).join("|");
+    var profiles = ["gravel","trekking"];
+    for (var i=0;i<profiles.length;i++){
+      try{
+        var j = await fetchJson("https://brouter.de/brouter?lonlats="+lonlats+"&profile="+profiles[i]+"&alternativeidx=0&format=geojson", 45000);
+        var f = j.features && j.features[0];
+        if (f && f.geometry && f.geometry.coordinates.length > 1){
+          return {
+            source: "BRouter (" + profiles[i] + ")",
+            coords: f.geometry.coordinates.map(function(c){ return [c[1], c[0], c[2]]; }),
+            distance: Number(f.properties["track-length"]) || null,
+            ascend: Number(f.properties["filtered ascend"]) || null
+          };
+        }
+      }catch(e){}
+    }
+    try{
+      var osrmPts = wps.map(function(p){ return p[1]+","+p[0]; }).join(";");
+      var o = await fetchJson("https://routing.openstreetmap.de/routed-bike/route/v1/driving/"+osrmPts+"?overview=full&geometries=geojson", 30000);
+      if (o.routes && o.routes[0]){
+        return { source: "OSRM Fahrrad", coords: o.routes[0].geometry.coordinates.map(function(c){ return [c[1], c[0]]; }), distance: o.routes[0].distance, ascend: null };
+      }
+    }catch(e){}
+    var straight = wps.map(function(p){ return [p[0], p[1]]; });
+    return { source: "Luftlinie (Routing nicht erreichbar)", coords: straight, distance: lineLength(straight), ascend: null, fallback: true };
+  }
+
+  function cacheKey(tour){
+    var s = JSON.stringify(tour.etappen.map(function(e){ return e.wegpunkte.map(function(p){ return [p[0],p[1]]; }); }));
+    var h = 5381; for (var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
+    return "gk-route-v1-" + tour.id + "-" + (h >>> 0).toString(36);
+  }
+  function loadCache(tour){ try{ var s = localStorage.getItem(cacheKey(tour)); return s ? JSON.parse(s) : null; }catch(e){ return null; } }
+  function saveCache(tour, data){ try{ localStorage.setItem(cacheKey(tour), JSON.stringify(data)); }catch(e){} }
+
+  function buildGpx(name, segments){
+    var x = '<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Gravel Kompass" xmlns="http://www.topografix.com/GPX/1/1">\n';
+    x += '  <metadata><name>' + esc(name) + '</name></metadata>\n';
+    segments.forEach(function(s){
+      x += '  <trk>\n    <name>' + esc(s.name) + '</name>\n    <trkseg>\n';
+      s.coords.forEach(function(c){
+        x += '      <trkpt lat="' + c[0].toFixed(6) + '" lon="' + c[1].toFixed(6) + '">' + (c[2] != null ? '<ele>' + Number(c[2]).toFixed(1) + '</ele>' : '') + '</trkpt>\n';
+      });
+      x += '    </trkseg>\n  </trk>\n';
+    });
+    return x + '</gpx>\n';
+  }
+  function download(filename, text){
+    var blob = new Blob([text], {type: "application/gpx+xml"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a"); a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }
+
+  function renderTour(tour, container, idx){
+    var el = document.createElement("article");
+    el.className = "tour";
+    var mapId = "map-" + idx;
+    var tags = [tour.land, tour.region, tour.tage + " Tage", tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
+    var hmPlan = tour.etappen.reduce(function(s,e){ return s + (e.hmPlan||0); }, 0);
+    el.innerHTML =
+      '<div class="tour-head"><h3>' + esc(tour.title) + '</h3><div class="tour-sub">' + esc(tour.subtitle||"") + '</div>' +
+      '<div class="tags">' + tags.map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
+      '<div class="map" id="' + mapId + '"></div>' +
+      '<div class="route-status" data-status>Berechne Route auf echten Wegen …</div>' +
+      '<div class="stats">' +
+        '<div class="stat"><b data-km>–</b><span>km gesamt</span></div>' +
+        '<div class="stat"><b data-hm>ca. ' + hmPlan.toLocaleString("de-DE") + '</b><span>Höhenmeter</span></div>' +
+        '<div class="stat"><b>' + tour.etappen.length + '</b><span>Etappen</span></div>' +
+      '</div>' +
+      '<div class="tour-body">' +
+        '<p>' + esc(tour.beschreibung) + '</p>' +
+        '<div class="actions"><button class="btn" data-gpx-all disabled>GPX gesamt herunterladen</button></div>' +
+        '<div class="stages" data-stages></div>' +
+        (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
+      '</div>';
+    container.appendChild(el);
+
+    var stagesEl = el.querySelector("[data-stages]");
+    tour.etappen.forEach(function(e, i){
+      var row = document.createElement("div");
+      row.className = "stage";
+      row.innerHTML =
+        '<div class="stage-num" style="background:' + STAGE_COLORS[i % STAGE_COLORS.length] + '">' + (i+1) + '</div>' +
+        '<div class="stage-title">' + esc(e.von) + ' → ' + esc(e.nach) + '</div>' +
+        '<div class="stage-meta" data-stage-meta>ca. ' + (e.hmPlan||0) + ' Hm</div>' +
+        '<div class="stage-text">' + esc(e.text||"") + '</div>' +
+        '<div class="stage-gpx"><button type="button" data-stage-gpx disabled>GPX Etappe ' + (i+1) + '</button></div>';
+      stagesEl.appendChild(row);
+    });
+
+    var map = L.map(mapId, {scrollWheelZoom:false});
+    var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19, attribution:'&copy; OpenStreetMap-Mitwirkende'});
+    var cyclosm = L.tileLayer("https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png", {maxZoom:20, subdomains:"abc", attribution:'CyclOSM | &copy; OpenStreetMap-Mitwirkende'});
+    var topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {maxZoom:17, subdomains:"abc", attribution:'OpenTopoMap (CC-BY-SA) | &copy; OpenStreetMap-Mitwirkende'});
+    cyclosm.addTo(map);
+    L.control.layers({"Fahrradkarte (CyclOSM)": cyclosm, "OpenStreetMap": osm, "Topografisch": topo}).addTo(map);
+
+    var allPts = [];
+    tour.etappen.forEach(function(e){ e.wegpunkte.forEach(function(p){ allPts.push([p[0],p[1]]); }); });
+    map.fitBounds(L.latLngBounds(allPts), {padding:[20,20]});
+
+    // Stage endpoints
+    tour.etappen.forEach(function(e, i){
+      var start = e.wegpunkte[0];
+      L.circleMarker([start[0],start[1]], {radius:7, color:"#fff", weight:2, fillColor:STAGE_COLORS[i % STAGE_COLORS.length], fillOpacity:1})
+        .addTo(map).bindPopup('<b>Start Etappe ' + (i+1) + '</b><br>' + esc(start[2] || e.von));
+    });
+
+    var statusEl = el.querySelector("[data-status]");
+    var results = loadCache(tour);
+    var fromCache = !!results;
+
+    (async function(){
+      if (!results){
+        results = [];
+        for (var i=0;i<tour.etappen.length;i++){
+          statusEl.textContent = "Berechne Etappe " + (i+1) + " von " + tour.etappen.length + " …";
+          results.push(await routeStage(tour.etappen[i].wegpunkte));
+        }
+        if (!results.some(function(r){ return r.fallback; })) saveCache(tour, results);
+      }
+      var totalM = 0, totalAsc = 0, haveAsc = true, bounds = [];
+      var metaEls = el.querySelectorAll("[data-stage-meta]");
+      var gpxBtns = el.querySelectorAll("[data-stage-gpx]");
+      results.forEach(function(r, i){
+        var color = STAGE_COLORS[i % STAGE_COLORS.length];
+        L.polyline(r.coords.map(function(c){ return [c[0],c[1]]; }), {color:color, weight:5, opacity:.9, dashArray: r.fallback ? "6 8" : null})
+          .addTo(map).bindPopup("Etappe " + (i+1) + ": " + esc(tour.etappen[i].von) + " → " + esc(tour.etappen[i].nach) + "<br>" + fmtKm(r.distance) + " km");
+        r.coords.forEach(function(c){ bounds.push([c[0],c[1]]); });
+        totalM += r.distance || 0;
+        if (r.ascend == null) haveAsc = false; else totalAsc += r.ascend;
+        var hmTxt = r.ascend != null ? Math.round(r.ascend) + " Hm" : "ca. " + (tour.etappen[i].hmPlan||0) + " Hm";
+        metaEls[i].textContent = fmtKm(r.distance) + " km · " + hmTxt;
+        gpxBtns[i].disabled = false;
+        gpxBtns[i].addEventListener("click", function(){
+          download(slug(tour.title) + "-etappe-" + (i+1) + ".gpx", buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]));
+        });
+      });
+      // Finish marker
+      var last = tour.etappen[tour.etappen.length-1].wegpunkte.slice(-1)[0];
+      L.circleMarker([last[0],last[1]], {radius:8, color:"#fff", weight:2, fillColor:"#202A1E", fillOpacity:1}).addTo(map).bindPopup("<b>Ziel</b><br>" + esc(last[2] || ""));
+      if (bounds.length) map.fitBounds(L.latLngBounds(bounds), {padding:[20,20]});
+
+      el.querySelector("[data-km]").textContent = fmtKm(totalM).toLocaleString("de-DE");
+      if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
+      var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
+      statusEl.textContent = "Route: " + sources.join(", ") + (fromCache ? " (gespeichert)" : "") + (results.some(function(r){ return r.fallback; }) ? " – gestrichelte Abschnitte sind Luftlinie, Routing war nicht erreichbar." : "");
+
+      var allBtn = el.querySelector("[data-gpx-all]");
+      allBtn.disabled = false;
+      allBtn.addEventListener("click", function(){
+        download(slug(tour.title) + ".gpx", buildGpx(tour.title, results.map(function(r, i){ return {name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}; })));
+      });
+    })();
+  }
+
+  function renderRequests(list){
+    var box = document.getElementById("request-list");
+    if (!list.length){ box.innerHTML = '<p class="sub">Noch keine Anfragen.</p>'; return; }
+    box.innerHTML = list.map(function(r){
+      return '<div class="item"><div class="req-top"><b>' + esc([r.saison, r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
+        '<div class="note">' + esc([r.tage + " Tage", r.fahrradtyp, r.anspruch, r.etappenlaengeVon + "–" + r.etappenlaengeBis + " km/Tag", r.streckenform, r.createdAt].filter(Boolean).join(" · ")) + '</div>' +
+        (r.stil ? '<div class="note">„' + esc(r.stil) + '“</div>' : '') + '</div>';
+    }).join("");
+  }
+
+  function renderSources(list){
+    document.getElementById("source-list").innerHTML = list.map(function(s){
+      return '<div class="item"><a class="name" href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>' +
+        '<div class="tags">' + [s.region, s.art].filter(Boolean).map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
+        (s.notiz ? '<div class="note">' + esc(s.notiz) + '</div>' : '') + '</div>';
+    }).join("");
+  }
+
+  // Request form -> text for the Claude chat
+  document.getElementById("request-form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var ober = Array.from(document.querySelectorAll('input[name=ober]:checked')).map(function(i){ return i.value; });
+    var form = document.querySelector('input[name=form]:checked');
+    var region = document.getElementById("f-region").value.trim();
+    var text = "Gravel Kompass – neue Tour-Anfrage\n" +
+      "Saison: " + document.getElementById("f-saison").value + "\n" +
+      "Tage: " + document.getElementById("f-tage").value + "\n" +
+      "Land: " + document.getElementById("f-land").value + "\n" +
+      "Region: " + (region || "offen – bitte 3 Vorschläge") + "\n" +
+      "Fahrrad: " + document.getElementById("f-rad").value + "\n" +
+      "Oberfläche: " + (ober.length ? ober.join(", ") : "egal") + "\n" +
+      "Etappenlänge: " + document.getElementById("f-von").value + "–" + document.getElementById("f-bis").value + " km/Tag\n" +
+      "Anspruch: " + document.getElementById("f-anspruch").value + "\n" +
+      "An-/Abreise: " + document.getElementById("f-anreise").value + "\n" +
+      "Streckenform: " + (form ? form.value : "Rundtour") + "\n" +
+      "Stil & Vorlieben: " + (document.getElementById("f-stil").value.trim() || "überrasch mich");
+    var out = document.getElementById("copy-result");
+    out.hidden = false;
+    function show(ok){
+      out.innerHTML = (ok ? "<b>Kopiert.</b> Jetzt in den Chat mit Claude einfügen." : "<b>Kopieren nicht möglich</b> – Text markieren und manuell kopieren:") + '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ show(false); });
+    } else { show(false); }
+  });
+
+  Promise.all([
+    fetch("data/tours.json").then(function(r){ return r.json(); }),
+    fetch("data/requests.json").then(function(r){ return r.json(); }),
+    fetch("data/sources.json").then(function(r){ return r.json(); })
+  ]).then(function(res){
+    var tours = res[0], box = document.getElementById("tour-list");
+    box.innerHTML = "";
+    if (!tours.length) box.innerHTML = '<p class="sub">Noch keine Touren.</p>';
+    tours.slice().sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); }).forEach(function(t, i){ renderTour(t, box, i); });
+    renderRequests(res[1]);
+    renderSources(res[2]);
+  }).catch(function(){
+    document.getElementById("tour-list").innerHTML = '<p class="sub">Daten konnten nicht geladen werden.</p>';
+  });
+})();
+</script>
+</body>
+</html>

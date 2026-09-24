@@ -1,0 +1,13 @@
+[
+  {"name": "ADFC Radtourismus", "url": "https://www.adfc-radtourismus.de/", "region": "Deutschland", "art": "Offizielle Qualitätsradrouten", "notiz": "Geprüfte deutsche Radfernwege (ADFC-Qualitätsradrouten)"},
+  {"name": "Bikepacking-Adventures.com", "url": "https://bikepacking-adventures.com/bikepacking-routen/", "region": "Deutschland / Europa / weltweit", "art": "Routen-Blog (DE)", "notiz": "Erfahrungsberichte + Routenvorschläge"},
+  {"name": "bikepacking.com", "url": "https://bikepacking.com/locations/europe/", "region": "Weltweit, starker Europa-Fokus", "art": "Routenarchiv + Magazin", "notiz": "Größte kuratierte Bikepacking-Routendatenbank, viele Gravel-Strecken inkl. GPX"},
+  {"name": "EuroVelo", "url": "https://de.eurovelo.com/", "region": "Europa (17 Fernradwege)", "art": "Offizielles Fernradwegenetz", "notiz": "Offizielle EuroVelo-Routen, gemischter Belag"},
+  {"name": "GravelDeluxe", "url": "https://graveldeluxe.com/", "region": "Deutschland & Europa", "art": "Routen-Sammlung (DE)", "notiz": "Über 2000 Gravel-/Bikepacking-Routen, deutschsprachig"},
+  {"name": "Gravelpackers", "url": "https://www.gravelpackers.at/", "region": "Österreich / Alpenraum", "art": "Community / Blog (DE)", "notiz": "Österreichischer Gravel-Bikepacking-Fokus"},
+  {"name": "gravgrav.cc", "url": "https://gravgrav.cc/en/routes", "region": "Europa", "art": "Routenarchiv", "notiz": "Kuratierte Cycling-Routen quer durch Europa"},
+  {"name": "Komoot Discover", "url": "https://www.komoot.com/discover", "region": "International", "art": "Community-Touren", "notiz": "Kein API-Zugriff, aber manuell nach beliebten Touren durchsuchbar"},
+  {"name": "Radreise-Wiki", "url": "https://www.radreise-wiki.de/Radfernweg", "region": "Deutschland / Europa", "art": "Community-Wiki", "notiz": "Nutzergepflegte Übersicht aller Radfernwege"},
+  {"name": "Ride with GPS – Gravel Routes", "url": "https://ridewithgps.com/groups/Gravel-routes", "region": "International", "art": "Community + Routenplaner", "notiz": "Nutzergruppe mit Gravel-Routen, GPX-Export"},
+  {"name": "VeloPlanner", "url": "https://veloplanner.com/regions/eurovelo", "region": "Europa", "art": "Kartendienst / Planer", "notiz": "Karten & Übersicht offizieller Radrouten inkl. EuroVelo"}
+]
