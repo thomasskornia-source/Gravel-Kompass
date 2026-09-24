@@ -8,6 +8,12 @@
   - Tour = Tour-ID bei Kommentaren
 - Bereits erledigte Zeilen stehen (Zeitstempel) in `data/eingang-erledigt.json`.
 
+## Auslöser
+- Sofort: Ein Apps Script in der Tabelle (`apps-script/eingang-ausloeser.gs`) startet bei jeder neuen
+  Formular-Antwort die Claude-Routine „Gravel Kompass täglich abarbeiten“ über ihren API-Auslöser.
+  Der Schlüssel liegt nur in den Skripteigenschaften (`ROUTINE_TOKEN`), nicht im Repo.
+- Optional zusätzlich ein Zeitplan in der Routine als Netz, falls ein Aufruf nicht durchkam.
+
 ## Abarbeiten
 1. Tabelle lesen, alle Zeilen, deren Zeitstempel nicht in `data/eingang-erledigt.json` steht, sind offen.
 2. Pro Eintrag:
