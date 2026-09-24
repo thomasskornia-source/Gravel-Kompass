@@ -264,6 +264,7 @@
 
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
   function slug(s){ return String(s||"tour").toLowerCase().replace(/[äöü]/g,function(c){return {"ä":"ae","ö":"oe","ü":"ue"}[c];}).replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"") || "tour"; }
+  function tageLabel(n){ return n == 1 ? "1 Tag" : n + " Tage"; }
   function fmtKm(m){ return Math.round(m/1000); }
   function haversine(a,b){ var R=6371000,t=Math.PI/180,dLat=(b[0]-a[0])*t,dLon=(b[1]-a[1])*t; var x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(dLon/2)*Math.sin(dLon/2); return 2*R*Math.asin(Math.sqrt(x)); }
   function lineLength(pts){ var d=0; for(var i=1;i<pts.length;i++) d+=haversine(pts[i-1],pts[i]); return d; }
@@ -335,7 +336,7 @@
     var el = document.createElement("article");
     el.className = "tour";
     var mapId = "map-" + idx;
-    var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tour.tage + " Tage", tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
+    var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tageLabel(tour.tage), tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
     var hmPlan = tour.etappen.reduce(function(s,e){ return s + (e.hmPlan||0); }, 0);
     el.innerHTML =
       '<div class="tour-head"><h3>' + esc(tour.title) + '</h3><div class="tour-sub">' + esc(tour.subtitle||"") + '</div>' +
@@ -480,7 +481,7 @@
     if (!list.length){ box.innerHTML = '<p class="sub">Noch keine Anfragen.</p>'; return; }
     box.innerHTML = list.map(function(r){
       return '<div class="item"><div class="req-top"><b>' + (r.name ? esc(r.name) + ': ' : '') + esc([r.saison, r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
-        '<div class="note">' + esc([r.tage + " Tage", r.fahrradtyp, r.anspruch, r.etappenlaengeVon + "–" + r.etappenlaengeBis + " km/Tag", r.streckenform, r.createdAt].filter(Boolean).join(" · ")) + '</div>' +
+        '<div class="note">' + esc([tageLabel(r.tage), r.fahrradtyp, r.anspruch, r.etappenlaengeVon + "–" + r.etappenlaengeBis + " km/Tag", r.streckenform, r.createdAt].filter(Boolean).join(" · ")) + '</div>' +
         (r.stil ? '<div class="note">„' + esc(r.stil) + '“</div>' : '') + '</div>';
     }).join("");
   }
@@ -620,7 +621,7 @@
     if (!list.length){ grid.innerHTML = '<p class="empty">' + (TOURS.length ? "Keine Tour passt zur Suche." : "Noch keine Touren.") + '</p>'; return; }
     grid.innerHTML = list.map(function(t){
       var km = tourKm(t);
-      var tags = [t.tage + " Tage", km ? km + " km" : "", t.anspruch, t.streckenform, t.fuer ? "für " + t.fuer : ""].filter(Boolean);
+      var tags = [tageLabel(t.tage), km ? km + " km" : "", t.anspruch, t.streckenform, t.fuer ? "für " + t.fuer : ""].filter(Boolean);
       var bk = bikeKind(t.fahrradtyp);
       return '<a class="tile" href="#tour/' + encodeURIComponent(t.id) + '"><div class="tile-map">' + miniSvg(t) +
         '<span class="bike-badge bike-' + bk.cls + '">' + bikeIcon(bk.cls) + bk.label + '</span></div>' +

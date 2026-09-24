@@ -1,5 +1,28 @@
 [
   {
+    "id": "mannheim-herbst-2026-09",
+    "createdAt": "2026-09-24",
+    "status": "fertig",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Mannheim",
+    "fahrradtyp": "Rennrad",
+    "oberflaeche": [
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 150,
+    "etappenlaengeBis": 150,
+    "anspruch": "Moderat",
+    "anreise": "Sonstiges",
+    "streckenform": "Rundtour",
+    "stil": "überrasch mich",
+    "tourIds": [
+      "mannheim-neckar-bergstrasse-1-tag"
+    ]
+  },
+  {
     "id": "mannheim-2026-09",
     "createdAt": "2026-09-24",
     "status": "fertig",
