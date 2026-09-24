@@ -131,5 +131,12 @@
     "region": "Europa / weltweit",
     "art": "Karte aller beschilderten Radrouten (OpenStreetMap)",
     "notiz": "Internationale, nationale, regionale und lokale Radfernwege auf einer Karte; GPX pro Route; Daten von OSM-Freiwilligen, daher nicht überall lückenlos"
+  },
+  {
+    "name": "Wikivoyage – Deutschland per Rad",
+    "url": "https://de.wikivoyage.org/wiki/Deutschland_per_Rad",
+    "region": "Deutschland / Europa",
+    "art": "Freies Reise-Wiki",
+    "notiz": "Übersicht und eigene Artikel zu vielen Radfernwegen mit Etappen, Unterkünften und Tipps; Texte unter freier Lizenz"
   }
 ]
