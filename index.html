@@ -665,16 +665,18 @@
     if (panel !== "tour") document.title = "Gravel Kompass";
   }
   window.addEventListener("hashchange", route);
-  // Brand link: back to the tour overview, also when it is already open
-  document.getElementById("brand-link").addEventListener("click", function(){
-    if (location.hash === "#touren") window.scrollTo(0, 0);
+  // Brand link: reload the page on the tour overview so new tours show up
+  document.getElementById("brand-link").addEventListener("click", function(ev){
+    ev.preventDefault();
+    history.replaceState(null, "", location.pathname + location.search + "#touren");
+    location.reload();
   });
   route();
 
   Promise.all([
-    fetch("data/tours.json").then(function(r){ return r.json(); }),
-    fetch("data/requests.json").then(function(r){ return r.json(); }),
-    fetch("data/sources.json").then(function(r){ return r.json(); })
+    fetch("data/tours.json", {cache: "no-cache"}).then(function(r){ return r.json(); }),
+    fetch("data/requests.json", {cache: "no-cache"}).then(function(r){ return r.json(); }),
+    fetch("data/sources.json", {cache: "no-cache"}).then(function(r){ return r.json(); })
   ]).then(function(res){
     TOURS = res[0].slice().sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); });
     var lands = Array.from(new Set(TOURS.map(landOf))).filter(Boolean).sort();
