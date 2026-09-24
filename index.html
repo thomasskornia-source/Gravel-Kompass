@@ -14,6 +14,7 @@
     --paper:#F1F4EC; --surface:#FBFCF8; --surface-2:#EEF1E4;
     --ink:#202A1E; --ink-soft:#5B6553; --line:#D9DFC9;
     --moss:#46613C; --moss-deep:#2E4029; --blaze:#C1501E; --contour:#8C7A54;
+    --road:#2F5F8A;
     color-scheme:light;
   }
   @media (prefers-color-scheme: dark){
@@ -21,6 +22,7 @@
       --paper:#10140D; --surface:#181D13; --surface-2:#1F2517;
       --ink:#E9EEE1; --ink-soft:#AAB59B; --line:#2A3322;
       --moss:#8FBB7B; --moss-deep:#B9D6A8; --blaze:#E2764B; --contour:#C7AD7C;
+      --road:#8DB8DE;
       color-scheme:dark;
     }
   }
@@ -121,7 +123,17 @@
   .tile{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s, transform .15s;}
   .tile:hover{border-color:var(--moss);transform:translateY(-2px);}
   @media (prefers-reduced-motion: reduce){ .tile{transition:none;} .tile:hover{transform:none;} }
-  .tile svg{display:block;width:100%;height:auto;background:var(--surface-2);}
+  .tile-map{position:relative;}
+  .tile-map > svg{display:block;width:100%;height:auto;background:var(--surface-2);}
+  /* Bike-type badge: small, semi-transparent, colour only on icon + label */
+  .bike-badge{position:absolute;top:8px;left:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 6px;border-radius:99px;
+    background:color-mix(in srgb, var(--surface) 88%, transparent);border:1px solid var(--line);
+    font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--bike, var(--ink-soft));line-height:1;}
+  .bike-badge svg{width:21px;height:14px;display:block;}
+  .bike-gravel{--bike:var(--contour);}
+  .bike-road{--bike:var(--road);}
+  .bike-trekking{--bike:var(--moss-deep);}
+  .bike-mtb{--bike:var(--blaze);}
   .tile-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px;}
   .tile-body h3{font-size:19px;line-height:1.15;}
   .back{display:inline-block;margin-bottom:12px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;}
@@ -555,8 +567,10 @@
     var k = Math.cos(lat0 * Math.PI / 180);
     var xs = all.map(function(p){ return p[1] * k; }), ys = all.map(function(p){ return p[0]; });
     var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs), minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
-    var W = 320, H = 150, pad = 16, sc = Math.min((W - 2*pad) / Math.max(maxX - minX, 1e-6), (H - 2*pad) / Math.max(maxY - minY, 1e-6));
-    var ox = (W - (maxX - minX) * sc) / 2, oy = (H - (maxY - minY) * sc) / 2;
+    // top padding keeps the route clear of the bike-type badge in the corner
+    var W = 320, H = 150, pad = 16, padTop = 36, padBot = 12;
+    var sc = Math.min((W - 2*pad) / Math.max(maxX - minX, 1e-6), (H - padTop - padBot) / Math.max(maxY - minY, 1e-6));
+    var ox = (W - (maxX - minX) * sc) / 2, oy = padBot + ((H - padTop - padBot) - (maxY - minY) * sc) / 2;
     function pt(p){ return ((p[1]*k - minX) * sc + ox).toFixed(1) + "," + (H - ((p[0] - minY) * sc + oy)).toFixed(1); }
     var lines = stages.map(function(st, i){
       var step = Math.max(1, Math.floor(st.length / 120));
@@ -565,6 +579,24 @@
     }).join("");
     return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Streckenverlauf">' + lines + '</svg>';
   }
+  // Bike-type pictogram: same frame, differing bars/tyres/rack so the types read apart at small size
+  function bikeKind(type){
+    var t = String(type || "").toLowerCase();
+    if (t.indexOf("renn") >= 0 || t.indexOf("road") >= 0) return {cls:"road", label:"Rennrad"};
+    if (t.indexOf("trek") >= 0 || t.indexOf("tour") >= 0) return {cls:"trekking", label:"Trekking"};
+    if (t.indexOf("mountain") >= 0 || t.indexOf("mtb") >= 0) return {cls:"mtb", label:"MTB"};
+    return {cls:"gravel", label:"Gravel"};
+  }
+  function bikeIcon(cls){
+    var wheel = {road:'stroke-width="1.1"', gravel:'stroke-width="1.5" stroke-dasharray="1.6 1.1"', trekking:'stroke-width="1.3"', mtb:'stroke-width="2.3"'}[cls];
+    var drop = cls === "road" || cls === "gravel";
+    var bar = drop ? '<path d="M15 5 L15.8 3 Q18.2 2.6 17.6 5.2"/>' : '<path d="M15 5 L15.4 2.6 M14 2.6 L17.4 2.6"/>';
+    var rack = cls === "trekking" ? '<path d="M4 6.6 L9 6.6 M4.6 6.6 L5 11"/>' : '';
+    return '<svg viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<circle cx="5" cy="11" r="4" ' + wheel + '/><circle cx="19" cy="11" r="4" ' + wheel + '/>' +
+      '<path d="M5 11 L9 5 L11 11 Z M9 5 L15 5 L11 11 M15 5 L19 11 M8 4 L10.4 4"/>' + bar + rack + '</svg>';
+  }
+
   function searchText(t){
     var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp];
     t.etappen.forEach(function(e){ parts.push(e.von, e.nach, e.text); e.wegpunkte.forEach(function(w){ parts.push(w[2]); }); });
@@ -582,7 +614,9 @@
     grid.innerHTML = list.map(function(t){
       var km = tourKm(t);
       var tags = [t.tage + " Tage", km ? km + " km" : "", t.anspruch, t.streckenform, t.fuer ? "für " + t.fuer : ""].filter(Boolean);
-      return '<a class="tile" href="#tour/' + encodeURIComponent(t.id) + '">' + miniSvg(t) +
+      var bk = bikeKind(t.fahrradtyp);
+      return '<a class="tile" href="#tour/' + encodeURIComponent(t.id) + '"><div class="tile-map">' + miniSvg(t) +
+        '<span class="bike-badge bike-' + bk.cls + '">' + bikeIcon(bk.cls) + bk.label + '</span></div>' +
         '<div class="tile-body"><h3>' + esc(t.title) + '</h3><div class="tour-sub">' + esc(t.region || t.land) + '</div>' +
         '<div class="tags">' + tags.map(function(x){ return '<span class="tag">' + esc(x) + '</span>'; }).join("") + '</div></div></a>';
     }).join("");
