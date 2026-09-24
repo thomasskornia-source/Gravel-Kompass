@@ -145,6 +145,7 @@
   .tile-body h3{font-size:19px;line-height:1.15;}
   .back{display:inline-block;margin-bottom:12px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;}
   .empty{color:var(--ink-soft);font-style:italic;}
+  .linkish{font:inherit;font-size:13px;background:none;border:none;padding:0;color:var(--moss-deep);text-decoration:underline;cursor:pointer;}
   /* Comments */
   .comments{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px;}
   .comments h3{font-size:18px;}
@@ -180,7 +181,7 @@
 
   <section id="anfrage" class="section card" data-panel="anfrage">
     <h2>Neue Tour-Anfrage</h2>
-    <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen – es öffnet sich das Teilen-Menü deines Handys (WhatsApp, iMessage, Mail …). Schick die Anfrage an Thomas, er gibt sie an Claude weiter.</p>
+    <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen – die Anfrage landet direkt bei Thomas und Claude. Mit „Text kopieren“ kannst du sie auch selbst weitergeben.</p>
     <form id="request-form">
       <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="damit Thomas weiß, von wem die Anfrage ist"></div>
       <div class="row">
@@ -234,7 +235,7 @@
 
   <section id="quellen" class="section" data-panel="quellen">
     <h2>Quellen-Datenbank</h2>
-    <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Du kennst eine gute Seite? Unten vorschlagen – der Vorschlag geht per Messenger an Thomas.</p>
+    <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Du kennst eine gute Seite? Unten vorschlagen – der Vorschlag geht direkt an Thomas und Claude.</p>
     <div id="source-list" class="list"></div>
     <div class="card" style="margin-top:16px">
       <h3 style="font-size:18px;margin-bottom:10px">Quelle vorschlagen</h3>
@@ -391,7 +392,7 @@
       var name = el.querySelector("#c-name").value.trim();
       var link = location.origin + location.pathname + "#tour/" + tour.id;
       var text = "Gravel Kompass – Kommentar zur Tour „" + tour.title + "“" + (name ? " von " + name : "") + "\n" + link + "\n\n" + el.querySelector("#c-text").value.trim();
-      shareText("Gravel Kompass – Kommentar", text, el.querySelector("[data-comment-result]"));
+      sendToInbox("Kommentar", name, tour.id, text, "Gravel Kompass – Kommentar", el.querySelector("[data-comment-result]"), el.querySelector("[data-comment]"));
     });
 
     var map = L.map(mapId, {scrollWheelZoom:false});
@@ -518,6 +519,28 @@
     }
     showFallback(out, title, text);
   }
+  // Inbox: submissions go straight into Thomas's Google Form (-> Google Sheet "Gravel Kompass Eingang"),
+  // which Claude reads when asked to "abarbeiten". no-cors: the response can't be read, only network failure is detectable.
+  var INBOX_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeL4Uxawkb3rRYl7-y_gRA-zt1V2eVHHipPZJyDR2HWHuZhlg/formResponse";
+  var INBOX_FIELDS = {typ: "entry.1421696167", name: "entry.1651174850", tour: "entry.94602652", text: "entry.181111421"};
+  function sendToInbox(typ, name, tour, text, title, out, form){
+    var body = new URLSearchParams();
+    body.append(INBOX_FIELDS.typ, typ);
+    body.append(INBOX_FIELDS.name, name || "");
+    body.append(INBOX_FIELDS.tour, tour || "");
+    body.append(INBOX_FIELDS.text, text);
+    out.hidden = false;
+    out.textContent = "Wird gesendet …";
+    fetch(INBOX_URL, {method: "POST", mode: "no-cors", body: body}).then(function(){
+      out.innerHTML = "<b>Danke, ist angekommen!</b> Thomas und Claude kümmern sich darum. " +
+        '<button type="button" class="linkish" data-also-share>Zusätzlich per Messenger schicken</button>';
+      out.querySelector("[data-also-share]").addEventListener("click", function(){ shareText(title, text, out); });
+      if (form) form.reset();
+    }, function(){
+      showFallback(out, title, text, "Senden hat nicht geklappt (keine Verbindung?). Du kannst es stattdessen schicken über:");
+    });
+  }
+
   function copyText(text, out){
     function ok(){ out.hidden = false; out.innerHTML = "<b>Kopiert.</b>" + '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>'; }
     if (navigator.clipboard && navigator.clipboard.writeText){
@@ -546,7 +569,7 @@
   }
   document.getElementById("request-form").addEventListener("submit", function(ev){
     ev.preventDefault();
-    shareText("Gravel Kompass – Tour-Anfrage", requestText(), document.getElementById("copy-result"));
+    sendToInbox("Anfrage", document.getElementById("f-name").value.trim(), "", requestText(), "Gravel Kompass – Tour-Anfrage", document.getElementById("copy-result"), null);
   });
   document.getElementById("req-copy").addEventListener("click", function(){
     copyText(requestText(), document.getElementById("copy-result"));
@@ -560,7 +583,7 @@
       "Name: " + document.getElementById("s-name").value.trim() + "\n" +
       "Link: " + document.getElementById("s-url").value.trim() + "\n" +
       "Warum: " + (document.getElementById("s-notiz").value.trim() || "–");
-    shareText("Gravel Kompass – Quellen-Vorschlag", text, document.getElementById("source-result"));
+    sendToInbox("Quelle", von, "", text, "Gravel Kompass – Quellen-Vorschlag", document.getElementById("source-result"), document.getElementById("source-form"));
   });
 
   // ---------- Overview ----------

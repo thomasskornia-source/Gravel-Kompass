@@ -8,3 +8,5 @@ Persönliches Planungstool für mehrtägige Gravel-Touren, gemeinsam mit Claude 
 - `data/requests.json` – bisherige Tour-Anfragen
 
 Neue Anfragen und Quellen-Vorschläge: Formular ausfüllen, „senden“ öffnet das Teilen-Menü (WhatsApp, iMessage, Mail). Thomas leitet die Nachricht an Claude weiter.
+
+Ablauf zum Abarbeiten von Anfragen und Kommentaren: siehe `ABLAUF.md`.
