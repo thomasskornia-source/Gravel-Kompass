@@ -278,7 +278,8 @@
   async function routeStage(wps, profile){
     var lonlats = wps.map(function(p){ return p[1]+","+p[0]; }).join("|");
     // Tour can set its own BRouter profile (e.g. "fastbike" for road bikes); default is gravel
-    var profiles = profile ? [profile, "trekking"] : ["gravel","trekking"];
+    // profile may be a string or a list of preferred BRouter profiles (tried in order)
+    var profiles = Array.isArray(profile) ? profile.concat(["trekking"]) : profile ? [profile, "trekking"] : ["gravel","trekking"];
     for (var i=0;i<profiles.length;i++){
       try{
         var j = await fetchJson("https://brouter.de/brouter?lonlats="+lonlats+"&profile="+profiles[i]+"&alternativeidx=0&format=geojson", 45000);

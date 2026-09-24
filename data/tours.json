@@ -5,7 +5,10 @@
     "subtitle": "Rennrad-Tagestour, ca. 150 km, durch Neckartal, über den Königstuhl, den Odenwald und die Bergstraße",
     "createdAt": "2026-09-24",
     "requestId": "mannheim-herbst-2026-09",
-    "profil": "fastbike",
+    "profil": [
+      "fastbike-lowtraffic",
+      "fastbike"
+    ],
     "land": "Deutschland",
     "region": "Rhein-Neckar / Odenwald / Bergstraße",
     "saison": "Herbst",
@@ -17,7 +20,7 @@
       "Radwege",
       "Asphalt"
     ],
-    "beschreibung": "Start und Ziel Mannheim Hbf. Die Runde nimmt bewusst die Richtung, die die Weinstraßen-Tour nicht abdeckt: nach Osten. Flach am Neckar entlang nach Heidelberg und Neckargemünd, dann als Höhepunkt hinauf auf den Königstuhl (566 m) über die gleichmäßige Ostauffahrt via Waldhilsbach – 7,6 km, 432 Hm, im Schnitt 5,7 %, mit Stoppomat zum Zeitnehmen – und auf demselben Weg zurück. Weiter durch die Burgenstädtchen Neckarsteinach und Hirschhorn, über den Odenwald nach Wald-Michelbach (im Herbst mit bunten Buchenwäldern), durchs Weschnitztal nach Weinheim, die Bergstraße hinauf nach Heppenheim und durch die Rheinebene zurück nach Mannheim.",
+    "beschreibung": "Start und Ziel Mannheim Hbf. Die Runde nimmt bewusst die Richtung, die die Weinstraßen-Tour nicht abdeckt: nach Osten. Flach am Neckar entlang nach Heidelberg und Neckargemünd, dann als Höhepunkt hinauf auf den Königstuhl (566 m) über die gleichmäßige Ostauffahrt via Waldhilsbach – 7,6 km, 432 Hm, im Schnitt 5,7 %, mit Stoppomat zum Zeitnehmen – und auf demselben Weg zurück. Weiter durch die Burgenstädtchen Neckarsteinach und Hirschhorn, über den Odenwald nach Wald-Michelbach (im Herbst mit bunten Buchenwäldern), durchs Weschnitztal nach Weinheim, die Bergstraße hinauf nach Heppenheim und durch die Rheinebene zurück nach Mannheim. Die Linie wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege nimmt und stark befahrene Straßen meidet.",
     "quellen": [
       {
         "name": "Rennrad-Tour: Von der Bergstraße in den Überwald (Tourismus Bergstraße-Odenwald)",
@@ -127,6 +130,11 @@
         "datum": "24.09.2026",
         "kommentar": "Bitte plane den Königstuhl in Heidelberg ein mit der moderaten Steigung.",
         "antwort": "Eingebaut: Ostauffahrt von Neckargemünd über Waldhilsbach (7,6 km, 432 Hm, Ø 5,7 %, gleichmäßig), Abfahrt auf demselben Weg. Damit es bei rund 150 km bleibt, entfallen dafür Bensheim und Kloster Lorsch."
+      },
+      {
+        "datum": "24.09.2026",
+        "kommentar": "Vorzugsweise verkehrsberuhigte Straßen und asphaltierte Wege benutzen.",
+        "antwort": "Routing umgestellt auf ein Rennrad-Profil für wenig Verkehr: asphaltierte Radwege und ruhige Nebenstraßen werden bevorzugt, Bundesstraßen möglichst gemieden. Durch die Umwege kann die Runde ein paar Kilometer länger werden."
       }
     ]
   },
