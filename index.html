@@ -113,6 +113,26 @@
   .pill.neu{background:#3E6B8C;}
   .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:12.5px;}
 
+  /* Overview */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .filters input{flex:1 1 220px;}
+  .filters select{flex:0 1 200px;width:auto;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+  .tile{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s, transform .15s;}
+  .tile:hover{border-color:var(--moss);transform:translateY(-2px);}
+  @media (prefers-reduced-motion: reduce){ .tile{transition:none;} .tile:hover{transform:none;} }
+  .tile svg{display:block;width:100%;height:auto;background:var(--surface-2);}
+  .tile-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px;}
+  .tile-body h3{font-size:19px;line-height:1.15;}
+  .back{display:inline-block;margin-bottom:12px;font-family:'Big Shoulders',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;}
+  .empty{color:var(--ink-soft);font-style:italic;}
+  /* Comments */
+  .comments{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px;}
+  .comments h3{font-size:18px;}
+  .change{border-left:3px solid var(--moss);padding:4px 0 4px 12px;font-size:14px;}
+  .change .meta{font-size:12px;color:var(--ink-soft);}
+  .change .q{color:var(--ink-soft);}
+
   .leaflet-popup-content{font-family:'Work Sans',sans-serif;font-size:13px;}
 </style>
 </head>
@@ -127,8 +147,16 @@
 
   <section id="touren" class="section" data-panel="touren">
     <h2>Touren</h2>
-    <p class="sub">Karte, Etappen und GPX-Dateien. Die Linie wird beim Laden über Rad-Routing auf echten Wegen berechnet.</p>
-    <div id="tour-list" class="list"><p class="sub">Lade Touren …</p></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Suchen: Ort, Region, Name …" aria-label="Touren durchsuchen">
+      <select id="land-filter" aria-label="Nach Land filtern"><option value="">Alle Länder</option></select>
+    </div>
+    <div id="tour-grid" class="grid"><p class="sub">Lade Touren …</p></div>
+  </section>
+
+  <section class="section" data-panel="tour">
+    <a href="#touren" class="back">← Alle Touren</a>
+    <div id="tour-detail"><p class="sub">Lade Tour …</p></div>
   </section>
 
   <section id="anfrage" class="section card" data-panel="anfrage">
@@ -211,7 +239,8 @@
 <script>
 (function(){
   "use strict";
-  var MAPS = [];
+  var CURRENT = null;   // {map, bounds} of the open tour detail
+  var TOURS = null;
   var STAGE_COLORS = ["#C1501E","#2F6FAB","#46613C","#8E44AD","#B08A1E","#1F8A87","#A63D5A","#5B6553"];
 
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
@@ -303,6 +332,20 @@
         '<div class="actions"><button class="btn" data-gpx-all disabled>GPX gesamt herunterladen</button></div>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
+        '<div class="comments">' +
+          '<h3>Anmerkungen &amp; Änderungen</h3>' +
+          ((tour.aenderungen && tour.aenderungen.length) ? tour.aenderungen.map(function(a){
+            return '<div class="change"><div class="meta">' + esc([a.datum, a.von].filter(Boolean).join(" · ")) + '</div>' +
+              (a.kommentar ? '<div class="q">„' + esc(a.kommentar) + '“</div>' : '') +
+              (a.antwort ? '<div>' + esc(a.antwort) + '</div>' : '') + '</div>';
+          }).join("") : '<p class="sub" style="margin:0">Noch keine Anmerkungen. Änderungen an der Tour werden hier festgehalten.</p>') +
+          '<form data-comment>' +
+            '<div class="field"><label for="c-text">Dein Kommentar zur Tour</label><textarea id="c-text" required placeholder="z. B. Etappe 3 ist mir zu lang – geht das kürzer? Oder: Tipp für eine Unterkunft in Olot"></textarea></div>' +
+            '<div class="field"><label for="c-name">Dein Name</label><input id="c-name" autocomplete="given-name"></div>' +
+            '<div class="actions"><button type="submit" class="btn">Kommentar senden</button></div>' +
+            '<div class="hint" data-comment-result hidden></div>' +
+          '</form>' +
+        '</div>' +
       '</div>';
     container.appendChild(el);
 
@@ -319,6 +362,14 @@
       stagesEl.appendChild(row);
     });
 
+    el.querySelector("[data-comment]").addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var name = el.querySelector("#c-name").value.trim();
+      var link = location.origin + location.pathname + "#tour/" + tour.id;
+      var text = "Gravel Kompass – Kommentar zur Tour „" + tour.title + "“" + (name ? " von " + name : "") + "\n" + link + "\n\n" + el.querySelector("#c-text").value.trim();
+      shareText("Gravel Kompass – Kommentar", text, el.querySelector("[data-comment-result]"));
+    });
+
     var map = L.map(mapId, {scrollWheelZoom:false});
     var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19, attribution:'&copy; OpenStreetMap-Mitwirkende'});
     var cyclosm = L.tileLayer("https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png", {maxZoom:20, subdomains:"abc", attribution:'CyclOSM | &copy; OpenStreetMap-Mitwirkende'});
@@ -329,7 +380,7 @@
     var allPts = [];
     tour.etappen.forEach(function(e){ e.wegpunkte.forEach(function(p){ allPts.push([p[0],p[1]]); }); });
     var mapState = {map: map, bounds: L.latLngBounds(allPts)};
-    MAPS.push(mapState);
+    CURRENT = mapState;
     map.fitBounds(mapState.bounds, {padding:[20,20]});
 
     // Stage endpoints
@@ -352,6 +403,7 @@
         }
         if (!results.some(function(r){ return r.fallback; })) saveCache(tour, results);
       }
+      if (CURRENT !== mapState) return; // detail was closed while routing
       var totalM = 0, totalAsc = 0, haveAsc = true, bounds = [];
       var metaEls = el.querySelectorAll("[data-stage-meta]");
       var gpxBtns = el.querySelectorAll("[data-stage-gpx]");
@@ -472,35 +524,98 @@
     shareText("Gravel Kompass – Quellen-Vorschlag", text, document.getElementById("source-result"));
   });
 
-  // Tabs: one panel at a time, driven by the URL hash (#touren, #anfrage, #quellen)
-  var PANELS = ["touren", "anfrage", "quellen"];
-  function showPanel(){
-    var name = (location.hash || "").replace("#", "");
-    if (PANELS.indexOf(name) < 0) name = "touren";
-    document.querySelectorAll("[data-panel]").forEach(function(el){ el.hidden = el.getAttribute("data-panel") !== name; });
-    document.querySelectorAll(".tabs a").forEach(function(a){ a.classList.toggle("active", a.getAttribute("href") === "#" + name); });
-    window.scrollTo(0, 0);
-    if (name === "touren"){
-      // Leaflet maps created while hidden need a size refresh once visible
-      setTimeout(function(){ MAPS.forEach(function(m){ m.map.invalidateSize(); m.map.fitBounds(m.bounds, {padding:[20,20]}); }); }, 0);
-    }
+  // ---------- Overview ----------
+  function landOf(t){ return String(t.land || "").split(" (")[0].trim(); }
+  function tourKm(t){
+    var c = loadCache(t);
+    return c ? fmtKm(c.reduce(function(s, r){ return s + (r.distance || 0); }, 0)) : null;
   }
-  window.addEventListener("hashchange", showPanel);
-  showPanel();
+  function miniSvg(t){
+    var cache = loadCache(t);
+    var stages = cache ? cache.map(function(r){ return r.coords; }) : t.etappen.map(function(e){ return e.wegpunkte; });
+    var all = [].concat.apply([], stages);
+    var lat0 = all.reduce(function(s,p){ return s + p[0]; }, 0) / all.length;
+    var k = Math.cos(lat0 * Math.PI / 180);
+    var xs = all.map(function(p){ return p[1] * k; }), ys = all.map(function(p){ return p[0]; });
+    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs), minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+    var W = 320, H = 150, pad = 16, sc = Math.min((W - 2*pad) / Math.max(maxX - minX, 1e-6), (H - 2*pad) / Math.max(maxY - minY, 1e-6));
+    var ox = (W - (maxX - minX) * sc) / 2, oy = (H - (maxY - minY) * sc) / 2;
+    function pt(p){ return ((p[1]*k - minX) * sc + ox).toFixed(1) + "," + (H - ((p[0] - minY) * sc + oy)).toFixed(1); }
+    var lines = stages.map(function(st, i){
+      var step = Math.max(1, Math.floor(st.length / 120));
+      var pts = st.filter(function(_, j){ return j % step === 0 || j === st.length - 1; });
+      return '<polyline points="' + pts.map(pt).join(" ") + '" fill="none" stroke="' + STAGE_COLORS[i % STAGE_COLORS.length] + '" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+    }).join("");
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Streckenverlauf">' + lines + '</svg>';
+  }
+  function searchText(t){
+    var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp];
+    t.etappen.forEach(function(e){ parts.push(e.von, e.nach, e.text); e.wegpunkte.forEach(function(w){ parts.push(w[2]); }); });
+    return parts.filter(Boolean).join(" ").toLowerCase();
+  }
+  function renderOverview(){
+    var grid = document.getElementById("tour-grid");
+    if (!TOURS) return;
+    var q = document.getElementById("q").value.trim().toLowerCase();
+    var land = document.getElementById("land-filter").value;
+    var list = TOURS.filter(function(t){
+      return (!land || landOf(t) === land) && (!q || q.split(/\s+/).every(function(w){ return searchText(t).indexOf(w) >= 0; }));
+    });
+    if (!list.length){ grid.innerHTML = '<p class="empty">' + (TOURS.length ? "Keine Tour passt zur Suche." : "Noch keine Touren.") + '</p>'; return; }
+    grid.innerHTML = list.map(function(t){
+      var km = tourKm(t);
+      var tags = [t.tage + " Tage", km ? km + " km" : "", t.anspruch, t.streckenform, t.fuer ? "für " + t.fuer : ""].filter(Boolean);
+      return '<a class="tile" href="#tour/' + encodeURIComponent(t.id) + '">' + miniSvg(t) +
+        '<div class="tile-body"><h3>' + esc(t.title) + '</h3><div class="tour-sub">' + esc(t.region || t.land) + '</div>' +
+        '<div class="tags">' + tags.map(function(x){ return '<span class="tag">' + esc(x) + '</span>'; }).join("") + '</div></div></a>';
+    }).join("");
+  }
+  document.getElementById("q").addEventListener("input", renderOverview);
+  document.getElementById("land-filter").addEventListener("change", renderOverview);
+
+  // ---------- Router: #touren, #tour/<id>, #anfrage, #quellen ----------
+  var OPEN_TOUR = null;
+  function route(){
+    var h = decodeURIComponent((location.hash || "").replace(/^#/, ""));
+    var panel = "touren", tourId = null;
+    if (h.indexOf("tour/") === 0){ panel = "tour"; tourId = h.slice(5); }
+    else if (["anfrage", "quellen", "touren"].indexOf(h) >= 0){ panel = h; }
+    document.querySelectorAll("[data-panel]").forEach(function(el){ el.hidden = el.getAttribute("data-panel") !== panel; });
+    var navName = panel === "tour" ? "touren" : panel;
+    document.querySelectorAll(".tabs a").forEach(function(a){ a.classList.toggle("active", a.getAttribute("href") === "#" + navName); });
+    window.scrollTo(0, 0);
+
+    if (panel !== "tour" && CURRENT){ CURRENT.map.remove(); CURRENT = null; OPEN_TOUR = null; }
+    if (panel === "touren") renderOverview();
+    if (panel === "tour" && TOURS && OPEN_TOUR !== tourId){
+      var box = document.getElementById("tour-detail");
+      var tour = TOURS.filter(function(t){ return t.id === tourId; })[0];
+      if (CURRENT){ CURRENT.map.remove(); CURRENT = null; }
+      box.innerHTML = "";
+      OPEN_TOUR = tourId;
+      if (!tour){ box.innerHTML = '<p class="empty">Diese Tour gibt es nicht (mehr).</p>'; return; }
+      document.title = tour.title + " – Gravel Kompass";
+      renderTour(tour, box, 0);
+    }
+    if (panel !== "tour") document.title = "Gravel Kompass";
+  }
+  window.addEventListener("hashchange", route);
+  route();
 
   Promise.all([
     fetch("data/tours.json").then(function(r){ return r.json(); }),
     fetch("data/requests.json").then(function(r){ return r.json(); }),
     fetch("data/sources.json").then(function(r){ return r.json(); })
   ]).then(function(res){
-    var tours = res[0], box = document.getElementById("tour-list");
-    box.innerHTML = "";
-    if (!tours.length) box.innerHTML = '<p class="sub">Noch keine Touren.</p>';
-    tours.slice().sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); }).forEach(function(t, i){ renderTour(t, box, i); });
+    TOURS = res[0].slice().sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); });
+    var lands = Array.from(new Set(TOURS.map(landOf))).filter(Boolean).sort();
+    document.getElementById("land-filter").innerHTML = '<option value="">Alle Länder</option>' + lands.map(function(l){ return '<option>' + esc(l) + '</option>'; }).join("");
     renderRequests(res[1]);
     renderSources(res[2]);
+    OPEN_TOUR = null;
+    route();
   }).catch(function(){
-    document.getElementById("tour-list").innerHTML = '<p class="sub">Daten konnten nicht geladen werden.</p>';
+    document.getElementById("tour-grid").innerHTML = '<p class="empty">Daten konnten nicht geladen werden.</p>';
   });
 })();
 </script>
