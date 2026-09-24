@@ -1,6 +1,54 @@
 [
-  {"id": "girona-2026-09", "createdAt": "2026-09-24", "status": "fertig", "saison": "Frühling", "tage": 6, "land": "Spanien", "region": "", "fahrradtyp": "Gravel",
-   "oberflaeche": ["Mittelfeiner Schotter", "Grober Schotter", "Feld- und Waldwege", "Radwege", "Asphalt"],
-   "etappenlaengeVon": 80, "etappenlaengeBis": 140, "anspruch": "Anspruchsvoll", "anreise": "Auto", "streckenform": "Rundtour",
-   "stil": "gerne um Girona rum.", "tourId": "girona-pirinexus-6-tage"}
+  {
+    "id": "uli-2026-09",
+    "name": "Uli",
+    "createdAt": "2026-09-24",
+    "status": "fertig",
+    "saison": "Sommer",
+    "tage": 5,
+    "land": "Deutschland",
+    "region": "Bayern, Mecklenburg-Vorpommern",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Mittelfeiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 120,
+    "anspruch": "Moderat",
+    "anreise": "Zug",
+    "streckenform": "Rundtour",
+    "stil": "überrasch mich",
+    "tourIds": [
+      "bayern-altmuehltal-5-tage",
+      "mv-seenplatte-5-tage"
+    ]
+  },
+  {
+    "id": "girona-2026-09",
+    "createdAt": "2026-09-24",
+    "status": "fertig",
+    "saison": "Frühling",
+    "tage": 6,
+    "land": "Spanien",
+    "region": "",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Mittelfeiner Schotter",
+      "Grober Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 140,
+    "anspruch": "Anspruchsvoll",
+    "anreise": "Auto",
+    "streckenform": "Rundtour",
+    "stil": "gerne um Girona rum.",
+    "tourId": "girona-pirinexus-6-tage"
+  }
 ]

@@ -282,7 +282,7 @@
     var el = document.createElement("article");
     el.className = "tour";
     var mapId = "map-" + idx;
-    var tags = [tour.land, tour.region, tour.tage + " Tage", tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
+    var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tour.tage + " Tage", tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
     var hmPlan = tour.etappen.reduce(function(s,e){ return s + (e.hmPlan||0); }, 0);
     el.innerHTML =
       '<div class="tour-head"><h3>' + esc(tour.title) + '</h3><div class="tour-sub">' + esc(tour.subtitle||"") + '</div>' +
@@ -385,7 +385,7 @@
     var box = document.getElementById("request-list");
     if (!list.length){ box.innerHTML = '<p class="sub">Noch keine Anfragen.</p>'; return; }
     box.innerHTML = list.map(function(r){
-      return '<div class="item"><div class="req-top"><b>' + esc([r.saison, r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
+      return '<div class="item"><div class="req-top"><b>' + (r.name ? esc(r.name) + ': ' : '') + esc([r.saison, r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
         '<div class="note">' + esc([r.tage + " Tage", r.fahrradtyp, r.anspruch, r.etappenlaengeVon + "–" + r.etappenlaengeBis + " km/Tag", r.streckenform, r.createdAt].filter(Boolean).join(" · ")) + '</div>' +
         (r.stil ? '<div class="note">„' + esc(r.stil) + '“</div>' : '') + '</div>';
     }).join("");
