@@ -7,6 +7,13 @@
     "notiz": "Geprüfte deutsche Radfernwege (ADFC-Qualitätsradrouten)"
   },
   {
+    "name": "Bicitalia (FIAB)",
+    "url": "https://bicitalia.it/focus/bicitalia/",
+    "region": "Italien",
+    "art": "Nationales Radnetz (Projekt des Radfahrerverbands FIAB)",
+    "notiz": "20 Routen, rund 18.000 km durch alle Regionen Italiens"
+  },
+  {
     "name": "Bikepacking Europe",
     "url": "https://www.bikepackingeurope.cc/",
     "region": "Europa (u. a. Baden-Württemberg, Frankreich, Niederlande, Dolomiten)",
@@ -33,6 +40,13 @@
     "region": "Europa (17 Fernradwege)",
     "art": "Offizielles Fernradwegenetz",
     "notiz": "Offizielle EuroVelo-Routen, gemischter Belag"
+  },
+  {
+    "name": "France Vélo Tourisme",
+    "url": "https://www.francevelotourisme.com/",
+    "region": "Frankreich",
+    "art": "Offizieller nationaler Radtourismus-Führer",
+    "notiz": "Über 30.000 km beschilderte Véloroutes und Voies vertes mit Etappen und Routenplaner; GPX nicht bei jeder Route direkt"
   },
   {
     "name": "GravelDeluxe",
@@ -63,6 +77,20 @@
     "notiz": "Kein API-Zugriff, aber manuell nach beliebten Touren durchsuchbar"
   },
   {
+    "name": "Nederland Fietsland (LF-Routes)",
+    "url": "https://www.nederlandfietsland.nl/lf-routes/",
+    "region": "Niederlande",
+    "art": "Offizielle nationale LF-Routen",
+    "notiz": "Haupt-LF-Routen, klassische LF-Routen und Wochenendtouren; GPX kostenlos"
+  },
+  {
+    "name": "Radnetz Deutschland (D-Routen)",
+    "url": "https://www.radnetz-deutschland.de/",
+    "region": "Deutschland",
+    "art": "Offizielles nationales Radnetz (Bundesamt für Logistik und Mobilität)",
+    "notiz": "14 D-Routen inkl. Radweg Deutsche Einheit und Iron Curtain Trail; GPX kostenlos pro Route"
+  },
+  {
     "name": "Radreise-Wiki",
     "url": "https://www.radreise-wiki.de/Radfernweg",
     "region": "Deutschland / Europa",
@@ -70,11 +98,25 @@
     "notiz": "Nutzergepflegte Übersicht aller Radfernwege"
   },
   {
+    "name": "Radtouren in Österreich",
+    "url": "https://www.radtouren.at/",
+    "region": "Österreich",
+    "art": "Radfernwege-Portal der österreichischen Tourismusorganisationen",
+    "notiz": "Rund 18 große Radfernwege (z. B. Donauradweg, Alpe-Adria) mit interaktiver Karte und Höhenprofilen"
+  },
+  {
     "name": "Ride with GPS – Gravel Routes",
     "url": "https://ridewithgps.com/groups/Gravel-routes",
     "region": "International",
     "art": "Community + Routenplaner",
     "notiz": "Nutzergruppe mit Gravel-Routen, GPX-Export"
+  },
+  {
+    "name": "Veloland Schweiz (SchweizMobil)",
+    "url": "https://www.schweizmobil.ch/de/veloland/nationale-routen",
+    "region": "Schweiz",
+    "art": "Offizielles Netz der Velorouten",
+    "notiz": "Nationale, regionale und lokale Velorouten, sehr gut beschildert; GPX-Export laut Hilfeseite möglich, Bedingungen nicht geprüft"
   },
   {
     "name": "VeloPlanner",
