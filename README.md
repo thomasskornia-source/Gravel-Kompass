@@ -7,4 +7,4 @@ Persönliches Planungstool für mehrtägige Gravel-Touren, gemeinsam mit Claude 
 - `data/sources.json` – Quellen-Datenbank für die Recherche
 - `data/requests.json` – bisherige Tour-Anfragen
 
-Neue Anfragen: Formular auf der Seite ausfüllen, „Anfrage kopieren“ und in den Chat mit Claude einfügen.
+Neue Anfragen und Quellen-Vorschläge: Formular ausfüllen, „senden“ öffnet das Teilen-Menü (WhatsApp, iMessage, Mail). Thomas leitet die Nachricht an Claude weiter.

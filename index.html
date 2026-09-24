@@ -130,8 +130,9 @@
 
   <section id="anfrage" class="section card">
     <h2>Neue Tour-Anfrage</h2>
-    <p class="sub">Formular ausfüllen, auf „Anfrage kopieren“ tippen und den Text in den Chat mit Claude einfügen. Du kannst auch einfach frei beschreiben oder diktieren, was du willst.</p>
+    <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen – es öffnet sich das Teilen-Menü deines Handys (WhatsApp, iMessage, Mail …). Schick die Anfrage an Thomas, er gibt sie an Claude weiter.</p>
     <form id="request-form">
+      <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="damit Thomas weiß, von wem die Anfrage ist"></div>
       <div class="row">
         <div class="field"><label for="f-saison">Saison</label>
           <select id="f-saison"><option>Frühling</option><option>Sommer</option><option>Herbst</option></select></div>
@@ -171,7 +172,7 @@
       </div>
       <div class="field"><label for="f-stil">Stil &amp; Vorlieben (optional)</label>
         <textarea id="f-stil" placeholder="z. B. lieber bekannte Fernradwege, Geheimtipps, Sehenswürdigkeiten, gute Einkehr … oder leer lassen"></textarea></div>
-      <div class="actions"><button type="submit" class="btn">Anfrage kopieren</button></div>
+      <div class="actions"><button type="submit" class="btn">Anfrage senden</button><button type="button" class="btn ghost" id="req-copy">Text kopieren</button></div>
       <div id="copy-result" class="hint" hidden></div>
     </form>
   </section>
@@ -183,8 +184,21 @@
 
   <section id="quellen" class="section">
     <h2>Quellen-Datenbank</h2>
-    <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Neue Quellen einfach im Chat nennen.</p>
+    <p class="sub">Websites, die Claude für die Tourenrecherche nutzt. Du kennst eine gute Seite? Unten vorschlagen – der Vorschlag geht per Messenger an Thomas.</p>
     <div id="source-list" class="list"></div>
+    <div class="card" style="margin-top:16px">
+      <h3 style="font-size:18px;margin-bottom:10px">Quelle vorschlagen</h3>
+      <form id="source-form">
+        <div class="row">
+          <div class="field"><label for="s-name">Name der Website</label><input id="s-name" required></div>
+          <div class="field"><label for="s-url">Link</label><input id="s-url" type="url" placeholder="https://" required></div>
+        </div>
+        <div class="field"><label for="s-notiz">Warum ist sie gut? (optional)</label><input id="s-notiz" placeholder="z. B. tolle Gravel-Routen in den Vogesen mit GPX"></div>
+        <div class="field"><label for="s-von">Dein Name</label><input id="s-von" autocomplete="given-name"></div>
+        <div class="actions"><button type="submit" class="btn">Vorschlag senden</button></div>
+        <div id="source-result" class="hint" hidden></div>
+      </form>
+    </div>
   </section>
 
   <footer class="foot">Gravel Kompass · Karten © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende · Routing: BRouter / FOSSGIS OSRM</footer>
@@ -385,13 +399,42 @@
     }).join("");
   }
 
-  // Request form -> text for the Claude chat
-  document.getElementById("request-form").addEventListener("submit", function(ev){
-    ev.preventDefault();
+  // Share helpers: native share sheet (WhatsApp, iMessage, Mail …), fallback links + copy
+  function showFallback(out, title, text, intro){
+    var enc = encodeURIComponent(text);
+    out.hidden = false;
+    out.innerHTML = (intro || "Senden über:") +
+      ' <a href="https://wa.me/?text=' + enc + '" target="_blank" rel="noopener">WhatsApp</a> · ' +
+      '<a href="sms:&body=' + enc + '">iMessage / SMS</a> · ' +
+      '<a href="mailto:?subject=' + encodeURIComponent(title) + '&body=' + enc + '">E-Mail</a>' +
+      '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>';
+  }
+  async function shareText(title, text, out){
+    if (navigator.share){
+      try{
+        await navigator.share({title: title, text: text});
+        out.hidden = false; out.innerHTML = "<b>Geteilt.</b> Danke – Thomas gibt es an Claude weiter.";
+        return;
+      }catch(e){
+        if (e && e.name === "AbortError") return; // user closed the share sheet
+      }
+    }
+    showFallback(out, title, text);
+  }
+  function copyText(text, out){
+    function ok(){ out.hidden = false; out.innerHTML = "<b>Kopiert.</b>" + '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>'; }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(ok, function(){ showFallback(out, "Gravel Kompass", text, "Kopieren nicht möglich – Text markieren oder senden über:"); });
+    } else { showFallback(out, "Gravel Kompass", text, "Kopieren nicht möglich – Text markieren oder senden über:"); }
+  }
+
+  // Request form -> message text
+  function requestText(){
     var ober = Array.from(document.querySelectorAll('input[name=ober]:checked')).map(function(i){ return i.value; });
     var form = document.querySelector('input[name=form]:checked');
     var region = document.getElementById("f-region").value.trim();
-    var text = "Gravel Kompass – neue Tour-Anfrage\n" +
+    var name = document.getElementById("f-name").value.trim();
+    return "Gravel Kompass – neue Tour-Anfrage" + (name ? " von " + name : "") + "\n" +
       "Saison: " + document.getElementById("f-saison").value + "\n" +
       "Tage: " + document.getElementById("f-tage").value + "\n" +
       "Land: " + document.getElementById("f-land").value + "\n" +
@@ -403,14 +446,24 @@
       "An-/Abreise: " + document.getElementById("f-anreise").value + "\n" +
       "Streckenform: " + (form ? form.value : "Rundtour") + "\n" +
       "Stil & Vorlieben: " + (document.getElementById("f-stil").value.trim() || "überrasch mich");
-    var out = document.getElementById("copy-result");
-    out.hidden = false;
-    function show(ok){
-      out.innerHTML = (ok ? "<b>Kopiert.</b> Jetzt in den Chat mit Claude einfügen." : "<b>Kopieren nicht möglich</b> – Text markieren und manuell kopieren:") + '<div class="copybox" style="margin-top:8px">' + esc(text) + '</div>';
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(function(){ show(true); }, function(){ show(false); });
-    } else { show(false); }
+  }
+  document.getElementById("request-form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    shareText("Gravel Kompass – Tour-Anfrage", requestText(), document.getElementById("copy-result"));
+  });
+  document.getElementById("req-copy").addEventListener("click", function(){
+    copyText(requestText(), document.getElementById("copy-result"));
+  });
+
+  // Source suggestion -> message text
+  document.getElementById("source-form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var von = document.getElementById("s-von").value.trim();
+    var text = "Gravel Kompass – Quellen-Vorschlag" + (von ? " von " + von : "") + "\n" +
+      "Name: " + document.getElementById("s-name").value.trim() + "\n" +
+      "Link: " + document.getElementById("s-url").value.trim() + "\n" +
+      "Warum: " + (document.getElementById("s-notiz").value.trim() || "–");
+    shareText("Gravel Kompass – Quellen-Vorschlag", text, document.getElementById("source-result"));
   });
 
   Promise.all([
