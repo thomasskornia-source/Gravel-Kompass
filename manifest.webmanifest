@@ -1,0 +1,14 @@
+{
+  "name": "Gravel Kompass",
+  "short_name": "Gravel Kompass",
+  "description": "Mehrtägige Gravel-Touren – Karte, Etappen und GPX für Komoot.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#F1F4EC",
+  "theme_color": "#46613C",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
