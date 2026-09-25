@@ -1,0 +1,105 @@
+{
+  "id": "eichstaett-kipfenberg-1-tag",
+  "title": "Eichstätt–Kipfenberg: Altmühltal-Runde mit Burgblick und Biergarten",
+  "subtitle": "Trekking-Tagestour, ca. 52 km, auf dem Altmühltalradweg nach Kipfenberg und über die Jurahöhen zurück nach Eichstätt",
+  "createdAt": "2026-09-25",
+  "requestId": "altmuehltal-2026-09",
+  "land": "Deutschland",
+  "region": "Altmühltal (Landkreis Eichstätt)",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Trekking",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start am Residenzplatz in Eichstätt, der Altmühl flussabwärts folgend auf dem gut ausgebauten Altmühltalradweg. Vorbei am Römerkastell Pfünz geht es über Walting, Pfalzpaint, Gungolding und Böhming durchs weite Flusstal bis nach Kipfenberg, wo die Burgruine hoch über dem Marktplatz thront. Einkehr etwa zur Tourmitte im Biergarten des „Der Postwirt“ direkt am Marktplatz – unter alten Kastanien, mit Blick auf die Burg. Zurück geht es nicht auf dem gleichen Weg: Die Route steigt über Arnsberg (mit weiterer Burgruine und Blick auf die Altmühlschleife) auf die Jurahöhen und führt über Wegscheid und Landershofen auf ruhigen Nebenstraßen sowie Feld- und Waldwegen zurück nach Eichstätt. Rund 52 km mit etwa 380 Höhenmetern, die vor allem auf dem Rückweg über die Hochfläche anfallen.",
+  "quellen": [
+    {
+      "name": "Altmühltalradweg – Wikipedia",
+      "url": "https://de.wikipedia.org/wiki/Altm%C3%BChltalradweg"
+    },
+    {
+      "name": "Altmühltal-Radweg – Stadt Eichstätt",
+      "url": "https://www.eichstaett.de/wege/altmuehltal-radweg-166/"
+    },
+    {
+      "name": "Burg Arnsberg (Altmühltal) – Wikipedia",
+      "url": "https://de.wikipedia.org/wiki/Burg_Arnsberg_(Altm%C3%BChltal)"
+    },
+    {
+      "name": "Der Postwirt Kipfenberg – Biergarten",
+      "url": "https://www.derpostwirt.de/biergarten"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Eichstätt",
+      "nach": "Eichstätt",
+      "hmPlan": 380,
+      "text": "Eichstätt – Pfünz (Römerkastell) – Walting – Pfalzpaint – Gungolding – Böhming – Kipfenberg (Einkehr Biergarten „Der Postwirt“) – Arnsberg (Burgruine) – Wegscheid – Landershofen – Eichstätt.",
+      "wegpunkte": [
+        [
+          48.8951,
+          11.1866,
+          "Eichstätt (Residenzplatz)"
+        ],
+        [
+          48.9039,
+          11.2378,
+          "Pfünz (Römerkastell)"
+        ],
+        [
+          48.9167,
+          11.2667,
+          "Walting"
+        ],
+        [
+          48.9219,
+          11.2917,
+          "Pfalzpaint"
+        ],
+        [
+          48.9331,
+          11.3114,
+          "Gungolding"
+        ],
+        [
+          48.9299,
+          11.3278,
+          "Böhming"
+        ],
+        [
+          48.9331,
+          11.3331,
+          "Kipfenberg (Marktplatz, Einkehr Der Postwirt)"
+        ],
+        [
+          48.9167,
+          11.2833,
+          "Arnsberg (Burgruine)"
+        ],
+        [
+          48.9019,
+          11.2419,
+          "Wegscheid"
+        ],
+        [
+          48.8886,
+          11.2119,
+          "Landershofen"
+        ],
+        [
+          48.8951,
+          11.1866,
+          "Eichstätt (Residenzplatz)"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

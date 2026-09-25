@@ -1,5 +1,30 @@
 [
   {
+    "id": "altmuehltal-2026-09",
+    "createdAt": "2026-09-25",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Altmühltal",
+    "fahrradtyp": "Trekking",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 50,
+    "etappenlaengeBis": 60,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Schau mal am Altmühltalradweg, vielleicht kann der mit eingebunden werden. Gerne mit Einkehr und Biergarten in der Mitte der Tour.",
+    "tourIds": [
+      "eichstaett-kipfenberg-1-tag"
+    ]
+  },
+  {
     "id": "pfaffenhofen-2026-09",
     "createdAt": "2026-09-25",
     "status": "fertig",
