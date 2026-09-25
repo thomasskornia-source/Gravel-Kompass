@@ -14,6 +14,13 @@
     "notiz": "20 Routen, rund 18.000 km durch alle Regionen Italiens"
   },
   {
+    "name": "Bikepackers",
+    "url": "https://www.bikepackers.de/",
+    "region": "Deutschland",
+    "art": "Routen-Blog (DE)",
+    "notiz": "Aktiv gepflegter Bikepacking-/Gravel-Blog (Sara Hallbauer) mit Tourenberichten, Ausrüstungstests und Packlisten; GPX zu einzelnen Touren teils kostenpflichtig oder über Komoot"
+  },
+  {
     "name": "Bikepacking Europe",
     "url": "https://www.bikepackingeurope.cc/",
     "region": "Europa (u. a. Baden-Württemberg, Frankreich, Niederlande, Dolomiten)",
