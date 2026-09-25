@@ -1,5 +1,55 @@
 [
   {
+    "id": "eichenau-rosenheim-2026-09-a",
+    "createdAt": "2026-09-25",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Bayern",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Mittelfeiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 120,
+    "anspruch": "Moderat",
+    "streckenform": "Einweg (A → B)",
+    "stil": "Von Eichenau nach Rosenheim (Dublette der Anfrage vom selben Tag - mit gleicher Tour beantwortet)",
+    "tourIds": [
+      "eichenau-rosenheim-1-tag"
+    ]
+  },
+  {
+    "id": "eichenau-rosenheim-2026-09-b",
+    "createdAt": "2026-09-25",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Bayern",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 120,
+    "anspruch": "Moderat",
+    "streckenform": "Einweg (A → B)",
+    "stil": "Von Eichenau nach Rosenheim",
+    "tourIds": [
+      "eichenau-rosenheim-1-tag"
+    ]
+  },
+  {
     "id": "eichenau-salzburg-2026-09",
     "createdAt": "2026-09-25",
     "status": "fertig",
