@@ -135,6 +135,9 @@
   .tile:hover{border-color:var(--moss);transform:translateY(-2px);}
   @media (prefers-reduced-motion: reduce){ .tile{transition:none;} .tile:hover{transform:none;} }
   .tile-map{position:relative;}
+  .new-badge{position:absolute;top:8px;right:8px;padding:3px 9px;border-radius:99px;background:var(--blaze);color:#fff;font-size:11.5px;font-weight:600;}
+  .push-box{margin-bottom:16px;display:flex;flex-direction:column;gap:10px;}
+  .push-box textarea{width:100%;min-height:90px;font-family:'IBM Plex Mono',monospace;font-size:11px;}
   .tile-map > svg{display:block;width:100%;height:auto;background:var(--surface-2);}
   /* Bike-type badge: small, semi-transparent, colour only on icon + label */
   .bike-badge{position:absolute;top:8px;left:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 6px;border-radius:99px;
@@ -170,6 +173,7 @@
   <p class="lede" data-panel="touren">Hier findest Du Tourplanungen, die Claude auf Basis von Nutzeranfragen automatisch erstellt. Claude nutzt dafür verschiedene Quellen. Die Quellen können ergänzt, korrigiert und erweitert werden. Nach Anfrage einer Tourplanung dauert es ein wenig, dann wird die Tour mit Beschreibung, Quellenangaben und GPX-Datei hier unter Touren angezeigt.</p>
 
   <section id="touren" class="section" data-panel="touren">
+    <div id="push-box" class="card push-box" hidden></div>
     <h2>Touren</h2>
     <div class="filters">
       <input id="q" type="search" placeholder="Suchen: Ort, Region, Name …" aria-label="Touren durchsuchen">
@@ -254,7 +258,7 @@
     </div>
   </section>
 
-  <footer class="foot">Gravel Kompass · Karten © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende · Routing: BRouter / FOSSGIS OSRM</footer>
+  <footer class="foot">Gravel Kompass · Karten © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende · Routing: BRouter / FOSSGIS OSRM<span id="push-link" hidden> · <button type="button" class="linkish" data-push-open>Mitteilungen</button></span></footer>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -645,6 +649,18 @@
     var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp].concat(t.orte || []);
     return parts.filter(Boolean).join(" ").toLowerCase();
   }
+  // "Neu"/"Geändert" on tiles: compares the index "stand" with what this device has already opened
+  function loadSeen(){ try{ return JSON.parse(localStorage.getItem("gk-seen") || "null"); }catch(e){ return null; } }
+  function saveSeen(v){ try{ localStorage.setItem("gk-seen", JSON.stringify(v)); }catch(e){} }
+  var SEEN = null;
+  function newMark(t){
+    if (!SEEN || !t.stand || SEEN[t.id] === t.stand) return "";
+    return SEEN[t.id] ? "Geändert" : "Neu";
+  }
+  function markSeen(t){
+    if (!SEEN || !t.stand || SEEN[t.id] === t.stand) return;
+    SEEN[t.id] = t.stand; saveSeen(SEEN);
+  }
   function renderOverview(){
     var grid = document.getElementById("tour-grid");
     if (!TOURS) return;
@@ -658,7 +674,9 @@
       var km = tourKm(t);
       var tags = [tageLabel(t.tage), km ? km + " km" : "", t.anspruch, t.streckenform, t.fuer ? "für " + t.fuer : ""].filter(Boolean);
       var bk = bikeKind(t.fahrradtyp);
+      var mark = newMark(t);
       return '<a class="tile" href="#tour/' + encodeURIComponent(t.id) + '"><div class="tile-map">' + miniSvg(t) +
+        (mark ? '<span class="new-badge">' + mark + '</span>' : '') +
         '<span class="bike-badge bike-' + bk.cls + '">' + bikeIcon(bk.cls) + bk.label + '</span></div>' +
         '<div class="tile-body"><h3>' + esc(t.title) + '</h3><div class="tour-sub">' + esc(t.region || t.land) + '</div>' +
         '<div class="tags">' + tags.map(function(x){ return '<span class="tag">' + esc(x) + '</span>'; }).join("") + '</div></div></a>';
@@ -689,6 +707,7 @@
       OPEN_TOUR = tourId;
       if (!entry){ box.innerHTML = '<p class="empty">Diese Tour gibt es nicht (mehr).</p>'; return; }
       document.title = entry.title + " – Gravel Kompass";
+      markSeen(entry);
       box.innerHTML = '<p class="empty">Tour wird geladen …</p>';
       loadTour(tourId).then(function(tour){
         if (OPEN_TOUR !== tourId) return; // another tour was opened meanwhile
@@ -708,6 +727,71 @@
     }
     return TOUR_FILES[id];
   }
+  // ---------- Push notifications + badge on the home-screen icon ----------
+  // Public VAPID key; the private key only lives in the GitHub secret VAPID_PRIVATE_KEY
+  var VAPID_PUBLIC = "BFMgiDxvOr-9Ti39Z3UD7T3D2L5xq4qsTCJVNuWhDL8xBhspeywhwyYdWv6Dgx7fd-JvOjOzn2WpzusALIV5zsc";
+  var SW_REG = null;
+  function clearBadge(){
+    if (navigator.clearAppBadge) navigator.clearAppBadge().catch(function(){});
+    if (window.caches) caches.open("gk-badge").then(function(c){ return c.put("count", new Response("0")); }).catch(function(){});
+  }
+  function keyBytes(b64){
+    var s = atob((b64 + "===".slice((b64.length + 3) % 4)).replace(/-/g, "+").replace(/_/g, "/"));
+    return Uint8Array.from(s, function(c){ return c.charCodeAt(0); });
+  }
+  function pushBox(html){
+    var box = document.getElementById("push-box");
+    box.innerHTML = html; box.hidden = !html;
+    var close = box.querySelector("[data-push-close]");
+    if (close) close.addEventListener("click", function(){ box.hidden = true; try{ localStorage.setItem("gk-push-dismissed", "1"); }catch(e){} });
+    return box;
+  }
+  function showSubscription(sub){
+    var code = JSON.stringify(sub);
+    var box = pushBox('<b>Mitteilungen sind an ✓</b>' +
+      '<div class="sub">Damit GitHub bei jeder Änderung eine Mitteilung schicken kann, diesen Code einmal in GitHub unter ' +
+      'Settings → Secrets and variables → Actions als Secret <code>PUSH_SUBSCRIPTIONS</code> eintragen (oder Claude schicken).</div>' +
+      '<textarea readonly>' + esc(code) + '</textarea>' +
+      '<div><button type="button" class="btn" data-push-copy>Code kopieren</button> <button type="button" class="linkish" data-push-close>Schließen</button></div>');
+    box.querySelector("[data-push-copy]").addEventListener("click", function(ev){
+      navigator.clipboard.writeText(code).then(function(){ ev.target.textContent = "Kopiert"; }, function(){ box.querySelector("textarea").select(); });
+    });
+  }
+  function offerPush(){
+    var box = pushBox('<b>🔔 Mitteilungen bei neuen und geänderten Touren</b>' +
+      '<div class="sub">Dann gibt es eine Mitteilung und eine rote Zahl am App-Symbol, sobald sich etwas ändert.</div>' +
+      '<div><button type="button" class="btn" data-push-on>Mitteilungen aktivieren</button> <button type="button" class="linkish" data-push-close>Nicht jetzt</button></div>');
+    box.querySelector("[data-push-on]").addEventListener("click", function(){
+      Notification.requestPermission().then(function(p){
+        if (p !== "granted") throw new Error("Mitteilungen wurden nicht erlaubt.");
+        return SW_REG.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: keyBytes(VAPID_PUBLIC)});
+      }).then(showSubscription).catch(function(err){
+        pushBox('<b>Mitteilungen</b><div class="sub">' + esc(err.message || err) + ' In den iPhone-Einstellungen unter Mitteilungen → Gravel Kompass lässt sich das ändern.</div>' +
+          '<div><button type="button" class="linkish" data-push-close>Schließen</button></div>');
+      });
+    });
+  }
+  function openPush(){
+    if (!SW_REG) return;
+    SW_REG.pushManager.getSubscription().then(function(sub){ if (sub) showSubscription(sub); else offerPush(); });
+    if (location.hash !== "#touren") location.hash = "#touren";
+    setTimeout(function(){ document.getElementById("push-box").scrollIntoView({block: "center"}); }, 50);
+  }
+  clearBadge();
+  document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "visible") clearBadge(); });
+  if ("serviceWorker" in navigator){
+    navigator.serviceWorker.register("sw.js").then(function(reg){
+      SW_REG = reg;
+      if (!("PushManager" in window) || !("Notification" in window)) return; // iPhone: only in the home-screen app
+      document.getElementById("push-link").hidden = false;
+      document.querySelector("[data-push-open]").addEventListener("click", openPush);
+      return reg.pushManager.getSubscription().then(function(sub){
+        var dismissed = false; try{ dismissed = localStorage.getItem("gk-push-dismissed") === "1"; }catch(e){}
+        var standalone = navigator.standalone || matchMedia("(display-mode: standalone)").matches;
+        if (!sub && standalone && !dismissed && Notification.permission !== "denied") offerPush();
+      });
+    }).catch(function(){});
+  }
   window.addEventListener("hashchange", route);
   // Brand link: reload the page on the tour overview so new tours show up
   document.getElementById("brand-link").addEventListener("click", function(ev){
@@ -723,6 +807,10 @@
     fetch("data/sources.json", {cache: "no-cache"}).then(function(r){ return r.json(); })
   ]).then(function(res){
     TOURS = res[0].slice().sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); });
+    SEEN = loadSeen();
+    if (!SEEN){ // first visit on this device: nothing is "new" yet
+      SEEN = {}; TOURS.forEach(function(t){ if (t.stand) SEEN[t.id] = t.stand; }); saveSeen(SEEN);
+    }
     var lands = Array.from(new Set(TOURS.map(landOf))).filter(Boolean).sort();
     document.getElementById("land-filter").innerHTML = '<option value="">Alle Länder</option>' + lands.map(function(l){ return '<option>' + esc(l) + '</option>'; }).join("");
     renderRequests(res[1]);

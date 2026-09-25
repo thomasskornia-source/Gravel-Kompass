@@ -27,7 +27,8 @@
 - Jede Tour liegt in `data/tours/<id>.json` (vollständig: Kopfdaten, `beschreibung`, `quellen`, `etappen`, `aenderungen`).
 - `data/tours-index.json` enthält pro Tour nur die Kopfdaten (`id`, `title`, `subtitle`, `createdAt`, `land`, `region`,
   `saison`, `tage`, `fahrradtyp`, `anspruch`, `streckenform`, `oberflaeche`, ggf. `profil`) plus `orte` (für die Suche)
-  und `skizze` (Wegpunkt-Koordinaten je Etappe für die Kachel-Karte), neueste zuerst.
+  und `skizze` (Wegpunkt-Koordinaten je Etappe für die Kachel-Karte) und `stand` (Prüfsumme der Tour-Datei, steuert
+  „Neu“/„Geändert“ auf den Kacheln), neueste zuerst.
 - Nach jeder Änderung an einer Tour (neue Tour, geänderte Kopfdaten oder Wegpunkte) den Index neu bauen:
   `python3 tools/tours-index.py`. Die Tourenseite selbst liest immer die einzelne Datei.
 
@@ -40,5 +41,9 @@
 - Änderungen direkt auf `main` committen und pushen (Repo `thomasskornia-source/Gravel-Kompass`); die Cloud-Sitzung
   kann das selbst, der Umweg über Thomas' Mac ist nicht mehr nötig.
 - Vorher `python3 tools/tours-index.py` laufen lassen, falls Touren geändert wurden.
+- Jeder Push auf `main` schickt automatisch eine Push-Mitteilung (GitHub Action „Mitteilung bei Änderung“). Die erste
+  Zeile der Commit-Nachricht ist der Mitteilungstext – daher kurz und verständlich auf Deutsch formulieren. Ändert ein Push
+  genau eine Tour, lautet der Titel „🚴 Neue Tour: …“ bzw. „✏️ Tour geändert: …“ und die Mitteilung öffnet die Tour.
+  Neues Gerät: in der App „Mitteilungen“ (Fußzeile) → Code ins Secret `PUSH_SUBSCRIPTIONS` (eine Zeile je Gerät).
 - GitHub Pages ist nach 1–2 Minuten aktuell; danach Thomas kurz auf Deutsch berichten, was online ist
   (mit Link `https://thomasskornia-source.github.io/Gravel-Kompass/#tour/<id>`).

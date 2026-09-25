@@ -1,0 +1,30 @@
+name: Mitteilung bei Änderung
+
+# Schickt bei jedem Push auf main eine Push-Mitteilung an die eingetragenen Geräte
+# (Secrets: VAPID_PRIVATE_KEY, PUSH_SUBSCRIPTIONS). Manuell startbar für eine Test-Mitteilung.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  mitteilung:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save --no-package-lock web-push@3
+      - name: Warten, bis GitHub Pages aktualisiert ist
+        if: github.event_name == 'push'
+        run: sleep 90
+      - run: node tools/push-mitteilung.js
+        env:
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          PUSH_SUBSCRIPTIONS: ${{ secrets.PUSH_SUBSCRIPTIONS }}
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}

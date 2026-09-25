@@ -4,7 +4,7 @@
   "description": "Mehrtägige Gravel-Touren – Karte, Etappen und GPX für Komoot.",
   "start_url": "./",
   "scope": "./",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#F1F4EC",
   "theme_color": "#46613C",
   "icons": [

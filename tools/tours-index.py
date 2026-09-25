@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Baut data/tours-index.json aus allen data/tours/<id>.json neu (neueste Tour zuerst)."""
-import json, pathlib
+import hashlib, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FIELDS = ["id", "title", "subtitle", "createdAt", "land", "region", "saison", "tage",
@@ -8,7 +8,8 @@ FIELDS = ["id", "title", "subtitle", "createdAt", "land", "region", "saison", "t
 
 entries = []
 for f in sorted((ROOT / "data" / "tours").glob("*.json")):
-    t = json.loads(f.read_text(encoding="utf-8"))
+    raw = f.read_bytes()
+    t = json.loads(raw)
     assert t["id"] == f.stem, f"{f.name}: id passt nicht zum Dateinamen"
     e = {k: t[k] for k in FIELDS if k in t}
     # Orte für die Suche, Wegpunkt-Koordinaten für Kachel-Skizze und Routen-Cache
@@ -19,6 +20,8 @@ for f in sorted((ROOT / "data" / "tours").glob("*.json")):
                 orte.append(n)
     e["orte"] = orte
     e["skizze"] = [[[w[0], w[1]] for w in st["wegpunkte"]] for st in t["etappen"]]
+    # Stand der Datei: ändert sich bei jeder Änderung an der Tour (für „Neu“/„Geändert“ auf den Kacheln)
+    e["stand"] = hashlib.sha1(raw).hexdigest()[:10]
     entries.append(e)
 
 entries.sort(key=lambda e: (str(e.get("createdAt", "")), e["id"]), reverse=True)
