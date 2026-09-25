@@ -3,9 +3,12 @@
 ## Eingang
 - Website-Formulare (Anfrage, Kommentar, Quellen-Vorschlag) schreiben per POST in ein Google-Formular.
 - Antworten landen in der Google-Tabelle **„Gravel Kompass Eingang“** (Google Drive von Thomas).
-- Spalten: `Zeitstempel | Typ | Name | Tour | Nachricht`
+- Spalten: `Zeitstempel | Typ | Name | Tour | Nachricht | Freigabe`
   - Typ = `Anfrage`, `Kommentar` oder `Quelle` (Zeilen mit Typ `Test` ignorieren)
   - Tour = Tour-ID bei Kommentaren
+- **Sperre gegen Spam:** Die Formulare verlangen einen Zugangscode (Thomas gibt ihn weiter). Das Apps Script prüft ihn
+  gegen die Skripteigenschaft `ZUGANGSCODE`, entfernt ihn aus der Nachricht und schreibt in `Freigabe` entweder `ok`
+  oder `gesperrt: …`. Nur bei `ok` wird die Routine gestartet (höchstens 20 Läufe pro Tag).
 - Bereits erledigte Zeilen stehen (Zeitstempel) in `data/eingang-erledigt.json`.
 
 ## Auslöser
@@ -16,6 +19,8 @@
 
 ## Abarbeiten
 1. Tabelle lesen, alle Zeilen, deren Zeitstempel nicht in `data/eingang-erledigt.json` steht, sind offen.
+   **Nur Zeilen mit `Freigabe` = `ok` bearbeiten.** Gesperrte oder leere Freigabe: nicht bearbeiten, nicht als erledigt
+   eintragen, im Bericht nur die Anzahl nennen (Thomas kann eine Zeile freigeben, indem er `ok` einträgt).
 2. Pro Eintrag:
    - **Anfrage** → recherchieren (Quellen aus `data/sources.json`), Tour als neue Datei `data/tours/<id>.json` anlegen (Dateiname = `id`), Index-Eintrag in `data/tours-index.json` ergänzen, Eintrag in `data/requests.json` (Name der anfragenden Person im Feld `name`, falls angegeben).
    - **Kommentar** → kleine Änderung direkt in `data/tours/<id>.json` umsetzen und unter `aenderungen` der Tour dokumentieren (Datum, `von` = Name falls angegeben, Kommentar, Antwort); große Umbauten oder Fragen erst mit Thomas klären.

@@ -9,6 +9,8 @@
  * Einrichten (einmalig):
  *  1. Projekteinstellungen (Zahnrad) → Skripteigenschaften → Eigenschaft ROUTINE_TOKEN
  *     mit dem Schlüssel des API-Auslösers anlegen. Der Schlüssel steht NICHT im Code.
+ *     Außerdem Eigenschaft ZUGANGSCODE mit dem Code anlegen, den Thomas an Freunde weitergibt
+ *     (Sperre gegen Spam; ohne diese Eigenschaft wird jeder Eintrag gesperrt).
  *  2. Oben die Funktion `einrichten` auswählen → Ausführen → Berechtigungen erlauben.
  *  3. Zum Prüfen `testAusloesen` ausführen – in claude.ai/code muss ein neuer Lauf erscheinen.
  */
@@ -29,13 +31,70 @@ function einrichten() {
   Logger.log('Auslöser eingerichtet.');
 }
 
+// Sperre gegen Spam: höchstens so viele Routine-Läufe pro Tag
+var MAX_LAEUFE_PRO_TAG = 20;
+
 /** Wird bei jeder neuen Formular-Antwort aufgerufen. */
 function beiNeuerAntwort(e) {
   var werte = (e && e.namedValues) || {};
   var typ = String((werte['Typ'] || [''])[0]).trim();
   var zeit = String((werte['Zeitstempel'] || [''])[0]).trim();
   if (typ === 'Test') return; // Testeinträge lösen keinen Lauf aus
+
+  // Zugangscode prüfen, aus der Nachricht entfernen und Ergebnis in Spalte „Freigabe“ vermerken
+  var freigabe = zugangPruefen(e);
+  if (freigabe !== 'ok') {
+    Logger.log('Eintrag vom ' + zeit + ' gesperrt: ' + freigabe);
+    return;
+  }
+  if (!tageslimitOk()) {
+    Logger.log('Tageslimit erreicht – Eintrag vom ' + zeit + ' wird beim nächsten Lauf erledigt.');
+    return;
+  }
   routineStarten('Neuer Eintrag im Eingang: ' + (typ || 'unbekannt') + ' vom ' + zeit + '.');
+}
+
+/** Liefert 'ok' oder den Sperrgrund und schreibt ihn in die Spalte „Freigabe“ der Zeile. */
+function zugangPruefen(e) {
+  var blatt = e.range.getSheet();
+  var zeile = e.range.getRow();
+  var kopf = blatt.getRange(1, 1, 1, blatt.getLastColumn()).getValues()[0].map(String);
+  var spNachricht = kopf.indexOf('Nachricht') + 1;
+  var spFreigabe = kopf.indexOf('Freigabe') + 1;
+  if (!spFreigabe) {
+    spFreigabe = kopf.length + 1;
+    blatt.getRange(1, spFreigabe).setValue('Freigabe');
+  }
+
+  var nachricht = spNachricht ? String(blatt.getRange(zeile, spNachricht).getValue()) : '';
+  var treffer = nachricht.match(/\s*Zugangscode:[ \t]*(.*)\s*$/);
+  var eingegeben = treffer ? treffer[1].trim() : '';
+  if (treffer && spNachricht) {
+    // Code nicht in der Tabelle stehen lassen (die Routine und das Repo sollen ihn nie sehen)
+    blatt.getRange(zeile, spNachricht).setValue(nachricht.slice(0, treffer.index));
+  }
+
+  var erwartet = String(PropertiesService.getScriptProperties().getProperty('ZUGANGSCODE') || '').trim();
+  var ergebnis;
+  if (!erwartet) ergebnis = 'gesperrt: ZUGANGSCODE nicht eingerichtet';
+  else if (!eingegeben) ergebnis = 'gesperrt: kein Zugangscode';
+  else if (eingegeben.toLowerCase() !== erwartet.toLowerCase()) ergebnis = 'gesperrt: falscher Zugangscode';
+  else ergebnis = 'ok';
+  blatt.getRange(zeile, spFreigabe).setValue(ergebnis);
+  return ergebnis;
+}
+
+/** Zählt die Läufe pro Tag; false, wenn das Tageslimit erreicht ist. */
+function tageslimitOk() {
+  var props = PropertiesService.getScriptProperties();
+  var heute = Utilities.formatDate(new Date(), 'Europe/Berlin', 'yyyy-MM-dd');
+  var zaehler = JSON.parse(props.getProperty('LAEUFE') || '{}');
+  var n = zaehler[heute] || 0;
+  if (n >= MAX_LAEUFE_PRO_TAG) return false;
+  var neu = {};
+  neu[heute] = n + 1;
+  props.setProperty('LAEUFE', JSON.stringify(neu));
+  return true;
 }
 
 /** Manuell ausführen, um die Verbindung zu prüfen. */

@@ -236,6 +236,7 @@
       </div>
       <div class="field"><label for="f-stil">Stil &amp; Vorlieben (optional)</label>
         <textarea id="f-stil" placeholder="z. B. lieber bekannte Fernradwege, Geheimtipps, Sehenswürdigkeiten, gute Einkehr … oder leer lassen"></textarea></div>
+      <div class="field"><label for="f-code">Zugangscode</label><input id="f-code" data-code required autocomplete="off" autocapitalize="off" placeholder="bekommst du von Thomas"></div>
       <div class="actions"><button type="submit" class="btn">Anfrage senden</button></div>
       <div id="copy-result" class="hint" hidden></div>
     </form>
@@ -259,6 +260,7 @@
         </div>
         <div class="field"><label for="s-notiz">Warum ist sie gut? (optional)</label><input id="s-notiz" placeholder="z. B. tolle Gravel-Routen in den Vogesen mit GPX"></div>
         <div class="field"><label for="s-von">Dein Name</label><input id="s-von" autocomplete="given-name"></div>
+        <div class="field"><label for="s-code">Zugangscode</label><input id="s-code" data-code required autocomplete="off" autocapitalize="off" placeholder="bekommst du von Thomas"></div>
         <div class="actions"><button type="submit" class="btn">Vorschlag senden</button></div>
         <div id="source-result" class="hint" hidden></div>
       </form>
@@ -390,12 +392,14 @@
           '<form data-comment>' +
             '<div class="field"><label for="c-text">Dein Kommentar zur Tour</label><textarea id="c-text" required placeholder="z. B. Etappe 3 ist mir zu lang – geht das kürzer? Oder: Tipp für eine Unterkunft in Olot"></textarea></div>' +
             '<div class="field"><label for="c-name">Dein Name</label><input id="c-name" autocomplete="given-name"></div>' +
+            '<div class="field"><label for="c-code">Zugangscode</label><input id="c-code" data-code required autocomplete="off" autocapitalize="off" placeholder="bekommst du von Thomas"></div>' +
             '<div class="actions"><button type="submit" class="btn">Kommentar senden</button></div>' +
             '<div class="hint" data-comment-result hidden></div>' +
           '</form>' +
         '</div>' +
       '</div>';
     container.appendChild(el);
+    fillCodes(el);
 
     var stagesEl = el.querySelector("[data-stages]");
     tour.etappen.forEach(function(e, i){
@@ -419,7 +423,7 @@
       var name = el.querySelector("#c-name").value.trim();
       var link = location.origin + location.pathname + "#tour/" + tour.id;
       var text = "Gravel Kompass – Kommentar zur Tour „" + tour.title + "“" + (name ? " von " + name : "") + "\n" + link + "\n\n" + el.querySelector("#c-text").value.trim();
-      sendToInbox("Kommentar", name, tour.id, text, "Gravel Kompass – Kommentar", el.querySelector("[data-comment-result]"), el.querySelector("[data-comment]"));
+      sendToInbox("Kommentar", name, tour.id, text, "Gravel Kompass – Kommentar", el.querySelector("[data-comment-result]"), el.querySelector("[data-comment]"), takeCode(el.querySelector("[data-comment]")));
     });
 
     var map = L.map(mapId, {scrollWheelZoom:false});
@@ -558,19 +562,29 @@
   // which Claude reads when asked to "abarbeiten". no-cors: the response can't be read, only network failure is detectable.
   var INBOX_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeL4Uxawkb3rRYl7-y_gRA-zt1V2eVHHipPZJyDR2HWHuZhlg/formResponse";
   var INBOX_FIELDS = {typ: "entry.1421696167", name: "entry.1651174850", tour: "entry.94602652", text: "entry.181111421"};
-  function sendToInbox(typ, name, tour, text, title, out, form){
+  // Access code against spam: the Apps Script on the sheet only starts Claude for entries with the right code.
+  // Remembered on this device so it has to be typed only once.
+  function loadCode(){ try{ return localStorage.getItem("gk-code") || ""; }catch(e){ return ""; } }
+  function fillCodes(root){ (root || document).querySelectorAll("[data-code]").forEach(function(i){ if (!i.value) i.value = loadCode(); }); }
+  function takeCode(formEl){
+    var v = formEl.querySelector("[data-code]").value.trim();
+    try{ localStorage.setItem("gk-code", v); }catch(e){}
+    fillCodes();
+    return v;
+  }
+  function sendToInbox(typ, name, tour, text, title, out, form, code){
     var body = new URLSearchParams();
     body.append(INBOX_FIELDS.typ, typ);
     body.append(INBOX_FIELDS.name, name || "");
     body.append(INBOX_FIELDS.tour, tour || "");
-    body.append(INBOX_FIELDS.text, text);
+    body.append(INBOX_FIELDS.text, text + "\n\nZugangscode: " + (code || ""));
     out.hidden = false;
     out.textContent = "Wird gesendet …";
     fetch(INBOX_URL, {method: "POST", mode: "no-cors", body: body}).then(function(){
       out.innerHTML = "<b>Danke, ist angekommen!</b> Thomas und Claude kümmern sich darum. " +
         '<button type="button" class="linkish" data-also-share>Zusätzlich per Messenger schicken</button>';
       out.querySelector("[data-also-share]").addEventListener("click", function(){ shareText(title, text, out); });
-      if (form) form.reset();
+      if (form){ form.reset(); fillCodes(form); }
     }, function(){
       showFallback(out, title, text, "Senden hat nicht geklappt (keine Verbindung?). Du kannst es stattdessen schicken über:");
     });
@@ -596,7 +610,7 @@
   }
   document.getElementById("request-form").addEventListener("submit", function(ev){
     ev.preventDefault();
-    sendToInbox("Anfrage", document.getElementById("f-name").value.trim(), "", requestText(), "Gravel Kompass – Tour-Anfrage", document.getElementById("copy-result"), null);
+    sendToInbox("Anfrage", document.getElementById("f-name").value.trim(), "", requestText(), "Gravel Kompass – Tour-Anfrage", document.getElementById("copy-result"), null, takeCode(document.getElementById("request-form")));
   });
 
   // Source suggestion -> message text
@@ -607,8 +621,10 @@
       "Name: " + document.getElementById("s-name").value.trim() + "\n" +
       "Link: " + document.getElementById("s-url").value.trim() + "\n" +
       "Warum: " + (document.getElementById("s-notiz").value.trim() || "–");
-    sendToInbox("Quelle", von, "", text, "Gravel Kompass – Quellen-Vorschlag", document.getElementById("source-result"), document.getElementById("source-form"));
+    sendToInbox("Quelle", von, "", text, "Gravel Kompass – Quellen-Vorschlag", document.getElementById("source-result"), document.getElementById("source-form"), takeCode(document.getElementById("source-form")));
   });
+
+  fillCodes();
 
   // ---------- Overview ----------
   function landOf(t){ return String(t.land || "").split(" (")[0].trim(); }
