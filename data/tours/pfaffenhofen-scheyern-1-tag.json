@@ -1,7 +1,7 @@
 {
   "id": "pfaffenhofen-scheyern-1-tag",
   "title": "Pfaffenhofen–Kloster Scheyern: Ilmtal-Runde mit Klosterbiergarten",
-  "subtitle": "Trekking-Tagestour, ca. 45 km, durchs Ilmtal und übers Hügelland zum Benediktinerkloster Scheyern",
+  "subtitle": "Trekking-Tagestour, ca. 33 km, durchs Ilmtal und übers Hügelland zum Benediktinerkloster Scheyern",
   "createdAt": "2026-09-25",
   "requestId": "pfaffenhofen-2026-09",
   "land": "Deutschland",
@@ -16,7 +16,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start am Hauptplatz in Pfaffenhofen an der Ilm. Zuerst flach nach Süden über Hettenshausen nach Ilmmünster und weiter im Ilmtal nach Reichertshausen. Über Steinkirchen geht es dann auf ruhigen Nebenstraßen sowie Feld- und Waldwegen durchs sanfte Hügelland nach Gerolsbach und von dort ostwärts zum Benediktinerkloster Scheyern, das auf einem Hügel über dem Ilmtal thront – seit 1119 wird hier gebraut. Die Klosterschenke mit ihrem großen, schattigen Biergarten ist die Einkehr zum Abschluss der Runde, dazu Brotzeit aus der Klostermetzgerei. Danach rollt es über Niederscheyern zurück nach Pfaffenhofen. Rund 45 km mit knapp 300 Höhenmetern, die meisten davon im Hügelland zwischen Steinkirchen und Scheyern.",
+  "beschreibung": "Start am Hauptplatz in Pfaffenhofen an der Ilm. Zuerst flach nach Süden über Hettenshausen nach Ilmmünster und weiter im Ilmtal nach Reichertshausen. Über Steinkirchen geht es dann auf ruhigen Nebenstraßen sowie Feld- und Waldwegen durchs sanfte Hügelland zum Benediktinerkloster Scheyern, das auf einem Hügel über dem Ilmtal thront – seit 1119 wird hier gebraut. Die Klosterschenke mit ihrem großen, schattigen Biergarten ist die Einkehr zum Abschluss der Runde, dazu Brotzeit aus der Klostermetzgerei. Danach rollt es über Niederscheyern zurück nach Pfaffenhofen. Rund 33 km mit rund 220 Höhenmetern, vor allem im Hügelland zwischen Steinkirchen und Scheyern.",
   "quellen": [
     {
       "name": "Radtour Pfaffenhofen – Ilmtal (Kurvenkönig)",
@@ -35,8 +35,8 @@
     {
       "von": "Pfaffenhofen an der Ilm",
       "nach": "Pfaffenhofen an der Ilm",
-      "hmPlan": 280,
-      "text": "Pfaffenhofen – Hettenshausen – Ilmmünster (Basilika St. Arsatius) – Ilmtal nach Reichertshausen – Steinkirchen – durchs Hügelland nach Gerolsbach – Kloster Scheyern (Einkehr Klosterschenke) – Niederscheyern – Pfaffenhofen.",
+      "hmPlan": 220,
+      "text": "Pfaffenhofen – Hettenshausen – Ilmmünster (Basilika St. Arsatius) – Ilmtal nach Reichertshausen – Steinkirchen – durchs Hügelland – Kloster Scheyern (Einkehr Klosterschenke) – Niederscheyern – Pfaffenhofen.",
       "wegpunkte": [
         [
           48.5296,
@@ -64,11 +64,6 @@
           "Steinkirchen"
         ],
         [
-          48.4924,
-          11.3583,
-          "Gerolsbach"
-        ],
-        [
           48.5012,
           11.4526,
           "Kloster Scheyern"
@@ -92,6 +87,12 @@
       "von": "Thomas",
       "kommentar": "Bitte etwas länger – so ca. 40–50 km.",
       "antwort": "Runde auf ca. 45 km verlängert: jetzt zuerst durchs Ilmtal über Hettenshausen und Ilmmünster nach Reichertshausen, dann über Steinkirchen und Gerolsbach durchs Hügelland zum Kloster Scheyern (Einkehr zum Schluss) und über Niederscheyern zurück. Koordinate von Hettenshausen korrigiert, Höhenmeter-Plan auf ca. 280 angepasst."
+    },
+    {
+      "datum": "25.09.2026",
+      "von": "Thomas",
+      "kommentar": "Nimm den Abstecher nach Gerolsbach raus.",
+      "antwort": "Abstecher nach Gerolsbach entfernt: von Steinkirchen geht es jetzt direkt durchs Hügelland zum Kloster Scheyern. Runde dadurch kürzer, ca. 33 km mit rund 220 Höhenmetern."
     }
   ]
 }
