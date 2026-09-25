@@ -278,6 +278,8 @@
   var STAGE_COLORS = ["#C1501E","#2F6FAB","#46613C","#8E44AD","#B08A1E","#1F8A87","#A63D5A","#5B6553"];
 
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  // Links from the data files: only http(s), so a submitted "javascript:" link cannot run code
+  function safeUrl(u){ u = String(u || "").trim(); return /^https?:\/\//i.test(u) ? u : "#"; }
   function slug(s){ return String(s||"tour").toLowerCase().replace(/[äöü]/g,function(c){return {"ä":"ae","ö":"oe","ü":"ue"}[c];}).replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"") || "tour"; }
   function tageLabel(n){ return n == 1 ? "1 Tag" : n + " Tage"; }
   function fmtKm(m){ return Math.round(m/1000); }
@@ -377,7 +379,7 @@
         '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
         '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke (in Komoot eine einzige Tour). Einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
         '<div class="stages" data-stages></div>' +
-        (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
+        (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
           '<h3>Anmerkungen &amp; Änderungen</h3>' +
           ((tour.aenderungen && tour.aenderungen.length) ? tour.aenderungen.map(function(a){
@@ -510,7 +512,7 @@
 
   function renderSources(list){
     document.getElementById("source-list").innerHTML = list.map(function(s){
-      return '<div class="item"><a class="name" href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>' +
+      return '<div class="item"><a class="name" href="' + esc(safeUrl(s.url)) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>' +
         '<div class="tags">' + [s.region, s.art].filter(Boolean).map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
         (s.notiz ? '<div class="note">' + esc(s.notiz) + '</div>' : '') + '</div>';
     }).join("");
