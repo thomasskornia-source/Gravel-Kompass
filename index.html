@@ -262,7 +262,8 @@
 (function(){
   "use strict";
   var CURRENT = null;   // {map, bounds} of the open tour detail
-  var TOURS = null;
+  var TOURS = null;     // tour index (data/tours-index.json)
+  var TOUR_FILES = {};  // full tours loaded on demand (data/tours/<id>.json)
   var STAGE_COLORS = ["#C1501E","#2F6FAB","#46613C","#8E44AD","#B08A1E","#1F8A87","#A63D5A","#5B6553"];
 
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
@@ -308,9 +309,11 @@
     return { source: "Luftlinie (Routing nicht erreichbar)", coords: straight, distance: lineLength(straight), ascend: null, fallback: true };
   }
 
+  // Waypoints per stage: from the full tour file, or the sketch in the index entry
+  function stagePoints(tour){ return tour.etappen ? tour.etappen.map(function(e){ return e.wegpunkte; }) : (tour.skizze || []); }
   function cacheKey(tour){
     // routing profile is part of the key, so a profile change re-routes instead of showing the cached line
-    var s = JSON.stringify([tour.profil || null, tour.etappen.map(function(e){ return e.wegpunkte.map(function(p){ return [p[0],p[1]]; }); })]);
+    var s = JSON.stringify([tour.profil || null, stagePoints(tour).map(function(st){ return st.map(function(p){ return [p[0],p[1]]; }); })]);
     var h = 5381; for (var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
     return "gk-route-v1-" + tour.id + "-" + (h >>> 0).toString(36);
   }
@@ -602,7 +605,7 @@
   }
   function miniSvg(t){
     var cache = loadCache(t);
-    var stages = cache ? cache.map(function(r){ return r.coords; }) : t.etappen.map(function(e){ return e.wegpunkte; });
+    var stages = cache ? cache.map(function(r){ return r.coords; }) : stagePoints(t);
     var all = [].concat.apply([], stages);
     var lat0 = all.reduce(function(s,p){ return s + p[0]; }, 0) / all.length;
     var k = Math.cos(lat0 * Math.PI / 180);
@@ -639,8 +642,7 @@
   }
 
   function searchText(t){
-    var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp];
-    t.etappen.forEach(function(e){ parts.push(e.von, e.nach, e.text); e.wegpunkte.forEach(function(w){ parts.push(w[2]); }); });
+    var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp].concat(t.orte || []);
     return parts.filter(Boolean).join(" ").toLowerCase();
   }
   function renderOverview(){
@@ -681,15 +683,30 @@
     if (panel === "touren") renderOverview();
     if (panel === "tour" && TOURS && OPEN_TOUR !== tourId){
       var box = document.getElementById("tour-detail");
-      var tour = TOURS.filter(function(t){ return t.id === tourId; })[0];
+      var entry = TOURS.filter(function(t){ return t.id === tourId; })[0];
       if (CURRENT){ CURRENT.map.remove(); CURRENT = null; }
       box.innerHTML = "";
       OPEN_TOUR = tourId;
-      if (!tour){ box.innerHTML = '<p class="empty">Diese Tour gibt es nicht (mehr).</p>'; return; }
-      document.title = tour.title + " – Gravel Kompass";
-      renderTour(tour, box, 0);
+      if (!entry){ box.innerHTML = '<p class="empty">Diese Tour gibt es nicht (mehr).</p>'; return; }
+      document.title = entry.title + " – Gravel Kompass";
+      box.innerHTML = '<p class="empty">Tour wird geladen …</p>';
+      loadTour(tourId).then(function(tour){
+        if (OPEN_TOUR !== tourId) return; // another tour was opened meanwhile
+        box.innerHTML = "";
+        renderTour(tour, box, 0);
+      }, function(){
+        if (OPEN_TOUR === tourId) box.innerHTML = '<p class="empty">Tour konnte nicht geladen werden.</p>';
+      });
     }
     if (panel !== "tour") document.title = "Gravel Kompass";
+  }
+  function loadTour(id){
+    if (!TOUR_FILES[id]){
+      TOUR_FILES[id] = fetch("data/tours/" + encodeURIComponent(id) + ".json", {cache: "no-cache"})
+        .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .catch(function(e){ delete TOUR_FILES[id]; throw e; });
+    }
+    return TOUR_FILES[id];
   }
   window.addEventListener("hashchange", route);
   // Brand link: reload the page on the tour overview so new tours show up
@@ -701,7 +718,7 @@
   route();
 
   Promise.all([
-    fetch("data/tours.json", {cache: "no-cache"}).then(function(r){ return r.json(); }),
+    fetch("data/tours-index.json", {cache: "no-cache"}).then(function(r){ return r.json(); }),
     fetch("data/requests.json", {cache: "no-cache"}).then(function(r){ return r.json(); }),
     fetch("data/sources.json", {cache: "no-cache"}).then(function(r){ return r.json(); })
   ]).then(function(res){

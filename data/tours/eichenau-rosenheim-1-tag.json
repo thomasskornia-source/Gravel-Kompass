@@ -1,0 +1,73 @@
+{
+  "id": "eichenau-rosenheim-1-tag",
+  "title": "Eichenau–Rosenheim: Münchner Süden & Mangfalltal",
+  "subtitle": "1-Tages-Gravel-Einwegtour von Eichenau nach Rosenheim",
+  "createdAt": "2026-09-25",
+  "requestId": "eichenau-rosenheim-2026-09",
+  "land": "Deutschland",
+  "region": "Bayern",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Einweg (A → B)",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Eintägige Gravel-Tour von Eichenau bei München quer durch den Münchner Süden auf ruhigen Neben- und Waldwegen Richtung Mangfalltal. Ab Feldkirchen-Westerham folgt die Route dem Mangfallradweg flussabwärts durch Wiesen und Auwälder über Bad Aibling bis nach Rosenheim. Überwiegend Feld- und Waldwege sowie Radwege mit wenigen Asphaltabschnitten durch die Ortschaften, moderate Anstiege im Alpenvorland.",
+  "quellen": [
+    {
+      "name": "Chiemsee-Alpenland Tourismus, Mangfallradweg",
+      "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/mangfallradweg-57436976fb"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Eichenau",
+      "nach": "Rosenheim",
+      "hmPlan": 450,
+      "text": "Von Eichenau quer durch den Münchner Süden auf ruhigen Neben- und Waldwegen Richtung Mangfalltal. Ab Feldkirchen-Westerham folgt die Route dem Mangfallradweg flussabwärts durch Wiesen und Auwälder über Bad Aibling bis Rosenheim.",
+      "wegpunkte": [
+        [
+          48.1672,
+          11.3333,
+          "Eichenau"
+        ],
+        [
+          48.1339,
+          11.3908,
+          "Germering"
+        ],
+        [
+          48.0664,
+          11.6167,
+          "Unterhaching"
+        ],
+        [
+          47.9928,
+          11.7639,
+          "Aying"
+        ],
+        [
+          47.8608,
+          11.9967,
+          "Feldkirchen-Westerham"
+        ],
+        [
+          47.86,
+          12.0158,
+          "Bad Aibling"
+        ],
+        [
+          47.8564,
+          12.1289,
+          "Rosenheim"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

@@ -1,0 +1,193 @@
+{
+  "id": "loiretal-blois-5-tage",
+  "title": "Loiretal-Runde: Schlösser & Weinberge",
+  "subtitle": "5-Tage-Trekkingrad-Rundtour ab Blois, mit dem Auto erreichbar",
+  "createdAt": "2026-09-24",
+  "requestId": "frankreich-2026-09",
+  "land": "Frankreich",
+  "region": "Loiretal (Loir-et-Cher / Indre-et-Loire / Maine-et-Loire)",
+  "saison": "Frühling",
+  "tage": 5,
+  "fahrradtyp": "Trekking",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel ist Blois. Die Runde folgt größtenteils der Loire à Vélo / EuroVelo 6 – einer der flachsten und bestausgebauten Radrouten Frankreichs – vorbei an den großen Loire-Schlössern (Chambord, Chaumont, Amboise, Villandry, Azay-le-Rideau, Chinon, Fontevraud, Langeais, Chenonceau) und den hellen Tuffstein-Weinbergen von Saumur-Champigny und Bourgueil. Sehr flaches, ruhiges Terrain, ideal für ein Trekkingrad.",
+  "quellen": [
+    {
+      "name": "Loire à Vélo (offiziell), \"3 jours sur la Loire à Vélo de Tours à Saumur\"",
+      "url": "https://www.loireavelo.fr/tsft/3-jours-sur-la-loire-a-velo-de-tours-a-saumur-toursazay-le-rideauchinonvillandryfontevraud-labbayemontsoreausaumur/"
+    },
+    {
+      "name": "France Vélo Tourisme (EN), La Loire à Vélo",
+      "url": "https://en.francevelotourisme.com/cycle-route/la-loire-a-velo-loire-valley-by-bike"
+    },
+    {
+      "name": "EuroVelo, EV6 Atlantic–Black Sea",
+      "url": "https://en.eurovelo.com/ev6"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Blois",
+      "nach": "Amboise",
+      "hmPlan": 250,
+      "text": "Abstecher über den Deich-Radweg zum Schloss Chambord, dann auf der Loire à Vélo am Nordufer über Chaumont-sur-Loire (Schloss und Gärten) nach Amboise mit dem Königsschloss und Leonardo da Vincis Clos Lucé.",
+      "wegpunkte": [
+        [
+          47.5861,
+          1.3359,
+          "Blois"
+        ],
+        [
+          47.6161,
+          1.5171,
+          "Chambord"
+        ],
+        [
+          47.4736,
+          1.1806,
+          "Chaumont-sur-Loire"
+        ],
+        [
+          47.4132,
+          0.9829,
+          "Amboise"
+        ]
+      ]
+    },
+    {
+      "von": "Amboise",
+      "nach": "Chinon",
+      "hmPlan": 300,
+      "text": "Weiter auf der Loire à Vélo über Tours, dann auf dem Indre-Zweig zu den Schlössern Villandry (Gärten) und Azay-le-Rideau (Wasserschloss), hinüber ins Vienne-Tal zur mittelalterlichen Festungsstadt Chinon.",
+      "wegpunkte": [
+        [
+          47.4132,
+          0.9829,
+          "Amboise"
+        ],
+        [
+          47.3941,
+          0.6848,
+          "Tours"
+        ],
+        [
+          47.3403,
+          0.5142,
+          "Villandry"
+        ],
+        [
+          47.2611,
+          0.4681,
+          "Azay-le-Rideau"
+        ],
+        [
+          47.1667,
+          0.2408,
+          "Chinon"
+        ]
+      ]
+    },
+    {
+      "von": "Chinon",
+      "nach": "Saumur",
+      "hmPlan": 250,
+      "text": "Zum Zusammenfluss von Vienne und Loire bei der Abtei Fontevraud, weiter über das Schloss Montsoreau und durch die hellen Tuffstein-Weinberge von Saumur-Champigny (Turquant, Parnay, Souzay-Champigny) nach Saumur mit seinen Höhlenkellern.",
+      "wegpunkte": [
+        [
+          47.1667,
+          0.2408,
+          "Chinon"
+        ],
+        [
+          47.1814,
+          0.0533,
+          "Fontevraud-l'Abbaye"
+        ],
+        [
+          47.2144,
+          0.0567,
+          "Montsoreau"
+        ],
+        [
+          47.2258,
+          0.0272,
+          "Turquant"
+        ],
+        [
+          47.26,
+          -0.077,
+          "Saumur"
+        ]
+      ]
+    },
+    {
+      "von": "Saumur",
+      "nach": "Langeais",
+      "hmPlan": 250,
+      "text": "Über die Loire ans Nordufer in die Weinberge von Bourgueil, dann zum Märchenschloss Ussé (Rigny-Ussé) und zur Festungsstadt Langeais, auf ruhigen Nebenstrecken der Loire à Vélo.",
+      "wegpunkte": [
+        [
+          47.26,
+          -0.077,
+          "Saumur"
+        ],
+        [
+          47.2597,
+          0.1683,
+          "Bourgueil"
+        ],
+        [
+          47.2911,
+          0.4331,
+          "Rigny-Ussé"
+        ],
+        [
+          47.3264,
+          0.4067,
+          "Langeais"
+        ]
+      ]
+    },
+    {
+      "von": "Langeais",
+      "nach": "Blois",
+      "hmPlan": 250,
+      "text": "Zurück über Tours, dann auf dem Grünweg entlang des Cher (Cœur de France à Vélo) über das Schloss Chenonceau, das den Fluss überspannt, und Montrichard zurück nach Blois.",
+      "wegpunkte": [
+        [
+          47.3264,
+          0.4067,
+          "Langeais"
+        ],
+        [
+          47.3941,
+          0.6848,
+          "Tours"
+        ],
+        [
+          47.3242,
+          1.0703,
+          "Chenonceaux"
+        ],
+        [
+          47.3436,
+          1.1861,
+          "Montrichard"
+        ],
+        [
+          47.5861,
+          1.3359,
+          "Blois"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

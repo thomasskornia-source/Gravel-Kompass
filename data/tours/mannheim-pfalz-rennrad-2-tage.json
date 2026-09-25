@@ -1,0 +1,141 @@
+{
+  "id": "mannheim-pfalz-rennrad-2-tage",
+  "title": "Weinstraße & Rheinebene: Rennrad-Runde ab Mannheim",
+  "subtitle": "2-Tage-Rennradtour ab Mannheim Hbf, über die Deutsche Weinstraße und zurück über Karlsruhe",
+  "createdAt": "2026-09-24",
+  "requestId": "mannheim-2026-09",
+  "profil": "fastbike",
+  "land": "Deutschland",
+  "region": "Pfalz / Baden-Württemberg",
+  "saison": "Sommer",
+  "tage": 2,
+  "fahrradtyp": "Rennrad",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel direkt am Mannheimer Hauptbahnhof, kein Zug nötig. Tag 1 geht nach Westen in die Pfalz und die Deutsche Weinstraße entlang nach Süden bis zum Deutschen Weintor – mit dem Kalmit-Anstieg als sportlichem Höhepunkt (7,7 km, knapp 500 Hm, schattiger Wald). Tag 2 führt über die Rheinbrücke Maxau nach Karlsruhe und durch die badische Rheinebene am Kraichgaurand zurück nach Mannheim. Hinweis: Westlich von Mannheim liegt gleich Rheinland-Pfalz – der zweite Tag verläuft dann in Baden-Württemberg. Die Route wird mit einem Rennrad-Profil berechnet (Asphalt bevorzugt).",
+  "quellen": [
+    {
+      "name": "Große Kalmit (quaeldich.de)",
+      "url": "https://www.quaeldich.de/paesse/grosse-kalmit/"
+    },
+    {
+      "name": "Rennradtouren rund um Maikammer (Komoot)",
+      "url": "https://www.komoot.com/de-de/guide/4157/rennradtouren-rund-um-maikammer"
+    },
+    {
+      "name": "Die Kalmit: selbst im Hochsommer schattig (radsport-news.com)",
+      "url": "https://www.radsport-news.com/sport/sportnews_120478.htm"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Mannheim",
+      "nach": "Schweigen (Deutsches Weintor)",
+      "hmPlan": 1100,
+      "text": "Über den Rhein nach Bad Dürkheim, dann die Weinstraße entlang durch Deidesheim und Neustadt. Ab Maikammer hinauf zur Kalmit (673 m) und zurück, weiter über Landau und Bad Bergzabern zum Deutschen Weintor an der französischen Grenze. Die letzten Meter zum Kalmit-Gipfel sind rauer Asphalt – wer mag, dreht vorher um.",
+      "wegpunkte": [
+        [
+          49.4794,
+          8.469,
+          "Mannheim Hbf"
+        ],
+        [
+          49.461,
+          8.168,
+          "Bad Dürkheim"
+        ],
+        [
+          49.407,
+          8.185,
+          "Deidesheim"
+        ],
+        [
+          49.354,
+          8.138,
+          "Neustadt an der Weinstraße"
+        ],
+        [
+          49.306,
+          8.131,
+          "Maikammer"
+        ],
+        [
+          49.32,
+          8.084,
+          "Kalmit"
+        ],
+        [
+          49.306,
+          8.131,
+          "Maikammer"
+        ],
+        [
+          49.199,
+          8.119,
+          "Landau"
+        ],
+        [
+          49.103,
+          7.999,
+          "Bad Bergzabern"
+        ],
+        [
+          49.049,
+          7.96,
+          "Schweigen (Deutsches Weintor)"
+        ]
+      ]
+    },
+    {
+      "von": "Schweigen",
+      "nach": "Mannheim",
+      "hmPlan": 400,
+      "text": "Flach durch die Südpfalz über Kandel nach Wörth, über die Rheinbrücke Maxau nach Karlsruhe, dann nordwärts über Bruchsal, Wiesloch und Schwetzingen (Schlossgarten) zurück nach Mannheim.",
+      "wegpunkte": [
+        [
+          49.049,
+          7.96,
+          "Schweigen"
+        ],
+        [
+          49.083,
+          8.196,
+          "Kandel"
+        ],
+        [
+          49.049,
+          8.261,
+          "Wörth am Rhein"
+        ],
+        [
+          49.0094,
+          8.4044,
+          "Karlsruhe"
+        ],
+        [
+          49.124,
+          8.598,
+          "Bruchsal"
+        ],
+        [
+          49.294,
+          8.698,
+          "Wiesloch"
+        ],
+        [
+          49.383,
+          8.572,
+          "Schwetzingen"
+        ],
+        [
+          49.4794,
+          8.469,
+          "Mannheim Hbf"
+        ]
+      ]
+    }
+  ]
+}

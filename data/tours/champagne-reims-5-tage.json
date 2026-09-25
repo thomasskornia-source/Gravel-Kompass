@@ -1,0 +1,217 @@
+{
+  "id": "champagne-reims-5-tage",
+  "title": "Champagne-Gravel-Runde: Montagne de Reims, Côte des Blancs & Côte des Bar",
+  "subtitle": "5-Tage-Trekkingrad-Rundtour ab Reims, mit dem Auto erreichbar",
+  "createdAt": "2026-09-24",
+  "requestId": "frankreich-2026-09",
+  "land": "Frankreich",
+  "region": "Champagne (Marne / Aube)",
+  "saison": "Frühling",
+  "tage": 5,
+  "fahrradtyp": "Trekking",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel ist Reims. Die Runde führt durch die drei großen Champagner-Anbaugebiete: die Montagne de Reims (Pinot Noir), die Côte des Blancs (Chardonnay) und die Côte des Bar bei Troyes. Feiner heller Kreide-Schotter durch die Weinberge – namensgebend für \"Champagner Gravel\" – wechselt sich mit ruhigen Nebenstraßen, Radwegen entlang der Marne und Asphalt durch die offene Champagne-Ebene ab. Überwiegend flaches bis sanft hügeliges Terrain, keine großen Anstiege.",
+  "quellen": [
+    {
+      "name": "France Vélo Tourisme, \"La Champagne à vélo\"",
+      "url": "https://www.francevelotourisme.com/champagne-a-velo-la-bicyclette-verte"
+    },
+    {
+      "name": "Tourisme en Champagne, Radrouten rund um Reims",
+      "url": "https://www.tourisme-en-champagne.com/velo/autour-reims"
+    },
+    {
+      "name": "Chilowe, Gravel-Routen durch die Champagne-Weinberge",
+      "url": "https://chilowe.com/articles/vignes-champagne-gravel/"
+    },
+    {
+      "name": "Tourisme en Champagne, Véloroute Vallée de la Marne (V52)",
+      "url": "https://www.tourisme-en-champagne.com/V52"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Reims",
+      "nach": "Épernay",
+      "hmPlan": 600,
+      "text": "Durch den Regionalpark Montagne de Reims: vorbei an Rilly-la-Montagne, dem Windmühlen-Aussichtspunkt von Verzenay über die Weinberge, dem alten Buchenwald „Faux de Verzy\" und dem Rotwein-Grand-Cru-Dorf Bouzy, dann hinunter nach Hautvillers (Abtei, Dom Pérignon) und ins Champagner-Zentrum Épernay mit der Avenue de Champagne.",
+      "wegpunkte": [
+        [
+          49.2583,
+          4.0317,
+          "Reims"
+        ],
+        [
+          49.1919,
+          4.0464,
+          "Rilly-la-Montagne"
+        ],
+        [
+          49.1547,
+          4.19,
+          "Verzenay"
+        ],
+        [
+          49.1372,
+          4.1994,
+          "Verzy"
+        ],
+        [
+          49.0794,
+          4.1656,
+          "Bouzy"
+        ],
+        [
+          49.0783,
+          3.9642,
+          "Hautvillers"
+        ],
+        [
+          49.0417,
+          3.96,
+          "Épernay"
+        ]
+      ]
+    },
+    {
+      "von": "Épernay",
+      "nach": "Sézanne",
+      "hmPlan": 500,
+      "text": "Auf der Côte des Blancs – dem klassischen \"Champagner-Gravel\"-Kreideplateau mit den Grand-Cru-Chardonnay-Dörfern Cramant, Avize und Le Mesnil-sur-Oger – weiter über Vertus, dann über die offene Ebene am Marais de Saint-Gond zur Côte de Sézanne.",
+      "wegpunkte": [
+        [
+          49.0417,
+          3.96,
+          "Épernay"
+        ],
+        [
+          48.9647,
+          3.9897,
+          "Cramant"
+        ],
+        [
+          48.9536,
+          3.9836,
+          "Avize"
+        ],
+        [
+          48.9394,
+          4.0217,
+          "Le Mesnil-sur-Oger"
+        ],
+        [
+          48.9075,
+          4.0011,
+          "Vertus"
+        ],
+        [
+          48.8797,
+          4.0114,
+          "Bergères-lès-Vertus"
+        ],
+        [
+          48.7208,
+          3.7192,
+          "Sézanne"
+        ]
+      ]
+    },
+    {
+      "von": "Sézanne",
+      "nach": "Troyes",
+      "hmPlan": 450,
+      "text": "Durch die offene Champagne-Landschaft und das Seine-Tal Richtung Süden in die Aube, bis zur historischen Hauptstadt Troyes – Tor zu den weniger bekannten Champagner-Weinbergen der Côte des Bar, auf denselben Kreideböden wie bei Reims und Épernay.",
+      "wegpunkte": [
+        [
+          48.7208,
+          3.7192,
+          "Sézanne"
+        ],
+        [
+          48.6389,
+          3.8194,
+          "Anglure"
+        ],
+        [
+          48.5136,
+          3.7292,
+          "Romilly-sur-Seine"
+        ],
+        [
+          48.2973,
+          4.0744,
+          "Troyes"
+        ]
+      ]
+    },
+    {
+      "von": "Troyes",
+      "nach": "Châlons-en-Champagne",
+      "hmPlan": 350,
+      "text": "Das Aube-Tal aufwärts über den historischen Flussort Arcis-sur-Aube, dann über die flache Kreideebene der \"Champagne pouilleuse\" nach Châlons-en-Champagne mit Kanalhafen und Fachwerk-Altstadt.",
+      "wegpunkte": [
+        [
+          48.2973,
+          4.0744,
+          "Troyes"
+        ],
+        [
+          48.5333,
+          4.1417,
+          "Arcis-sur-Aube"
+        ],
+        [
+          48.9578,
+          4.3639,
+          "Châlons-en-Champagne"
+        ]
+      ]
+    },
+    {
+      "von": "Châlons-en-Champagne",
+      "nach": "Reims",
+      "hmPlan": 350,
+      "text": "Auf ruhigen Straßen nahe der Marne-Veloroute V52 über Mourmelon-le-Grand und Sept-Saulx, dann durch die Grand-Cru-Dörfer Sillery und Beaumont-sur-Vesle im Vesle-Tal zurück nach Reims.",
+      "wegpunkte": [
+        [
+          48.9578,
+          4.3639,
+          "Châlons-en-Champagne"
+        ],
+        [
+          49.1381,
+          4.3653,
+          "Mourmelon-le-Grand"
+        ],
+        [
+          49.1611,
+          4.2544,
+          "Sept-Saulx"
+        ],
+        [
+          49.1917,
+          4.1364,
+          "Sillery"
+        ],
+        [
+          49.1806,
+          4.1197,
+          "Beaumont-sur-Vesle"
+        ],
+        [
+          49.2583,
+          4.0317,
+          "Reims"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

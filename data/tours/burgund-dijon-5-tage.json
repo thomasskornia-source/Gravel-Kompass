@@ -1,0 +1,213 @@
+{
+  "id": "burgund-dijon-5-tage",
+  "title": "Burgund-Runde: Grand-Cru-Weinberge & Kanal-Gravel",
+  "subtitle": "5-Tage-Trekkingrad-Rundtour ab Dijon, mit dem Auto erreichbar",
+  "createdAt": "2026-09-24",
+  "requestId": "frankreich-2026-09",
+  "land": "Frankreich",
+  "region": "Burgund (Côte-d'Or / Saône-et-Loire)",
+  "saison": "Frühling",
+  "tage": 5,
+  "fahrradtyp": "Trekking",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel ist Dijon. Die Route des Grands Crus / Voie des Vignes führt durch die UNESCO-Weinberge (\"Climats\") der Côte d'Or, weiter über die asphaltierte Voie Verte de Bourgogne du Sud ins Mâconnais (Solutré-Pouilly, Fuissé), am Saône-Ufer entlang (Voie Bleue) und zurück über den feinen Schotter-Treidelpfad des Canal de Bourgogne. Überwiegend flach bis leicht hügelig, gut geeignet für ein Trekkingrad.",
+  "quellen": [
+    {
+      "name": "Bourgogne Tourisme, \"Voie des Vignes à vélo\"",
+      "url": "https://www.bourgogne-tourisme.com/decouvrir/itinerances-et-itineraires-a-pied-a-velo-a-cheval-ou-en-bateau/voie-des-vignes-a-velo/"
+    },
+    {
+      "name": "Grand Est Cyclisme, Canal de Bourgogne (Belag-Infos)",
+      "url": "https://www.grandestcyclisme.fr/pedalez-le-long-de-la-voie-verte-du-canal-de-bourgogne-29-km-de-plaisir-dans-un-cadre-intemporel/"
+    },
+    {
+      "name": "Beaune Tourisme, La Voie des Vignes",
+      "url": "https://www.beaune-tourisme.fr/profiter/nature-plein-air-evadez-vous/la-voie-des-vignes-a-velo/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Dijon",
+      "nach": "Chagny",
+      "hmPlan": 400,
+      "text": "Auf der Route des Grands Crus / Voie des Vignes durch die UNESCO-Weinlagen (\"Climats\") der Côte de Nuits und Côte de Beaune: Gevrey-Chambertin, Vougeot mit dem Château du Clos de Vougeot, Nuits-Saint-Georges, Beaune (Hospices de Beaune), Meursault und Santenay.",
+      "wegpunkte": [
+        [
+          47.322,
+          5.0415,
+          "Dijon"
+        ],
+        [
+          47.2286,
+          4.9522,
+          "Gevrey-Chambertin"
+        ],
+        [
+          47.1794,
+          4.9494,
+          "Vougeot"
+        ],
+        [
+          47.1367,
+          4.9497,
+          "Nuits-Saint-Georges"
+        ],
+        [
+          47.0244,
+          4.8397,
+          "Beaune"
+        ],
+        [
+          46.9597,
+          4.7692,
+          "Meursault"
+        ],
+        [
+          46.9053,
+          4.7014,
+          "Santenay"
+        ],
+        [
+          46.9111,
+          4.7481,
+          "Chagny"
+        ]
+      ]
+    },
+    {
+      "von": "Chagny",
+      "nach": "Cluny",
+      "hmPlan": 450,
+      "text": "Weiter durch die Weinorte der Côte Chalonnaise (Rully, Mercurey, Givry, Buxy), dann auf der asphaltierten Voie Verte de Bourgogne du Sud über Saint-Gengoux-le-National vorbei am Renaissance-Schloss Cormatin bis zur Abteistadt Cluny.",
+      "wegpunkte": [
+        [
+          46.9111,
+          4.7481,
+          "Chagny"
+        ],
+        [
+          46.8869,
+          4.7419,
+          "Rully"
+        ],
+        [
+          46.8394,
+          4.7275,
+          "Mercurey"
+        ],
+        [
+          46.7789,
+          4.7522,
+          "Givry"
+        ],
+        [
+          46.7233,
+          4.6772,
+          "Buxy"
+        ],
+        [
+          46.6297,
+          4.6836,
+          "Saint-Gengoux-le-National"
+        ],
+        [
+          46.4342,
+          4.6592,
+          "Cluny"
+        ]
+      ]
+    },
+    {
+      "von": "Cluny",
+      "nach": "Tournus",
+      "hmPlan": 450,
+      "text": "Über die Voie Verte nach Mâcon, Abstecher in die Weinberge des Mâconnais zum Felsen von Solutré-Pouilly und ins Weindorf Fuissé (Pouilly-Fuissé), dann am flachen Saône-Ufer (Voie Bleue) nach Norden zur Abteistadt Tournus.",
+      "wegpunkte": [
+        [
+          46.4342,
+          4.6592,
+          "Cluny"
+        ],
+        [
+          46.3069,
+          4.8286,
+          "Mâcon"
+        ],
+        [
+          46.2965,
+          4.7247,
+          "Solutré-Pouilly"
+        ],
+        [
+          46.2802,
+          4.743,
+          "Fuissé"
+        ],
+        [
+          46.5686,
+          4.9019,
+          "Tournus"
+        ]
+      ]
+    },
+    {
+      "von": "Tournus",
+      "nach": "Saint-Jean-de-Losne",
+      "hmPlan": 250,
+      "text": "Flach am Saône-Ufer entlang (Voie Bleue) über Chalon-sur-Saône und den Zusammenfluss von Saône und Doubs bei Verdun-sur-le-Doubs bis Saint-Jean-de-Losne, dem südlichen Tor des Canal de Bourgogne.",
+      "wegpunkte": [
+        [
+          46.5686,
+          4.9019,
+          "Tournus"
+        ],
+        [
+          46.7803,
+          4.8528,
+          "Chalon-sur-Saône"
+        ],
+        [
+          46.8886,
+          5.0286,
+          "Verdun-sur-le-Doubs"
+        ],
+        [
+          47.1042,
+          5.2664,
+          "Saint-Jean-de-Losne"
+        ]
+      ]
+    },
+    {
+      "von": "Saint-Jean-de-Losne",
+      "nach": "Dijon",
+      "hmPlan": 500,
+      "text": "Auf dem flachen Treidelpfad des Canal de Bourgogne (überwiegend Asphalt, teils feiner Schotter) über Longecourt-en-Plaine, mit einem Abstecher in die Weinberge der Hautes-Côtes de Nuits zurück nach Dijon.",
+      "wegpunkte": [
+        [
+          47.1042,
+          5.2664,
+          "Saint-Jean-de-Losne"
+        ],
+        [
+          47.2225,
+          5.1289,
+          "Longecourt-en-Plaine"
+        ],
+        [
+          47.322,
+          5.0415,
+          "Dijon"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}
