@@ -1,7 +1,7 @@
 {
   "id": "pfaffenhofen-scheyern-1-tag",
   "title": "Pfaffenhofen–Kloster Scheyern: Ilmtal-Runde mit Klosterbiergarten",
-  "subtitle": "Trekking-Tagestour, ca. 30 km, durchs Ilmtal zum Benediktinerkloster Scheyern",
+  "subtitle": "Trekking-Tagestour, ca. 45 km, durchs Ilmtal und übers Hügelland zum Benediktinerkloster Scheyern",
   "createdAt": "2026-09-25",
   "requestId": "pfaffenhofen-2026-09",
   "land": "Deutschland",
@@ -16,7 +16,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start am Hauptplatz in Pfaffenhofen an der Ilm. Über Niederscheyern auf ruhigen Nebenstraßen hinauf zum Benediktinerkloster Scheyern, das auf einem Hügel über dem Ilmtal thront – seit 1119 wird hier gebraut, die Klosterschenke mit ihrem schattigen, rund 600 Plätze fassenden Biergarten (bis Ende Oktober täglich geöffnet) ist die Einkehr der Runde, dazu Brotzeit aus der Klostermetzgerei. Weiter durch den Scheyerer Forst auf feinem Schotter sowie Feld- und Waldwegen hinunter ins Ilmtal nach Ilmmünster mit der Wallfahrtskirche Herrnrast, dann über Hettenshausen zurück nach Pfaffenhofen. Überwiegend flach, mit einer kurzen, moderaten Steigung zum Kloster hinauf.",
+  "beschreibung": "Start am Hauptplatz in Pfaffenhofen an der Ilm. Zuerst flach nach Süden über Hettenshausen nach Ilmmünster und weiter im Ilmtal nach Reichertshausen. Über Steinkirchen geht es dann auf ruhigen Nebenstraßen sowie Feld- und Waldwegen durchs sanfte Hügelland nach Gerolsbach und von dort ostwärts zum Benediktinerkloster Scheyern, das auf einem Hügel über dem Ilmtal thront – seit 1119 wird hier gebraut. Die Klosterschenke mit ihrem großen, schattigen Biergarten ist die Einkehr zum Abschluss der Runde, dazu Brotzeit aus der Klostermetzgerei. Danach rollt es über Niederscheyern zurück nach Pfaffenhofen. Rund 45 km mit knapp 300 Höhenmetern, die meisten davon im Hügelland zwischen Steinkirchen und Scheyern.",
   "quellen": [
     {
       "name": "Radtour Pfaffenhofen – Ilmtal (Kurvenkönig)",
@@ -36,7 +36,7 @@
       "von": "Pfaffenhofen an der Ilm",
       "nach": "Pfaffenhofen an der Ilm",
       "hmPlan": 280,
-      "text": "Niederscheyern – Kloster Scheyern (Einkehr Klosterschenke) – Scheyerer Forst – Ilmmünster (Wallfahrtskirche Herrnrast) – Hettenshausen – Pfaffenhofen.",
+      "text": "Pfaffenhofen – Hettenshausen – Ilmmünster (Basilika St. Arsatius) – Ilmtal nach Reichertshausen – Steinkirchen – durchs Hügelland nach Gerolsbach – Kloster Scheyern (Einkehr Klosterschenke) – Niederscheyern – Pfaffenhofen.",
       "wegpunkte": [
         [
           48.5296,
@@ -44,9 +44,29 @@
           "Pfaffenhofen an der Ilm (Hauptplatz)"
         ],
         [
-          48.5179,
-          11.4818,
-          "Niederscheyern"
+          48.5013,
+          11.5236,
+          "Hettenshausen"
+        ],
+        [
+          48.4816,
+          11.5008,
+          "Ilmmünster"
+        ],
+        [
+          48.4534,
+          11.4812,
+          "Reichertshausen"
+        ],
+        [
+          48.4361,
+          11.4586,
+          "Steinkirchen"
+        ],
+        [
+          48.4924,
+          11.3583,
+          "Gerolsbach"
         ],
         [
           48.5012,
@@ -54,14 +74,9 @@
           "Kloster Scheyern"
         ],
         [
-          48.4817,
-          11.5008,
-          "Ilmmünster"
-        ],
-        [
-          48.5002,
-          11.5049,
-          "Hettenshausen"
+          48.5179,
+          11.4818,
+          "Niederscheyern"
         ],
         [
           48.5296,
@@ -71,5 +86,12 @@
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "25.09.2026",
+      "von": "Thomas",
+      "kommentar": "Bitte etwas länger – so ca. 40–50 km.",
+      "antwort": "Runde auf ca. 45 km verlängert: jetzt zuerst durchs Ilmtal über Hettenshausen und Ilmmünster nach Reichertshausen, dann über Steinkirchen und Gerolsbach durchs Hügelland zum Kloster Scheyern (Einkehr zum Schluss) und über Niederscheyern zurück. Koordinate von Hettenshausen korrigiert, Höhenmeter-Plan auf ca. 280 angepasst."
+    }
+  ]
 }
