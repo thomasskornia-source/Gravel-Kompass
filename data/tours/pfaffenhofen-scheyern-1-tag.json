@@ -1,0 +1,75 @@
+{
+  "id": "pfaffenhofen-scheyern-1-tag",
+  "title": "Pfaffenhofen–Kloster Scheyern: Ilmtal-Runde mit Klosterbiergarten",
+  "subtitle": "Trekking-Tagestour, ca. 30 km, durchs Ilmtal zum Benediktinerkloster Scheyern",
+  "createdAt": "2026-09-25",
+  "requestId": "pfaffenhofen-2026-09",
+  "land": "Deutschland",
+  "region": "Bayern (Landkreis Pfaffenhofen an der Ilm)",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Trekking",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter (Champagner Gravel)",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start am Hauptplatz in Pfaffenhofen an der Ilm. Über Niederscheyern auf ruhigen Nebenstraßen hinauf zum Benediktinerkloster Scheyern, das auf einem Hügel über dem Ilmtal thront – seit 1119 wird hier gebraut, die Klosterschenke mit ihrem schattigen, rund 600 Plätze fassenden Biergarten (bis Ende Oktober täglich geöffnet) ist die Einkehr der Runde, dazu Brotzeit aus der Klostermetzgerei. Weiter durch den Scheyerer Forst auf feinem Schotter sowie Feld- und Waldwegen hinunter ins Ilmtal nach Ilmmünster mit der Wallfahrtskirche Herrnrast, dann über Hettenshausen zurück nach Pfaffenhofen. Überwiegend flach, mit einer kurzen, moderaten Steigung zum Kloster hinauf.",
+  "quellen": [
+    {
+      "name": "Radtour Pfaffenhofen – Ilmtal (Kurvenkönig)",
+      "url": "https://kurvenkoenig.de/radtouren/oberbayern/pfaffenhofen-ilmtal.html"
+    },
+    {
+      "name": "Klosterschenke Scheyern",
+      "url": "https://klosterschenke-scheyern.de/"
+    },
+    {
+      "name": "Radfahren im Landkreis Pfaffenhofen a.d.Ilm",
+      "url": "https://www.kus-pfaffenhofen.de/tourismus/natur-aktiv/radfahren/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Pfaffenhofen an der Ilm",
+      "nach": "Pfaffenhofen an der Ilm",
+      "hmPlan": 280,
+      "text": "Niederscheyern – Kloster Scheyern (Einkehr Klosterschenke) – Scheyerer Forst – Ilmmünster (Wallfahrtskirche Herrnrast) – Hettenshausen – Pfaffenhofen.",
+      "wegpunkte": [
+        [
+          48.5296,
+          11.507,
+          "Pfaffenhofen an der Ilm (Hauptplatz)"
+        ],
+        [
+          48.5179,
+          11.4818,
+          "Niederscheyern"
+        ],
+        [
+          48.5012,
+          11.4526,
+          "Kloster Scheyern"
+        ],
+        [
+          48.4817,
+          11.5008,
+          "Ilmmünster"
+        ],
+        [
+          48.5002,
+          11.5049,
+          "Hettenshausen"
+        ],
+        [
+          48.5296,
+          11.507,
+          "Pfaffenhofen an der Ilm (Hauptplatz)"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

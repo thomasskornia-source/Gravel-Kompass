@@ -1,5 +1,29 @@
 [
   {
+    "id": "pfaffenhofen-2026-09",
+    "createdAt": "2026-09-25",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Bayern",
+    "fahrradtyp": "Trekking",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 30,
+    "etappenlaengeBis": 50,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Rundtour in oder um Pfaffenhofen an der Ilm mit schöner Einkehr",
+    "tourIds": [
+      "pfaffenhofen-scheyern-1-tag"
+    ]
+  },
+  {
     "id": "eichenau-rosenheim-2026-09-a",
     "createdAt": "2026-09-25",
     "status": "fertig",
