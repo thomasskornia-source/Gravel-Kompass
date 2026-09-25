@@ -22,8 +22,12 @@ var ANTHROPIC_VERSION = '2023-06-01';
 var ANTHROPIC_BETA = 'experimental-cc-routine-2026-04-01';
 
 /** Legt den Auslöser „bei Formularübermittlung“ an (vorhandene werden vorher entfernt). */
+// Tabelle „Gravel Kompass Eingang“ – damit das Skript auch als eigenständiges Projekt funktioniert
+// (ohne Zugriffsrecht auf die Tabelle nützt die ID niemandem)
+var TABELLE_ID = '16S3URnGUKnyW1T2-j_kHa5K50CnNeCNA77q8X9npotw';
+
 function einrichten() {
-  var ss = SpreadsheetApp.getActive();
+  var ss = SpreadsheetApp.getActive() || SpreadsheetApp.openById(TABELLE_ID);
   ScriptApp.getProjectTriggers().forEach(function (t) {
     if (t.getHandlerFunction() === 'beiNeuerAntwort') ScriptApp.deleteTrigger(t);
   });
