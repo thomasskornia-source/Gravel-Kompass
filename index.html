@@ -129,7 +129,14 @@
   /* Overview */
   .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
   .filters input{flex:1 1 220px;}
-  .filters select{flex:0 1 200px;width:auto;}
+  [hidden]{display:none !important;}
+  .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;flex-basis:100%;}
+  .chip{display:inline-flex;align-items:center;justify-content:center;gap:5px;height:34px;min-width:34px;padding:0 9px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);font:inherit;font-size:12.5px;cursor:pointer;}
+  .chip svg{width:24px;height:16px;display:block;}
+  .chip[data-bike]{color:var(--bike);}
+  .chip.flag{font-size:19px;padding:0 6px;line-height:1;}
+  .chip.on{border-color:var(--blaze);background:var(--surface-2);color:var(--blaze);box-shadow:inset 0 0 0 1px var(--blaze);}
+  .chip-sep{width:1px;height:22px;background:var(--line);margin:0 4px;}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
   .tile{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s, transform .15s;}
   .tile:hover{border-color:var(--moss);transform:translateY(-2px);}
@@ -177,7 +184,7 @@
     <h2>Touren</h2>
     <div class="filters">
       <input id="q" type="search" placeholder="Suchen: Ort, Region, Name …" aria-label="Touren durchsuchen">
-      <select id="land-filter" aria-label="Nach Land filtern"><option value="">Alle Länder</option></select>
+      <div class="chips" id="chips" role="group" aria-label="Nach Fahrrad und Land filtern"></div>
     </div>
     <div id="tour-grid" class="grid"><p class="sub">Lade Touren …</p></div>
   </section>
@@ -665,9 +672,9 @@
     var grid = document.getElementById("tour-grid");
     if (!TOURS) return;
     var q = document.getElementById("q").value.trim().toLowerCase();
-    var land = document.getElementById("land-filter").value;
+    var land = FILTER.land, bike = FILTER.bike;
     var list = TOURS.filter(function(t){
-      return (!land || landOf(t) === land) && (!q || q.split(/\s+/).every(function(w){ return searchText(t).indexOf(w) >= 0; }));
+      return (!land || landOf(t) === land) && (!bike || bikeKind(t.fahrradtyp).cls === bike) && (!q || q.split(/\s+/).every(function(w){ return searchText(t).indexOf(w) >= 0; }));
     });
     if (!list.length){ grid.innerHTML = '<p class="empty">' + (TOURS.length ? "Keine Tour passt zur Suche." : "Noch keine Touren.") + '</p>'; return; }
     grid.innerHTML = list.map(function(t){
@@ -683,7 +690,36 @@
     }).join("");
   }
   document.getElementById("q").addEventListener("input", renderOverview);
-  document.getElementById("land-filter").addEventListener("change", renderOverview);
+  // Filter chips: bike type (icons) and country (flags); tap again to clear
+  var FILTER = {bike: "", land: ""};
+  var BIKES = [{cls:"gravel", label:"Gravel"}, {cls:"road", label:"Rennrad"}, {cls:"trekking", label:"Trekking"}, {cls:"mtb", label:"Mountainbike"}];
+  var FLAGS = {"Deutschland":"DE","Frankreich":"FR","Spanien":"ES","Italien":"IT","Österreich":"AT","Schweiz":"CH","Niederlande":"NL","Belgien":"BE",
+    "Luxemburg":"LU","Dänemark":"DK","Schweden":"SE","Norwegen":"NO","Polen":"PL","Tschechien":"CZ","Slowenien":"SI","Kroatien":"HR","Portugal":"PT",
+    "Großbritannien":"GB","Vereinigtes Königreich":"GB","England":"GB","Schottland":"GB","Irland":"IE","Ungarn":"HU","Slowakei":"SK","Griechenland":"GR"};
+  function flagOf(land){
+    var cc = FLAGS[land];
+    return cc ? String.fromCodePoint.apply(null, cc.split("").map(function(c){ return 0x1F1A5 + c.charCodeAt(0); })) : land;
+  }
+  function renderChips(lands){
+    var box = document.getElementById("chips");
+    box.innerHTML = BIKES.map(function(b){
+      return '<button type="button" class="chip bike-' + b.cls + '" data-bike="' + b.cls + '" title="' + b.label + '" aria-label="' + b.label + '" aria-pressed="false">' + bikeIcon(b.cls) + '</button>';
+    }).join("") + '<span class="chip-sep" aria-hidden="true"></span>' + lands.map(function(l){
+      var f = flagOf(l);
+      return '<button type="button" class="chip' + (f !== l ? ' flag' : '') + '" data-land="' + esc(l) + '" title="' + esc(l) + '" aria-label="' + esc(l) + '" aria-pressed="false">' + esc(f) + '</button>';
+    }).join("");
+    box.addEventListener("click", function(ev){
+      var btn = ev.target.closest(".chip"); if (!btn) return;
+      var key = btn.hasAttribute("data-bike") ? "bike" : "land";
+      var val = btn.getAttribute("data-" + key);
+      FILTER[key] = FILTER[key] === val ? "" : val;
+      box.querySelectorAll("[data-" + key + "]").forEach(function(b){
+        var on = b.getAttribute("data-" + key) === FILTER[key];
+        b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      renderOverview();
+    });
+  }
 
   // ---------- Router: #touren, #tour/<id>, #anfrage, #quellen ----------
   var OPEN_TOUR = null;
@@ -812,7 +848,7 @@
       SEEN = {}; TOURS.forEach(function(t){ if (t.stand) SEEN[t.id] = t.stand; }); saveSeen(SEEN);
     }
     var lands = Array.from(new Set(TOURS.map(landOf))).filter(Boolean).sort();
-    document.getElementById("land-filter").innerHTML = '<option value="">Alle Länder</option>' + lands.map(function(l){ return '<option>' + esc(l) + '</option>'; }).join("");
+    renderChips(lands);
     renderRequests(res[1]);
     renderSources(res[2]);
     OPEN_TOUR = null;
