@@ -65,7 +65,11 @@
 
   /* Tour */
   .tour{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .tour-head{padding:18px 18px 12px;}
+  .tour-head{padding:18px 64px 12px 18px;position:relative;}
+  .share-btn{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);color:var(--blaze);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+  .share-btn:hover{border-color:var(--blaze);}
+  .share-btn svg{width:20px;height:20px;}
+  .share-out{margin-top:10px;}
   .tour-head h3{font-size:24px;}
   .tour-sub{color:var(--ink-soft);font-size:14px;margin-top:2px;}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
@@ -340,8 +344,13 @@
     var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tageLabel(tour.tage), tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
     var hmPlan = tour.etappen.reduce(function(s,e){ return s + (e.hmPlan||0); }, 0);
     el.innerHTML =
-      '<div class="tour-head"><h3>' + esc(tour.title) + '</h3><div class="tour-sub">' + esc(tour.subtitle||"") + '</div>' +
-      '<div class="tags">' + tags.map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
+      '<div class="tour-head">' +
+        '<button type="button" class="share-btn" data-share aria-label="Tour teilen" title="Tour teilen">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1h-2"/><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/></svg>' +
+        '</button>' +
+        '<h3>' + esc(tour.title) + '</h3><div class="tour-sub">' + esc(tour.subtitle||"") + '</div>' +
+      '<div class="tags">' + tags.map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
+      '<div class="hint share-out" data-share-out hidden></div></div>' +
       '<div class="map" id="' + mapId + '"></div>' +
       '<div class="route-status" data-status>Berechne Route auf echten Wegen …</div>' +
       '<div class="stats">' +
@@ -383,6 +392,10 @@
         '<div class="stage-text">' + esc(e.text||"") + '</div>' +
         '<div class="stage-gpx"><button type="button" data-stage-gpx disabled>GPX Etappe ' + (i+1) + '</button></div>';
       stagesEl.appendChild(row);
+    });
+
+    el.querySelector("[data-share]").addEventListener("click", function(){
+      shareTour(tour, el.querySelector("[data-share-out]"));
     });
 
     el.querySelector("[data-comment]").addEventListener("submit", function(ev){
@@ -510,6 +523,20 @@
       }
     }
     showFallback(out, title, text);
+  }
+  async function shareTour(tour, out){
+    var url = location.origin + location.pathname + "#tour/" + encodeURIComponent(tour.id);
+    if (navigator.share){
+      try{ await navigator.share({title: tour.title, text: tour.subtitle || "", url: url}); return; }
+      catch(e){ if (e && e.name === "AbortError") return; }
+    }
+    try{
+      await navigator.clipboard.writeText(url);
+      out.hidden = false; out.textContent = "Link kopiert";
+      clearTimeout(out._t); out._t = setTimeout(function(){ out.hidden = true; }, 2500);
+    }catch(e){
+      showFallback(out, "Gravel Kompass – " + tour.title, tour.title + "\n" + url);
+    }
   }
   // Inbox: submissions go straight into Thomas's Google Form (-> Google Sheet "Gravel Kompass Eingang"),
   // which Claude reads when asked to "abarbeiten". no-cors: the response can't be read, only network failure is detectable.
