@@ -18,23 +18,35 @@
       "Radwege",
       "Asphalt"
     ],
-    "beschreibung": "Dreitägige Einweg-Gravel-Tour von Eichenau bei München über Rosenheim und den Chiemsee bis nach Salzburg. Tag 1 führt auf dem Mangfallradweg durch die Münchner Vorstädte und das Mangfalltal nach Rosenheim. Tag 2 folgt dem Salinen-Radweg am Nordufer des Chiemsee entlang über Traunstein nach Bad Reichenhall. Tag 3 bringt mit einem Abstecher zum Königssee und dem Mozart-Radweg über Berchtesgaden und Marktschellenberg nach Salzburg. Überwiegend Radwege, Feld- und Waldwege sowie feiner Schotter im Alpenvorland, mit moderaten Anstiegen im Berchtesgadener Land.",
+    "beschreibung": "Dreitägige Einweg-Gravel-Tour von Eichenau bei München über Rosenheim und den Chiemsee bis nach Salzburg. Tag 1 führt auf dem Mangfallradweg durch die Münchner Vorstädte und das Mangfalltal nach Rosenheim. Tag 2 läuft am Simssee-Ufer durch Moor und Schilf, über Bad Endorf und die Eggstätter Seenplatte an den Chiemsee, am Nordufer über Seebruck und am Ostufer bis Grabenstätt; von dort geht es über Bergen und Siegsdorf auf den Spuren der historischen Soleleitung über Inzell, Weißbach und den Thumsee nach Bad Reichenhall. Tag 3 bringt mit einem Abstecher zum Königssee und dem Mozart-Radweg über Berchtesgaden und Marktschellenberg nach Salzburg. Überwiegend Radwege, Feld- und Waldwege sowie feiner Schotter im Alpenvorland, mit moderaten Anstiegen im Chiemgau und Berchtesgadener Land.",
     "quellen": [
-      {
-        "name": "Berchtesgaden, Mozart-Radweg Berchtesgaden–Salzburg",
-        "url": "https://www.berchtesgaden.de/rad-bike/radwege/berchtesgaden-salzburg"
-      },
       {
         "name": "Bad Reichenhall, Tauernradweg Bad Reichenhall–Salzburg",
         "url": "https://www.bad-reichenhall.de/radfahren/radwege/bad-reichenhall-salzburg"
+      },
+      {
+        "name": "Berchtesgaden, Mozart-Radweg Berchtesgaden–Salzburg",
+        "url": "https://www.berchtesgaden.de/rad-bike/radwege/berchtesgaden-salzburg"
       },
       {
         "name": "Chiemsee-Alpenland Tourismus, Mangfallradweg",
         "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/mangfallradweg-57436976fb"
       },
       {
+        "name": "Chiemsee-Alpenland Tourismus, Rund um den Simssee",
+        "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/rund-um-den-simssee-30bfd2dc74"
+      },
+      {
         "name": "Chiemsee-Alpenland Tourismus, Salinen-Radweg",
         "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/salinen-radweg-08f25bccf4"
+      },
+      {
+        "name": "Outdooractive, Auf dem Soleleitungsweg zum Thumsee und Nesselgraben",
+        "url": "https://regio.outdooractive.com/oar-bgl/de/tour/wanderung/auf-dem-soleleitungsweg-zum-thumsee-und-nesselgraben/5553400/"
+      },
+      {
+        "name": "Wikipedia, Soleleitung (Bad Reichenhall)",
+        "url": "https://de.wikipedia.org/wiki/Soleleitung_(Bad_Reichenhall)"
       }
     ],
     "etappen": [
@@ -84,8 +96,8 @@
       {
         "von": "Rosenheim",
         "nach": "Bad Reichenhall",
-        "hmPlan": 400,
-        "text": "Auf dem Salinen-Radweg vorbei am Simssee zum Chiemsee, dort am Nordufer über Seebruck und dann am Ostufer über Chieming und Übersee entlang mit freiem Blick übers \"Bayerische Meer\". Am Südostufer weiter über Grabenstätt durch die Chiemgauer Hügel nach Traunstein, dann über Teisendorf und Piding hinein in die Alpenstadt Bad Reichenhall.",
+        "hmPlan": 700,
+        "text": "Aus Rosenheim hinaus an den Simssee und auf dem Uferweg von Baierbach über Ecking nach Pietzing, mitten durch Moor und Schilf. Über Bad Endorf und die Eggstätter Seenplatte mit ihren kleinen Moorseen hinunter nach Gstadt an den Chiemsee, am Nordufer entlang über Seebruck und dann am Ostufer über Chieming nach Süden bis Grabenstätt. Über Bergen und Siegsdorf geht es in die Berge: Ab hier folgt die Route der historischen Soleleitung (Soleleitungsweg) über Inzell, Weißbach an der Alpenstraße und den Nesselgraben, vorbei am Thumsee und hinab nach Bad Reichenhall.",
         "wegpunkte": [
           [
             47.8564,
@@ -93,44 +105,79 @@
             "Rosenheim"
           ],
           [
-            47.8489,
-            12.2214,
-            "Söllhuben (Simssee)"
+            47.8613,
+            12.2034,
+            "Baierbach (Simssee)"
           ],
           [
-            47.8797,
-            12.4694,
+            47.8504,
+            12.2274,
+            "Ecking (Simssee)"
+          ],
+          [
+            47.8661,
+            12.2475,
+            "Pietzing (Simssee)"
+          ],
+          [
+            47.9064,
+            12.3014,
+            "Bad Endorf"
+          ],
+          [
+            47.9308,
+            12.3886,
+            "Eggstätt (Eggstätter Seenplatte)"
+          ],
+          [
+            47.8865,
+            12.4176,
+            "Gstadt am Chiemsee"
+          ],
+          [
+            47.934,
+            12.4783,
             "Seebruck"
           ],
           [
-            47.8969,
-            12.5314,
+            47.8943,
+            12.5381,
             "Chieming"
           ],
           [
-            47.8283,
-            12.5744,
-            "Übersee"
-          ],
-          [
-            47.8656,
-            12.5794,
+            47.843,
+            12.5418,
             "Grabenstätt"
           ],
           [
-            47.8697,
+            47.7947,
+            12.5773,
+            "Bergen"
+          ],
+          [
+            47.8234,
             12.6428,
-            "Traunstein"
+            "Siegsdorf"
           ],
           [
-            47.8464,
-            12.7683,
-            "Teisendorf"
+            47.7633,
+            12.7492,
+            "Inzell"
           ],
           [
-            47.7644,
-            12.8578,
-            "Piding"
+            47.7208,
+            12.7689,
+            "Weißbach an der Alpenstraße"
+          ],
+          [
+            47.7126,
+            12.8145,
+            "Nesselgraben"
+          ],
+          [
+            47.7203,
+            12.824,
+            "Thumsee"
           ],
           [
             47.7239,
@@ -189,6 +236,12 @@
         "von": "Thomas",
         "kommentar": "Von Rosenheim zum Chiemsee am Nordufer entlang fahren und dann am Ostufer des Chiemsee runterfahren, dort Richtung Bad Reichenhall.",
         "antwort": "Wegpunkt Übersee am Ostufer zwischen Chieming und Grabenstätt ergänzt, damit die Route klar am Nordufer (Seebruck) und dann am Ostufer (Chieming, Übersee) nach Süden verläuft, bevor es weiter Richtung Traunstein und Bad Reichenhall geht."
+      },
+      {
+        "datum": "25.09.2026",
+        "von": "Thomas",
+        "kommentar": "Etappe 2 neu: am Simssee-Uferweg (Baierbach → Ecking/Pietzing) entlang, über Bad Endorf und die Eggstätter Seenplatte nach Gstadt, am Nordufer über Seebruck nach Chieming und am Ostufer bis Grabenstätt; Söllhuben, Übersee und Traunstein raus. Danach über Bergen und Siegsdorf entlang der historischen Soleleitung über Inzell, Weißbach, Nesselgraben und Thumsee nach Bad Reichenhall.",
+        "antwort": "Etappe 2 komplett neu geplant: Wegpunkte Baierbach, Ecking, Pietzing, Bad Endorf, Eggstätt, Gstadt, Seebruck, Chieming, Grabenstätt, Bergen, Siegsdorf, Inzell, Weißbach an der Alpenstraße, Nesselgraben und Thumsee (Koordinaten mit OpenStreetMap geprüft, Seebruck liegt jetzt an Land); Söllhuben, Übersee, Traunstein, Teisendorf und Piding entfernt. Höhenmeter-Plan auf ca. 700 angehoben, Etappentext und Beschreibung angepasst, Quellen zum Simssee-Rundweg und Soleleitungsweg ergänzt."
       }
     ]
   },
