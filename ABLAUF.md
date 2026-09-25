@@ -37,6 +37,8 @@
 - Quellen der Recherche in `quellen` der Tour verlinken.
 
 ## Hochladen
-Die Cloud-Sitzung darf nicht direkt nach GitHub pushen. Upload über Thomas' Mac:
-Dateien nach `~/Dokumente/gravel-kompass/` schreiben, dann auf dem Mac in einen Klon von
-`thomasskornia-source/Gravel-Kompass` kopieren, committen und pushen (GitHub-Token von Thomas nötig, wird nicht gespeichert).
+- Änderungen direkt auf `main` committen und pushen (Repo `thomasskornia-source/Gravel-Kompass`); die Cloud-Sitzung
+  kann das selbst, der Umweg über Thomas' Mac ist nicht mehr nötig.
+- Vorher `python3 tools/tours-index.py` laufen lassen, falls Touren geändert wurden.
+- GitHub Pages ist nach 1–2 Minuten aktuell; danach Thomas kurz auf Deutsch berichten, was online ist
+  (mit Link `https://thomasskornia-source.github.io/Gravel-Kompass/#tour/<id>`).
