@@ -1,5 +1,186 @@
 [
   {
+    "id": "chiemgau-salzburg-3-tage",
+    "title": "Eichenau–Salzburg: Mangfalltal, Chiemsee-Nordufer & Königssee",
+    "subtitle": "3-Tage-Gravel-Einwegtour von Eichenau nach Salzburg",
+    "createdAt": "2026-09-25",
+    "requestId": "eichenau-salzburg-2026-09",
+    "land": "Deutschland",
+    "region": "Bayern / Salzburg",
+    "saison": "Herbst",
+    "tage": 3,
+    "fahrradtyp": "Gravel",
+    "anspruch": "Moderat",
+    "streckenform": "Einweg (A → B)",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "beschreibung": "Dreitägige Einweg-Gravel-Tour von Eichenau bei München über Rosenheim und den Chiemsee bis nach Salzburg. Tag 1 führt auf dem Mangfallradweg durch die Münchner Vorstädte und das Mangfalltal nach Rosenheim. Tag 2 folgt dem Salinen-Radweg am Nordufer des Chiemsee entlang über Traunstein nach Bad Reichenhall. Tag 3 bringt mit einem Abstecher zum Königssee und dem Mozart-Radweg über Berchtesgaden und Marktschellenberg nach Salzburg. Überwiegend Radwege, Feld- und Waldwege sowie feiner Schotter im Alpenvorland, mit moderaten Anstiegen im Berchtesgadener Land.",
+    "quellen": [
+      {
+        "name": "Berchtesgaden, Mozart-Radweg Berchtesgaden–Salzburg",
+        "url": "https://www.berchtesgaden.de/rad-bike/radwege/berchtesgaden-salzburg"
+      },
+      {
+        "name": "Bad Reichenhall, Tauernradweg Bad Reichenhall–Salzburg",
+        "url": "https://www.bad-reichenhall.de/radfahren/radwege/bad-reichenhall-salzburg"
+      },
+      {
+        "name": "Chiemsee-Alpenland Tourismus, Mangfallradweg",
+        "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/mangfallradweg-57436976fb"
+      },
+      {
+        "name": "Chiemsee-Alpenland Tourismus, Salinen-Radweg",
+        "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/salinen-radweg-08f25bccf4"
+      }
+    ],
+    "etappen": [
+      {
+        "von": "Eichenau",
+        "nach": "Rosenheim",
+        "hmPlan": 450,
+        "text": "Von Eichenau quer durch den Münchner Süden auf ruhigen Neben- und Waldwegen Richtung Mangfalltal. Ab Feldkirchen-Westerham folgt die Route dem Mangfallradweg flussabwärts durch Wiesen und Auwälder über Bad Aibling bis Rosenheim.",
+        "wegpunkte": [
+          [
+            48.1672,
+            11.3333,
+            "Eichenau"
+          ],
+          [
+            48.1339,
+            11.3908,
+            "Germering"
+          ],
+          [
+            48.0664,
+            11.6167,
+            "Unterhaching"
+          ],
+          [
+            47.9928,
+            11.7639,
+            "Aying"
+          ],
+          [
+            47.8608,
+            11.9967,
+            "Feldkirchen-Westerham"
+          ],
+          [
+            47.86,
+            12.0158,
+            "Bad Aibling"
+          ],
+          [
+            47.8564,
+            12.1289,
+            "Rosenheim"
+          ]
+        ]
+      },
+      {
+        "von": "Rosenheim",
+        "nach": "Bad Reichenhall",
+        "hmPlan": 400,
+        "text": "Auf dem Salinen-Radweg vorbei am Simssee zum Chiemsee, dort am Nordufer über Seebruck und Chieming entlang mit freiem Blick übers \"Bayerische Meer\". Weiter durch die Chiemgauer Hügel über Grabenstätt und Traunstein, dann über Teisendorf und Piding hinein in die Alpenstadt Bad Reichenhall.",
+        "wegpunkte": [
+          [
+            47.8564,
+            12.1289,
+            "Rosenheim"
+          ],
+          [
+            47.8489,
+            12.2214,
+            "Söllhuben (Simssee)"
+          ],
+          [
+            47.8797,
+            12.4694,
+            "Seebruck"
+          ],
+          [
+            47.8969,
+            12.5314,
+            "Chieming"
+          ],
+          [
+            47.8656,
+            12.5794,
+            "Grabenstätt"
+          ],
+          [
+            47.8697,
+            12.6428,
+            "Traunstein"
+          ],
+          [
+            47.8464,
+            12.7683,
+            "Teisendorf"
+          ],
+          [
+            47.7644,
+            12.8578,
+            "Piding"
+          ],
+          [
+            47.7239,
+            12.8783,
+            "Bad Reichenhall"
+          ]
+        ]
+      },
+      {
+        "von": "Bad Reichenhall",
+        "nach": "Salzburg",
+        "hmPlan": 550,
+        "text": "Vom Kurort Bad Reichenhall ins Berchtesgadener Tal, mit Abstecher zum türkisblauen Königssee. Zurück über Berchtesgaden auf dem Mozart-Radweg via Marktschellenberg und Grödig, zuletzt durch die Hellbrunner Allee mit ihren Schlössern in die Salzburger Altstadt.",
+        "wegpunkte": [
+          [
+            47.7239,
+            12.8783,
+            "Bad Reichenhall"
+          ],
+          [
+            47.6303,
+            13.0006,
+            "Berchtesgaden"
+          ],
+          [
+            47.5919,
+            12.9878,
+            "Königssee"
+          ],
+          [
+            47.6303,
+            13.0006,
+            "Berchtesgaden"
+          ],
+          [
+            47.7011,
+            13.0208,
+            "Marktschellenberg"
+          ],
+          [
+            47.7639,
+            13.0361,
+            "Grödig"
+          ],
+          [
+            47.8095,
+            13.055,
+            "Salzburg"
+          ]
+        ]
+      }
+    ],
+    "aenderungen": []
+  },
+  {
     "id": "champagne-reims-5-tage",
     "title": "Champagne-Gravel-Runde: Montagne de Reims, Côte des Blancs & Côte des Bar",
     "subtitle": "5-Tage-Trekkingrad-Rundtour ab Reims, mit dem Auto erreichbar",

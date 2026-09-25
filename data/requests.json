@@ -1,5 +1,30 @@
 [
   {
+    "id": "eichenau-salzburg-2026-09",
+    "createdAt": "2026-09-25",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 3,
+    "land": "Deutschland",
+    "region": "Bayern",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter (Champagner Gravel)",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 100,
+    "anspruch": "Moderat",
+    "streckenform": "Einweg (A → B)",
+    "stil": "Von Eichenau nach Salzburg. Erste Übernachtung in Rosenheim. Dann am Nordufer des Chiemsee vorbei nach Bad Reichenhall. Und von dort weiter zum Königssee, dann nach Salzburg.",
+    "tourIds": [
+      "chiemgau-salzburg-3-tage"
+    ]
+  },
+  {
     "id": "mannheim-herbst-2026-09",
     "createdAt": "2026-09-24",
     "status": "fertig",
