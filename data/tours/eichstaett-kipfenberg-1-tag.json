@@ -1,7 +1,7 @@
 {
   "id": "eichstaett-kipfenberg-1-tag",
   "title": "Eichstätt–Kipfenberg: Altmühltal-Runde mit Burgblick und Biergarten",
-  "subtitle": "Trekking-Tagestour, ca. 52 km, auf dem Altmühltalradweg nach Kipfenberg und über die Jurahöhen zurück nach Eichstätt",
+  "subtitle": "Trekking-Tagestour, ca. 65 km, auf dem Altmühltalradweg über Kipfenberg bis Kinding und über die Jurahöhen zurück nach Eichstätt",
   "createdAt": "2026-09-25",
   "requestId": "altmuehltal-2026-09",
   "land": "Deutschland",
@@ -17,7 +17,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start am Residenzplatz in Eichstätt, der Altmühl flussabwärts folgend auf dem gut ausgebauten Altmühltalradweg. Vorbei am Römerkastell Pfünz geht es über Walting, Pfalzpaint, Gungolding und Böhming durchs weite Flusstal bis nach Kipfenberg, wo die Burgruine hoch über dem Marktplatz thront. Einkehr etwa zur Tourmitte im Biergarten des „Der Postwirt“ direkt am Marktplatz – unter alten Kastanien, mit Blick auf die Burg. Zurück geht es nicht auf dem gleichen Weg: Die Route steigt über Arnsberg (mit weiterer Burgruine und Blick auf die Altmühlschleife) auf die Jurahöhen und führt über Wegscheid und Landershofen auf ruhigen Nebenstraßen sowie Feld- und Waldwegen zurück nach Eichstätt. Rund 52 km mit etwa 380 Höhenmetern, die vor allem auf dem Rückweg über die Hochfläche anfallen.",
+  "beschreibung": "Start am Residenzplatz in Eichstätt, der Altmühl flussabwärts folgend auf dem gut ausgebauten Altmühltalradweg. Vorbei am Römerkastell Pfünz geht es über Walting, Pfalzpaint, Gungolding und Böhming durchs weite Flusstal bis nach Kipfenberg, wo die Burgruine hoch über dem Marktplatz thront. Einkehr im Biergarten des „Der Postwirt“ direkt am Marktplatz – unter alten Kastanien, mit Blick auf die Burg. Von Kipfenberg geht es noch ein Stück weiter durchs Tal bis nach Kinding, bevor die Runde nach Westen dreht. Zurück geht es nicht auf dem gleichen Weg: Die Route steigt über Arnsberg (mit weiterer Burgruine und Blick auf die Altmühlschleife) auf die Jurahöhen und führt über Wegscheid und Landershofen auf ruhigen Nebenstraßen sowie Feld- und Waldwegen zurück nach Eichstätt. Rund 65 km mit etwa 430 Höhenmetern, die vor allem auf dem Rückweg über die Hochfläche anfallen.",
   "quellen": [
     {
       "name": "Altmühltalradweg – Wikipedia",
@@ -34,14 +34,18 @@
     {
       "name": "Der Postwirt Kipfenberg – Biergarten",
       "url": "https://www.derpostwirt.de/biergarten"
+    },
+    {
+      "name": "Markt Kinding – Wikipedia",
+      "url": "https://de.wikipedia.org/wiki/Kinding"
     }
   ],
   "etappen": [
     {
       "von": "Eichstätt",
       "nach": "Eichstätt",
-      "hmPlan": 380,
-      "text": "Eichstätt – Pfünz (Römerkastell) – Walting – Pfalzpaint – Gungolding – Böhming – Kipfenberg (Einkehr Biergarten „Der Postwirt“) – Arnsberg (Burgruine) – Wegscheid – Landershofen – Eichstätt.",
+      "hmPlan": 430,
+      "text": "Eichstätt – Pfünz (Römerkastell) – Walting – Pfalzpaint – Gungolding – Böhming – Kipfenberg (Einkehr Biergarten „Der Postwirt“) – Kinding – Arnsberg (Burgruine) – Wegscheid – Landershofen – Eichstätt.",
       "wegpunkte": [
         [
           48.8951,
@@ -79,6 +83,11 @@
           "Kipfenberg (Marktplatz, Einkehr Der Postwirt)"
         ],
         [
+          49.0,
+          11.3667,
+          "Kinding"
+        ],
+        [
           48.9167,
           11.2833,
           "Arnsberg (Burgruine)"
@@ -101,5 +110,12 @@
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "25.09.2026",
+      "von": "Thomas",
+      "kommentar": "Etwas länger bitte - 60 bis 70 km gerne.",
+      "antwort": "Runde von Kipfenberg aus noch bis nach Kinding verlängert, bevor es über Arnsberg auf die Jurahöhen und zurück nach Eichstätt geht. Jetzt ca. 65 km mit rund 430 Höhenmetern."
+    }
+  ]
 }
