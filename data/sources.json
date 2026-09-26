@@ -42,11 +42,39 @@
     "notiz": "Größte kuratierte Bikepacking-Routendatenbank, viele Gravel-Strecken inkl. GPX"
   },
   {
+    "name": "Bodensee-Radweg",
+    "url": "https://www.bodensee-radweg.com/",
+    "region": "Deutschland/Österreich/Schweiz",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Rund um den Bodensee, Etappen und GPX"
+  },
+  {
+    "name": "Deutsche Donau (Donauradweg)",
+    "url": "https://www.deutsche-donau.de/",
+    "region": "Baden-Württemberg/Bayern",
+    "art": "Offizielles Portal der Deutschen Donau",
+    "notiz": "Donauradweg von Donaueschingen bis Passau"
+  },
+  {
+    "name": "Elberadweg",
+    "url": "https://www.elberadweg.de/",
+    "region": "Deutschland/Tschechien",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Offizieller GPX-Track inkl. Umleitungen"
+  },
+  {
     "name": "EuroVelo",
     "url": "https://de.eurovelo.com/",
     "region": "Europa (17 Fernradwege)",
     "art": "Offizielles Fernradwegenetz",
     "notiz": "Offizielle EuroVelo-Routen, gemischter Belag"
+  },
+  {
+    "name": "Fernradwege in Mecklenburg-Vorpommern",
+    "url": "https://www.auf-nach-mv.de/radwandern/fernradwege",
+    "region": "Mecklenburg-Vorpommern",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "9 Radfernwege und 21 Rundwege zwischen Ostsee und Seenplatte"
   },
   {
     "name": "France Vélo Tourisme",
@@ -91,11 +119,46 @@
     "notiz": "Kein API-Zugriff, aber manuell nach beliebten Touren durchsuchbar"
   },
   {
+    "name": "Mainradweg",
+    "url": "https://www.mainradweg.com/",
+    "region": "Bayern/Hessen",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Vom Fichtelgebirge bis Mainz"
+  },
+  {
+    "name": "Naturpark Altmühltal – Radfahren",
+    "url": "https://www.naturpark-altmuehltal.de/radfahren/",
+    "region": "Bayern",
+    "art": "Offizielle Seite des Naturparks",
+    "notiz": "Altmühltal-Radweg und weitere Radtouren"
+  },
+  {
     "name": "Nederland Fietsland (LF-Routes)",
     "url": "https://www.nederlandfietsland.nl/lf-routes/",
     "region": "Niederlande",
     "art": "Offizielle nationale LF-Routen",
     "notiz": "Haupt-LF-Routen, klassische LF-Routen und Wochenendtouren; GPX kostenlos"
+  },
+  {
+    "name": "Oder-Neiße-Radweg",
+    "url": "https://oder-neisse-radweg.de/",
+    "region": "Brandenburg/Sachsen",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Entlang der deutsch-polnischen Grenze bis zur Ostsee"
+  },
+  {
+    "name": "Radfahren in Niedersachsen",
+    "url": "https://www.reiseland-niedersachsen.de/erleben-entdecken/aktiv-erlebnis/radfahren",
+    "region": "Niedersachsen",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "Radfernwege und Radregionen in Niedersachsen"
+  },
+  {
+    "name": "Radlland Bayern – Radroutenplaner (Bayernnetz für Radler)",
+    "url": "https://radlland-bayern.de/radroutenplaner/",
+    "region": "Bayern",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Rund 125 Routen, ca. 9.000 km, Höhenprofile und GPX"
   },
   {
     "name": "Radnetz Deutschland (D-Routen)",
@@ -112,6 +175,41 @@
     "notiz": "Nutzergepflegte Übersicht aller Radfernwege"
   },
   {
+    "name": "Radroutenplaner Baden-Württemberg",
+    "url": "https://radroutenplaner-bw.de/",
+    "region": "Baden-Württemberg",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Landesnetz mit Höhenprofil und GPX-Download"
+  },
+  {
+    "name": "Radroutenplaner Deutschland",
+    "url": "https://radroutenplaner-deutschland.de/",
+    "region": "Deutschland",
+    "art": "Bundesweiter Radroutenplaner",
+    "notiz": "Verbindet die Daten der Länder: fast alle Radfernwege und das D-Netz, GPX-Export"
+  },
+  {
+    "name": "Radroutenplaner Hessen",
+    "url": "https://radroutenplaner.hessen.de/",
+    "region": "Hessen",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Landesnetz mit Höhenprofil und GPX-Download"
+  },
+  {
+    "name": "Radroutenplaner NRW",
+    "url": "https://www.radroutenplaner.nrw.de/",
+    "region": "Nordrhein-Westfalen",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Radverkehrsnetz NRW, Routenplanung mit GPX"
+  },
+  {
+    "name": "Radroutenplaner Thüringen",
+    "url": "https://radroutenplaner.thueringen.de/",
+    "region": "Thüringen",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Landesnetz mit Höhenprofil und GPX-Download"
+  },
+  {
     "name": "Radtouren in Österreich",
     "url": "https://www.radtouren.at/",
     "region": "Österreich",
@@ -119,11 +217,67 @@
     "notiz": "Rund 18 große Radfernwege (z. B. Donauradweg, Alpe-Adria) mit interaktiver Karte und Höhenprofilen"
   },
   {
+    "name": "Radurlaub in Schleswig-Holstein",
+    "url": "https://www.sh-tourismus.de/radfahren",
+    "region": "Schleswig-Holstein",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "Radregionen und Touren an Nord- und Ostsee"
+  },
+  {
+    "name": "Radwege in Sachsen-Anhalt",
+    "url": "https://www.radwege-sachsen-anhalt.de/",
+    "region": "Sachsen-Anhalt",
+    "art": "Übersicht Radwege",
+    "notiz": "Flussradwege, Fernrouten und Rundkurse in Sachsen-Anhalt"
+  },
+  {
+    "name": "Reiseland Brandenburg",
+    "url": "https://www.reiseland-brandenburg.de/",
+    "region": "Brandenburg",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "Offizielles Tourismusportal, Radfernwege und Touren"
+  },
+  {
+    "name": "Rheinradweg (EuroVelo 15)",
+    "url": "https://de.eurovelo.com/ev15",
+    "region": "Schweiz/Frankreich/Deutschland/Niederlande",
+    "art": "Offizielle EuroVelo-Seite",
+    "notiz": "Karte, Etappen und GPX des Rheinradwegs"
+  },
+  {
     "name": "Ride with GPS – Gravel Routes",
     "url": "https://ridewithgps.com/groups/Gravel-routes",
     "region": "International",
     "art": "Community + Routenplaner",
     "notiz": "Nutzergruppe mit Gravel-Routen, GPX-Export"
+  },
+  {
+    "name": "RuhrtalRadweg",
+    "url": "https://www.ruhrtalradweg.de/de/",
+    "region": "Nordrhein-Westfalen",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Von Winterberg bis Duisburg, GPX-Download"
+  },
+  {
+    "name": "Sachsen Tourismus",
+    "url": "https://www.sachsen-tourismus.de/",
+    "region": "Sachsen",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "Offizielles Tourismusportal, u. a. Elberadweg und Radfernwege"
+  },
+  {
+    "name": "Tourenplaner Rheinland-Pfalz",
+    "url": "https://www.rlp-tourismus.com/de/service/tourenplaner-rheinland-pfalz",
+    "region": "Rheinland-Pfalz",
+    "art": "Offizieller Radroutenplaner des Landes",
+    "notiz": "Rad- und Wanderrouten (Radwanderland), GPX-Download"
+  },
+  {
+    "name": "Urlaub im Saarland",
+    "url": "https://www.urlaub.saarland/",
+    "region": "Saarland",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "Offizielles Tourismusportal mit Radtouren"
   },
   {
     "name": "Veloland Schweiz (SchweizMobil)",
@@ -140,11 +294,25 @@
     "notiz": "Karten & Übersicht offizieller Radrouten inkl. EuroVelo"
   },
   {
+    "name": "Visit Mosel (Moselradweg)",
+    "url": "https://www.visitmosel.de/",
+    "region": "Rheinland-Pfalz",
+    "art": "Offizielles Reiseportal der Region",
+    "notiz": "Moselradweg und Radtouren an der Mosel"
+  },
+  {
     "name": "Waymarked Trails – Cycling",
     "url": "https://cycling.waymarkedtrails.org/",
     "region": "Europa / weltweit",
     "art": "Karte aller beschilderten Radrouten (OpenStreetMap)",
     "notiz": "Internationale, nationale, regionale und lokale Radfernwege auf einer Karte; GPX pro Route; Daten von OSM-Freiwilligen, daher nicht überall lückenlos"
+  },
+  {
+    "name": "Weser-Radweg",
+    "url": "https://www.weserradweg-info.de/de/",
+    "region": "Niedersachsen/NRW/Hessen/Bremen",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Offizieller GPX-Track inkl. Umleitungen"
   },
   {
     "name": "Wikivoyage – Deutschland per Rad",
