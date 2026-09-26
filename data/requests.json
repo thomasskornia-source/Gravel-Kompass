@@ -268,5 +268,25 @@
     "tourIds": [
       "mannheim-koenigstuhl-rennrad-1-tag"
     ]
+  },
+  {
+    "id": "schwaben-2026-09",
+    "createdAt": "2026-09-26",
+    "status": "fertig",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Schwaben",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 45,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "überrasch mich",
+    "tourIds": [
+      "noerdlingen-ries-1-tag"
+    ]
   }
 ]

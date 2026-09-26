@@ -1,0 +1,64 @@
+{
+  "id": "noerdlingen-ries-1-tag",
+  "title": "Nördlingen–Ries-Runde: Kraterbecken, Klosterschenke und Fürstlicher Biergarten",
+  "subtitle": "Gravel-Tagestour, ca. 50 km, auf Feldwegen quer durch das Nördlinger Ries mit Einkehr in Wallerstein und Maihingen",
+  "createdAt": "2026-09-26",
+  "requestId": "schwaben-2026-09",
+  "land": "Deutschland",
+  "region": "Nördlinger Ries (Bayerisch-Schwaben)",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter"
+  ],
+  "beschreibung": "Start am Marktplatz von Nördlingen, der historischen Kleinstadt mitten im Nördlinger Ries – einem der besterhaltenen Meteoritenkrater der Erde. Auf feinen Schotterwegen durch die flache, herbstlich verfärbte Kraterlandschaft geht es zunächst kurz nach Baldingen und dann hinauf nach Wallerstein, wo Schlossfelsen und das Fürstliche Brauhaus mit großem Biergarten zur ersten Einkehr einladen. Weiter über Feldwege nach Maihingen: Hier liegt das ehemalige Franziskanerkloster mit der Gasthaus-Klosterschenke im ruhigen Innenhof, ein zweiter guter Rastpunkt. Die Runde schwenkt danach nach Osten über Deiningen und Alerheim – Schauplatz der Schlacht von 1645 – und wieder nach Süden über Möttingen und Ederheim, immer auf ruhigen Schotter- und Feldwegen durch Wiesen und Äcker des Kraterbeckens, bevor es zurück zum Ausgangspunkt in Nördlingen geht. Rund 50 km mit knapp 180 Höhenmetern, die sich über den sanft gewellten Kraterrand verteilen – eine überraschende, aber gut machbare Herbsttour mit zwei Einkehrmöglichkeiten unterwegs.",
+  "quellen": [
+    {
+      "name": "Geopark Ries – Radwege",
+      "url": "https://www.geopark-ries.de/radwege/"
+    },
+    {
+      "name": "Geopark Ries – Radweg „Von Krater zu Krater“",
+      "url": "https://www.geopark-ries.de/wege/von_krater_zu_krater_gesamt-2469/"
+    },
+    {
+      "name": "Bikemap – Kraterrunde Nördlinger Ries (54 km)",
+      "url": "https://www.bikemap.net/de/r/3287834/"
+    },
+    {
+      "name": "Fürst Wallerstein Brauhaus – Schlossgastronomie & Biergarten",
+      "url": "https://fuerstwallerstein-brauhaus.de/schlossgastronomie/"
+    },
+    {
+      "name": "Kloster Maihingen",
+      "url": "https://www.kloster-maihingen.de/"
+    },
+    {
+      "name": "Nördlinger Ries – Wikipedia",
+      "url": "https://de.wikipedia.org/wiki/N%C3%B6rdlinger_Ries"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Nördlingen",
+      "nach": "Nördlingen",
+      "hmPlan": 180,
+      "text": "Nördlingen – Baldingen – Wallerstein (Einkehr Fürst Wallerstein Brauhaus) – Maihingen (Einkehr Klosterschenke) – Deiningen – Alerheim – Möttingen – Ederheim – Nördlingen.",
+      "wegpunkte": [
+        [48.8517, 10.4886, "Nördlingen (Marktplatz)"],
+        [48.8590, 10.4738, "Baldingen"],
+        [48.8871, 10.4760, "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"],
+        [48.9278, 10.5008, "Maihingen (Kloster, Einkehr Klosterschenke)"],
+        [48.8624, 10.5706, "Deiningen"],
+        [48.8451, 10.6212, "Alerheim"],
+        [48.8107, 10.5830, "Möttingen"],
+        [48.8081, 10.4670, "Ederheim"],
+        [48.8517, 10.4886, "Nördlingen (Marktplatz)"]
+      ]
+    }
+  ],
+  "aenderungen": []
+}
