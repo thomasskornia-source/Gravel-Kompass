@@ -209,8 +209,6 @@
     <form id="request-form">
       <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="erscheint bei „Bisherige Anfragen“"></div>
       <div class="row">
-        <div class="field"><label for="f-saison">Saison</label>
-          <select id="f-saison"><option>Frühling</option><option>Sommer</option><option>Herbst</option></select></div>
         <div class="field"><label for="f-tage">Anzahl Tage</label><input id="f-tage" type="number" min="1" max="30" value="5"></div>
       </div>
       <div class="row">
@@ -453,7 +451,7 @@
     var el = document.createElement("article");
     el.className = "tour";
     var mapId = "map-" + idx;
-    var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tageLabel(tour.tage), tour.fahrradtyp, tour.anspruch, tour.streckenform, tour.saison].filter(Boolean);
+    var tags = [tour.fuer ? "für " + tour.fuer : "", tour.land, tour.region, tageLabel(tour.tage), tour.fahrradtyp, tour.anspruch, tour.streckenform].filter(Boolean);
     var hmPlan = tour.etappen.reduce(function(s,e){ return s + (e.hmPlan||0); }, 0);
     el.innerHTML =
       '<div class="tour-head">' +
@@ -607,7 +605,7 @@
     var box = document.getElementById("request-list");
     if (!list.length){ box.innerHTML = '<p class="sub">Noch keine Anfragen.</p>'; return; }
     box.innerHTML = list.map(function(r){
-      return '<div class="item"><div class="req-top"><b>' + (r.name ? esc(r.name) + ': ' : '') + esc([r.saison, r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
+      return '<div class="item"><div class="req-top"><b>' + (r.name ? esc(r.name) + ': ' : '') + esc([r.land, r.region].filter(Boolean).join(" · ")) + '</b><span class="pill ' + (r.status === "fertig" ? "" : "neu") + '">' + (r.status === "fertig" ? "Fertig" : "Offen") + '</span></div>' +
         '<div class="note">' + esc([tageLabel(r.tage), r.fahrradtyp, r.anspruch, r.etappenlaengeVon + "–" + r.etappenlaengeBis + " km/Tag", r.streckenform, r.createdAt].filter(Boolean).join(" · ")) + '</div>' +
         (r.stil ? '<div class="note">„' + esc(r.stil) + '“</div>' : '') + '</div>';
     }).join("");
@@ -696,7 +694,6 @@
     var region = document.getElementById("f-region").value.trim();
     var name = document.getElementById("f-name").value.trim();
     return "Gravel Kompass – neue Tour-Anfrage" + (name ? " von " + name : "") + "\n" +
-      "Saison: " + document.getElementById("f-saison").value + "\n" +
       "Tage: " + document.getElementById("f-tage").value + "\n" +
       "Land: " + document.getElementById("f-land").value + "\n" +
       "Region: " + (region || "offen – bitte 3 Vorschläge") + "\n" +
@@ -770,7 +767,7 @@
   }
 
   function searchText(t){
-    var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.saison, t.fahrradtyp].concat(t.orte || []);
+    var parts = [t.title, t.subtitle, t.region, t.land, t.fuer, t.fahrradtyp].concat(t.orte || []);
     return parts.filter(Boolean).join(" ").toLowerCase();
   }
   // "Neu"/"Geändert" on tiles: compares the index "stand" with what this device has already opened

@@ -3,7 +3,7 @@
 import hashlib, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FIELDS = ["id", "title", "subtitle", "createdAt", "land", "region", "saison", "tage",
+FIELDS = ["id", "title", "subtitle", "createdAt", "land", "region", "tage",
           "fahrradtyp", "anspruch", "streckenform", "oberflaeche", "fuer", "profil"]
 
 entries = []

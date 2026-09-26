@@ -31,7 +31,7 @@
 ## Tourendaten
 - Jede Tour liegt in `data/tours/<id>.json` (vollständig: Kopfdaten, `beschreibung`, `quellen`, `etappen`, `aenderungen`).
 - `data/tours-index.json` enthält pro Tour nur die Kopfdaten (`id`, `title`, `subtitle`, `createdAt`, `land`, `region`,
-  `saison`, `tage`, `fahrradtyp`, `anspruch`, `streckenform`, `oberflaeche`, ggf. `profil`) plus `orte` (für die Suche)
+  `tage`, `fahrradtyp`, `anspruch`, `streckenform`, `oberflaeche`, ggf. `profil`) plus `orte` (für die Suche)
   und `skizze` (Wegpunkt-Koordinaten je Etappe für die Kachel-Karte) und `stand` (Prüfsumme der Tour-Datei, steuert
   „Neu“/„Geändert“ auf den Kacheln), neueste zuerst.
 - Nach jeder Änderung an einer Tour (neue Tour, geänderte Kopfdaten oder Wegpunkte) den Index neu bauen:

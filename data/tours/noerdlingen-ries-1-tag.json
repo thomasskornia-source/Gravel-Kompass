@@ -6,7 +6,6 @@
   "requestId": "schwaben-2026-09",
   "land": "Deutschland",
   "region": "Nördlinger Ries (Bayerisch-Schwaben)",
-  "saison": "Herbst",
   "tage": 1,
   "fahrradtyp": "Gravel",
   "anspruch": "Moderat",
@@ -48,15 +47,51 @@
       "hmPlan": 180,
       "text": "Nördlingen – Baldingen – Wallerstein (Einkehr Fürst Wallerstein Brauhaus) – Maihingen (Einkehr Klosterschenke) – Deiningen – Alerheim – Möttingen – Ederheim – Nördlingen.",
       "wegpunkte": [
-        [48.8517, 10.4886, "Nördlingen (Marktplatz)"],
-        [48.8590, 10.4738, "Baldingen"],
-        [48.8871, 10.4760, "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"],
-        [48.9278, 10.5008, "Maihingen (Kloster, Einkehr Klosterschenke)"],
-        [48.8624, 10.5706, "Deiningen"],
-        [48.8451, 10.6212, "Alerheim"],
-        [48.8107, 10.5830, "Möttingen"],
-        [48.8081, 10.4670, "Ederheim"],
-        [48.8517, 10.4886, "Nördlingen (Marktplatz)"]
+        [
+          48.8517,
+          10.4886,
+          "Nördlingen (Marktplatz)"
+        ],
+        [
+          48.859,
+          10.4738,
+          "Baldingen"
+        ],
+        [
+          48.8871,
+          10.476,
+          "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"
+        ],
+        [
+          48.9278,
+          10.5008,
+          "Maihingen (Kloster, Einkehr Klosterschenke)"
+        ],
+        [
+          48.8624,
+          10.5706,
+          "Deiningen"
+        ],
+        [
+          48.8451,
+          10.6212,
+          "Alerheim"
+        ],
+        [
+          48.8107,
+          10.583,
+          "Möttingen"
+        ],
+        [
+          48.8081,
+          10.467,
+          "Ederheim"
+        ],
+        [
+          48.8517,
+          10.4886,
+          "Nördlingen (Marktplatz)"
+        ]
       ]
     }
   ],
