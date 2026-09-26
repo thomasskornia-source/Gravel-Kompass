@@ -1,0 +1,106 @@
+{
+  "id": "augsburg-westliche-waelder-1-tag",
+  "title": "Augsburg–Westliche Wälder-Runde: Anhausen, Straßberg und Rauher Forst",
+  "subtitle": "Gravel-Tagestour, ca. 52 km, Rundtour im Naturpark Augsburg – Westliche Wälder mit Einkehr in Anhausen",
+  "createdAt": "2026-09-26",
+  "requestId": "schwaben-augsburg-2026-09",
+  "land": "Deutschland",
+  "region": "Bayerisch-Schwaben (Naturpark Augsburg – Westliche Wälder)",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter"
+  ],
+  "beschreibung": "Start in Wellenburg am westlichen Stadtrand von Augsburg, direkt am Rand des Naturparks Augsburg – Westliche Wälder. Die Runde führt zunächst kurz nach Anhausen, wo der Gasthof zur Traube mit seinem schattigen Biergarten zur ersten Einkehr einlädt. Danach geht es auf ruhigen Schotter- und Wirtschaftswegen durch das hügelige Stauden-Land über Burgwalden, die Scheppacher Kapelle und Döpshofen westwärts nach Itzlishofen. Von dort schwenkt die Route nach Süden über Birkach und Klimmach – dem südlichsten Punkt der Tour – und dann über Reinhartshofen wieder nach Norden. Über Straßberg und am Waldgebiet Rauher Forst entlang führt der Rückweg zurück nach Wellenburg. Die Landschaft der Westlichen Wälder ist sanft gewellt, dicht mit Bachtälern und kleinen Waldstücken durchzogen – eine typische Feierabend- und Tagesrunde für Gravelbikes mit überwiegend feinem Schotter und ruhigen Wirtschaftswegen, kaum Verkehr.",
+  "quellen": [
+    {
+      "name": "Komoot – Gravelbiken im Landkreis Augsburg",
+      "url": "https://komoot.com/de-de/guide/3440826/gravelbiken-in-landkreis-augsburg"
+    },
+    {
+      "name": "Outdooractive – Gravel-Bike-Touren im Naturpark Augsburg – Westliche Wälder",
+      "url": "https://www.outdooractive.com/de/gravel-bike-touren/augsburg-westliche-waelder/gravel-bike-touren-im-naturpark-augsburg-westliche-waelder/291696330/"
+    },
+    {
+      "name": "Augsburg Tourismus – Radeltouren in der Region Augsburg (PDF)",
+      "url": "https://www.augsburg-tourismus.de/files/augsburgtourismus/media/infomaterial/pdf/2023/regio_radeln_2023_web.pdf"
+    },
+    {
+      "name": "Gasthof zur Traube Anhausen (Biergarten)",
+      "url": "https://www.traube-anhausen.de/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Wellenburg",
+      "nach": "Wellenburg",
+      "hmPlan": 430,
+      "text": "Wellenburg – Anhausen (Einkehr Gasthof zur Traube) – Burgwalden – Scheppacher Kapelle – Döpshofen – Itzlishofen – Birkach – Klimmach – Reinhartshofen – Straßberg – Rauher Forst – Wellenburg.",
+      "wegpunkte": [
+        [
+          48.334,
+          10.8263,
+          "Wellenburg"
+        ],
+        [
+          48.3393,
+          10.7747,
+          "Anhausen (Einkehr Gasthof zur Traube)"
+        ],
+        [
+          48.2819,
+          10.7607,
+          "Burgwalden"
+        ],
+        [
+          48.2772,
+          10.7314,
+          "Scheppacher Kapelle"
+        ],
+        [
+          48.2771,
+          10.7033,
+          "Döpshofen"
+        ],
+        [
+          48.2694,
+          10.6737,
+          "Itzlishofen"
+        ],
+        [
+          48.2161,
+          10.6726,
+          "Birkach"
+        ],
+        [
+          48.2162,
+          10.6873,
+          "Klimmach"
+        ],
+        [
+          48.2351,
+          10.7336,
+          "Reinhartshofen"
+        ],
+        [
+          48.2736,
+          10.7862,
+          "Straßberg"
+        ],
+        [
+          48.2872,
+          10.783,
+          "Rauher Forst"
+        ],
+        [
+          48.334,
+          10.8263,
+          "Wellenburg"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

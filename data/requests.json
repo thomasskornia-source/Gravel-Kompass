@@ -48,7 +48,8 @@
   {
     "id": "eichenau-rosenheim-2026-09-a",
     "createdAt": "2026-09-25",
-    "status": "fertig",
+    "status": "gelöscht",
+    "notiz": "Tour auf Wunsch gelöscht (Kommentar mit Admin-Freigabe vom 26.09.2026 22:51).",
     "name": "Thomas",
     "tage": 1,
     "land": "Deutschland",
@@ -65,14 +66,13 @@
     "anspruch": "Moderat",
     "streckenform": "Einweg (A → B)",
     "stil": "Von Eichenau nach Rosenheim (Dublette der Anfrage vom selben Tag - mit gleicher Tour beantwortet)",
-    "tourIds": [
-      "eichenau-rosenheim-1-tag"
-    ]
+    "tourIds": []
   },
   {
     "id": "eichenau-rosenheim-2026-09-b",
     "createdAt": "2026-09-25",
-    "status": "fertig",
+    "status": "gelöscht",
+    "notiz": "Tour auf Wunsch gelöscht (Kommentar mit Admin-Freigabe vom 26.09.2026 22:51).",
     "name": "Thomas",
     "tage": 1,
     "land": "Deutschland",
@@ -89,9 +89,7 @@
     "anspruch": "Moderat",
     "streckenform": "Einweg (A → B)",
     "stil": "Von Eichenau nach Rosenheim",
-    "tourIds": [
-      "eichenau-rosenheim-1-tag"
-    ]
+    "tourIds": []
   },
   {
     "id": "eichenau-salzburg-2026-09",
@@ -300,6 +298,26 @@
     "notiz": "Vollständige Umrundung priorisiert (\"am Ende ist mir wichtig...\"); Etappenlänge liegt dadurch bei ca. 100 km statt 60–90 km (siehe Kriterien-Check).",
     "tourIds": [
       "rosenheim-chiemsee-1-tag"
+    ]
+  },
+  {
+    "id": "schwaben-augsburg-2026-09",
+    "createdAt": "2026-09-26",
+    "status": "fertig",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Schwaben, Augsburg",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 55,
+    "etappenlaengeBis": 55,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "überrasch mich",
+    "tourIds": [
+      "augsburg-westliche-waelder-1-tag"
     ]
   }
 ]
