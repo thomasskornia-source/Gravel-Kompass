@@ -124,6 +124,12 @@
       "von": "Thomas",
       "kommentar": "Keine „Einbahnstraßen“ fahren, die man am Ende wieder zurück muss – das macht beim Radfahren keinen Spaß.",
       "antwort": "Seenplatte neu geführt: statt Aiterbach → Eggstätt → Pelham und wieder zurück jetzt in einem Zug Rimsting → Hemhof → durch die Seenplatte → Eggstätt → Breitbrunn. Keine doppelt gefahrenen Abschnitte mehr (mit tools/stichstrecken-check.py geprüft), Wegpunkt Bernau auf die Uferroute gelegt. Neu ca. 67 km und knapp 300 Hm (die bisherige Angabe von 60 Hm war zu niedrig)."
+    },
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Hinter der Seenplatte möchte ich direkt nach breitbrunn - korrigiere diese Kleinigkeit",
+      "antwort": "Bereits so: Nach der Seenplatte führt die Route von Eggstätt direkt weiter nach Breitbrunn am Chiemsee, ohne Umweg. Keine weitere Änderung nötig."
     }
   ]
 }
