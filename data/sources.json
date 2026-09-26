@@ -7,6 +7,20 @@
     "notiz": "Geprüfte deutsche Radfernwege (ADFC-Qualitätsradrouten)"
   },
   {
+    "name": "AF3V – Véloroutes et Voies Vertes",
+    "url": "https://www.af3v.org/",
+    "region": "Frankreich",
+    "art": "Radfahrverband (Véloroutes und Voies Vertes)",
+    "notiz": "Detaillierte Beschreibungen von Voies Vertes, Bahntrassen- und Treppelwegen"
+  },
+  {
+    "name": "Alsace à Vélo",
+    "url": "https://www.alsaceavelo.fr/",
+    "region": "Frankreich (Elsass)",
+    "art": "Regionales Radnetz-Portal",
+    "notiz": "Rund 2.500 km Radwege im Elsass"
+  },
+  {
     "name": "Bicitalia (FIAB)",
     "url": "https://bicitalia.it/focus/bicitalia/",
     "region": "Italien",
@@ -47,6 +61,20 @@
     "region": "Deutschland/Österreich/Schweiz",
     "art": "Offizielle Seite des Radwegs",
     "notiz": "Rund um den Bodensee, Etappen und GPX"
+  },
+  {
+    "name": "Bretagne à vélo (Tourisme Bretagne)",
+    "url": "https://www.tourismebretagne.com/selon-mes-envies/voyage-a-velo/",
+    "region": "Frankreich (Bretagne)",
+    "art": "Landestourismus – Radfahren",
+    "notiz": "10 große Routen mit 2.700 km, Voies Vertes und Treppelwege"
+  },
+  {
+    "name": "Canal des 2 Mers à vélo",
+    "url": "https://www.canaldes2mersavelo.com/",
+    "region": "Frankreich (Südwesten)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Atlantik bis Mittelmeer über Canal de Garonne und Canal du Midi, ca. 750 km"
   },
   {
     "name": "Deutsche Donau (Donauradweg)",
@@ -119,6 +147,34 @@
     "notiz": "Kein API-Zugriff, aber manuell nach beliebten Touren durchsuchbar"
   },
   {
+    "name": "La Loire à Vélo",
+    "url": "https://www.loireavelo.fr/",
+    "region": "Frankreich (Loire)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Klassiker entlang der Loire (EuroVelo 6), Etappen und GPX"
+  },
+  {
+    "name": "La Vélo Francette",
+    "url": "https://www.lavelofrancette.com/",
+    "region": "Frankreich (Normandie bis Atlantik)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Ouistreham/Caen quer durchs Land bis La Rochelle"
+  },
+  {
+    "name": "La Vélodyssée",
+    "url": "https://www.lavelodyssee.com/",
+    "region": "Frankreich (Atlantikküste)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Roscoff bis Hendaye, ca. 1.300 km (EuroVelo 1)"
+  },
+  {
+    "name": "La Vélomaritime",
+    "url": "https://www.lavelomaritime.fr/",
+    "region": "Frankreich (Ärmelkanal/Nordsee)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Roscoff bis Dunkerque, ca. 1.500 km (EuroVelo 4)"
+  },
+  {
     "name": "Mainradweg",
     "url": "https://www.mainradweg.com/",
     "region": "Bayern/Hessen",
@@ -145,6 +201,13 @@
     "region": "Brandenburg/Sachsen",
     "art": "Offizielle Seite des Radwegs",
     "notiz": "Entlang der deutsch-polnischen Grenze bis zur Ostsee"
+  },
+  {
+    "name": "Provence à vélo",
+    "url": "https://www.provence-a-velo.fr/",
+    "region": "Frankreich (Provence, Luberon)",
+    "art": "Regionales Radnetz-Portal",
+    "notiz": "Radrouten und VTT-Strecken in der Provence und im Luberon"
   },
   {
     "name": "QuälDich.de",
@@ -299,6 +362,20 @@
     "region": "Europa",
     "art": "Kartendienst / Planer",
     "notiz": "Karten & Übersicht offizieller Radrouten inkl. EuroVelo"
+  },
+  {
+    "name": "Via Allier (France Vélo Tourisme)",
+    "url": "https://www.francevelotourisme.com/itineraire/via-allier",
+    "region": "Frankreich (Zentralmassiv)",
+    "art": "Routenseite im nationalen Portal",
+    "notiz": "V70 von Nevers bis Langogne entlang der Allier, 455 km"
+  },
+  {
+    "name": "ViaRhôna",
+    "url": "https://www.viarhona.com/",
+    "region": "Frankreich (Rhône)",
+    "art": "Offizielle Seite des Radwegs",
+    "notiz": "Vom Genfer See entlang der Rhône bis ans Mittelmeer (EuroVelo 17)"
   },
   {
     "name": "Visit Mosel (Moselradweg)",
