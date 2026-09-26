@@ -1,7 +1,7 @@
 {
   "id": "rosenheim-chiemsee-1-tag",
   "title": "Chiemsee-Umrundung ab Prien am Chiemsee",
-  "subtitle": "Gravel-Tagestour, ca. 72 km, ab Prien am Chiemsee einmal um den Chiemsee mit Abstecher in die Eggstätt-Hemhofer Seenplatte",
+  "subtitle": "Gravel-Tagestour, ca. 67 km, ab Prien am Chiemsee einmal um den Chiemsee, vorher durch die Eggstätt-Hemhofer Seenplatte",
   "createdAt": "2026-09-26",
   "requestId": "rosenheim-chiemsee-2026-09",
   "land": "Deutschland",
@@ -17,7 +17,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start und Ziel in Prien am Chiemsee, dem westlichen Tor zum See. Kurz hinter Rimsting zweigt die Route in die Eggstätt-Hemhofer Seenplatte ab: über Aiterbach am Langbürgner See, Eggstätt am Hartsee und Pelham am Pelhamer See führt ein ruhiger Abstecher durch die Seen- und Moorlandschaft nordwestlich des Chiemsees, bevor es bei Breitbrunn wieder auf den Chiemsee-Rundweg geht. Von dort verläuft die Tour fast durchgehend ufernah: über Gstadt am Nordufer vorbei an Seebruck, wo die Alz den See verlässt, weiter am Ostufer über Chieming und Grabenstätt, am Südufer über Übersee und Bernau am Chiemsee zurück nach Prien – damit ist der See einmal komplett umrundet. Die Tour ist flach bis leicht hügelig (rund 60 Hm auf gut 70 km) und wechselt zwischen asphaltierten Radwegen, feinem Schotter und kurzen Wald- und Feldwegstücken.",
+  "beschreibung": "Start und Ziel in Prien am Chiemsee, dem westlichen Tor zum See. Hinter Rimsting geht es nach Norden nach Hemhof und von dort in einem Zug quer durch die Eggstätt-Hemhofer Seenplatte mit ihren kleinen Moorseen bis Eggstätt – ohne Stichstrecken, jeder Weg wird nur einmal gefahren. Über Breitbrunn trifft die Route auf den Chiemsee-Rundweg und verläuft dann fast durchgehend ufernah: über Gstadt am Nordufer vorbei an Seebruck, wo die Alz den See verlässt, weiter am Ostufer über Chieming und Grabenstätt, am Südufer über Übersee und Bernau am Chiemsee zurück nach Prien – damit ist der See einmal komplett umrundet. Die Tour ist flach bis leicht hügelig (knapp 300 Hm auf rund 67 km, die meisten davon in der Seenplatte) und wechselt zwischen asphaltierten Radwegen, feinem Schotter und kurzen Wald- und Feldwegstücken.",
   "quellen": [
     {
       "name": "Chiemsee Rundweg – Chiemsee-Alpenland Tourismus",
@@ -40,22 +40,69 @@
     {
       "von": "Prien am Chiemsee",
       "nach": "Prien am Chiemsee",
-      "hmPlan": 60,
-      "text": "Prien am Chiemsee – Rimsting – Aiterbach (Langbürgner See) – Eggstätt (Hartsee) – Pelham (Pelhamer See, Eggstätt-Hemhofer Seenplatte) – Breitbrunn am Chiemsee – Gstadt am Chiemsee – Seebruck – Chieming – Grabenstätt – Übersee – Bernau am Chiemsee – Prien am Chiemsee (Chiemsee-Rundweg mit Abstecher in die Seenplatte, einmal komplett um den See).",
+      "hmPlan": 280,
+      "text": "Prien am Chiemsee – Rimsting – Hemhof – quer durch die Eggstätt-Hemhofer Seenplatte – Eggstätt – Breitbrunn am Chiemsee – Gstadt am Chiemsee – Seebruck – Chieming – Grabenstätt – Übersee – Bernau am Chiemsee – Prien am Chiemsee (einmal komplett um den See, ohne Stichstrecken).",
       "wegpunkte": [
-        [47.8542, 12.3455, "Prien am Chiemsee"],
-        [47.878, 12.3369, "Rimsting"],
-        [47.8891, 12.3554, "Aiterbach"],
-        [47.9267, 12.3799, "Eggstätt"],
-        [47.9337, 12.3427, "Pelham"],
-        [47.8905, 12.4004, "Breitbrunn am Chiemsee"],
-        [47.8865, 12.4176, "Gstadt am Chiemsee"],
-        [47.934, 12.4783, "Seebruck"],
-        [47.8943, 12.5381, "Chieming"],
-        [47.843, 12.5418, "Grabenstätt"],
-        [47.8196, 12.4802, "Übersee"],
-        [47.8116, 12.3734, "Bernau am Chiemsee"],
-        [47.8542, 12.3455, "Prien am Chiemsee"]
+        [
+          47.8542,
+          12.3455,
+          "Prien am Chiemsee"
+        ],
+        [
+          47.878,
+          12.3369,
+          "Rimsting"
+        ],
+        [
+          47.9111,
+          12.3353,
+          "Hemhof"
+        ],
+        [
+          47.9308,
+          12.3886,
+          "Eggstätt"
+        ],
+        [
+          47.8905,
+          12.4004,
+          "Breitbrunn am Chiemsee"
+        ],
+        [
+          47.8865,
+          12.4176,
+          "Gstadt am Chiemsee"
+        ],
+        [
+          47.934,
+          12.4783,
+          "Seebruck"
+        ],
+        [
+          47.8943,
+          12.5381,
+          "Chieming"
+        ],
+        [
+          47.843,
+          12.5418,
+          "Grabenstätt"
+        ],
+        [
+          47.8196,
+          12.4802,
+          "Übersee"
+        ],
+        [
+          47.8131,
+          12.3795,
+          "Bernau am Chiemsee"
+        ],
+        [
+          47.8542,
+          12.3455,
+          "Prien am Chiemsee"
+        ]
       ]
     }
   ],
@@ -71,6 +118,12 @@
       "von": "Thomas",
       "kommentar": "Bau noch die eggstätt Seenplatte mit rein",
       "antwort": "Kurz hinter Rimsting einen Abstecher in die Eggstätt-Hemhofer Seenplatte eingebaut: neu über Aiterbach am Langbürgner See, Eggstätt am Hartsee und Pelham am Pelhamer See, bevor die Route bei Breitbrunn wieder auf den bisherigen Chiemsee-Rundweg trifft. Dadurch wächst die Etappe auf ca. 72 km (weiterhin innerhalb der ursprünglich gewünschten 60–90 km/Tag), Höhenmeter entsprechend auf ~60 Hm angepasst; Quelle der Chiemsee-Alpenland Tourismus GmbH zur Seenplatten-Route ergänzt."
+    },
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine „Einbahnstraßen“ fahren, die man am Ende wieder zurück muss – das macht beim Radfahren keinen Spaß.",
+      "antwort": "Seenplatte neu geführt: statt Aiterbach → Eggstätt → Pelham und wieder zurück jetzt in einem Zug Rimsting → Hemhof → durch die Seenplatte → Eggstätt → Breitbrunn. Keine doppelt gefahrenen Abschnitte mehr (mit tools/stichstrecken-check.py geprüft), Wegpunkt Bernau auf die Uferroute gelegt. Neu ca. 67 km und knapp 300 Hm (die bisherige Angabe von 60 Hm war zu niedrig)."
     }
   ]
 }
