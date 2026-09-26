@@ -47,6 +47,14 @@ deshalb **fließen** und unterwegs immer wieder Neues zeigen:
   die Reihenfolge ändern). Wegpunkte auf die Strecke legen, nicht in abseitige Ortskerne.
 - Abwechslung: Seeufer, Flusstäler, Wald, Aussichten, Kultur und gute Einkehr; ruhige Wege statt Hauptstraßen.
 - Höhenmeter und km realistisch angeben (BRouter-Werte, nicht schätzen, wenn möglich).
+- **Untergrund** (Formular „Wie rau darf’s werden?“): die gewählte Stufe ist die *raueste erlaubte* Oberfläche, alles Glattere
+  ist auch in Ordnung. Rennrad: „Nur Asphalt“ oder „Auch kurze Schotterstücke“. Trekking: Asphalt & Radwege → feiner Schotter
+  → Feld- & Waldwege. Gravel: viel Asphalt → feiner Schotter → grober Schotter → Wald- & Feldwege → leichte Trails (S0–S1).
+  In der Tour unter `oberflaeche` die tatsächlich gefahrenen Untergründe eintragen.
+- **Mountainbike**: Die Anfrage nennt die höchste Stufe der Singletrail-Skala (S0 flowige Wald- und Wiesenwege … S5 extrem).
+  Die Tour soll echte Trails bis zu dieser Stufe enthalten (Quellen z. B. Trailforks, Bikeparks, MTB-Regionen), keine
+  reinen Forststraßen-Runden. In `oberflaeche` die Stufe(n) nennen, z. B. „Singletrails S1–S2“. Routing: `"profil": ["mtb"]`.
+- **An-/Abreise** (optional): „Zug“ = Start/Ziel an einem gut erreichbaren Bahnhof; „Auto“ = Start mit Parkmöglichkeit.
 - **Anspruch** (Formularfeld) richtet sich vor allem nach den Höhenmetern pro km je Etappe, dazu Steilheit und Untergrund:
   - *Entspannt*: bis ca. 6 Hm/km (z. B. höchstens ~400 Hm auf 70 km), kaum Steigungen über 6 %, gut fahrbare Wege.
   - *Moderat*: ca. 6–12 Hm/km, einzelne längere Anstiege bis ~8–10 % erlaubt, auch mal ein Gipfel.

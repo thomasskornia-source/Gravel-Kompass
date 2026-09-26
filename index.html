@@ -121,6 +121,34 @@
   .checks label,.radios label{display:flex;align-items:center;gap:7px;font-size:14.5px;}
   .radios{display:flex;gap:18px;flex-wrap:wrap;padding-top:8px;}
   input[type=checkbox],input[type=radio]{width:auto;accent-color:var(--moss);}
+  /* Request form: tap targets instead of dropdowns */
+  legend .val{margin-left:8px;text-transform:none;letter-spacing:0;font-weight:600;color:var(--blaze);}
+  .opt input{position:absolute;opacity:0;width:1px;height:1px;}
+  .opt{position:relative;cursor:pointer;}
+  .opt > span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:8px 6px;text-align:center;font-size:14px;line-height:1.2;}
+  .opt small{font-size:11.5px;color:var(--ink-soft);}
+  .opt input:checked + span{border-color:var(--blaze);box-shadow:inset 0 0 0 1px var(--blaze);background:var(--surface-2);color:var(--blaze);}
+  .opt input:focus-visible + span{outline:2px solid var(--blaze);outline-offset:2px;}
+  .seg{display:grid;grid-auto-columns:1fr;grid-auto-flow:column;gap:8px;}
+  .seg-bikes .opt svg{width:34px;height:22px;}
+  .seg-bikes .opt > span{color:var(--bike);}
+  .opts{display:flex;flex-wrap:wrap;gap:6px;}
+  .opt.flag > span{width:44px;height:38px;font-size:22px;padding:0;}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;align-self:flex-start;}
+  .stepper button{width:46px;height:42px;border:none;background:none;font-size:22px;color:var(--blaze);cursor:pointer;}
+  .stepper output{min-width:86px;text-align:center;font-weight:600;}
+  .dual{position:relative;height:34px;}
+  .dual-track{position:absolute;left:11px;right:11px;top:15px;height:4px;border-radius:2px;background:var(--line);}
+  .dual-fill{position:absolute;top:0;bottom:0;background:var(--blaze);border-radius:2px;}
+  .dual input[type=range]{position:absolute;inset:0;width:100%;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none;border:none;padding:0;}
+  .dual input[type=range]::-webkit-slider-thumb{pointer-events:auto;-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--surface);border:2px solid var(--blaze);box-shadow:0 1px 3px rgba(0,0,0,.25);cursor:grab;}
+  .dual input[type=range]::-moz-range-thumb{pointer-events:auto;width:20px;height:20px;border-radius:50%;background:var(--surface);border:2px solid var(--blaze);cursor:grab;}
+  .dual input[type=range]::-webkit-slider-runnable-track{background:none;}
+  .dual input[type=range]::-moz-range-track{background:none;}
+  .rough{width:100%;accent-color:var(--blaze);padding:0;border:none;background:none;}
+  .scale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-soft);gap:4px;}
+  .scale span{flex:1;text-align:center;}
+  .scale span:first-child{text-align:left;} .scale span:last-child{text-align:right;}
   .hint{font-size:13.5px;background:var(--surface-2);border-radius:8px;padding:10px 12px;}
   .copybox{white-space:pre-wrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;}
 
@@ -208,39 +236,59 @@
     <p class="sub">Formular ausfüllen und auf „Anfrage senden“ tippen. Das war’s schon und Claude rennt los. Ein bisschen Geduld, dann wird die neue Tour auf TOUREN gepusht. Viel Spaß!</p>
     <form id="request-form">
       <div class="field"><label for="f-name">Dein Name</label><input id="f-name" autocomplete="given-name" placeholder="erscheint bei „Bisherige Anfragen“"></div>
-      <div class="row">
-        <div class="field"><label for="f-tage">Anzahl Tage</label><input id="f-tage" type="number" min="1" max="30" value="5"></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="f-land">Land</label>
-          <select id="f-land">
-            <option>Deutschland</option><option>Österreich</option><option>Schweiz</option><option>Frankreich</option><option>Italien</option><option>Spanien</option><option>Portugal</option><option>Niederlande</option><option>Belgien</option><option>Dänemark</option><option>Norwegen</option><option>Schweden</option><option>Kroatien</option><option>Slowenien</option><option>Griechenland</option><option>Polen</option><option>Tschechien</option><option>Ungarn</option><option>Rumänien</option><option>Großbritannien</option><option>Irland</option>
-          </select></div>
-        <div class="field"><label for="f-region">Region</label><input id="f-region" list="regions" placeholder="leer lassen für 3 Vorschläge">
-          <datalist id="regions"><option value="Allgäu"><option value="Schwarzwald"><option value="Provence"><option value="Dordogne"><option value="Elsass"><option value="Toskana"><option value="Apulien"><option value="Istrien"><option value="Peloponnes"><option value="Mallorca"><option value="Andalusien"><option value="Algarve"><option value="Girona / Costa Brava"><option value="Fjordnorwegen"><option value="Ardennen"><option value="Vogesen"><option value="Dolomiten"><option value="Auvergne"><option value="Bornholm"></datalist></div>
-      </div>
-      <div class="field"><label for="f-rad">Fahrradtyp</label>
-        <select id="f-rad"><option>Gravel</option><option>Rennrad</option><option>Trekking</option><option>Mountainbike</option></select></div>
-      <fieldset><legend>Oberfläche</legend>
-        <div class="checks">
-          <label><input type="checkbox" name="ober" value="Feiner Schotter"> Feiner Schotter</label>
-          <label><input type="checkbox" name="ober" value="Mittelfeiner Schotter"> Mittelfeiner Schotter</label>
-          <label><input type="checkbox" name="ober" value="Grober Schotter"> Grober Schotter</label>
-          <label><input type="checkbox" name="ober" value="Feld- und Waldwege"> Feld- und Waldwege</label>
-          <label><input type="checkbox" name="ober" value="Radwege"> Radwege</label>
-          <label><input type="checkbox" name="ober" value="Asphalt"> Asphalt</label>
+
+      <fieldset><legend>Fahrrad</legend>
+        <div class="seg seg-bikes" id="f-rad"></div>
+      </fieldset>
+
+      <fieldset><legend>Wo? <span class="val" id="f-land-name">Deutschland</span></legend>
+        <div class="opts"><label class="opt flag" title="Deutschland"><input type="radio" name="land" value="Deutschland" checked><span aria-label="Deutschland">🇩🇪</span></label><label class="opt flag" title="Österreich"><input type="radio" name="land" value="Österreich"><span aria-label="Österreich">🇦🇹</span></label><label class="opt flag" title="Schweiz"><input type="radio" name="land" value="Schweiz"><span aria-label="Schweiz">🇨🇭</span></label><label class="opt flag" title="Frankreich"><input type="radio" name="land" value="Frankreich"><span aria-label="Frankreich">🇫🇷</span></label><label class="opt flag" title="Italien"><input type="radio" name="land" value="Italien"><span aria-label="Italien">🇮🇹</span></label><label class="opt flag" title="Spanien"><input type="radio" name="land" value="Spanien"><span aria-label="Spanien">🇪🇸</span></label><label class="opt flag" title="Portugal"><input type="radio" name="land" value="Portugal"><span aria-label="Portugal">🇵🇹</span></label><label class="opt flag" title="Niederlande"><input type="radio" name="land" value="Niederlande"><span aria-label="Niederlande">🇳🇱</span></label><label class="opt flag" title="Belgien"><input type="radio" name="land" value="Belgien"><span aria-label="Belgien">🇧🇪</span></label><label class="opt flag" title="Luxemburg"><input type="radio" name="land" value="Luxemburg"><span aria-label="Luxemburg">🇱🇺</span></label><label class="opt flag" title="Dänemark"><input type="radio" name="land" value="Dänemark"><span aria-label="Dänemark">🇩🇰</span></label><label class="opt flag" title="Norwegen"><input type="radio" name="land" value="Norwegen"><span aria-label="Norwegen">🇳🇴</span></label><label class="opt flag" title="Schweden"><input type="radio" name="land" value="Schweden"><span aria-label="Schweden">🇸🇪</span></label><label class="opt flag" title="Kroatien"><input type="radio" name="land" value="Kroatien"><span aria-label="Kroatien">🇭🇷</span></label><label class="opt flag" title="Slowenien"><input type="radio" name="land" value="Slowenien"><span aria-label="Slowenien">🇸🇮</span></label><label class="opt flag" title="Griechenland"><input type="radio" name="land" value="Griechenland"><span aria-label="Griechenland">🇬🇷</span></label><label class="opt flag" title="Polen"><input type="radio" name="land" value="Polen"><span aria-label="Polen">🇵🇱</span></label><label class="opt flag" title="Tschechien"><input type="radio" name="land" value="Tschechien"><span aria-label="Tschechien">🇨🇿</span></label><label class="opt flag" title="Ungarn"><input type="radio" name="land" value="Ungarn"><span aria-label="Ungarn">🇭🇺</span></label><label class="opt flag" title="Großbritannien"><input type="radio" name="land" value="Großbritannien"><span aria-label="Großbritannien">🇬🇧</span></label><label class="opt flag" title="Irland"><input type="radio" name="land" value="Irland"><span aria-label="Irland">🇮🇪</span></label></div>
+        <input id="f-region" list="regions" placeholder="Region (leer = 3 Vorschläge)" aria-label="Region">
+        <datalist id="regions"><option value="Allgäu"><option value="Schwarzwald"><option value="Provence"><option value="Dordogne"><option value="Elsass"><option value="Toskana"><option value="Apulien"><option value="Istrien"><option value="Peloponnes"><option value="Mallorca"><option value="Andalusien"><option value="Algarve"><option value="Girona / Costa Brava"><option value="Fjordnorwegen"><option value="Ardennen"><option value="Vogesen"><option value="Dolomiten"><option value="Auvergne"><option value="Bornholm"></datalist>
+      </fieldset>
+
+      <fieldset><legend>Tage</legend>
+        <div class="stepper"><button type="button" data-step="-1" aria-label="Einen Tag weniger">−</button><output id="f-tage-out">3 Tage</output><button type="button" data-step="1" aria-label="Einen Tag mehr">+</button><input type="hidden" id="f-tage" value="3"></div>
+      </fieldset>
+
+      <fieldset><legend>Etappenlänge <span class="val" id="f-km-out"></span></legend>
+        <div class="dual" id="f-km">
+          <div class="dual-track"><div class="dual-fill"></div></div>
+          <input type="range" id="f-von" min="20" max="200" step="5" value="60" aria-label="Mindestens km pro Tag">
+          <input type="range" id="f-bis" min="20" max="200" step="5" value="100" aria-label="Höchstens km pro Tag">
+        </div>
+        <div class="scale"><span>20</span><span>110</span><span>200 km</span></div>
+      </fieldset>
+
+      <fieldset><legend id="f-ober-title">Wie rau darf’s werden? <span class="val" id="f-ober-out"></span></legend>
+        <input type="range" id="f-ober" min="0" max="4" step="1" value="1" class="rough" aria-labelledby="f-ober-title">
+        <div class="scale" id="f-ober-scale"></div>
+        <div class="sub" id="f-ober-hint"></div>
+      </fieldset>
+
+      <fieldset><legend>Anspruch</legend>
+        <div class="seg">
+          <label class="opt"><input type="radio" name="anspruch" value="Entspannt"><span><b>Entspannt</b><small>kaum Steigung</small></span></label>
+          <label class="opt"><input type="radio" name="anspruch" value="Moderat" checked><span><b>Moderat</b><small>hügelig, mal ein Anstieg</small></span></label>
+          <label class="opt"><input type="radio" name="anspruch" value="Anspruchsvoll"><span><b>Anspruchsvoll</b><small>Berge &amp; Pässe</small></span></label>
         </div>
       </fieldset>
-      <div class="row">
-        <div class="field"><label for="f-von">Etappe von (km/Tag)</label><input id="f-von" type="number" min="10" max="250" step="5" value="80"></div>
-        <div class="field"><label for="f-bis">Etappe bis (km/Tag)</label><input id="f-bis" type="number" min="10" max="250" step="5" value="120"></div>
-        <div class="field"><label for="f-anspruch">Anspruch</label>
-          <select id="f-anspruch"><option>Entspannt</option><option selected>Moderat</option><option>Anspruchsvoll</option></select></div>
-      </div>
-      <div class="row">
-        <div class="field"><label>Streckenform</label>
-          <div class="radios"><label><input type="radio" name="form" value="Rundtour" checked> Rundtour</label><label><input type="radio" name="form" value="Einweg (A → B)"> Einweg (A → B)</label></div></div>
-      </div>
+
+      <fieldset><legend>Streckenform</legend>
+        <div class="seg">
+          <label class="opt"><input type="radio" name="form" value="Rundtour" checked><span><b>↻ Rundtour</b><small>Start = Ziel</small></span></label>
+          <label class="opt"><input type="radio" name="form" value="Einweg (A → B)"><span><b>A → B</b><small>Einwegtour</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend>Anreise</legend>
+        <div class="seg">
+          <label class="opt"><input type="radio" name="anreise" value="egal" checked><span><b>Egal</b></span></label>
+          <label class="opt"><input type="radio" name="anreise" value="Zug"><span><b>🚆 Zug</b></span></label>
+          <label class="opt"><input type="radio" name="anreise" value="Auto"><span><b>🚗 Auto</b></span></label>
+        </div>
+      </fieldset>
+
       <div class="field"><label for="f-stil">Stil &amp; Vorlieben (optional)</label>
         <textarea id="f-stil" placeholder="z. B. lieber bekannte Fernradwege, Geheimtipps, Sehenswürdigkeiten, gute Einkehr … oder leer lassen"></textarea></div>
       <div class="field"><label for="f-code">Zugangscode</label><input id="f-code" data-code required autocomplete="off" autocapitalize="off" placeholder="bekommst du von Thomas"></div>
@@ -688,20 +736,81 @@
   }
 
   // Request form -> message text
+  // Surface ladder per bike type (how rough may it get?); MTB uses the Singletrail-Skala
+  var ROUGH = {
+    road:     {title: "Untergrund", stops: [["Nur Asphalt", "glatte Straßen und Radwege"], ["Auch kurze Schotterstücke", "wenn’s die schönere Strecke ist"]], def: 0},
+    trekking: {title: "Wie rau darf’s werden?", stops: [["Asphalt & Radwege", "fast alles befestigt"], ["+ feiner Schotter", "Radwege mit wassergebundener Decke"], ["+ Feld- & Waldwege", "auch mal holprig"]], def: 1},
+    gravel:   {title: "Wie rau darf’s werden?", stops: [["Viel Asphalt", "Schotter nur zwischendurch", "Asphalt"], ["Feiner Schotter", "„Champagner-Gravel“, gut rollend", "fein"], ["Grober Schotter", "lose Steine, Forstwege", "grob"], ["Wald- & Feldwege", "Wurzeln, Wiesenwege", "Waldweg"], ["Leichte Trails", "Singletrail-Skala S0–S1", "Trail"]], def: 1},
+    mtb:      {title: "Singletrail-Skala (höchstens)", stops: [["S0", "flowige Wald- und Wiesenwege, fester Boden"], ["S1", "kleine Wurzeln und Steine, Rinnen"], ["S2", "größere Wurzeln und Steine, flache Stufen"], ["S3", "verblockt, hohe Stufen, enge Kehren"], ["S4", "sehr steil, große Felsen, Spitzkehren"], ["S5", "extrem, nur für Spezialisten"]], def: 2}
+  };
+  var FORM_BIKES = [["gravel", "Gravel"], ["road", "Rennrad"], ["trekking", "Trekking"], ["mtb", "MTB"]];
+  (function setupRequestForm(){
+    var form = document.getElementById("request-form");
+    document.getElementById("f-rad").innerHTML = FORM_BIKES.map(function(b, i){
+      return '<label class="opt bike-' + b[0] + '"><input type="radio" name="rad" value="' + b[0] + '"' + (i === 0 ? " checked" : "") + '><span>' + bikeIcon(b[0]) + '<b>' + b[1] + '</b></span></label>';
+    }).join("");
+    // Days stepper
+    var tage = document.getElementById("f-tage"), tageOut = document.getElementById("f-tage-out");
+    form.querySelectorAll("[data-step]").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var v = Math.min(30, Math.max(1, (+tage.value) + (+btn.getAttribute("data-step"))));
+        tage.value = v; tageOut.textContent = tageLabel(v);
+      });
+    });
+    // Country name next to the legend
+    form.querySelectorAll("input[name=land]").forEach(function(r){
+      r.addEventListener("change", function(){ document.getElementById("f-land-name").textContent = r.value; });
+    });
+    // Two-thumb stage length slider
+    var von = document.getElementById("f-von"), bis = document.getElementById("f-bis"), fill = form.querySelector(".dual-fill");
+    function km(ev){
+      if (+von.value > +bis.value){ if (ev && ev.target === von) bis.value = von.value; else von.value = bis.value; }
+      var lo = +von.min, span = +von.max - lo;
+      fill.style.left = ((von.value - lo) / span * 100) + "%";
+      fill.style.right = (100 - (bis.value - lo) / span * 100) + "%";
+      document.getElementById("f-km-out").textContent = (von.value === bis.value ? von.value : von.value + "–" + bis.value) + " km pro Tag";
+    }
+    von.addEventListener("input", km); bis.addEventListener("input", km); km();
+    // Surface ladder, depends on the bike
+    var rough = document.getElementById("f-ober");
+    function roughBike(){ return (form.querySelector("input[name=rad]:checked") || {}).value || "gravel"; }
+    function roughShow(){
+      var r = ROUGH[roughBike()], st = r.stops[+rough.value] || r.stops[0];
+      document.getElementById("f-ober-out").textContent = st[0];
+      document.getElementById("f-ober-hint").textContent = st[1];
+    }
+    function roughSetup(){
+      var r = ROUGH[roughBike()];
+      document.getElementById("f-ober-title").firstChild.nodeValue = r.title + " ";
+      rough.max = r.stops.length - 1; rough.value = r.def;
+      document.getElementById("f-ober-scale").innerHTML = r.stops.length > 3
+        ? r.stops.map(function(s){ return '<span>' + esc(s[2] || s[0]) + '</span>'; }).join("")
+        : '<span>' + esc(r.stops[0][0]) + '</span><span>' + esc(r.stops[r.stops.length-1][0]) + '</span>';
+      roughShow();
+    }
+    rough.addEventListener("input", roughShow);
+    form.querySelectorAll("input[name=rad]").forEach(function(r){ r.addEventListener("change", roughSetup); });
+    roughSetup();
+  })();
+  // Request form -> message text
   function requestText(){
-    var ober = Array.from(document.querySelectorAll('input[name=ober]:checked')).map(function(i){ return i.value; });
-    var form = document.querySelector('input[name=form]:checked');
+    var f = document.getElementById("request-form");
+    function pick(n){ var r = f.querySelector("input[name=" + n + "]:checked"); return r ? r.value : ""; }
+    var bike = pick("rad") || "gravel", r = ROUGH[bike], st = r.stops[+document.getElementById("f-ober").value] || r.stops[0];
+    var bikeName = {gravel: "Gravel", road: "Rennrad", trekking: "Trekking", mtb: "Mountainbike"}[bike];
     var region = document.getElementById("f-region").value.trim();
     var name = document.getElementById("f-name").value.trim();
+    var anreise = pick("anreise");
     return "Gravel Kompass – neue Tour-Anfrage" + (name ? " von " + name : "") + "\n" +
       "Tage: " + document.getElementById("f-tage").value + "\n" +
-      "Land: " + document.getElementById("f-land").value + "\n" +
+      "Land: " + (pick("land") || "Deutschland") + "\n" +
       "Region: " + (region || "offen – bitte 3 Vorschläge") + "\n" +
-      "Fahrrad: " + document.getElementById("f-rad").value + "\n" +
-      "Oberfläche: " + (ober.length ? ober.join(", ") : "egal") + "\n" +
+      "Fahrrad: " + bikeName + "\n" +
+      (bike === "mtb" ? "Singletrail-Skala: bis " + st[0] + " (" + st[1] + ")" : "Untergrund (höchstens so rau): " + st[0] + " – " + st[1]) + "\n" +
       "Etappenlänge: " + document.getElementById("f-von").value + "–" + document.getElementById("f-bis").value + " km/Tag\n" +
-      "Anspruch: " + document.getElementById("f-anspruch").value + "\n" +
-      "Streckenform: " + (form ? form.value : "Rundtour") + "\n" +
+      "Anspruch: " + (pick("anspruch") || "Moderat") + "\n" +
+      "Streckenform: " + (pick("form") || "Rundtour") + "\n" +
+      (anreise && anreise !== "egal" ? "An-/Abreise: " + anreise + "\n" : "") +
       "Stil & Vorlieben: " + (document.getElementById("f-stil").value.trim() || "überrasch mich");
   }
   document.getElementById("request-form").addEventListener("submit", function(ev){
