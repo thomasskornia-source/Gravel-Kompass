@@ -1,0 +1,58 @@
+{
+  "id": "rosenheim-chiemsee-1-tag",
+  "title": "Chiemsee-Umrundung ab Rosenheim",
+  "subtitle": "Gravel-Tagestour, ca. 100 km, von Rosenheim über den Salinenradweg nach Prien und einmal komplett um den Chiemsee",
+  "createdAt": "2026-09-26",
+  "requestId": "rosenheim-chiemsee-2026-09",
+  "land": "Deutschland",
+  "region": "Bayern (Chiemgau)",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel in Rosenheim. Auf dem Salinenradweg geht es zunächst rund 18 km nach Prien am Chiemsee, dem westlichen Tor zum See. Dort beginnt der eigentliche Chiemsee-Rundweg, der fast durchgehend ufernah verläuft: über Rimsting, Breitbrunn und Gstadt am Nordwestufer entlang, weiter zum nördlichen Ausläufer bei Seebruck, wo die Alz den See verlässt. Am Ostufer geht es über Chieming und Grabenstätt weiter, am Südufer über Übersee und Bernau am Chiemsee zurück nach Prien – damit ist der See einmal komplett umrundet. Von Prien führt der Salinenradweg auf gleicher Strecke zurück nach Rosenheim. Der Rundweg selbst ist flach (rund 220 Hm auf 54 km), dazu kommen die beiden leicht hügeligen Zufahrten – insgesamt etwa 350 Hm auf rund 100 km. Der Belag wechselt zwischen asphaltierten Radwegen, feinem Schotter und kurzen Wald- und Feldwegstücken nah am Ufer.",
+  "quellen": [
+    {
+      "name": "Chiemsee Rundweg – Chiemsee-Alpenland Tourismus",
+      "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/chiemsee-rundweg-d73d568f70"
+    },
+    {
+      "name": "Über den Salinenradweg von Prien nach Rosenheim – Chiemsee-Alpenland Tourismus",
+      "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/ueber-den-salinenradweg-von-prien-nach-rosenheim-c4fa5a57d5"
+    },
+    {
+      "name": "Chiemsee Rundweg – Der traumhafte Radweg rund um das Bayerische Meer",
+      "url": "https://kurvenkoenig.de/radtouren/chiemgau/chiemsee-rundweg.html"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Rosenheim",
+      "nach": "Rosenheim",
+      "hmPlan": 350,
+      "text": "Rosenheim – (Salinenradweg) – Prien am Chiemsee – Rimsting – Breitbrunn am Chiemsee – Gstadt am Chiemsee – Seebruck – Chieming – Grabenstätt – Übersee – Bernau am Chiemsee – Prien am Chiemsee – (Salinenradweg zurück) – Rosenheim.",
+      "wegpunkte": [
+        [47.8564, 12.1289, "Rosenheim"],
+        [47.8574, 12.3466, "Prien am Chiemsee"],
+        [47.8631, 12.3789, "Rimsting"],
+        [47.8853, 12.3907, "Breitbrunn am Chiemsee"],
+        [47.8865, 12.4176, "Gstadt am Chiemsee"],
+        [47.934, 12.4783, "Seebruck"],
+        [47.8943, 12.5381, "Chieming"],
+        [47.843, 12.5418, "Grabenstätt"],
+        [47.8118, 12.4213, "Übersee"],
+        [47.7925, 12.3532, "Bernau am Chiemsee"],
+        [47.8574, 12.3466, "Prien am Chiemsee"],
+        [47.8564, 12.1289, "Rosenheim"]
+      ]
+    }
+  ],
+  "aenderungen": []
+}

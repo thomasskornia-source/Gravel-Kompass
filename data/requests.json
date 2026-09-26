@@ -288,5 +288,31 @@
     "tourIds": [
       "noerdlingen-ries-1-tag"
     ]
+  },
+  {
+    "id": "rosenheim-chiemsee-2026-09",
+    "createdAt": "2026-09-26",
+    "status": "fertig",
+    "name": "Thomas",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "Bayern",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 60,
+    "etappenlaengeBis": 90,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Ich überlege von Rosenheim zu starten um den Chiemsee einmal zu umrunden. Aber eventuell wird das dann zu lang. Also am Ende ist mir wichtig einmal den Chiemsee zu umrunden.",
+    "notiz": "Vollständige Umrundung priorisiert (\"am Ende ist mir wichtig...\"); Etappenlänge liegt dadurch bei ca. 100 km statt 60–90 km (siehe Kriterien-Check).",
+    "tourIds": [
+      "rosenheim-chiemsee-1-tag"
+    ]
   }
 ]
