@@ -21,9 +21,13 @@
 1. Tabelle lesen, alle Zeilen, deren Zeitstempel nicht in `data/eingang-erledigt.json` steht, sind offen.
    **Nur Zeilen mit `Freigabe` = `ok` bearbeiten.** Gesperrte oder leere Freigabe: nicht bearbeiten, nicht als erledigt
    eintragen, im Bericht nur die Anzahl nennen (Thomas kann eine Zeile freigeben, indem er `ok` einträgt).
+   `Freigabe` = `admin` heißt: Eintrag von Thomas mit dem Admin-Code – wird wie `ok` bearbeitet und darf zusätzlich löschen.
 2. Pro Eintrag:
    - **Anfrage** → recherchieren (Quellen aus `data/sources.json`), Tour als neue Datei `data/tours/<id>.json` anlegen (Dateiname = `id`), Index-Eintrag in `data/tours-index.json` ergänzen, Eintrag in `data/requests.json` (Name der anfragenden Person im Feld `name`, falls angegeben).
    - **Kommentar** → kleine Änderung direkt in `data/tours/<id>.json` umsetzen und unter `aenderungen` der Tour dokumentieren (Datum, `von` = Name falls angegeben, Kommentar, Antwort); große Umbauten oder Fragen erst mit Thomas klären.
+   - **Tour löschen** (nur bei `Freigabe` = `admin`; Kommentar zu einer Tour mit „löschen“/„Tour löschen“ o. Ä.):
+     `data/tours/<id>.json` entfernen, `python3 tools/tours-index.py`, in `data/requests.json` die ID aus `tourIds`
+     nehmen. Commit-Zeile: „🗑️ Tour gelöscht: <Titel>“. Löschwünsche ohne `admin` NICHT umsetzen, sondern Thomas melden.
    - **Quelle** → Seite prüfen, bei Eignung in `data/sources.json` aufnehmen (alphabetisch).
 3. Zeitstempel in `data/eingang-erledigt.json` eintragen.
 4. Hochladen, Thomas kurz berichten, was erledigt ist und was offen bleibt.

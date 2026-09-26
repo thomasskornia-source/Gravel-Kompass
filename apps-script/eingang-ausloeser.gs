@@ -11,6 +11,8 @@
  *     mit dem Schlüssel des API-Auslösers anlegen. Der Schlüssel steht NICHT im Code.
  *     Außerdem Eigenschaft ZUGANGSCODE mit dem Code anlegen, den Thomas an Freunde weitergibt
  *     (Sperre gegen Spam; ohne diese Eigenschaft wird jeder Eintrag gesperrt).
+ *     Optional ADMIN_CODE: nur Thomas kennt ihn; Einträge damit bekommen Freigabe „admin“
+ *     und dürfen z. B. per Kommentar „Tour löschen“ eine Tour entfernen lassen.
  *  2. Oben die Funktion `einrichten` auswählen → Ausführen → Berechtigungen erlauben.
  *  3. Zum Prüfen `testAusloesen` ausführen – in claude.ai/code muss ein neuer Lauf erscheinen.
  */
@@ -47,7 +49,7 @@ function beiNeuerAntwort(e) {
 
   // Zugangscode prüfen, aus der Nachricht entfernen und Ergebnis in Spalte „Freigabe“ vermerken
   var freigabe = zugangPruefen(e);
-  if (freigabe !== 'ok') {
+  if (freigabe !== 'ok' && freigabe !== 'admin') {
     Logger.log('Eintrag vom ' + zeit + ' gesperrt: ' + freigabe);
     return;
   }
@@ -78,9 +80,13 @@ function zugangPruefen(e) {
     blatt.getRange(zeile, spNachricht).setValue(nachricht.slice(0, treffer.index));
   }
 
-  var erwartet = String(PropertiesService.getScriptProperties().getProperty('ZUGANGSCODE') || '').trim();
+  var props = PropertiesService.getScriptProperties();
+  var erwartet = String(props.getProperty('ZUGANGSCODE') || '').trim();
+  var admin = String(props.getProperty('ADMIN_CODE') || '').trim();
   var ergebnis;
-  if (!erwartet) ergebnis = 'gesperrt: ZUGANGSCODE nicht eingerichtet';
+  // Admin-Code (nur Thomas): Eintrag darf auch Touren löschen
+  if (admin && eingegeben && eingegeben.toLowerCase() === admin.toLowerCase()) ergebnis = 'admin';
+  else if (!erwartet) ergebnis = 'gesperrt: ZUGANGSCODE nicht eingerichtet';
   else if (!eingegeben) ergebnis = 'gesperrt: kein Zugangscode';
   else if (eingegeben.toLowerCase() !== erwartet.toLowerCase()) ergebnis = 'gesperrt: falscher Zugangscode';
   else ergebnis = 'ok';
