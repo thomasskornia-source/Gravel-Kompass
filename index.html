@@ -76,8 +76,11 @@
   .tag{font-size:11.5px;color:var(--contour);border:1px solid var(--line);border-radius:99px;padding:2px 9px;}
   .map{height:420px;background:var(--surface-2);}
   @media (max-width:520px){ .map{height:340px;} }
-  .elev{padding:8px 18px 0;}
+  .elev{padding:26px 18px 0;}
   .elev svg{display:block;width:100%;height:72px;color:var(--ink);}
+  .elev-plot{position:relative;touch-action:pan-y;cursor:crosshair;-webkit-user-select:none;user-select:none;}
+  .elev-cursor{position:absolute;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--ink);pointer-events:none;}
+  .elev-tip{position:absolute;top:-6px;transform:translate(-50%,-100%);background:var(--ink);color:var(--paper);font-size:11.5px;padding:2px 7px;border-radius:5px;white-space:nowrap;pointer-events:none;font-variant-numeric:tabular-nums;}
   .elev .elev-leg{justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-top:2px;}
   .elev .elev-leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;}
   .elev .elev-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
@@ -378,16 +381,52 @@
       return '<line x1="' + x(v) + '" x2="' + x(v) + '" y1="0" y2="' + H + '" stroke="currentColor" stroke-opacity=".45" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>';
     }).join("");
     var legend = GRADES.map(function(g){ return '<span><i style="background:' + g[1] + '"></i>' + g[2] + '</span>'; }).join("");
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Höhenprofil: ' + Math.round(lo) + ' bis ' + Math.round(hi) + ' Meter, nach Steigung eingefärbt">' + bars +
+    return '<div class="elev-plot"><svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Höhenprofil: ' + Math.round(lo) + ' bis ' + Math.round(hi) + ' Meter, nach Steigung eingefärbt">' + bars +
       '<polyline points="' + line.join(" ") + '" fill="none" stroke="currentColor" stroke-opacity=".7" stroke-width="1.2" vector-effect="non-scaling-stroke"/>' + marks + '</svg>' +
+      '<div class="elev-cursor" hidden></div><div class="elev-tip" hidden></div></div>' +
       '<div class="elev-lbl"><span>' + Math.round(lo) + '–' + Math.round(hi) + ' m ü. NN</span><span>' + fmtKm(d) + ' km</span></div>' +
       '<div class="elev-lbl elev-leg">' + legend + '</div>';
   }
   // Gradient classes (upper bound in %, colour, legend label); descents use the flat colour
-  var GRADES = [[3, "#8BBF5A", "< 3 %"], [6, "#F2C230", "3–6"], [9, "#F08A24", "6–9"], [12, "#D8352A", "9–12"], [Infinity, "#7B1E4F", "> 12 %"]];
+  var GRADES = [[3, "#8BBF5A", "< 3 %"], [6, "#F2C230", "3–6 %"], [10, "#F08A24", "6–10 %"], [Infinity, "#D8352A", "> 10 %"]];
   function gradeColor(g){
     for (var i = 0; i < GRADES.length; i++) if (g < GRADES[i][0]) return GRADES[i][1];
     return GRADES[GRADES.length-1][1];
+  }
+
+  // Slide along the profile: black dot on the map at exactly that point, plus km / height / gradient
+  function attachScrubber(elevEl, results, map){
+    var plot = elevEl.querySelector(".elev-plot");
+    if (!plot) return;
+    var track = [], d = 0;
+    results.forEach(function(r){
+      r.coords.forEach(function(c, i){
+        if (i > 0) d += haversine(r.coords[i-1], c);
+        track.push([d, c[0], c[1], c.length > 2 ? c[2] : null]);
+      });
+    });
+    if (track.length < 2 || d <= 0) return;
+    var cursor = plot.querySelector(".elev-cursor"), tip = plot.querySelector(".elev-tip"), dot = null;
+    function idxAt(v){ var lo = 0, hi = track.length - 1; while (lo < hi){ var m = (lo + hi) >> 1; if (track[m][0] < v) lo = m + 1; else hi = m; } return lo; }
+    function eleAt(v){ var t = track[idxAt(v)]; return t[3]; }
+    function show(ev){
+      var r = plot.getBoundingClientRect(), f = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+      var v = f * d, t = track[idxAt(v)];
+      if (!dot) dot = L.circleMarker([t[1], t[2]], {radius: 7, color: "#fff", weight: 2, fillColor: "#111", fillOpacity: 1, interactive: false}).addTo(map);
+      dot.setLatLng([t[1], t[2]]);
+      var a = eleAt(Math.max(0, v - 100)), b = eleAt(Math.min(d, v + 100)), span = Math.min(d, v + 100) - Math.max(0, v - 100);
+      var grade = (a != null && b != null && span > 0) ? Math.round((b - a) / span * 100) : null;
+      cursor.hidden = tip.hidden = false;
+      cursor.style.left = (f * 100) + "%";
+      tip.style.left = Math.min(85, Math.max(15, f * 100)) + "%";
+      tip.textContent = (v / 1000).toFixed(1).replace(".", ",") + " km" + (t[3] != null ? " · " + Math.round(t[3]) + " m" : "") + (grade != null ? " · " + grade + " %" : "");
+    }
+    function hide(ev){
+      if (ev.pointerType === "mouse"){ cursor.hidden = tip.hidden = true; if (dot){ dot.remove(); dot = null; } }
+    }
+    plot.addEventListener("pointerdown", show);
+    plot.addEventListener("pointermove", function(ev){ if (ev.pointerType === "mouse" || ev.buttons || ev.pressure) show(ev); });
+    plot.addEventListener("pointerleave", hide);
   }
 
   function buildGpx(name, segments){
@@ -541,6 +580,7 @@
       var elevEl = el.querySelector("[data-elev]");
       elevEl.innerHTML = elevProfile(results);
       elevEl.hidden = !elevEl.innerHTML;
+      attachScrubber(elevEl, results, map);
       el.querySelector("[data-km]").textContent = fmtKm(totalM).toLocaleString("de-DE");
       if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
       var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
