@@ -174,6 +174,14 @@
   .chip.flag{font-size:19px;padding:0 6px;line-height:1;}
   .chip.on{border-color:var(--blaze);background:var(--surface-2);color:var(--blaze);box-shadow:inset 0 0 0 1px var(--blaze);}
   .chip-sep{width:1px;height:22px;background:var(--line);margin:0 4px;}
+  .chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .bike-chip{flex-direction:column;height:auto;padding:8px 4px 6px;border-radius:12px;gap:2px;color:var(--bike);}
+  .bike-chip svg{width:38px;height:25px;}
+  .bike-chip span{font-weight:600;font-size:13px;}
+  .bike-chip small{font-size:11px;color:var(--ink-soft);}
+  .bike-chip:disabled{opacity:.4;cursor:default;}
+  .bike-chip.on{background:var(--bike);color:var(--surface);border-color:var(--bike);box-shadow:none;}
+  .bike-chip.on small{color:var(--surface);}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
   .tile{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s, transform .15s;}
   .tile:hover{border-color:var(--moss);transform:translateY(-2px);}
@@ -214,11 +222,10 @@
     <nav class="tabs"><a href="#touren">Touren</a><a href="#anfrage">Anfrage</a><a href="#quellen">Quellen</a></nav>
   </header>
 
-  <p class="lede" data-panel="touren">Hier findest Du Tourplanungen, die Claude auf Basis von Nutzeranfragen automatisch erstellt. Claude nutzt dafür verschiedene Quellen. Die Quellen können ergänzt, korrigiert und erweitert werden. Nach Anfrage einer Tourplanung dauert es ein wenig, dann wird die Tour mit Beschreibung, Quellenangaben und GPX-Datei hier unter Touren angezeigt.</p>
+  <p class="lede" data-panel="touren">Touren, die Claude nach euren Wünschen plant – mit Karte, Höhenprofil und GPX. Eigene Tour gewünscht? Einfach unter <a href="#anfrage">Anfrage</a>.</p>
 
   <section id="touren" class="section" data-panel="touren">
     <div id="push-box" class="card push-box" hidden></div>
-    <h2>Touren</h2>
     <div class="filters">
       <input id="q" type="search" placeholder="Suchen: Ort, Region, Name …" aria-label="Touren durchsuchen">
       <div class="chips" id="chips" role="group" aria-label="Nach Fahrrad und Land filtern"></div>
@@ -925,11 +932,11 @@
   }
   function renderChips(lands){
     var box = document.getElementById("chips");
+    // Bike filter: icon + name + number of tours, so the types are easy to tell apart (countries: use the search)
     box.innerHTML = BIKES.map(function(b){
-      return '<button type="button" class="chip bike-' + b.cls + '" data-bike="' + b.cls + '" title="' + b.label + '" aria-label="' + b.label + '" aria-pressed="false">' + bikeIcon(b.cls) + '</button>';
-    }).join("") + '<span class="chip-sep" aria-hidden="true"></span>' + lands.map(function(l){
-      var f = flagOf(l);
-      return '<button type="button" class="chip' + (f !== l ? ' flag' : '') + '" data-land="' + esc(l) + '" title="' + esc(l) + '" aria-label="' + esc(l) + '" aria-pressed="false">' + esc(f) + '</button>';
+      var n = TOURS.filter(function(t){ return bikeKind(t.fahrradtyp).cls === b.cls; }).length;
+      return '<button type="button" class="chip bike-chip bike-' + b.cls + '" data-bike="' + b.cls + '" aria-pressed="false"' + (n ? '' : ' disabled') + '>' + bikeIcon(b.cls) +
+        '<span>' + (b.cls === "mtb" ? "MTB" : b.label) + '</span><small>' + n + '</small></button>';
     }).join("");
     box.addEventListener("click", function(ev){
       var btn = ev.target.closest(".chip"); if (!btn) return;
