@@ -83,8 +83,8 @@
     {
       "von": "Teterow",
       "nach": "Krakow am See",
-      "hmPlan": 400,
-      "text": "Über die Barlachstadt Güstrow in die waldreiche Nossentiner/Schwinzer Heide.",
+      "hmPlan": 197,
+      "text": "Über Glasewitz in die Barlachstadt Güstrow mit ihrem Renaissanceschloss, dann südlich über Mühl Rosin am Inselsee vorbei in die waldreiche Nossentiner/Schwinzer Heide nach Krakow am See.",
       "wegpunkte": [
         [
           53.775,
@@ -92,9 +92,19 @@
           "Teterow"
         ],
         [
-          53.794,
-          12.175,
-          "Güstrow"
+          53.817,
+          12.2953,
+          "Glasewitz"
+        ],
+        [
+          53.7909,
+          12.1769,
+          "Güstrow (Schloss)"
+        ],
+        [
+          53.7632,
+          12.2131,
+          "Mühl Rosin"
         ],
         [
           53.653,
@@ -106,8 +116,8 @@
     {
       "von": "Krakow am See",
       "nach": "Röbel/Müritz",
-      "hmPlan": 350,
-      "text": "Am Plauer See entlang, über Malchow mit seiner Drehbrücke zwischen Fleesensee und Plauer See an die Westseite der Müritz.",
+      "hmPlan": 303,
+      "text": "Über Karow nach Plau am See, dann am Südufer des Plauer Sees über Ganzlin und Bad Stuer herum nach Malchow mit seiner Drehbrücke zwischen Fleesensee und Plauer See und weiter an die Westseite der Müritz nach Röbel.",
       "wegpunkte": [
         [
           53.653,
@@ -115,9 +125,24 @@
           "Krakow am See"
         ],
         [
+          53.5392,
+          12.2627,
+          "Karow"
+        ],
+        [
           53.458,
           12.261,
           "Plau am See"
+        ],
+        [
+          53.3838,
+          12.2524,
+          "Ganzlin"
+        ],
+        [
+          53.3903,
+          12.317,
+          "Bad Stuer"
         ],
         [
           53.476,
@@ -158,6 +183,14 @@
           "Neustrelitz"
         ]
       ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Etappe 4 umrundet den Plauer See jetzt über das Südufer (Ganzlin, Bad Stuer) statt 8 km von Plau zurückzufahren; Etappe 3 fährt Güstrow über Glasewitz an und über Mühl Rosin wieder hinaus (Etappe 3: ca. 59 km, 197 Hm; Etappe 4: ca. 84 km, 303 Hm, mit tools/stichstrecken-check.py geprüft)."
     }
   ]
 }

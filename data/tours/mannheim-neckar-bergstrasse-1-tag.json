@@ -19,7 +19,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start und Ziel Mannheim Hbf. Die Runde nimmt bewusst die Richtung, die die Weinstraßen-Tour nicht abdeckt: nach Osten. Flach am Neckar entlang nach Heidelberg und Neckargemünd, dann als Höhepunkt hinauf auf den Königstuhl (566 m) über die gleichmäßige Ostauffahrt via Waldhilsbach – 7,6 km, 432 Hm, im Schnitt 5,7 %, mit Stoppomat zum Zeitnehmen – und auf demselben Weg zurück. Weiter durch die Burgenstädtchen Neckarsteinach und Hirschhorn, über den Odenwald nach Wald-Michelbach (im Herbst mit bunten Buchenwäldern), durchs Weschnitztal nach Weinheim, die Bergstraße hinauf nach Heppenheim und durch die Rheinebene zurück nach Mannheim. Die Linie wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege nimmt und stark befahrene Straßen meidet.",
+  "beschreibung": "Start und Ziel Mannheim Hbf. Die Runde nimmt bewusst die Richtung, die die Weinstraßen-Tour nicht abdeckt: nach Osten. Flach am Neckar entlang nach Heidelberg und am Südufer nach Neckargemünd, dann als Höhepunkt hinauf auf den Königstuhl (566 m) über die gleichmäßige Ostauffahrt via Waldhilsbach – 7,6 km, 432 Hm, im Schnitt 5,7 %, mit Stoppomat zum Zeitnehmen. Hinunter geht es nicht auf demselben Weg, sondern über die Molkenkur nach Heidelberg und dann am Nordufer des Neckars über Ziegelhausen nach Neckarsteinach. Weiter durch die Burgenstädtchen Neckarsteinach und Hirschhorn, über den Odenwald nach Wald-Michelbach (im Herbst mit bunten Buchenwäldern), durchs Weschnitztal nach Weinheim, die Bergstraße hinauf nach Heppenheim und durch die Rheinebene zurück nach Mannheim. Die Linie wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege nimmt und stark befahrene Straßen meidet.",
   "quellen": [
     {
       "name": "Rennrad-Tour: Von der Bergstraße in den Überwald (Tourismus Bergstraße-Odenwald)",
@@ -38,8 +38,8 @@
     {
       "von": "Mannheim",
       "nach": "Mannheim",
-      "hmPlan": 1450,
-      "text": "Ladenburg – Heidelberg – Neckargemünd – Königstuhl (Ostauffahrt über Waldhilsbach, hin und zurück) – Neckarsteinach – Hirschhorn – hinauf in den Odenwald nach Wald-Michelbach – durchs Weschnitztal über Birkenau nach Weinheim – Bergstraße nach Heppenheim – Lampertheim – Mannheim.",
+      "hmPlan": 1146,
+      "text": "Ladenburg – Heidelberg – Neckargemünd – Königstuhl (Ostauffahrt über Waldhilsbach) – Abfahrt über die Molkenkur – am Nordufer des Neckars über Ziegelhausen – Neckarsteinach – Hirschhorn – hinauf in den Odenwald nach Wald-Michelbach – durchs Weschnitztal über Birkenau nach Weinheim – Bergstraße nach Heppenheim – Lampertheim – Mannheim.",
       "wegpunkte": [
         [
           49.4794,
@@ -67,19 +67,19 @@
           "Waldhilsbach"
         ],
         [
-          49.3985,
-          8.725,
+          49.3982,
+          8.7246,
           "Königstuhl"
         ],
         [
-          49.377,
-          8.76,
-          "Waldhilsbach"
+          49.407,
+          8.715,
+          "Molkenkur"
         ],
         [
-          49.393,
-          8.797,
-          "Neckargemünd"
+          49.4216,
+          8.7569,
+          "Ziegelhausen"
         ],
         [
           49.407,
@@ -134,6 +134,12 @@
       "datum": "24.09.2026",
       "kommentar": "Vorzugsweise verkehrsberuhigte Straßen und asphaltierte Wege benutzen.",
       "antwort": "Routing umgestellt auf ein Rennrad-Profil für wenig Verkehr: asphaltierte Radwege und ruhige Nebenstraßen werden bevorzugt, Bundesstraßen möglichst gemieden. Durch die Umwege kann die Runde ein paar Kilometer länger werden."
+    },
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Königstuhl als Überfahrt statt hin und zurück: hinauf über die Ostauffahrt ab Waldhilsbach, hinunter über die Molkenkur und am Nordufer des Neckars über Ziegelhausen weiter nach Neckarsteinach. Außerdem den Königstuhl-Wegpunkt korrigiert – er lag so, dass der Rennrad-Routenplaner ihn nicht erreichte (Etappe 1: ca. 155 km, 1146 Hm, mit tools/stichstrecken-check.py geprüft)."
     }
   ]
 }

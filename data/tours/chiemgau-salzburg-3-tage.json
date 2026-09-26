@@ -95,7 +95,7 @@
     {
       "von": "Rosenheim",
       "nach": "Bad Reichenhall",
-      "hmPlan": 700,
+      "hmPlan": 787,
       "text": "Aus Rosenheim hinaus an den Simssee und auf dem Uferweg von Baierbach über Ecking nach Pietzing, mitten durch Moor und Schilf. Über Bad Endorf und die Eggstätter Seenplatte mit ihren kleinen Moorseen hinunter nach Gstadt an den Chiemsee, am Nordufer entlang über Seebruck und dann am Ostufer über Chieming nach Süden bis Grabenstätt. Über Bergen und Siegsdorf geht es in die Berge: Ab hier folgt die Route der historischen Soleleitung (Soleleitungsweg) über Inzell, Weißbach an der Alpenstraße und den Nesselgraben, vorbei am Thumsee und hinab nach Bad Reichenhall.",
       "wegpunkte": [
         [
@@ -129,6 +129,11 @@
           "Eggstätt (Eggstätter Seenplatte)"
         ],
         [
+          47.8905,
+          12.4004,
+          "Breitbrunn am Chiemsee"
+        ],
+        [
           47.8865,
           12.4176,
           "Gstadt am Chiemsee"
@@ -149,8 +154,8 @@
           "Grabenstätt"
         ],
         [
-          47.7947,
-          12.5773,
+          47.8167,
+          12.5833,
           "Bergen"
         ],
         [
@@ -188,8 +193,8 @@
     {
       "von": "Bad Reichenhall",
       "nach": "Salzburg",
-      "hmPlan": 550,
-      "text": "Vom Kurort Bad Reichenhall ins Berchtesgadener Tal, mit Abstecher zum türkisblauen Königssee. Zurück über Berchtesgaden auf dem Mozart-Radweg via Marktschellenberg und Grödig, zuletzt durch die Hellbrunner Allee mit ihren Schlössern in die Salzburger Altstadt.",
+      "hmPlan": 452,
+      "text": "Vom Kurort Bad Reichenhall ins Berchtesgadener Land und über Schönau zum türkisblauen Königssee. Von dort nicht zurück, sondern auf der anderen Talseite nach Berchtesgaden und auf dem Mozart-Radweg via Marktschellenberg und Grödig, zuletzt durch die Hellbrunner Allee mit ihren Schlössern in die Salzburger Altstadt.",
       "wegpunkte": [
         [
           47.7239,
@@ -197,9 +202,9 @@
           "Bad Reichenhall"
         ],
         [
-          47.6303,
-          13.0006,
-          "Berchtesgaden"
+          47.6146,
+          12.979,
+          "Schönau am Königssee"
         ],
         [
           47.5919,
@@ -212,8 +217,8 @@
           "Berchtesgaden"
         ],
         [
-          47.7011,
-          13.0208,
+          47.7041,
+          13.0384,
           "Marktschellenberg"
         ],
         [
@@ -241,6 +246,12 @@
       "von": "Thomas",
       "kommentar": "Etappe 2 neu: am Simssee-Uferweg (Baierbach → Ecking/Pietzing) entlang, über Bad Endorf und die Eggstätter Seenplatte nach Gstadt, am Nordufer über Seebruck nach Chieming und am Ostufer bis Grabenstätt; Söllhuben, Übersee und Traunstein raus. Danach über Bergen und Siegsdorf entlang der historischen Soleleitung über Inzell, Weißbach, Nesselgraben und Thumsee nach Bad Reichenhall.",
       "antwort": "Etappe 2 komplett neu geplant: Wegpunkte Baierbach, Ecking, Pietzing, Bad Endorf, Eggstätt, Gstadt, Seebruck, Chieming, Grabenstätt, Bergen, Siegsdorf, Inzell, Weißbach an der Alpenstraße, Nesselgraben und Thumsee (Koordinaten mit OpenStreetMap geprüft, Seebruck liegt jetzt an Land); Söllhuben, Übersee, Traunstein, Teisendorf und Piding entfernt. Höhenmeter-Plan auf ca. 700 angehoben, Etappentext und Beschreibung angepasst, Quellen zum Simssee-Rundweg und Soleleitungsweg ergänzt."
+    },
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Etappe 2: über Breitbrunn nach Gstadt statt von Eggstätt hinunter und wieder hinauf, Wegpunkt Bergen auf die Strecke gelegt. Etappe 3: Königssee über Schönau angefahren und über Berchtesgaden verlassen statt 5 km auf demselben Weg zurück (Etappe 2: ca. 106 km, 787 Hm; Etappe 3: ca. 55 km, 452 Hm, mit tools/stichstrecken-check.py geprüft)."
     }
   ]
 }

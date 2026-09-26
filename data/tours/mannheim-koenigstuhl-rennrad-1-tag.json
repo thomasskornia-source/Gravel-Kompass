@@ -1,7 +1,7 @@
 {
   "id": "mannheim-koenigstuhl-rennrad-1-tag",
   "title": "Königstuhl-Runde: Rennradtour ab Mannheim",
-  "subtitle": "Rennrad-Tagestour, ca. 100 km, durchs Neckartal zum Königstuhl (mildeste Auffahrt via Gauangelloch) und zurück durch die Rheinebene",
+  "subtitle": "Rennrad-Tagestour, ca. 90 km, durchs Neckartal, über die Südauffahrt auf den Königstuhl, Abfahrt über die Molkenkur und zurück durch die Rheinebene",
   "createdAt": "2026-09-26",
   "requestId": "uli-koenigstuhl-2026-09",
   "profil": [
@@ -19,7 +19,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start und Ziel an der Augustaanlage in Mannheim. Zunächst geht es flach und meist auf Radwegen am Neckar entlang über Feudenheim, Ilvesheim und das römische Ladenburg sowie Edingen-Neckarhausen und Wieblingen nach Heidelberg-Neuenheim. Weiter durch Heidelberg nach Rohrbach und über Gaiberg zum Höhepunkt der Runde: der Südauffahrt auf den Königstuhl (566 m) von Gauangelloch aus. Mit rund 8,9 km, 371 Hm und im Schnitt nur 4,2 % Steigung ist sie die mildeste aller Königstuhl-Auffahrten, dazu ruhig und wenig befahren. Oben an der Landessternwarte lohnt eine Pause, dann geht es auf demselben Weg wieder hinunter nach Rohrbach. Zurück nach Mannheim führt die Route flach durch die Rheinebene über Eppelheim, Schwetzingen (Schlossgarten), Ketsch, Brühl und Mannheim-Neckarau, größtenteils auf Radwegen und ruhigen Nebenstraßen. Die Strecke wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege bevorzugt und stark befahrene Straßen meidet.",
+  "beschreibung": "Start und Ziel an der Augustaanlage in Mannheim. Zunächst geht es flach und meist auf Radwegen am Neckar entlang über Feudenheim, Ilvesheim und das römische Ladenburg sowie Edingen-Neckarhausen nach Heidelberg-Neuenheim. Durch Heidelberg nach Rohrbach und über Leimen und Ochsenbach nach Gauangelloch, wo der Höhepunkt der Runde beginnt: die Südauffahrt auf den Königstuhl (566 m) über den Kohlhof – die mildeste aller Königstuhl-Auffahrten (rund 4 % im Schnitt), ruhig und wenig befahren. Oben an der Landessternwarte lohnt eine Pause, dann geht es nicht denselben Weg zurück, sondern auf der anderen Seite über die Molkenkur hinunter nach Heidelberg. Zurück nach Mannheim führt die Route flach durch die Rheinebene über Eppelheim, Schwetzingen (Schlossgarten), Ketsch, Brühl und Mannheim-Neckarau, größtenteils auf Radwegen und ruhigen Nebenstraßen. Die Strecke wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege bevorzugt.",
   "quellen": [
     {
       "name": "Königstuhl – alle Auffahrten (quaeldich.de)",
@@ -34,8 +34,8 @@
     {
       "von": "Mannheim",
       "nach": "Mannheim",
-      "hmPlan": 460,
-      "text": "Augustaanlage – Feudenheim – Ilvesheim – Ladenburg – Edingen-Neckarhausen – Wieblingen – Heidelberg-Neuenheim – Rohrbach – Gaiberg – Gauangelloch – Königstuhl (Südauffahrt, hin und zurück) – Rohrbach – Eppelheim – Schwetzingen – Ketsch – Brühl – Mannheim-Neckarau – Augustaanlage.",
+      "hmPlan": 651,
+      "text": "Augustaanlage – Feudenheim – Ilvesheim – Ladenburg – Edingen-Neckarhausen – Heidelberg-Neuenheim – Rohrbach – Leimen – Ochsenbach – Gauangelloch – Südauffahrt über Kohlhof zum Königstuhl – Abfahrt über die Molkenkur nach Heidelberg – Eppelheim – Schwetzingen – Ketsch – Brühl – Mannheim-Neckarau – Augustaanlage.",
       "wegpunkte": [
         [
           49.4816,
@@ -43,8 +43,8 @@
           "Mannheim (Augustaanlage)"
         ],
         [
-          49.501,
-          8.533,
+          49.4937,
+          8.5263,
           "Mannheim-Feudenheim"
         ],
         [
@@ -63,11 +63,6 @@
           "Edingen-Neckarhausen"
         ],
         [
-          49.4193,
-          8.6494,
-          "Heidelberg-Wieblingen"
-        ],
-        [
           49.4144,
           8.6821,
           "Heidelberg-Neuenheim"
@@ -78,9 +73,14 @@
           "Heidelberg-Rohrbach"
         ],
         [
-          49.3664,
-          8.7497,
-          "Gaiberg"
+          49.3483,
+          8.6905,
+          "Leimen"
+        ],
+        [
+          49.3382,
+          8.7388,
+          "Ochsenbach"
         ],
         [
           49.342,
@@ -98,24 +98,9 @@
           "Königstuhl (Landessternwarte)"
         ],
         [
-          49.3888,
-          8.736,
-          "Kohlhof"
-        ],
-        [
-          49.342,
-          8.7559,
-          "Gauangelloch"
-        ],
-        [
-          49.3664,
-          8.7497,
-          "Gaiberg"
-        ],
-        [
-          49.3802,
-          8.6874,
-          "Heidelberg-Rohrbach"
+          49.407,
+          8.715,
+          "Molkenkur"
         ],
         [
           49.3985,
@@ -148,6 +133,14 @@
           "Mannheim (Augustaanlage)"
         ]
       ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Königstuhl als Runde: hinauf weiter über die milde Südauffahrt ab Gauangelloch (jetzt über Leimen/Ochsenbach angefahren statt über Gaiberg hin und zurück), hinunter über die Molkenkur nach Heidelberg statt 18 km auf demselben Weg zurück (Etappe 1: ca. 92 km, 651 Hm, mit tools/stichstrecken-check.py geprüft)."
     }
   ]
 }

@@ -34,8 +34,8 @@
     {
       "von": "Mannheim",
       "nach": "Schweigen (Deutsches Weintor)",
-      "hmPlan": 1100,
-      "text": "Über den Rhein nach Bad Dürkheim, dann die Weinstraße entlang durch Deidesheim und Neustadt. Ab Maikammer hinauf zur Kalmit (673 m) und zurück, weiter über Landau und Bad Bergzabern zum Deutschen Weintor an der französischen Grenze. Die letzten Meter zum Kalmit-Gipfel sind rauer Asphalt – wer mag, dreht vorher um.",
+      "hmPlan": 949,
+      "text": "Über den Rhein nach Bad Dürkheim, dann die Weinstraße entlang durch Deidesheim und Neustadt. Ab Maikammer hinauf zur Kalmit (673 m), dem höchsten Gipfel des Pfälzerwalds, und auf der anderen Seite hinunter ins Winzerdorf Sankt Martin, weiter über Edenkoben, Landau und Bad Bergzabern zum Deutschen Weintor an der französischen Grenze. Die letzten Meter zum Kalmit-Gipfel sind rauer Asphalt – wer mag, dreht vorher um.",
       "wegpunkte": [
         [
           49.4794,
@@ -68,9 +68,14 @@
           "Kalmit"
         ],
         [
-          49.306,
-          8.131,
-          "Maikammer"
+          49.2995,
+          8.1031,
+          "Sankt Martin"
+        ],
+        [
+          49.2822,
+          8.1284,
+          "Edenkoben"
         ],
         [
           49.199,
@@ -136,6 +141,14 @@
           "Mannheim Hbf"
         ]
       ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Kalmit als Überfahrt statt hin und zurück: hinauf ab Maikammer, hinunter nach Sankt Martin und über Edenkoben weiter nach Landau (Etappe 1: ca. 97 km, 949 Hm, mit tools/stichstrecken-check.py geprüft)."
     }
   ]
 }

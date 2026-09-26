@@ -127,8 +127,8 @@
     {
       "von": "Cluny",
       "nach": "Tournus",
-      "hmPlan": 450,
-      "text": "Über die Voie Verte nach Mâcon, Abstecher in die Weinberge des Mâconnais zum Felsen von Solutré-Pouilly und ins Weindorf Fuissé (Pouilly-Fuissé), dann am flachen Saône-Ufer (Voie Bleue) nach Norden zur Abteistadt Tournus.",
+      "hmPlan": 570,
+      "text": "Durch das Mâconnais zum Felsen von Solutré-Pouilly und ins Weindorf Fuissé (Pouilly-Fuissé), hinunter nach Mâcon an die Saône und am flachen Saône-Ufer (Voie Bleue) nach Norden zur Abteistadt Tournus.",
       "wegpunkte": [
         [
           46.4342,
@@ -136,19 +136,19 @@
           "Cluny"
         ],
         [
-          46.3069,
-          4.8286,
-          "Mâcon"
-        ],
-        [
           46.2965,
           4.7247,
-          "Solutré-Pouilly"
+          "Solutré-Pouilly (Roche de Solutré)"
         ],
         [
           46.2802,
           4.743,
           "Fuissé"
+        ],
+        [
+          46.3069,
+          4.8286,
+          "Mâcon"
         ],
         [
           46.5686,
@@ -209,5 +209,12 @@
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Etappe 3 in neuer Reihenfolge Cluny – Solutré – Fuissé – Mâcon – Tournus statt erst nach Mâcon und wieder zurück in die Weinberge (Etappe 3: ca. 68 km, 570 Hm, mit tools/stichstrecken-check.py geprüft)."
+    }
+  ]
 }

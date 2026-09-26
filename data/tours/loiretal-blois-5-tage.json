@@ -36,8 +36,8 @@
     {
       "von": "Blois",
       "nach": "Amboise",
-      "hmPlan": 250,
-      "text": "Abstecher über den Deich-Radweg zum Schloss Chambord, dann auf der Loire à Vélo am Nordufer über Chaumont-sur-Loire (Schloss und Gärten) nach Amboise mit dem Königsschloss und Leonardo da Vincis Clos Lucé.",
+      "hmPlan": 350,
+      "text": "Auf der Loire à Vélo flussaufwärts nach Saint-Dyé und durch den Park zum Schloss Chambord, dann nicht zurück, sondern südwärts über Bracieux zum Schloss Cheverny (Vorbild für Tims Schloss Mühlenhof) und durch Wald und Weinberge zur Loire bei Chaumont-sur-Loire (Schloss und Gärten), weiter nach Amboise mit dem Königsschloss und Leonardo da Vincis Clos Lucé.",
       "wegpunkte": [
         [
           47.5861,
@@ -45,9 +45,24 @@
           "Blois"
         ],
         [
+          47.6556,
+          1.4919,
+          "Saint-Dyé-sur-Loire"
+        ],
+        [
           47.6161,
           1.5171,
           "Chambord"
+        ],
+        [
+          47.5489,
+          1.5427,
+          "Bracieux"
+        ],
+        [
+          47.4996,
+          1.4611,
+          "Cheverny"
         ],
         [
           47.4736,
@@ -130,8 +145,8 @@
     {
       "von": "Saumur",
       "nach": "Langeais",
-      "hmPlan": 250,
-      "text": "Über die Loire ans Nordufer in die Weinberge von Bourgueil, dann zum Märchenschloss Ussé (Rigny-Ussé) und zur Festungsstadt Langeais, auf ruhigen Nebenstrecken der Loire à Vélo.",
+      "hmPlan": 129,
+      "text": "Über die Loire ans Nordufer in die Weinberge von Bourgueil, bei Port-Boulet wieder ans Südufer und über Avoine und Huismes zum Märchenschloss Ussé (Rigny-Ussé), dann über die Loire zur Festungsstadt Langeais – auf ruhigen Nebenstrecken der Loire à Vélo.",
       "wegpunkte": [
         [
           47.26,
@@ -142,6 +157,16 @@
           47.2597,
           0.1683,
           "Bourgueil"
+        ],
+        [
+          47.2055,
+          0.1821,
+          "Avoine"
+        ],
+        [
+          47.2312,
+          0.252,
+          "Huismes"
         ],
         [
           47.2911,
@@ -189,5 +214,12 @@
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "2026-09-26",
+      "von": "Thomas",
+      "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
+      "antwort": "Etappe 1 ohne den langen Hin-und-zurück-Abstecher nach Chambord (bisher 17 km doppelt): jetzt Blois – Saint-Dyé – Chambord – Bracieux – Cheverny – Chaumont – Amboise. Etappe 4 fährt Ussé von Süden an statt hin und zurück (Etappe 1: ca. 100 km, 350 Hm; Etappe 4: ca. 70 km, 129 Hm, mit tools/stichstrecken-check.py geprüft)."
+    }
+  ]
 }
