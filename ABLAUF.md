@@ -47,6 +47,10 @@ deshalb **fließen** und unterwegs immer wieder Neues zeigen:
   die Reihenfolge ändern). Wegpunkte auf die Strecke legen, nicht in abseitige Ortskerne.
 - Abwechslung: Seeufer, Flusstäler, Wald, Aussichten, Kultur und gute Einkehr; ruhige Wege statt Hauptstraßen.
 - Höhenmeter und km realistisch angeben (BRouter-Werte, nicht schätzen, wenn möglich).
+- **Anspruch** (Formularfeld) richtet sich vor allem nach den Höhenmetern pro km je Etappe, dazu Steilheit und Untergrund:
+  - *Entspannt*: bis ca. 6 Hm/km (z. B. höchstens ~400 Hm auf 70 km), kaum Steigungen über 6 %, gut fahrbare Wege.
+  - *Moderat*: ca. 6–12 Hm/km, einzelne längere Anstiege bis ~8–10 % erlaubt, auch mal ein Gipfel.
+  - *Anspruchsvoll*: über 12 Hm/km, lange oder steile Anstiege, Pässe und Gipfel, gern auch ruppigere Schotter- und Waldwege.
 - **Pflicht vor dem Hochladen** jeder neuen oder geänderten Tour: `python3 tools/stichstrecken-check.py <tour-id>`.
   Jeder gemeldete doppelt befahrene Abschnitt wird beseitigt oder – nur bei lohnendem Ziel – im Etappentext begründet.
   Kurze Stücke (unter ca. 1 km) in Ortsdurchfahrten oder am Start/Ziel einer Runde sind in Ordnung.
