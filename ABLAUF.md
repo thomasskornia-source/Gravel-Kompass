@@ -62,6 +62,11 @@ deshalb **fließen** und unterwegs immer wieder Neues zeigen:
   Die Tour soll echte Trails bis zu dieser Stufe enthalten (Quellen z. B. Trailforks, Bikeparks, MTB-Regionen), keine
   reinen Forststraßen-Runden. In `oberflaeche` die Stufe(n) nennen, z. B. „Singletrails S1–S2“. Routing: `"profil": ["mtb"]`.
 - **An-/Abreise** (optional): „Zug“ = Start/Ziel an einem gut erreichbaren Bahnhof; „Auto“ = Start mit Parkmöglichkeit.
+  - *Zug*: Bahnhöfe wählen, die mit Regionalzügen (Fahrradmitnahme möglich) erreichbar sind; in der Beschreibung kurz
+    nennen, wie man hin- und zurückkommt (z. B. „RE ab München, Radmitnahme“). Hinweis: Im Fernverkehr (ICE/TGV)
+    ist die Radmitnahme oft nicht oder nur mit Reservierung möglich.
+  - *Auto + Einweg (A → B)*: die Rückfahrt zum Auto mit Zug oder Bus heraussuchen (Verbindung mit Radmitnahme) und in der
+    Beschreibung angeben. Gibt es keine vernünftige Rückfahrt, im Bericht darauf hinweisen und eine Rundtour vorschlagen.
 - **Anspruch** (Formularfeld) richtet sich vor allem nach den Höhenmetern pro km je Etappe, dazu Steilheit und Untergrund:
   - *Entspannt*: bis ca. 6 Hm/km (z. B. höchstens ~400 Hm auf 70 km), kaum Steigungen über 6 %, gut fahrbare Wege.
   - *Moderat*: ca. 6–12 Hm/km, einzelne längere Anstiege bis ~8–10 % erlaubt, auch mal ein Gipfel.
