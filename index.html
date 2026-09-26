@@ -76,6 +76,9 @@
   .tag{font-size:11.5px;color:var(--contour);border:1px solid var(--line);border-radius:99px;padding:2px 9px;}
   .map{height:420px;background:var(--surface-2);}
   @media (max-width:520px){ .map{height:340px;} }
+  .elev{padding:8px 18px 0;}
+  .elev svg{display:block;width:100%;height:64px;}
+  .elev .elev-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
   .route-status{font-size:12.5px;color:var(--ink-soft);padding:8px 18px 0;min-height:1.5em;}
   .stats{display:flex;gap:22px;flex-wrap:wrap;padding:12px 18px;}
   .stat{display:flex;flex-direction:column;}
@@ -336,6 +339,35 @@
   function loadCache(tour){ try{ var s = localStorage.getItem(cacheKey(tour)); return s ? JSON.parse(s) : null; }catch(e){ return null; } }
   function saveCache(tour, data){ try{ localStorage.setItem(cacheKey(tour), JSON.stringify(data)); }catch(e){} }
 
+  // Small elevation profile below the map (BRouter delivers the height as 3rd coordinate)
+  function elevProfile(results){
+    var W = 600, H = 64, pts = [], d = 0, stageAt = [];
+    results.forEach(function(r, si){
+      r.coords.forEach(function(c, i){
+        if (i > 0) d += haversine(r.coords[i-1], c);
+        if (c.length > 2 && c[2] != null) pts.push([d, c[2], si]);
+      });
+      stageAt.push(d);
+    });
+    if (pts.length < 10 || d <= 0) return "";
+    var eles = pts.map(function(p){ return p[1]; });
+    var lo = Math.min.apply(null, eles), hi = Math.max.apply(null, eles);
+    var span = Math.max(hi - lo, 200), base = lo - span * 0.08; // min. 200 m scale: flat tours look flat
+    var step = Math.max(1, Math.floor(pts.length / 400));
+    function x(v){ return (v / d * W).toFixed(1); }
+    function y(v){ return (H - (v - base) / (span * 1.12) * H).toFixed(1); }
+    var areas = results.map(function(_, si){
+      var seg = pts.filter(function(p, i){ return p[2] === si && (i % step === 0); });
+      if (seg.length < 2) return "";
+      var line = seg.map(function(p){ return x(p[0]) + "," + y(p[1]); }).join(" ");
+      var col = STAGE_COLORS[si % STAGE_COLORS.length];
+      return '<polygon points="' + x(seg[0][0]) + ',' + H + ' ' + line + ' ' + x(seg[seg.length-1][0]) + ',' + H + '" fill="' + col + '" fill-opacity=".22"/>' +
+        '<polyline points="' + line + '" fill="none" stroke="' + col + '" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+    }).join("");
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Höhenprofil: ' + Math.round(lo) + ' bis ' + Math.round(hi) + ' Meter">' + areas + '</svg>' +
+      '<div class="elev-lbl"><span>' + Math.round(lo) + '–' + Math.round(hi) + ' m ü. NN</span><span>' + fmtKm(d) + ' km</span></div>';
+  }
+
   function buildGpx(name, segments){
     var x = '<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Gravel Kompass" xmlns="http://www.topografix.com/GPX/1/1">\n';
     x += '  <metadata><name>' + esc(name) + '</name></metadata>\n';
@@ -371,6 +403,7 @@
       '<div class="tags">' + tags.map(function(t){ return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
       '<div class="hint share-out" data-share-out hidden></div></div>' +
       '<div class="map" id="' + mapId + '"></div>' +
+      '<div class="elev" data-elev hidden></div>' +
       '<div class="route-status" data-status>Berechne Route auf echten Wegen …</div>' +
       '<div class="stats">' +
         '<div class="stat"><b data-km>–</b><span>km gesamt</span></div>' +
@@ -483,6 +516,9 @@
       L.circleMarker([last[0],last[1]], {radius:8, color:"#fff", weight:2, fillColor:"#202A1E", fillOpacity:1}).addTo(map).bindPopup("<b>Ziel</b><br>" + esc(last[2] || ""));
       if (bounds.length){ mapState.bounds = L.latLngBounds(bounds); map.fitBounds(mapState.bounds, {padding:[20,20]}); }
 
+      var elevEl = el.querySelector("[data-elev]");
+      elevEl.innerHTML = elevProfile(results);
+      elevEl.hidden = !elevEl.innerHTML;
       el.querySelector("[data-km]").textContent = fmtKm(totalM).toLocaleString("de-DE");
       if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
       var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
