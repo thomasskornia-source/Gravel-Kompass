@@ -77,7 +77,9 @@
   .map{height:420px;background:var(--surface-2);}
   @media (max-width:520px){ .map{height:340px;} }
   .elev{padding:8px 18px 0;}
-  .elev svg{display:block;width:100%;height:64px;}
+  .elev svg{display:block;width:100%;height:72px;color:var(--ink);}
+  .elev .elev-leg{justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-top:2px;}
+  .elev .elev-leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;}
   .elev .elev-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
   .route-status{font-size:12.5px;color:var(--ink-soft);padding:8px 18px 0;min-height:1.5em;}
   .stats{display:flex;gap:22px;flex-wrap:wrap;padding:12px 18px;}
@@ -353,19 +355,39 @@
     var eles = pts.map(function(p){ return p[1]; });
     var lo = Math.min.apply(null, eles), hi = Math.max.apply(null, eles);
     var span = Math.max(hi - lo, 200), base = lo - span * 0.08; // min. 200 m scale: flat tours look flat
-    var step = Math.max(1, Math.floor(pts.length / 400));
     function x(v){ return (v / d * W).toFixed(1); }
     function y(v){ return (H - (v - base) / (span * 1.12) * H).toFixed(1); }
-    var areas = results.map(function(_, si){
-      var seg = pts.filter(function(p, i){ return p[2] === si && (i % step === 0); });
-      if (seg.length < 2) return "";
-      var line = seg.map(function(p){ return x(p[0]) + "," + y(p[1]); }).join(" ");
-      var col = STAGE_COLORS[si % STAGE_COLORS.length];
-      return '<polygon points="' + x(seg[0][0]) + ',' + H + ' ' + line + ' ' + x(seg[seg.length-1][0]) + ',' + H + '" fill="' + col + '" fill-opacity=".22"/>' +
-        '<polyline points="' + line + '" fill="none" stroke="' + col + '" stroke-width="1.6" vector-effect="non-scaling-stroke"/>';
+    // Elevation at distance v (linear interpolation between track points)
+    var k = 0;
+    function eleAt(v){
+      while (k < pts.length - 2 && pts[k+1][0] < v) k++;
+      var a = pts[k], b = pts[Math.min(k+1, pts.length-1)];
+      return b[0] > a[0] ? a[1] + (b[1] - a[1]) * Math.min(1, Math.max(0, (v - a[0]) / (b[0] - a[0]))) : a[1];
+    }
+    // Colour by gradient like quäldich/komoot/Hammerhead: bins of >= 100 m
+    var bin = Math.max(100, d / 220), n = Math.ceil(d / bin), bars = "", line = [], prev = eleAt(0);
+    for (var b = 0; b < n; b++){
+      var x0 = b * bin, x1 = Math.min(d, x0 + bin), e1 = eleAt(x1);
+      var col = gradeColor((e1 - prev) / (x1 - x0) * 100);
+      bars += '<polygon points="' + x(x0) + ',' + H + ' ' + x(x0) + ',' + y(prev) + ' ' + x(x1) + ',' + y(e1) + ' ' + x(x1) + ',' + H + '" fill="' + col + '" stroke="' + col + '" stroke-width=".6"/>';
+      line.push(x(x0) + ',' + y(prev));
+      prev = e1;
+    }
+    line.push(x(d) + ',' + y(prev));
+    var marks = stageAt.slice(0, -1).map(function(v){
+      return '<line x1="' + x(v) + '" x2="' + x(v) + '" y1="0" y2="' + H + '" stroke="currentColor" stroke-opacity=".45" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>';
     }).join("");
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Höhenprofil: ' + Math.round(lo) + ' bis ' + Math.round(hi) + ' Meter">' + areas + '</svg>' +
-      '<div class="elev-lbl"><span>' + Math.round(lo) + '–' + Math.round(hi) + ' m ü. NN</span><span>' + fmtKm(d) + ' km</span></div>';
+    var legend = GRADES.map(function(g){ return '<span><i style="background:' + g[1] + '"></i>' + g[2] + '</span>'; }).join("");
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Höhenprofil: ' + Math.round(lo) + ' bis ' + Math.round(hi) + ' Meter, nach Steigung eingefärbt">' + bars +
+      '<polyline points="' + line.join(" ") + '" fill="none" stroke="currentColor" stroke-opacity=".7" stroke-width="1.2" vector-effect="non-scaling-stroke"/>' + marks + '</svg>' +
+      '<div class="elev-lbl"><span>' + Math.round(lo) + '–' + Math.round(hi) + ' m ü. NN</span><span>' + fmtKm(d) + ' km</span></div>' +
+      '<div class="elev-lbl elev-leg">' + legend + '</div>';
+  }
+  // Gradient classes (upper bound in %, colour, legend label); descents use the flat colour
+  var GRADES = [[3, "#8BBF5A", "< 3 %"], [6, "#F2C230", "3–6"], [9, "#F08A24", "6–9"], [12, "#D8352A", "9–12"], [Infinity, "#7B1E4F", "> 12 %"]];
+  function gradeColor(g){
+    for (var i = 0; i < GRADES.length; i++) if (g < GRADES[i][0]) return GRADES[i][1];
+    return GRADES[GRADES.length-1][1];
   }
 
   function buildGpx(name, segments){
