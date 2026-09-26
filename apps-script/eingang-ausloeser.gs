@@ -125,10 +125,31 @@ function routineStarten(hinweis) {
     muteHttpExceptions: true
   });
   var code = antwort.getResponseCode();
-  Logger.log('Routine: HTTP ' + code + ' ' + antwort.getContentText());
+  var text = antwort.getContentText();
+  Logger.log('Routine: HTTP ' + code + ' ' + text);
   if (code >= 200 && code < 300) {
     cache.put('laeuft', '1', 120);
+  } else if (code === 400 || code === 409 || code === 429) {
+    // Meist läuft die Routine gerade noch (sie nimmt neue Einträge dann evtl. nicht mehr mit):
+    // kein Fehler-Mail, sondern in 10 Minuten einmal erneut starten.
+    Logger.log('Routine gerade nicht startbar – neuer Versuch in 10 Minuten.');
+    nachholenPlanen();
   } else {
-    throw new Error('Routine nicht gestartet: HTTP ' + code);
+    throw new Error('Routine nicht gestartet: HTTP ' + code + ' ' + text.slice(0, 300));
   }
+}
+
+/** Plant einen einmaligen Nachhol-Start (höchstens einer gleichzeitig). */
+function nachholenPlanen() {
+  var geplant = ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === 'nachholen'; });
+  if (!geplant) ScriptApp.newTrigger('nachholen').timeBased().after(10 * 60 * 1000).create();
+}
+
+/** Wird vom Nachhol-Auslöser aufgerufen; entfernt sich selbst und startet die Routine erneut. */
+function nachholen() {
+  ScriptApp.getProjectTriggers().forEach(function (t) {
+    if (t.getHandlerFunction() === 'nachholen') ScriptApp.deleteTrigger(t);
+  });
+  CacheService.getScriptCache().remove('laeuft');
+  routineStarten('Nachhol-Start: Eintrag kam, während die Routine noch lief.');
 }
