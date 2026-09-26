@@ -51,6 +51,9 @@ deshalb **fließen** und unterwegs immer wieder Neues zeigen:
   die Reihenfolge ändern). Wegpunkte auf die Strecke legen, nicht in abseitige Ortskerne.
 - Abwechslung: Seeufer, Flusstäler, Wald, Aussichten, Kultur und gute Einkehr; ruhige Wege statt Hauptstraßen.
 - Höhenmeter und km realistisch angeben (BRouter-Werte, nicht schätzen, wenn möglich).
+- **Beschreibung** (Formular „Beschreibe Deine Tour“, früher „Stil & Vorlieben“): enthält Land, Region oder Stadt und alle
+  Wünsche. Land/Region daraus ableiten und in Tour und `requests.json` (`land`, `region`) eintragen. Steht kein Ort drin
+  („kein Ort genannt“), drei Vorschläge machen (bevorzugt Deutschland und Nachbarländer) und im Bericht erwähnen.
 - **Untergrund** (Formular „Wie rau darf’s werden?“): die gewählte Stufe ist die *raueste erlaubte* Oberfläche, alles Glattere
   ist auch in Ordnung. Rennrad: „Nur Asphalt“ oder „Auch kurze Schotterstücke“. Trekking: Asphalt & Radwege → feiner Schotter
   → Feld- & Waldwege. Gravel: viel Asphalt → feiner Schotter → grober Schotter → Wald- & Feldwege → leichte Trails (S0–S1).
