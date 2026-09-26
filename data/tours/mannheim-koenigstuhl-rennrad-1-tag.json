@@ -1,0 +1,153 @@
+{
+  "id": "mannheim-koenigstuhl-rennrad-1-tag",
+  "title": "Königstuhl-Runde: Rennradtour ab Mannheim",
+  "subtitle": "Rennrad-Tagestour, ca. 100 km, durchs Neckartal zum Königstuhl (mildeste Auffahrt via Gauangelloch) und zurück durch die Rheinebene",
+  "createdAt": "2026-09-26",
+  "requestId": "uli-koenigstuhl-2026-09",
+  "profil": [
+    "fastbike-lowtraffic",
+    "fastbike"
+  ],
+  "land": "Deutschland",
+  "region": "Rhein-Neckar (Mannheim–Heidelberg)",
+  "saison": "Herbst",
+  "tage": 1,
+  "fahrradtyp": "Rennrad",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Start und Ziel an der Augustaanlage in Mannheim. Zunächst geht es flach und meist auf Radwegen am Neckar entlang über Feudenheim, Ilvesheim und das römische Ladenburg sowie Edingen-Neckarhausen und Wieblingen nach Heidelberg-Neuenheim. Weiter durch Heidelberg nach Rohrbach und über Gaiberg zum Höhepunkt der Runde: der Südauffahrt auf den Königstuhl (566 m) von Gauangelloch aus. Mit rund 8,9 km, 371 Hm und im Schnitt nur 4,2 % Steigung ist sie die mildeste aller Königstuhl-Auffahrten, dazu ruhig und wenig befahren. Oben an der Landessternwarte lohnt eine Pause, dann geht es auf demselben Weg wieder hinunter nach Rohrbach. Zurück nach Mannheim führt die Route flach durch die Rheinebene über Eppelheim, Schwetzingen (Schlossgarten), Ketsch, Brühl und Mannheim-Neckarau, größtenteils auf Radwegen und ruhigen Nebenstraßen. Die Strecke wird mit einem Rennrad-Profil berechnet, das asphaltierte Wege bevorzugt und stark befahrene Straßen meidet.",
+  "quellen": [
+    {
+      "name": "Königstuhl – alle Auffahrten (quaeldich.de)",
+      "url": "https://www.quaeldich.de/paesse/koenigstuhl/"
+    },
+    {
+      "name": "Südauffahrt von Gauangelloch (quaeldich.de)",
+      "url": "https://www.quaeldich.de/paesse/koenigstuhl/befahrungen/suedauffahrt-von-gauangelloch/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Mannheim",
+      "nach": "Mannheim",
+      "hmPlan": 460,
+      "text": "Augustaanlage – Feudenheim – Ilvesheim – Ladenburg – Edingen-Neckarhausen – Wieblingen – Heidelberg-Neuenheim – Rohrbach – Gaiberg – Gauangelloch – Königstuhl (Südauffahrt, hin und zurück) – Rohrbach – Eppelheim – Schwetzingen – Ketsch – Brühl – Mannheim-Neckarau – Augustaanlage.",
+      "wegpunkte": [
+        [
+          49.4816,
+          8.4811,
+          "Mannheim (Augustaanlage)"
+        ],
+        [
+          49.501,
+          8.533,
+          "Mannheim-Feudenheim"
+        ],
+        [
+          49.4728,
+          8.559,
+          "Ilvesheim"
+        ],
+        [
+          49.4785,
+          8.6089,
+          "Ladenburg"
+        ],
+        [
+          49.4419,
+          8.6489,
+          "Edingen-Neckarhausen"
+        ],
+        [
+          49.4193,
+          8.6494,
+          "Heidelberg-Wieblingen"
+        ],
+        [
+          49.4144,
+          8.6821,
+          "Heidelberg-Neuenheim"
+        ],
+        [
+          49.3802,
+          8.6874,
+          "Heidelberg-Rohrbach"
+        ],
+        [
+          49.3664,
+          8.7497,
+          "Gaiberg"
+        ],
+        [
+          49.342,
+          8.7559,
+          "Gauangelloch"
+        ],
+        [
+          49.3888,
+          8.736,
+          "Kohlhof"
+        ],
+        [
+          49.3982,
+          8.7246,
+          "Königstuhl (Landessternwarte)"
+        ],
+        [
+          49.3888,
+          8.736,
+          "Kohlhof"
+        ],
+        [
+          49.342,
+          8.7559,
+          "Gauangelloch"
+        ],
+        [
+          49.3664,
+          8.7497,
+          "Gaiberg"
+        ],
+        [
+          49.3802,
+          8.6874,
+          "Heidelberg-Rohrbach"
+        ],
+        [
+          49.3985,
+          8.6355,
+          "Eppelheim"
+        ],
+        [
+          49.38,
+          8.573,
+          "Schwetzingen"
+        ],
+        [
+          49.366,
+          8.529,
+          "Ketsch"
+        ],
+        [
+          49.406,
+          8.522,
+          "Brühl"
+        ],
+        [
+          49.4585,
+          8.4772,
+          "Mannheim-Neckarau"
+        ],
+        [
+          49.4816,
+          8.4811,
+          "Mannheim (Augustaanlage)"
+        ]
+      ]
+    }
+  ]
+}

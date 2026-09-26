@@ -27,7 +27,8 @@
   {
     "id": "pfaffenhofen-2026-09",
     "createdAt": "2026-09-25",
-    "status": "fertig",
+    "status": "gelöscht",
+    "notiz": "Tour auf Wunsch von Thomas gelöscht (Kommentar vom 25.09.2026 20:58).",
     "name": "Thomas",
     "saison": "Herbst",
     "tage": 1,
@@ -44,9 +45,7 @@
     "anspruch": "Moderat",
     "streckenform": "Rundtour",
     "stil": "Rundtour in oder um Pfaffenhofen an der Ilm mit schöner Einkehr",
-    "tourIds": [
-      "pfaffenhofen-scheyern-1-tag"
-    ]
+    "tourIds": []
   },
   {
     "id": "eichenau-rosenheim-2026-09-a",
@@ -244,6 +243,30 @@
       "champagne-reims-5-tage",
       "burgund-dijon-5-tage",
       "loiretal-blois-5-tage"
+    ]
+  },
+  {
+    "id": "uli-koenigstuhl-2026-09",
+    "createdAt": "2026-09-26",
+    "status": "fertig",
+    "name": "Uli",
+    "saison": "Herbst",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "offen – bitte 3 Vorschläge",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 100,
+    "etappenlaengeBis": 100,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Plane mir bitte eine Rennradtour auf asphaltierten Wegen, verkehrsberuhigt wenn möglich, von der Augustaanlage 20 in Mannheim Richtung Königstuhl Heidelberg. Dort bitte den moderatesten Anstieg auf den Königstuhl und dann wieder zurück auf die Augustaanlage 20 in Mannheim, wenn es geht, in einem Rundkurs.",
+    "notiz": "Freitext bat explizit um eine Rennradtour; Fahrradtyp daher als Rennrad umgesetzt statt des angekreuzten Gravel (siehe Kriterien-Check).",
+    "tourIds": [
+      "mannheim-koenigstuhl-rennrad-1-tag"
     ]
   }
 ]
