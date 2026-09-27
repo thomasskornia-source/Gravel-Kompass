@@ -4,6 +4,7 @@ Leitlinien für jede neue oder geänderte Tour. Sie wachsen mit jeder nachgefahr
 Rückmeldungen von Thomas werden hier als allgemeine Regel festgehalten (Abschnitt „Aus gefahrenen Touren gelernt“).
 Menschen fahren Rad vor allem für Naturerlebnis, Erholung, Bewegung und Genuss (ADFC-Radreiseanalyse) –
 eine Tour soll deshalb **fließen**, unterwegs immer wieder Neues zeigen und nie zum Umdrehen zwingen.
+Was jede Radart (Trekking, Gravel, Rennrad, MTB) von einer Tour braucht, steht in `RADFAHREN.md` und gilt mit.
 
 ## Grundregeln
 

@@ -74,7 +74,7 @@ Hofflächen, Hauptstraßen ohne Radweg, Anteil auf Radrouten). Jeder Befund wird
   `data/` ändern; `index.html`, `sw.js`, `tools/`, `.github/` und `apps-script/` nur auf direkten Auftrag von Thomas.
   Links nur mit `https://` (bzw. `http://`) aufnehmen.
 - Namen von Anfragenden/Kommentierenden werden angezeigt, wenn sie angegeben wurden (`name` in requests.json, `von` in `aenderungen`); nur Vorname bzw. wie eingetragen, keine weiteren persönlichen Daten.
-- Rennrad-Touren: `"profil": ["fastbike-lowtraffic", "fastbike"]`; Gravel ohne Profil (Standard gravel → trekking).
+- Rennrad-Touren: `"profil": ["fastbike-lowtraffic", "fastbike"]`; Gravel ohne Profil (Standard gravel → trekking); Trekking `"profil": "trekking"`. Was jede Radart braucht: `RADFAHREN.md`.
 - Quellen der Recherche in `quellen` der Tour verlinken.
 
 ## Hochladen
