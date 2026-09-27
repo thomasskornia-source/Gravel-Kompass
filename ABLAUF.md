@@ -40,6 +40,9 @@
   „Neu“/„Geändert“ auf den Kacheln), neueste zuerst.
 - Nach jeder Änderung an einer Tour (neue Tour, geänderte Kopfdaten oder Wegpunkte) den Index neu bauen:
   `python3 tools/tours-index.py`. Die Tourenseite selbst liest immer die einzelne Datei.
+- **GPX-Dateien** (für Komoot, Hammerhead, Wahoo, Garmin): nach jeder neuen oder geänderten Tour zusätzlich
+  `python3 tools/gpx-export.py <tour-id>` ausführen (erzeugt `data/gpx/<id>.gpx` und je Etappe `…-etappe-<n>.gpx`;
+  bei gelöschten Touren `python3 tools/gpx-export.py` ohne ID, dann werden verwaiste GPX entfernt). Die Dateien mit committen.
 
 ## Was eine gute Tour ausmacht
 Menschen fahren Rad vor allem für Naturerlebnis, Erholung, Bewegung und Genuss (ADFC-Radreiseanalyse). Eine Tour soll
