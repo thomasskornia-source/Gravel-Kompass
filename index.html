@@ -77,10 +77,6 @@
   .map{height:420px;background:var(--surface-2);}
   @media (max-width:520px){ .map{height:340px;} }
   .elev{padding:26px 18px 0;}
-  .gpx-menu{display:flex;flex-direction:column;gap:6px;margin-top:8px;flex-basis:100%;}
-  .tour .gpx-menu button,.tour .gpx-menu a{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;font:inherit;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;}
-  .tour .gpx-menu small{font-weight:400;font-size:12px;color:var(--ink-soft);}
-  .gpx-menu .sub{margin:2px 0 0;font-size:12.5px;}
   .elev svg{display:block;width:100%;height:72px;color:var(--ink);}
   .elev-plot{position:relative;touch-action:pan-y;cursor:crosshair;-webkit-user-select:none;user-select:none;}
   .elev-cursor{position:absolute;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--ink);pointer-events:none;}
@@ -505,37 +501,6 @@
   }
   // GPX out: on phones the share sheet hands the file straight to Komoot, Hammerhead, Wahoo, Garmin …
   // (a plain download does nothing useful in the iPhone home-screen app); desktop falls back to a download.
-  // GPX menu below a button. Fixed files in data/gpx/ (tools/gpx-export.py) have a real web address:
-  // that link works in Hammerhead/Wahoo, and opened in Safari the file can be saved or passed on to Komoot.
-  function gpxMenu(btn, gpxId, title, filename, makeText){
-    var next = btn.parentNode.querySelector(".gpx-menu");
-    if (next){ next.remove(); return; }
-    var url = new URL("data/gpx/" + gpxId + ".gpx", location.href).href;
-    var menu = document.createElement("div");
-    menu.className = "gpx-menu";
-    menu.innerHTML =
-      '<button type="button" data-g="link">🔗 Link an App senden<small>Hammerhead, Wahoo …</small></button>' +
-      '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-g="open">📄 GPX-Datei öffnen<small>dann Teilen → Komoot oder „In Dateien sichern“</small></a>' +
-      '<button type="button" data-g="file">📤 Als Datei teilen<small>Garmin, AirDrop, Mail …</small></button>' +
-      '<p class="sub">Tipp: Ist dein Karoo mit Komoot verbunden, landet jede Komoot-Tour automatisch auch auf dem Karoo.</p>';
-    btn.parentNode.appendChild(menu);
-    fetch(url, {method: "HEAD", cache: "no-cache"}).then(function(r){ if (!r.ok) throw 0; }).catch(function(){
-      // No fixed file yet (e.g. brand-new tour): only the file options remain
-      menu.querySelector("[data-g=link]").remove();
-      var a = menu.querySelector("[data-g=open]");
-      a.removeAttribute("target"); a.href = "#"; a.addEventListener("click", function(ev){ ev.preventDefault(); download(filename, makeText()); });
-    });
-    menu.addEventListener("click", function(ev){
-      var b = ev.target.closest("[data-g]"); if (!b) return;
-      var g = b.getAttribute("data-g");
-      if (g === "link"){
-        if (navigator.share) navigator.share({title: title + " (GPX)", url: url}).catch(function(){});
-        else if (navigator.clipboard) navigator.clipboard.writeText(url).then(function(){ b.firstChild.nodeValue = "✓ Link kopiert "; });
-      } else if (g === "file"){
-        gpxOut(filename, makeText());
-      }
-    });
-  }
   function gpxOut(filename, text){
     var file;
     try{ file = new File([text], filename, {type: "application/gpx+xml"}); }catch(e){}
@@ -678,9 +643,7 @@
         metaEls[i].textContent = fmtKm(r.distance) + " km · " + hmTxt;
         gpxBtns[i].disabled = false;
         gpxBtns[i].addEventListener("click", function(){
-          gpxMenu(gpxBtns[i], tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id, tour.title + " – Etappe " + (i+1), slug(tour.title) + "-etappe-" + (i+1) + ".gpx", function(){
-            return buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]);
-          });
+          gpxOut(slug(tour.title) + "-etappe-" + (i+1) + ".gpx", buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]));
         });
       });
       // Finish marker
@@ -699,7 +662,7 @@
 
       var oneBtn = el.querySelector("[data-gpx-one]");
       oneBtn.disabled = false;
-      oneBtn.addEventListener("click", function(){ gpxMenu(oneBtn, tour.id, tour.title, slug(tour.title) + "-komplett.gpx", joinedGpx); });
+      oneBtn.addEventListener("click", function(){ gpxOut(slug(tour.title) + "-komplett.gpx", joinedGpx()); });
       function joinedGpx(){
         // All stages joined into one continuous track (shared start/end points not duplicated)
         var joined = [];
