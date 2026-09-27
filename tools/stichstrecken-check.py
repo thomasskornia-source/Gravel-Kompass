@@ -10,7 +10,7 @@ Exit-Code 1, wenn eine Stichstrecke über der Grenze gefunden wurde.
 import json, math, pathlib, sys, time, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-GRENZE_M = 400      # doppelt befahrene Abschnitte ab dieser Länge melden
+GRENZE_M = 120      # doppelt befahrene Abschnitte ab dieser Länge melden (auch kurze Sackgassen)
 NAH_M = 20          # Abstand, ab dem zwei Trackpunkte als „derselbe Weg“ gelten
 SCHRITT_M = 15      # Track wird in diesem Abstand neu abgetastet
 
