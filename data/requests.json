@@ -2,7 +2,8 @@
   {
     "id": "altmuehltal-2026-09",
     "createdAt": "2026-09-25",
-    "status": "fertig",
+    "status": "gelöscht",
+    "notiz": "Tour auf Wunsch von Thomas gelöscht (Kommentar vom 27.09.2026 08:16, Admin-Freigabe).",
     "name": "Thomas",
     "tage": 1,
     "land": "Deutschland",
@@ -19,9 +20,7 @@
     "anspruch": "Moderat",
     "streckenform": "Rundtour",
     "stil": "Schau mal am Altmühltalradweg, vielleicht kann der mit eingebunden werden. Gerne mit Einkehr und Biergarten in der Mitte der Tour.",
-    "tourIds": [
-      "eichstaett-kipfenberg-1-tag"
-    ]
+    "tourIds": []
   },
   {
     "id": "pfaffenhofen-2026-09",
