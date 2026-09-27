@@ -499,6 +499,22 @@
     });
     return x + '</gpx>\n';
   }
+  // GPX out: on phones the share sheet hands the file straight to Komoot, Hammerhead, Wahoo, Garmin …
+  // (a plain download does nothing useful in the iPhone home-screen app); desktop falls back to a download.
+  function gpxOut(filename, text){
+    var file;
+    try{ file = new File([text], filename, {type: "application/gpx+xml"}); }catch(e){}
+    if (file && navigator.canShare && navigator.share){
+      var ok = false;
+      try{ ok = navigator.canShare({files: [file]}); }catch(e){}
+      if (!ok){ try{ file = new File([text], filename, {type: "application/octet-stream"}); ok = navigator.canShare({files: [file]}); }catch(e){} }
+      if (ok){
+        navigator.share({files: [file]}).catch(function(e){ if (!e || e.name !== "AbortError") download(filename, text); });
+        return;
+      }
+    }
+    download(filename, text);
+  }
   function download(filename, text){
     var blob = new Blob([text], {type: "application/gpx+xml"});
     var url = URL.createObjectURL(blob);
@@ -532,7 +548,7 @@
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
         '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
-        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke (in Komoot eine einzige Tour). Einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
+        '<p class="sub" style="margin:0">Auf dem Handy öffnet sich das Teilen-Menü: dort Komoot, Hammerhead, Wahoo oder Garmin wählen (evtl. unter „Mehr“). „Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
@@ -627,7 +643,7 @@
         metaEls[i].textContent = fmtKm(r.distance) + " km · " + hmTxt;
         gpxBtns[i].disabled = false;
         gpxBtns[i].addEventListener("click", function(){
-          download(slug(tour.title) + "-etappe-" + (i+1) + ".gpx", buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]));
+          gpxOut(slug(tour.title) + "-etappe-" + (i+1) + ".gpx", buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]));
         });
       });
       // Finish marker
@@ -656,7 +672,7 @@
             joined.push(c);
           });
         });
-        download(slug(tour.title) + "-komplett.gpx", buildGpx(tour.title, [{name: tour.title + " (komplett)", coords: joined}]));
+        gpxOut(slug(tour.title) + "-komplett.gpx", buildGpx(tour.title, [{name: tour.title + " (komplett)", coords: joined}]));
       });
     })();
   }
