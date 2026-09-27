@@ -16,7 +16,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Start und Ziel in Prien am Chiemsee, dem westlichen Tor zum See. Hinter Rimsting geht es nach Norden nach Hemhof und von dort weiter hoch in die Eggstätt-Hemhofer Seenplatte bis Pelham am Pelhamer See, vorbei an mehreren der kleinen Moorseen – ohne Stichstrecken, jeder Weg wird nur einmal gefahren. Von Pelham geht es direkt hinunter zum Chiemsee-Ufer nach Breitbrunn (ohne Umweg über Eggstätt), wo die Route auf den Chiemsee-Rundweg trifft und dann fast durchgehend ufernah verläuft: über Gstadt am Nordufer vorbei an Seebruck, wo die Alz den See verlässt, weiter am Ostufer über Chieming und Grabenstätt, am Südufer über Übersee und Bernau am Chiemsee zurück nach Prien – damit ist der See einmal komplett umrundet. Die Tour ist flach bis leicht hügelig (knapp 300 Hm auf rund 67 km, die meisten davon in der Seenplatte) und wechselt zwischen asphaltierten Radwegen, feinem Schotter und kurzen Wald- und Feldwegstücken.",
+  "beschreibung": "Start und Ziel in Prien am Chiemsee, dem westlichen Tor zum See. Hinter Rimsting geht es nach Norden nach Hemhof und von dort weiter hoch in die Eggstätt-Hemhofer Seenplatte bis Pelham am Pelhamer See, vorbei an mehreren der kleinen Moorseen – ohne Stichstrecken, jeder Weg wird nur einmal gefahren. Von Pelham geht es direkt hinunter zum Chiemsee-Ufer nach Breitbrunn (ohne Umweg über Eggstätt), wo die Route auf den Chiemsee-Rundweg trifft und dann fast durchgehend ufernah verläuft: über Gstadt am Nordufer weiter durch den Hofanger Park und Schalchen nach Gollenshausen mit seinem kleinen Hafen, von dort auf dem Uferweg nach Seebruck, wo die Alz den See verlässt, weiter am Ostufer über Chieming und Grabenstätt, am Südufer über Übersee und Bernau am Chiemsee zurück nach Prien – damit ist der See einmal komplett umrundet. Die Tour ist flach bis leicht hügelig (knapp 300 Hm auf rund 67 km, die meisten davon in der Seenplatte) und wechselt zwischen asphaltierten Radwegen, feinem Schotter und kurzen Wald- und Feldwegstücken.",
   "quellen": [
     {
       "name": "Chiemsee Rundweg – Chiemsee-Alpenland Tourismus",
@@ -33,6 +33,10 @@
     {
       "name": "Rund um die Eggstätt-Hemhofer Seenplatte – Chiemsee-Alpenland Tourismus",
       "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/rund-um-die-eggstaett-hemhofer-seenplatte-ab97b26737"
+    },
+    {
+      "name": "Chiemsee Rundweg mit Promenadenwege für Fußgänger – Chiemsee-Alpenland Tourismus",
+      "url": "https://www.chiemsee-alpenland.de/entdecken/tourenportal/chiemsee-rundweg-mit-promenadenwege-fuer-fussgaenger-f66db9b76a"
     }
   ],
   "etappen": [
@@ -40,7 +44,7 @@
       "von": "Prien am Chiemsee",
       "nach": "Prien am Chiemsee",
       "hmPlan": 280,
-      "text": "Prien am Chiemsee – Rimsting – Hemhof – hoch in die Eggstätt-Hemhofer Seenplatte bis Pelham am Pelhamer See – direkt runter nach Breitbrunn am Chiemsee (ohne Umweg über Eggstätt) – Gstadt am Chiemsee – Seebruck – Chieming – Grabenstätt – Übersee – Bernau am Chiemsee – Prien am Chiemsee (einmal komplett um den See, ohne Stichstrecken).",
+      "text": "Prien am Chiemsee – Rimsting – Hemhof – hoch in die Eggstätt-Hemhofer Seenplatte bis Pelham am Pelhamer See – direkt runter nach Breitbrunn am Chiemsee (ohne Umweg über Eggstätt) – Gstadt am Chiemsee – Gollenshausen – Seebruck – Chieming – Grabenstätt – Übersee – Bernau am Chiemsee – Prien am Chiemsee (einmal komplett um den See, ohne Stichstrecken).",
       "wegpunkte": [
         [
           47.8542,
@@ -71,6 +75,11 @@
           47.8865,
           12.4176,
           "Gstadt am Chiemsee"
+        ],
+        [
+          47.9143,
+          12.4363,
+          "Gollenshausen am Chiemsee"
         ],
         [
           47.934,
@@ -134,6 +143,11 @@
       "datum": "2026-09-26",
       "kommentar": "Bei Hemhof noch etwas höher fahren um dann etwas mehr von der schönen Seenplatte zu sehen. Dann direkt runter zum Chiemsee - nicht über eggstätt",
       "antwort": "Route ab Hemhof weiter nach Norden bis Pelham am Pelhamer See geführt (vorbei an mehreren weiteren Seen der Seenplatte statt nur am Langbürgner See) und von dort direkt hinunter ans Chiemsee-Ufer nach Breitbrunn – Eggstätt liegt nicht mehr auf der Strecke. Gesamtlänge bleibt bei rund 67 km, Höhenmeter unverändert bei ca. 280 Hm."
+    },
+    {
+      "datum": "2026-09-27",
+      "kommentar": "Check nochmal - bei gstadt verlässt du den chiemseeradweg. Eigentlich ist der ganz schön. Passt du das an?",
+      "antwort": "Wegpunkt Gollenshausen am Chiemsee zwischen Gstadt und Seebruck eingefügt: die Route bleibt jetzt durchgehend auf dem offiziellen Chiemsee-Rundweg (durch den Hofanger Park, Schalchen und am Gollenshausener Hafen entlang dem Uferweg) statt auf die Landstraße auszuweichen. Länge und Höhenmeter bleiben nahezu unverändert."
     }
   ]
 }
