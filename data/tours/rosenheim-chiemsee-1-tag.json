@@ -8,7 +8,7 @@
   "region": "Bayern (Chiemgau)",
   "tage": 1,
   "fahrradtyp": "Gravel",
-  "anspruch": "Moderat",
+  "anspruch": "Entspannt",
   "streckenform": "Rundtour",
   "oberflaeche": [
     "Feiner Schotter",
@@ -62,8 +62,8 @@
           "Hemhof"
         ],
         [
-          47.92,
-          12.348,
+          47.92105,
+          12.34936,
           "Seenplatte (bei Hemhof)"
         ],
         [
@@ -209,6 +209,11 @@
       "von": "Thomas",
       "kommentar": "Feedback nach dem Nachfahren: Sackgassen in Grabenstätt, Chieming und Gollenshausen; zwischen Prien und Bernau sowie zwischen Chieming und Grabenstätt zu weit weg vom See bzw. an der Landstraße statt durchs Naturschutzgebiet; in Weisham über einen Bauernhof und bei Arlaching quer über den Campingplatz Kupferschmiede geleitet.",
       "antwort": "Route komplett neu auf den offiziellen Chiemsee-Radweg gelegt (Wegpunkte direkt auf der Radroute statt in Ortskernen): keine Sackgassen und keine Hofeinfahrten mehr, Uferweg zwischen Bernau und Prien (Felden/Harras), Uferweg durchs Grabenstätter Moos zwischen Chieming und Übersee, Uferradweg bei Arlaching statt über den Campingplatz, Weisham-Hof umfahren, Seenplatte ohne Hof bei Hemhof. Start/Ziel jetzt am Bahnhof Prien. Neu ca. 63 km, 240 Hm, rund drei Viertel auf ausgewiesenen Radrouten."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Routen-Check nachgeschärft: Wegpunkt an der Seenplatte bei Hemhof auf den ausgeschilderten Radweg gelegt (vorher kurzer Naturpfad hin und zurück). Anspruch auf „Entspannt“ gesetzt – knapp 4 Hm pro km."
     }
   ]
 }
