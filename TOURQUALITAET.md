@@ -22,14 +22,23 @@ Was jede Radart (Trekking, Gravel, Rennrad, MTB) von einer Tour braucht, steht i
    etwas länger ist.
 6. **Natur statt Landstraße.** Liegt parallel zu einer Landstraße ein Radweg durch Wiesen, Moor oder Naturschutzgebiet,
    immer diesen nehmen. Straßen ohne Radweg nur, wenn es keine Alternative gibt – dann im Etappentext nennen.
-7. **Abwechslung:** Seeufer, Flusstäler, Wald, Aussichten, Kultur und gute Einkehr; ruhige Wege statt Hauptstraßen.
+7. **Abwechslung – nie länger als 30 Minuten dasselbe.** Kein halber oder ganzer Tag nur am selben Bach, Fluss oder
+   Kanal entlang, nicht kilometerlang auf derselben Wegart oder schnurgerade neben einer Straße. Nach spätestens
+   30 Minuten Fahrzeit soll sich etwas ändern: Richtung, Landschaft, Belag, ein Anstieg, ein Ort. Einen Flussradweg
+   lieber in Stücken nutzen und zwischendurch über Hügel, Dörfer oder Wald ausweichen. Seeufer zählen nicht als
+   eintönig. Dazu: Seeufer, Flusstäler, Wald, Aussichten, Kultur und gute Einkehr; ruhige Wege statt Hauptstraßen.
 8. **Ehrliche Zahlen:** km und Höhenmeter aus dem Routenplaner (BRouter) übernehmen, nicht schätzen.
+9. **Fahrradwege, keine Fußwege.** Fußwege, Fußgängerzonen und Treppen sind tabu, egal wie kurz – es ist eine
+   Radtour. Erlaubt sind nur Wege mit Radfreigabe; Ausnahme ist nur das Queren einer Straße am Zebrastreifen.
+10. **Rennrad nur auf Asphalt.** Keine Schotter-, Feld- oder Waldwege. Ruhige Landstraßen sind beim Rennrad gewollt;
+   gemieden werden nur Bundesstraßen und stark befahrene Straßen.
 
 ## Prüfen vor dem Hochladen
 
 `python3 tools/routen-check.py <tour-id>` muss ohne Befund durchlaufen (✓). Er meldet Stichstrecken ab 120 m,
-Hofeinfahrten, Privatwege, Fußwege ohne Radfreigabe, Hauptstraßen ohne Radweg ab 300 m sowie Campingplätze und
-Hofflächen aus der OpenStreetMap-Karte. Grenzen: Ein Hof, der in der Karte als öffentlicher Feldweg eingetragen ist,
+Hofeinfahrten, Privatwege, Fußwege/Fußgängerzonen/Treppen ohne Radfreigabe, Hauptstraßen ohne Radweg ab 300 m
+(Rennrad: nur Bundesstraßen), beim Rennrad unbefestigte Abschnitte, eintönige Abschnitte über 30 Minuten (am selben
+Gewässer, dieselbe Wegart, ohne Abbiegen) sowie Campingplätze und Hofflächen aus der OpenStreetMap-Karte. Grenzen: Ein Hof, der in der Karte als öffentlicher Feldweg eingetragen ist,
 fällt nicht auf – bei Wegen durch Einzelhöfe (Satellitenbild/Karte) lieber einen Umweg über die Straße wählen.
 
 ## Aus gefahrenen Touren gelernt
@@ -42,3 +51,9 @@ fällt nicht auf – bei Wegen durch Einzelhöfe (Satellitenbild/Karte) lieber e
 - **Prien–Bernau und Chieming–Grabenstätt zu weit vom See / an der Landstraße:** Uferweg bzw. Radweg durchs
   Naturschutzgebiet Grabenstätter Moos wäre schöner gewesen → Regel 5 und 6.
 - Ergebnis nach Überarbeitung: 63 km, rund drei Viertel auf ausgewiesenen Radrouten, keine Sackgasse, kein Privatgrund.
+
+### Burgund ab Dijon (Rückmeldung von Thomas, 28.09.2026)
+- **Ein ganzer Tag nur am Bach bzw. Kanal entlang** ist nervtötend → Regel 7: nach spätestens 30 Minuten muss sich
+  etwas ändern. Der Routen-Check meldet solche Abschnitte jetzt als „eintönig“.
+- **Fußwege sind bei einer Radtour nie erlaubt, auch nicht kurz** → Regel 9.
+- **Rennrad fährt nur Asphalt, ruhige Landstraßen sind in Ordnung** → Regel 10.

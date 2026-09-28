@@ -4,8 +4,11 @@
 Berechnet jede Etappe wie die Website über BRouter und meldet:
   - Stichstrecken / Sackgassen (doppelt befahrene Abschnitte ab 120 m)
   - Hofeinfahrten und Privatwege (service=driveway, access=private/no)
-  - Fußwege ohne Radfreigabe
-  - Hauptstraßen (primary/secondary) ohne Radweg, ab 300 m am Stück
+  - Fußwege, Fußgängerzonen und Treppen ohne Radfreigabe (jede Länge; nur Zebrastreifen-Querungen bis 20 m nicht)
+  - Hauptstraßen ohne Radweg ab 300 m am Stück (Rennrad: nur Bundesstraßen/primary – ruhige Landstraßen sind gewollt)
+  - Rennrad: unbefestigte Abschnitte (Schotter, Feld-/Waldweg) ab 50 m
+  - Eintönige Abschnitte, die länger als 30 Minuten dauern: immer am selben Gewässer entlang, immer dieselbe Wegart
+    oder ohne Abbiegen geradeaus
   - Campingplätze, Hofflächen und Bauernhöfe auf der Strecke (aus der OpenStreetMap-Karte)
   - Anteil der Strecke auf ausgeschilderten Radrouten (Info)
 
@@ -21,6 +24,12 @@ stich = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(stich)
 
 UA = {"User-Agent": "gravel-kompass-routen-check"}
 KACHEL = (0.01, 0.015)   # Größe der Kartenausschnitte (Grad), ca. 1 x 1 km
+CACHE = pathlib.Path.home() / ".cache" / "gravel-kompass-karte"
+LANGWEILIG_MIN = 30      # so lange darf ein eintöniger Abschnitt höchstens dauern
+TEMPO = {"road": 27, "mtb": 12, "trekking": 17, "gravel": 20}   # km/h für die Umrechnung Minuten -> Strecke
+WASSER_M = 80            # so nah am Gewässer gilt als „am Wasser entlang“
+LUECKE_M = 400           # kürzere Unterbrechungen beenden einen eintönigen Abschnitt nicht
+UNBEFESTIGT = re.compile(r"surface=(gravel|fine_gravel|compacted|unpaved|dirt|ground|grass|sand|earth|mud|pebblestone|woodchips|rock)\b|tracktype=grade[2-5]")
 
 
 def brouter(wps, profil):
@@ -53,38 +62,51 @@ def inside(p, poly):
 OEFFENTLICH = re.compile(r"route_bicycle|highway=(residential|unclassified|tertiary|secondary|primary|cycleway|living_street)\b")
 
 
-def privatflaechen(coords, wegtags):
-    """Campingplätze und Hofflächen (OSM), durch die die Strecke führt.
-    Hofflächen zählen nur, wenn der Weg dort weder öffentliche Straße noch Radroute ist
-    (in Weilern ist die Hoffläche oft großzügig um die Dorfstraße gezeichnet)."""
+def karte(coords):
+    """OSM-Kartenausschnitte entlang der Strecke laden (zwischengespeichert in ~/.cache)."""
     kacheln = sorted({(math.floor(p[0] / KACHEL[0]), math.floor(p[1] / KACHEL[1])) for p in coords})
-    polys = []
+    flaechen, gewaesser = [], []
+    CACHE.mkdir(parents=True, exist_ok=True)
     for ky, kx in kacheln:
         s, w = ky * KACHEL[0], kx * KACHEL[1]
-        url = f"https://api.openstreetmap.org/api/0.6/map?bbox={w:.4f},{s:.4f},{w + KACHEL[1]:.4f},{s + KACHEL[0]:.4f}"
-        for _ in range(3):
-            try:
-                with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=90) as r:
-                    root = ET.fromstring(r.read())
-                break
-            except Exception:
-                time.sleep(3)
-        else:
-            print(f"   (Kartenausschnitt {s:.3f},{w:.3f} nicht ladbar)")
-            continue
+        datei = CACHE / f"{ky}_{kx}.osm"
+        if not datei.exists():
+            url = f"https://api.openstreetmap.org/api/0.6/map?bbox={w:.4f},{s:.4f},{w + KACHEL[1]:.4f},{s + KACHEL[0]:.4f}"
+            for _ in range(3):
+                try:
+                    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=90) as r:
+                        datei.write_bytes(r.read())
+                    break
+                except Exception:
+                    time.sleep(3)
+            else:
+                print(f"   (Kartenausschnitt {s:.3f},{w:.3f} nicht ladbar)")
+                continue
+            time.sleep(0.5)
+        try:
+            root = ET.fromstring(datei.read_bytes())
+        except ET.ParseError:
+            datei.unlink(); continue
         nodes = {n.get("id"): (float(n.get("lat")), float(n.get("lon"))) for n in root.iter("node")}
         for way in root.iter("way"):
             t = {x.get("k"): x.get("v") for x in way.iter("tag")}
+            linie = [nodes[x.get("ref")] for x in way.iter("nd") if x.get("ref") in nodes]
             art = ("Campingplatz" if t.get("tourism") in ("camp_site", "caravan_site") else
                    "Hoffläche" if t.get("landuse") == "farmyard" else
                    "Privatgelände" if t.get("access") == "private" and t.get("landuse") else None)
-            if art:
-                poly = [nodes[x.get("ref")] for x in way.iter("nd") if x.get("ref") in nodes]
-                if len(poly) > 3:
-                    polys.append((art, t.get("name", ""), poly))
-        time.sleep(0.5)
+            if art and len(linie) > 3:
+                flaechen.append((art, t.get("name", ""), linie))
+            if t.get("waterway") in ("river", "canal", "stream") and t.get("name"):
+                gewaesser.append((t["name"], linie))   # Flüsse, Kanäle, Bäche; Seeufer zählen nicht
+    return flaechen, gewaesser
+
+
+def privatflaechen(coords, wegtags, flaechen):
+    """Campingplätze und Hofflächen (OSM), durch die die Strecke führt.
+    Hofflächen zählen nur, wenn der Weg dort weder öffentliche Straße noch Radroute ist
+    (in Weilern ist die Hoffläche oft großzügig um die Dorfstraße gezeichnet)."""
     treffer = {}
-    for art, name, poly in polys:
+    for art, name, poly in flaechen:
         drin = [p for p in coords if inside(p, poly)]
         if art != "Campingplatz":
             drin = [p for p in drin if not OEFFENTLICH.search(wegtags(p))]
@@ -93,46 +115,142 @@ def privatflaechen(coords, wegtags):
     return treffer
 
 
-def pruefe_etappe(t, n, e, karte):
+def abstand_linie(p, a, b):
+    k = math.cos(math.radians(p[0]))
+    px, py, ax, ay, bx, by = p[1] * k, p[0], a[1] * k, a[0], b[1] * k, b[0]
+    dx, dy = bx - ax, by - ay
+    t = max(0, min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy or 1e-12)))
+    return math.hypot(px - ax - t * dx, py - ay - t * dy) * 111000
+
+
+def laengste_strecke(pts, bedingung):
+    """Längster Abschnitt (m) der abgetasteten Punkte, in dem bedingung(i) gilt; Lücken bis LUECKE_M werden überbrückt."""
+    best, start, zuletzt = (0, None), None, None
+    for i in range(len(pts)):
+        if bedingung(i):
+            if start is None or (i - zuletzt) * stich.SCHRITT_M > LUECKE_M:
+                start = i
+            zuletzt = i
+            laenge = (i - start) * stich.SCHRITT_M
+            if laenge > best[0]:
+                best = (laenge, pts[start])
+    return best
+
+
+def eintoenig(coords, zeilen, gewaesser, grenze_m):
+    """Abschnitte über grenze_m am selben Gewässer, auf derselben Wegart oder ohne Abbiegen."""
+    pts = stich.resample([list(c) for c in coords])
+    befunde = []
+    # 1. am selben Gewässer entlang
+    for name in {g[0] for g in gewaesser}:
+        segs = [(a, b) for n, l in gewaesser if n == name for a, b in zip(l, l[1:])]
+        grid = {}
+        for a, b in segs:
+            for q in (a, b):
+                grid.setdefault((int(q[0] / 0.002), int(q[1] / 0.003)), []).append((a, b))
+        def nah(i, grid=grid):
+            p = pts[i]; g = (int(p[0] / 0.002), int(p[1] / 0.003))
+            return any(abstand_linie(p, a, b) < WASSER_M for dx in (-1, 0, 1) for dy in (-1, 0, 1) for a, b in grid.get((g[0] + dx, g[1] + dy), ()))
+        laenge, wo = laengste_strecke(pts, nah)
+        if laenge > grenze_m:
+            befunde.append(f"Eintönig: {laenge / 1000:.1f} km immer an „{name}“ entlang ab {wo[0]:.4f},{wo[1]:.4f}")
+    # 2. dieselbe Wegart (highway-Klasse) am Stück
+    art_bei = []
+    for p, tags in zeilen:
+        h = re.search(r"highway=(\w+)", tags)
+        art_bei.append((p, h.group(1) if h else "?"))
+    arten = [min(art_bei, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1] for p in pts[::4]]
+    arten = [a for a in arten for _ in range(4)][:len(pts)]
+    for art in set(arten):
+        laenge, wo = laengste_strecke(pts, lambda i: i < len(arten) and arten[i] == art)
+        if laenge > grenze_m:
+            befunde.append(f"Eintönig: {laenge / 1000:.1f} km immer auf {art} ab {wo[0]:.4f},{wo[1]:.4f}")
+    # 3. ohne Abbiegen geradeaus (Richtungswechsel unter 45° auf 120 m)
+    def richtung(a, b):
+        return math.degrees(math.atan2((b[1] - a[1]) * math.cos(math.radians(a[0])), b[0] - a[0]))
+    abbiegen = [False] * len(pts)
+    for i in range(4, len(pts) - 4):
+        d = abs((richtung(pts[i], pts[i + 4]) - richtung(pts[i - 4], pts[i]) + 180) % 360 - 180)
+        abbiegen[i] = d > 45
+    laenge, wo, start = 0, pts[0], 0
+    for i in range(len(pts)):
+        if abbiegen[i] or i == len(pts) - 1:
+            if (i - start) * stich.SCHRITT_M > laenge:
+                laenge, wo = (i - start) * stich.SCHRITT_M, pts[start]
+            start = i
+    if laenge > grenze_m:
+        befunde.append(f"Eintönig: {laenge / 1000:.1f} km ohne Abbiegen geradeaus ab {wo[0]:.4f},{wo[1]:.4f}")
+    return befunde
+
+
+def radart(t):
+    p = t.get("profil") or ""
+    p = " ".join(p) if isinstance(p, list) else p
+    if "fastbike" in p or t.get("fahrradtyp") == "road":
+        return "road"
+    if "mtb" in p or t.get("fahrradtyp") == "mtb":
+        return "mtb"
+    return "trekking" if "trekking" in p or t.get("fahrradtyp") == "trekking" else "gravel"
+
+
+def pruefe_etappe(t, n, e, mit_karte):
     f = brouter(e["wegpunkte"], t.get("profil"))
     coords = [(c[1], c[0]) for c in f["geometry"]["coordinates"]]
     m = f["properties"]["messages"]
     h = m[0]; iL, iA, iD, iT = h.index("Longitude"), h.index("Latitude"), h.index("Distance"), h.index("WayTags")
-    befunde, rad, gesamt, strasse = [], 0, 0, []
+    rennrad = radart(t) == "road"
+    haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
+    befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
+    zeilen = []
     for r in m[1:]:
         d, tags = int(r[iD]), r[iT]
         p = (int(r[iA]) / 1e6, int(r[iL]) / 1e6)
+        zeilen.append((p, tags))
         gesamt += d
         if "route_bicycle" in tags:
             rad += d
         am_rand = min(dist(p, ende[0]), dist(p, ende[1])) < 150   # Start/Ziel selbst
+        radfrei = re.search(r"bicycle=(yes|designated|permissive)", tags)
+        fuss = (re.search(r"highway=(footway|pedestrian|steps)\b", tags) or
+                re.search(r"highway=path\b", tags) and "foot=designated" in tags) and not radfrei
         if re.search(r"access=(private|no)\b", tags) and "bicycle=yes" not in tags:
             befunde.append(f"Privatweg {d} m bei {p[0]:.4f},{p[1]:.4f}")
         elif "service=driveway" in tags and not am_rand:
             befunde.append(f"Hofeinfahrt {d} m bei {p[0]:.4f},{p[1]:.4f} (Sackgasse oder Privatgrund?)")
-        elif "highway=footway" in tags and not re.search(r"bicycle=(yes|designated)", tags) and d > 30 and not am_rand:
-            befunde.append(f"Fußweg ohne Radfreigabe {d} m bei {p[0]:.4f},{p[1]:.4f}")
-        if re.search(r"highway=(primary|secondary)\b", tags) and "cycleway" not in tags:
+        elif fuss and not ("footway=crossing" in tags and d <= 20):
+            art = "Treppe" if "highway=steps" in tags else "Fußgängerzone" if "highway=pedestrian" in tags else "Fußweg"
+            befunde.append(f"{art} ohne Radfreigabe {d} m bei {p[0]:.4f},{p[1]:.4f}")
+        if "bicycle=no" in tags and not fuss:
+            befunde.append(f"Radverbot {d} m bei {p[0]:.4f},{p[1]:.4f}")
+        if haupt.search(tags) and "cycleway" not in tags:
             strasse.append(d)
         else:
             if sum(strasse) >= 300:
-                befunde.append(f"{sum(strasse)} m Hauptstraße ohne Radweg vor {p[0]:.4f},{p[1]:.4f}")
+                befunde.append(f"{sum(strasse)} m {'Bundesstraße' if rennrad else 'Hauptstraße'} ohne Radweg vor {p[0]:.4f},{p[1]:.4f}")
             strasse = []
+        if rennrad and UNBEFESTIGT.search(tags) or rennrad and "highway=track" in tags and not re.search(r"surface=(asphalt|concrete|paved)", tags):
+            schotter.append((d, p))
+        elif schotter:
+            if sum(x[0] for x in schotter) >= 50:
+                befunde.append(f"Unbefestigt {sum(x[0] for x in schotter)} m (Rennrad) ab {schotter[0][1][0]:.4f},{schotter[0][1][1]:.4f}")
+            schotter = []
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
         befunde.append(f"Stichstrecke {laenge / 1000:.2f} km bei {stich.naechster_ort(a, e['wegpunkte'])} ({a[0]:.4f},{a[1]:.4f})")
-    if karte:
-        punkte = [((int(r[iA]) / 1e6, int(r[iL]) / 1e6), r[iT]) for r in m[1:]]
+    grenze_m = TEMPO[radart(t)] * 1000 * LANGWEILIG_MIN / 60
+    flaechen, gewaesser = karte(coords) if mit_karte else ([], [])
+    befunde += eintoenig(coords, zeilen, gewaesser, grenze_m)
+    if mit_karte:
         def wegtags(p):
-            return min(punkte, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1]
-        for (art, name, la, lo), k in privatflaechen(coords, wegtags).items():
+            return min(zeilen, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1]
+        for (art, name, la, lo), k in privatflaechen(coords, wegtags, flaechen).items():
             befunde.append(f"{art} {name} wird durchfahren bei {la},{lo}".replace("  ", " "))
     km = int(f["properties"]["track-length"]) / 1000
     return km, round(rad / max(gesamt, 1) * 100), befunde
 
 
 def main(args):
-    karte = "--ohne-karte" not in args
+    mit_karte = "--ohne-karte" not in args
     ids = [a for a in args if not a.startswith("--")]
     files = [ROOT / "data" / "tours" / f"{i}.json" for i in ids] if ids else sorted((ROOT / "data" / "tours").glob("*.json"))
     fehler = False
@@ -140,7 +258,7 @@ def main(args):
         t = json.loads(f.read_text(encoding="utf-8"))
         for n, e in enumerate(t["etappen"], 1):
             try:
-                km, anteil, befunde = pruefe_etappe(t, n, e, karte)
+                km, anteil, befunde = pruefe_etappe(t, n, e, mit_karte)
             except Exception as err:
                 print(f"?  {t['id']} Etappe {n}: nicht prüfbar ({err})"); fehler = True; continue
             zeichen = "⚠️ " if befunde else "✓ "
