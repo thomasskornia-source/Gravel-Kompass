@@ -29,6 +29,8 @@ CACHE = pathlib.Path.home() / ".cache" / "gravel-kompass-karte"
 LANGWEILIG_MIN = 30      # so lange darf ein eintöniger Abschnitt höchstens dauern
 TEMPO = {"road": 27, "mtb": 12, "trekking": 17, "gravel": 20}   # km/h für die Umrechnung Minuten -> Strecke
 WASSER_M = 80            # so nah am Gewässer gilt als „am Wasser entlang“
+WEGART = {"track": "Feld-/Waldweg", "path": "Weg", "cycleway": "Radweg", "unclassified": "Nebenstraße",
+          "residential": "Wohnstraße", "tertiary": "Kreisstraße", "secondary": "Landstraße", "primary": "Bundesstraße"}
 LUECKE_M = 400           # kürzere Unterbrechungen beenden einen eintönigen Abschnitt nicht
 UNBEFESTIGT = re.compile(r"surface=(gravel|fine_gravel|compacted|unpaved|dirt|ground|grass|sand|earth|mud|pebblestone|woodchips|rock)\b|tracktype=grade[2-5]")
 
@@ -182,7 +184,7 @@ def eintoenig(coords3, zeilen, gewaesser, grenze_m):
     for art in set(arten):
         laenge, wo = laengste_strecke(pts, lambda i: i < len(arten) and arten[i] == art and flach[i])
         if laenge > grenze_m:
-            befunde.append(f"Eintönig: {laenge / 1000:.1f} km flach immer auf {art} ab {wo[0]:.4f},{wo[1]:.4f}")
+            befunde.append(f"Eintönig: {laenge / 1000:.1f} km flach immer auf {WEGART.get(art, art)} ab {wo[0]:.4f},{wo[1]:.4f}")
     # 3. ohne Abbiegen geradeaus (Richtungswechsel unter 45° auf 120 m)
     def richtung(a, b):
         return math.degrees(math.atan2((b[1] - a[1]) * math.cos(math.radians(a[0])), b[0] - a[0]))

@@ -36,7 +36,8 @@ Was jede Radart (Trekking, Gravel, Rennrad, MTB) von einer Tour braucht, steht i
 ## Prüfen vor dem Hochladen
 
 `python3 tools/routen-check.py <tour-id>` muss ohne Befund durchlaufen (✓). Er meldet Stichstrecken ab 120 m,
-Hofeinfahrten, Privatwege, Fußwege/Fußgängerzonen/Treppen ohne Radfreigabe, Hauptstraßen ohne Radweg ab 300 m
+Hofeinfahrten, Privatwege, Fußwege/Fußgängerzonen/Treppen ohne Radfreigabe, Radverbote, Einbahnstraßen gegen
+die Fahrtrichtung, Hauptstraßen ohne Radweg ab 300 m
 (Rennrad: nur Bundesstraßen), beim Rennrad unbefestigte Abschnitte, eintönige Abschnitte über 30 Minuten (am selben
 Gewässer, dieselbe Wegart, ohne Abbiegen) sowie Campingplätze und Hofflächen aus der OpenStreetMap-Karte. Grenzen: Ein Hof, der in der Karte als öffentlicher Feldweg eingetragen ist,
 fällt nicht auf – bei Wegen durch Einzelhöfe (Satellitenbild/Karte) lieber einen Umweg über die Straße wählen.
