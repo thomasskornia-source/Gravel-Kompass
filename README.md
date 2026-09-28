@@ -5,6 +5,7 @@ Persönliches Planungstool für mehrtägige Gravel-Touren, gemeinsam mit Claude 
 - `index.html` – die Website (GitHub Pages)
 - `data/tours/<id>.json` – je Tour eine Datei mit Etappen und Wegpunkten; die Route wird im Browser über BRouter bzw. OSRM (Fahrrad) auf echten Wegen berechnet
 - `data/tours-index.json` – Kurzfassung aller Touren (neueste zuerst) für Übersicht und Suche; die Tourenseite lädt die einzelne Datei nach. Wird mit `python3 tools/tours-index.py` aus den Tour-Dateien neu gebaut
+- `CLAUDE.md` – feste Hinweise für Claude (Arbeitsweise, GPX-Knopf: was funktioniert und was nicht)
 - `TOURQUALITAET.md` – Regeln für gute Touren, wächst mit dem Feedback aus gefahrenen Touren
 - `tools/routen-reparieren.py` – behebt Routen-Check-Befunde automatisch, soweit möglich (Sperren, Wegpunkte)
 - `tools/abwechslung-planen.py` – bricht eintönige Abschnitte durch Abstecher auf (Regel 7)
