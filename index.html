@@ -113,7 +113,7 @@
   .stage-text{grid-column:2 / 4;font-size:13.5px;color:var(--ink-soft);}
   .stage-meta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;white-space:nowrap;}
   .stage-gpx{grid-column:2 / 4;}
-  .stage-gpx button{font:inherit;font-size:12.5px;background:none;border:none;color:var(--moss-deep);text-decoration:underline;cursor:pointer;padding:0;}
+  .stage-gpx a{font:inherit;font-size:12.5px;background:none;border:none;color:var(--moss-deep);text-decoration:underline;cursor:pointer;padding:0;}
   .quellen{font-size:13px;color:var(--ink-soft);}
   .quellen a{color:var(--ink-soft);}
   .check-link{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none;color:inherit;}
@@ -633,39 +633,11 @@
     plot.addEventListener("pointerleave", hide);
   }
 
-  function buildGpx(name, segments){
-    var x = '<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Gravel Kompass" xmlns="http://www.topografix.com/GPX/1/1">\n';
-    x += '  <metadata><name>' + esc(name) + '</name></metadata>\n';
-    segments.forEach(function(s){
-      x += '  <trk>\n    <name>' + esc(s.name) + '</name>\n    <trkseg>\n';
-      s.coords.forEach(function(c){
-        x += '      <trkpt lat="' + c[0].toFixed(6) + '" lon="' + c[1].toFixed(6) + '">' + (c[2] != null ? '<ele>' + Number(c[2]).toFixed(1) + '</ele>' : '') + '</trkpt>\n';
-      });
-      x += '    </trkseg>\n  </trk>\n';
-    });
-    return x + '</gpx>\n';
-  }
-  // On phones the buttons open the fixed file data/gpx/<id>.gpx (made by tools/gpx-export.py via GitHub Action):
-  // only a real file with a web address gets Komoot, Hammerhead and Garmin offered in the iOS share sheet –
-  // a file handed over by the page only reaches apps with a share extension (WhatsApp, Drive …).
-  function gpxOpen(gpxId, stand, filename, makeText){   // stand: kept for later cache busting
-    var mobile = navigator.share && matchMedia("(pointer: coarse)").matches;
-    if (!mobile){ download(filename, makeText()); return; }
-    // a plain link to the file (like typing the address) – window.open from the home-screen app shows a blank page
-    var a = document.createElement("a");
-    a.href = new URL("data/gpx/" + gpxId + ".gpx", location.href).href;
-    a.target = "_blank"; a.rel = "noopener";
-    document.body.appendChild(a); a.click(); a.remove();
-  }
-  function download(filename, text){
-    var blob = new Blob([text], {type: "application/gpx+xml"});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a"); a.href = url; a.download = filename;
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
-  }
+  // GPX buttons are plain links to the fixed files data/gpx/<id>.gpx (tools/gpx-export.py, run by a GitHub Action
+  // whenever a tour changes). Only a real file with a web address, opened by a real tap on a link, gets Komoot,
+  // Hammerhead and Garmin offered on the iPhone ("Mehr …" / Teilen); files made by the page or opened by script do not.
+  function gpxUrl(id){ return "data/gpx/" + id + ".gpx"; }
 
-  function standOf(tour){ var e = (TOURS || []).filter(function(t){ return t.id === tour.id; })[0]; return e && e.stand; }
   function renderTour(tour, container, idx){
     var el = document.createElement("article");
     el.className = "tour";
@@ -691,7 +663,7 @@
       '</div>' +
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
-        '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
+        '<div class="actions"><a class="btn" href="' + esc(gpxUrl(tour.id)) + '" target="_blank" rel="noopener">GPX komplette Tour</a></div>' +
         '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe. Auf dem Handy öffnet sich die GPX-Datei – dann „Mehr …“ oder <b>Teilen</b> → Komoot, Hammerhead oder Garmin.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
@@ -723,7 +695,7 @@
         '<div class="stage-title">' + esc(e.von) + ' → ' + esc(e.nach) + '</div>' +
         '<div class="stage-meta" data-stage-meta>ca. ' + (e.hmPlan||0) + ' Hm</div>' +
         '<div class="stage-text">' + esc(e.text||"") + '</div>' +
-        '<div class="stage-gpx"><button type="button" data-stage-gpx disabled>GPX Etappe ' + (i+1) + '</button></div>';
+        '<div class="stage-gpx"><a href="' + esc(gpxUrl(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id)) + '" target="_blank" rel="noopener">GPX Etappe ' + (i+1) + '</a></div>';
       stagesEl.appendChild(row);
     });
 
@@ -777,7 +749,7 @@
       if (CURRENT !== mapState) return; // detail was closed while routing
       var totalM = 0, totalAsc = 0, haveAsc = true, bounds = [];
       var metaEls = el.querySelectorAll("[data-stage-meta]");
-      var gpxBtns = el.querySelectorAll("[data-stage-gpx]"), stageLines = [];
+      var stageLines = [];
       results.forEach(function(r, i){
         var color = STAGE_COLORS[i % STAGE_COLORS.length];
         stageLines[i] = L.polyline(r.coords.map(function(c){ return [c[0],c[1]]; }), {color:color, weight:5, opacity:.9, dashArray: r.fallback ? "6 8" : null})
@@ -787,12 +759,6 @@
         if (r.ascend == null) haveAsc = false; else totalAsc += r.ascend;
         var hmTxt = r.ascend != null ? Math.round(r.ascend) + " Hm" : "ca. " + (tour.etappen[i].hmPlan||0) + " Hm";
         metaEls[i].textContent = fmtKm(r.distance) + " km · " + hmTxt;
-        gpxBtns[i].disabled = false;
-        gpxBtns[i].addEventListener("click", function(){
-          gpxOpen(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id, standOf(tour), slug(tour.title) + "-etappe-" + (i+1) + ".gpx", function(){
-            return buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]);
-          });
-        });
       });
       // Finish marker
       var last = tour.etappen[tour.etappen.length-1].wegpunkte.slice(-1)[0];
@@ -808,22 +774,6 @@
       if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
       var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
       statusEl.textContent = "Route: " + sources.join(", ") + (fromCache ? " (gespeichert)" : "") + (results.some(function(r){ return r.fallback; }) ? " – gestrichelte Abschnitte sind Luftlinie, Routing war nicht erreichbar." : "");
-
-      var oneBtn = el.querySelector("[data-gpx-one]");
-      oneBtn.disabled = false;
-      oneBtn.addEventListener("click", function(){ gpxOpen(tour.id, standOf(tour), slug(tour.title) + "-komplett.gpx", joinedGpx); });
-      function joinedGpx(){
-        // All stages joined into one continuous track (shared start/end points not duplicated)
-        var joined = [];
-        results.forEach(function(r){
-          r.coords.forEach(function(c, j){
-            var prev = joined[joined.length - 1];
-            if (j === 0 && prev && Math.abs(prev[0] - c[0]) < 1e-6 && Math.abs(prev[1] - c[1]) < 1e-6) return;
-            joined.push(c);
-          });
-        });
-        return buildGpx(tour.title, [{name: tour.title + " (komplett)", coords: joined}]);
-      }
     })();
   }
 
