@@ -41,26 +41,15 @@ Was jede Radart (Trekking, Gravel, Rennrad, MTB) von einer Tour braucht, steht i
 
 ## Prüfen vor dem Hochladen
 
-`python3 tools/routen-check.py <tour-id>` muss ohne Befund durchlaufen (✓). Er meldet Stichstrecken ab 120 m,
-Hofeinfahrten, Privatwege, Fußwege/Fußgängerzonen/Treppen ohne Radfreigabe, Radverbote, Einbahnstraßen gegen
-die Fahrtrichtung, Hauptstraßen ohne Radweg ab 300 m
-(Rennrad: nur Bundesstraßen), beim Rennrad jeden unbefestigten Meter, Sand und Trails (Gravel/Trekking), grobe Wege
-und Steigungen über 10 % (Trekking), einen unpassenden Anspruch, eintönige Abschnitte über 20 Minuten (am selben
-Gewässer, dieselbe Wegart, flach ohne Abbiegen) sowie Campingplätze und Hofflächen aus der OpenStreetMap-Karte. Grenzen: Ein Hof, der in der Karte als öffentlicher Feldweg eingetragen ist,
-fällt nicht auf – bei Wegen durch Einzelhöfe (Satellitenbild/Karte) lieber einen Umweg über die Straße wählen.
+`python3 tools/tour-fertig.py <tour-id>` repariert und prüft automatisch (Sackgassen, Privatgrund, Campingplätze,
+Hofflächen, Fußwege, Radverbote, Einbahnstraßen, Hauptstraßen, Schotter/Sand/Trails je Radart, Steigung beim Trekking,
+Eintönigkeit, Anspruch). Übrig gebliebene Befunde von Hand beseitigen. Grenze: Ein Hof, der in der Karte als
+öffentlicher Feldweg eingetragen ist, fällt nicht auf – bei Wegen durch Einzelhöfe lieber die Straße nehmen.
 
-**Reparieren:** `python3 tools/routen-reparieren.py <tour-id>` behebt automatisch, was sich automatisch beheben lässt:
-Wegpunkte an der Spitze von Sackgassen werden an den Abzweig gelegt, Hofeinfahrten, Fußwege, Privatwege, Trails,
-Campingplätze usw. kommen als Sperre in die Etappe (`"sperren": [[lat, lon, radius_m]]` – die Website rechnet mit
-denselben Sperren). Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit: Wegpunkte neu planen.
-
-**Abwechslung:** `python3 tools/abwechslung-planen.py <tour-id>` probiert neben eintönigen Abschnitten Abstecher
-(1–3,5 km seitlich) und übernimmt den besten – höchstens 15 % bzw. 8 km länger, ohne zusätzliche Hauptstraße und
-ohne neue Sackgassen. Danach `routen-reparieren.py` und `routen-check.py`.
-
-**Begründete Ausnahmen:** Ist ein Befund gewollt (z. B. Stichstrecke zum Gipfel, weil es keinen Rundweg gibt), in der
-Etappe eintragen: `"ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]`. Stichstrecken im
-Umkreis von 300 m zählen dann nicht (für eine andere Befundart `"art": "…"` ergänzen). Die Begründung gehört auch in den Etappentext.
+**Begründete Ausnahmen** (z. B. Stichstrecke zu einem Gipfel ohne Rundweg) in der Etappe eintragen:
+`"ausnahmen": [{"lat": …, "lon": …, "grund": "…"}]` (gilt 300 m um den Punkt, `"radius_m"` für mehr, `"art"` für
+andere Befunde) und im Etappentext begründen. **Sperren** (`"sperren": [[lat, lon, radius_m]]`) setzt die Reparatur
+selbst; die Website rechnet mit denselben Sperren.
 
 ## Aus gefahrenen Touren gelernt
 
@@ -74,8 +63,7 @@ Umkreis von 300 m zählen dann nicht (für eine andere Befundart `"art": "…"` 
 - Ergebnis nach Überarbeitung: 63 km, rund drei Viertel auf ausgewiesenen Radrouten, keine Sackgasse, kein Privatgrund.
 
 ### Burgund ab Dijon (Rückmeldung von Thomas, 28.09.2026)
-- **Ein ganzer Tag nur am Bach bzw. Kanal entlang** ist nervtötend → Regel 7: nach spätestens 30 Minuten muss sich
-  etwas ändern (anfangs 30, am 28.09. auf 20 Minuten verschärft). Der Routen-Check meldet solche
-  Abschnitte als „eintönig“.
+- **Ein ganzer Tag nur am Bach bzw. Kanal entlang** ist nervtötend → Regel 7: nach spätestens 20 Minuten muss sich
+  etwas ändern (seit 28.09. 20 Minuten).
 - **Fußwege sind bei einer Radtour nie erlaubt, auch nicht kurz** → Regel 9.
 - **Rennrad fährt nur Asphalt, ruhige Landstraßen sind in Ordnung** → Regel 10.

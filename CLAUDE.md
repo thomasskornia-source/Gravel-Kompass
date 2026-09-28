@@ -1,6 +1,7 @@
 # Gravel Kompass – Hinweise für Claude
 
-Zuerst `README.md` und `ABLAUF.md` lesen; für Touren gelten `TOURQUALITAET.md` und `RADFAHREN.md`.
+Zum Abarbeiten `ABLAUF.md` lesen; für Touren gilt `TOURQUALITAET.md` (`RADFAHREN.md` nur bei Bedarf). Überblick über
+Dateien und Technik: `README.md`.
 
 ## Arbeitsweise
 - Änderungen direkt auf `main` committen und pushen, kurz auf Deutsch berichten, was online ist.
