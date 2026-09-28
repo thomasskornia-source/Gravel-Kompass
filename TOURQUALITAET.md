@@ -49,6 +49,11 @@ und Steigungen über 10 % (Trekking), einen unpassenden Anspruch, eintönige Abs
 Gewässer, dieselbe Wegart, flach ohne Abbiegen) sowie Campingplätze und Hofflächen aus der OpenStreetMap-Karte. Grenzen: Ein Hof, der in der Karte als öffentlicher Feldweg eingetragen ist,
 fällt nicht auf – bei Wegen durch Einzelhöfe (Satellitenbild/Karte) lieber einen Umweg über die Straße wählen.
 
+**Reparieren:** `python3 tools/routen-reparieren.py <tour-id>` behebt automatisch, was sich automatisch beheben lässt:
+Wegpunkte an der Spitze von Sackgassen werden an den Abzweig gelegt, Hofeinfahrten, Fußwege, Privatwege, Trails,
+Campingplätze usw. kommen als Sperre in die Etappe (`"sperren": [[lat, lon, radius_m]]` – die Website rechnet mit
+denselben Sperren). Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit: Wegpunkte neu planen.
+
 **Begründete Ausnahmen:** Ist ein Befund gewollt (z. B. Stichstrecke zum Gipfel, weil es keinen Rundweg gibt), in der
 Etappe eintragen: `"ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]`. Befunde im
 Umkreis von 300 m zählen dann nicht. Die Begründung gehört auch in den Etappentext.

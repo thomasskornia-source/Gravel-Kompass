@@ -20,6 +20,8 @@ for f in sorted((ROOT / "data" / "tours").glob("*.json")):
                 orte.append(n)
     e["orte"] = orte
     e["skizze"] = [[[w[0], w[1]] for w in st["wegpunkte"]] for st in t["etappen"]]
+    if any(st.get("sperren") for st in t["etappen"]):   # gleicher Routen-Cache-Schlüssel wie die volle Tour
+        e["sperren"] = [st.get("sperren", []) for st in t["etappen"]]
     # Stand der Datei: ändert sich bei jeder Änderung an der Tour (für „Neu“/„Geändert“ auf den Kacheln)
     e["stand"] = hashlib.sha1(raw).hexdigest()[:10]
     entries.append(e)

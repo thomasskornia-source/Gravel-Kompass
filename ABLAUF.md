@@ -47,6 +47,8 @@
 Die Regeln für gute Touren stehen in **`TOURQUALITAET.md`** – vor jeder neuen oder geänderten Tour lesen.
 **Pflicht vor dem Hochladen:** `python3 tools/routen-check.py <tour-id>` (Stichstrecken, Hofeinfahrten, Privatwege, Campingplätze,
 Hofflächen, Hauptstraßen ohne Radweg, Anteil auf Radrouten). Jeder Befund wird beseitigt oder im Bericht begründet.
+Zuerst `python3 tools/routen-reparieren.py <tour-id>` laufen lassen (behebt Sackgassen, Hofeinfahrten, Fußwege usw.
+automatisch über Sperren und verschobene Wegpunkte), den Rest von Hand: Wegpunkte neu planen oder begründete Ausnahme.
 
 ## Formular auswerten
 - **Beschreibung** (Formular „Beschreibe Deine Tour“, früher „Stil & Vorlieben“): enthält Land, Region oder Stadt und alle

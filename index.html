@@ -389,14 +389,16 @@
   }
 
   // Routing: BRouter (gravel -> trekking), then FOSSGIS OSRM bike, then straight lines.
-  async function routeStage(wps, profile){
+  async function routeStage(wps, profile, sperren){
     var lonlats = wps.map(function(p){ return p[1]+","+p[0]; }).join("|");
+    // Blocked spots of the stage (driveways, footpaths …): [lat, lon, radius in m] -> BRouter "nogos"
+    var nogos = (sperren && sperren.length) ? "&nogos=" + sperren.map(function(s){ return s[1]+","+s[0]+","+(s[2]||20); }).join("|") : "";
     // Tour can set its own BRouter profile (e.g. "fastbike" for road bikes); default is gravel
     // profile may be a string or a list of preferred BRouter profiles (tried in order)
     var profiles = Array.isArray(profile) ? profile.concat(["trekking"]) : profile ? [profile, "trekking"] : ["gravel","trekking"];
     for (var i=0;i<profiles.length;i++){
       try{
-        var j = await fetchJson("https://brouter.de/brouter?lonlats="+lonlats+"&profile="+profiles[i]+"&alternativeidx=0&format=geojson", 45000);
+        var j = await fetchJson("https://brouter.de/brouter?lonlats="+lonlats+"&profile="+profiles[i]+"&alternativeidx=0&format=geojson"+nogos, 45000);
         var f = j.features && j.features[0];
         if (f && f.geometry && f.geometry.coordinates.length > 1){
           return {
@@ -423,7 +425,10 @@
   function stagePoints(tour){ return tour.etappen ? tour.etappen.map(function(e){ return e.wegpunkte; }) : (tour.skizze || []); }
   function cacheKey(tour){
     // routing profile is part of the key, so a profile change re-routes instead of showing the cached line
-    var s = JSON.stringify([tour.profil || null, stagePoints(tour).map(function(st){ return st.map(function(p){ return [p[0],p[1]]; }); })]);
+    var sp = tour.etappen ? tour.etappen.map(function(e){ return e.sperren || []; }) : (tour.sperren || []);
+    var key = [tour.profil || null, stagePoints(tour).map(function(st){ return st.map(function(p){ return [p[0],p[1]]; }); })];
+    if (sp.some(function(x){ return x.length; })) key.push(sp);   // blocked spots re-route, too
+    var s = JSON.stringify(key);
     var h = 5381; for (var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
     return "gk-route-v1-" + tour.id + "-" + (h >>> 0).toString(36);
   }
@@ -652,7 +657,7 @@
         results = [];
         for (var i=0;i<tour.etappen.length;i++){
           statusEl.textContent = "Berechne Etappe " + (i+1) + " von " + tour.etappen.length + " …";
-          results.push(await routeStage(tour.etappen[i].wegpunkte, tour.profil));
+          results.push(await routeStage(tour.etappen[i].wegpunkte, tour.profil, tour.etappen[i].sperren));
         }
         if (!results.some(function(r){ return r.fallback; })) saveCache(tour, results);
       }

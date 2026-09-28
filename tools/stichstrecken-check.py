@@ -22,11 +22,12 @@ def dist(a, b):
     return 2 * R * math.asin(math.sqrt(x))
 
 
-def route(wps, profil):
+def route(wps, profil, sperren=None):
     profile = (profil if isinstance(profil, list) else [profil] if profil else ["gravel"]) + ["trekking"]
     lonlats = "|".join(f"{w[1]},{w[0]}" for w in wps)
+    nogos = "&nogos=" + "|".join(f"{s[1]},{s[0]},{int(s[2]) if len(s) > 2 else 20}" for s in sperren) if sperren else ""
     for p in profile:
-        url = f"https://brouter.de/brouter?lonlats={lonlats}&profile={p}&alternativeidx=0&format=geojson"
+        url = f"https://brouter.de/brouter?lonlats={lonlats}&profile={p}&alternativeidx=0&format=geojson{nogos}"
         for _ in range(3):
             try:
                 with urllib.request.urlopen(url, timeout=60) as r:
@@ -92,7 +93,7 @@ def main(ids):
         tour_fund = False
         for n, e in enumerate(t["etappen"], 1):
             try:
-                stuecke = doppelte_abschnitte(route(e["wegpunkte"], t.get("profil")))
+                stuecke = doppelte_abschnitte(route(e["wegpunkte"], t.get("profil"), e.get("sperren")))
             except Exception as err:
                 print(f"?  {t['id']} Etappe {n}: nicht prüfbar ({err}) – später erneut prüfen")
                 tour_fund = True

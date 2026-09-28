@@ -20,6 +20,9 @@ Begründete Ausnahmen (z. B. Stichstrecke zum Gipfel) stehen in der Etappe:
   "ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]
 Befunde im Umkreis von 300 m zählen dann nicht.
 
+Gesperrte Stellen (damit der Routenplaner z. B. eine Hofeinfahrt meidet) stehen ebenfalls in der Etappe:
+  "sperren": [[47.92, 12.35, 20]]   (lat, lon, Radius in m – die Website rechnet mit denselben Sperren)
+
 Aufruf: python3 tools/routen-check.py <tour-id> [...]   (ohne ID: alle Touren; --ohne-karte überspringt den Kartencheck)
 Exit-Code 1, wenn etwas beseitigt oder begründet werden muss.
 """
@@ -48,11 +51,16 @@ ANSPRUCH = {"Entspannt": (0, 6), "Moderat": (6, 12), "Anspruchsvoll": (12, 99)} 
 UNBEFESTIGT = re.compile(r"surface=(gravel|fine_gravel|compacted|unpaved|dirt|ground|grass|sand|earth|mud|pebblestone|woodchips|rock)\b|tracktype=grade[2-5]")
 
 
-def brouter(wps, profil):
+def nogos(sperren):
+    """Gesperrte Stellen einer Etappe ("sperren": [[lat, lon, radius_m], ...]) als BRouter-Parameter."""
+    return "&nogos=" + "|".join(f"{s[1]},{s[0]},{int(s[2]) if len(s) > 2 else 20}" for s in sperren) if sperren else ""
+
+
+def brouter(wps, profil, sperren=None):
     profiles = (profil if isinstance(profil, list) else [profil] if profil else ["gravel"]) + ["trekking"]
     lonlats = "|".join(f"{w[1]},{w[0]}" for w in wps)
     for p in profiles:
-        url = f"https://brouter.de/brouter?lonlats={lonlats}&profile={p}&alternativeidx=0&format=geojson"
+        url = f"https://brouter.de/brouter?lonlats={lonlats}&profile={p}&alternativeidx=0&format=geojson{nogos(sperren)}"
         for _ in range(3):
             try:
                 with urllib.request.urlopen(url, timeout=120) as r:
@@ -243,28 +251,40 @@ def steile_stuecke(coords3, grenze):
 
 
 def pruefe_etappe(t, n, e, mit_karte):
-    f = brouter(e["wegpunkte"], t.get("profil"))
+    f = brouter(e["wegpunkte"], t.get("profil"), e.get("sperren"))
     coords = [(c[1], c[0]) for c in f["geometry"]["coordinates"]]
+    index = {(round(c[0], 5), round(c[1], 5)): i for i, c in enumerate(coords)}
     coords3 = [(c[1], c[0], c[2] if len(c) > 2 else 0) for c in f["geometry"]["coordinates"]]
     m = f["properties"]["messages"]
     h = m[0]; iL, iA, iD, iT = h.index("Longitude"), h.index("Latitude"), h.index("Distance"), h.index("WayTags")
     rennrad = radart(t) == "road"
     haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
     art_rad = radart(t)
+    reparatur = {"sperren": [], "stubs": [], "flaechen": [], "strasse": []}
     befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
-    zeilen, stellen = [], []
+    zeilen, stellen, vorher = [], [], coords[0]
+
+    def mitte(a, b):
+        """Punkt mitten im Wegstück von a nach b (für eine Sperre, die nicht die Kreuzung trifft)."""
+        i, j = index.get((round(a[0], 5), round(a[1], 5))), index.get((round(b[0], 5), round(b[1], 5)))
+        if i is not None and j is not None and j - i >= 2:
+            return coords[(i + j) // 2]
+        return ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
 
     def melde(art, d, p, zusatz=""):
         """Gleichartige Stellen im Abstand bis 200 m zu einem Befund zusammenfassen."""
+        m_ = mitte(vorher, p)
         if stellen and stellen[-1][0] == art and dist(stellen[-1][3], p) < 200:
-            stellen[-1][1] += d; stellen[-1][3] = p
+            stellen[-1][1] += d; stellen[-1][3] = p; stellen[-1][5].append(m_)
         else:
-            stellen.append([art, d, p, p, zusatz])
+            stellen.append([art, d, p, p, zusatz, [m_]])
 
     for r in m[1:]:
         d, tags = int(r[iD]), r[iT]
         p = (int(r[iA]) / 1e6, int(r[iL]) / 1e6)
+        if zeilen:
+            vorher = zeilen[-1][0]
         zeilen.append((p, tags))
         gesamt += d
         if "route_bicycle" in tags:
@@ -288,6 +308,7 @@ def pruefe_etappe(t, n, e, mit_karte):
             strasse.append(d)
         else:
             if sum(strasse) >= 300:
+                reparatur["strasse"].append(p)
                 befunde.append(f"{sum(strasse)} m {'Bundesstraße' if rennrad else 'Hauptstraße'} ohne Radweg vor {p[0]:.4f},{p[1]:.4f}")
             strasse = []
         if rennrad and d > 0 and (UNBEFESTIGT.search(tags) or "highway=track" in tags and not re.search(r"surface=(asphalt|concrete|paved)", tags)):
@@ -301,8 +322,10 @@ def pruefe_etappe(t, n, e, mit_karte):
                 melde("Trail", d, p)
             elif art_rad == "trekking" and GROB_TREKKING.search(tags):
                 melde("Grober Weg (Trekking)", d, p)
-    befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z in stellen]
+    befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z, _ in stellen]
+    reparatur["sperren"] = [(art, mm) for art, _, _, _, _, mitten in stellen for mm in mitten]
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
+        reparatur["stubs"].append((a, b))
         befunde.append(f"Stichstrecke {laenge / 1000:.2f} km bei {stich.naechster_ort(a, e['wegpunkte'])} ({a[0]:.4f},{a[1]:.4f})")
     if art_rad == "trekking":
         for laenge, g, a in steile_stuecke(coords3, MAX_STEIGUNG_TREKKING):
@@ -314,10 +337,11 @@ def pruefe_etappe(t, n, e, mit_karte):
         def wegtags(p):
             return min(zeilen, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1]
         for (art, name, la, lo), k in privatflaechen(coords, wegtags, flaechen).items():
+            reparatur["flaechen"].append((art, (la, lo)))
             befunde.append(f"{art} {name} wird durchfahren bei {la},{lo}".replace("  ", " "))
     km = int(f["properties"]["track-length"]) / 1000
     hm = int(f["properties"].get("filtered ascend", 0))
-    return km, hm, round(rad / max(gesamt, 1) * 100), befunde
+    return km, hm, round(rad / max(gesamt, 1) * 100), befunde, reparatur
 
 
 def ausnahme(befund, ausnahmen):
@@ -342,7 +366,7 @@ def main(args):
         summe_km = summe_hm = 0
         for n, e in enumerate(t["etappen"], 1):
             try:
-                km, hm, anteil, befunde = pruefe_etappe(t, n, e, mit_karte)
+                km, hm, anteil, befunde, _ = pruefe_etappe(t, n, e, mit_karte)
             except Exception as err:
                 print(f"?  {t['id']} Etappe {n}: nicht prüfbar ({err})"); fehler = True; continue
             summe_km += km; summe_hm += hm
