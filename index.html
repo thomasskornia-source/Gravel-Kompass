@@ -636,7 +636,9 @@
   // GPX buttons are plain links to the fixed files data/gpx/<id>.gpx (tools/gpx-export.py, run by a GitHub Action
   // whenever a tour changes). Only a real file with a web address, opened by a real tap on a link, gets Komoot,
   // Hammerhead and Garmin offered on the iPhone ("Mehr …" / Teilen); files made by the page or opened by script do not.
-  function gpxUrl(id){ return "data/gpx/" + id + ".gpx"; }
+  // Served from jsDelivr (mirror of this repo, application/gpx+xml): a file on the app's own address stays blank
+  // when opened from the home-screen app; a foreign address opens in the Safari view with "Mehr …" → Hammerhead.
+  function gpxUrl(id){ return "https://cdn.jsdelivr.net/gh/thomasskornia-source/Gravel-Kompass@main/data/gpx/" + id + ".gpx"; }
 
   function renderTour(tour, container, idx){
     var el = document.createElement("article");
