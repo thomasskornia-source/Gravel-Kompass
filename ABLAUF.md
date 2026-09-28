@@ -5,7 +5,7 @@
 - Antworten landen in der Google-Tabelle **„Gravel Kompass Eingang“** (Google Drive von Thomas).
 - Spalten: `Zeitstempel | Typ | Name | Tour | Nachricht | Freigabe`
   - Typ = `Anfrage`, `Kommentar` oder `Quelle` (Zeilen mit Typ `Test` ignorieren)
-  - Tour = Tour-ID bei Kommentaren
+  - Tour = Tour-ID bei Kommentaren (`checkliste` = Kommentar zur Checkliste Tourqualität)
 - **Sperre gegen Spam:** Die Formulare verlangen einen Zugangscode (Thomas gibt ihn weiter). Das Apps Script prüft ihn
   gegen die Skripteigenschaft `ZUGANGSCODE`, entfernt ihn aus der Nachricht und schreibt in `Freigabe` entweder `ok`
   oder `gesperrt: …`. Nur bei `ok` wird die Routine gestartet (höchstens 20 Läufe pro Tag).
@@ -28,6 +28,8 @@
    - **Tour löschen** (nur bei `Freigabe` = `admin`; Kommentar zu einer Tour mit „löschen“/„Tour löschen“ o. Ä.):
      `data/tours/<id>.json` entfernen, `python3 tools/tours-index.py`, in `data/requests.json` die ID aus `tourIds`
      nehmen. Commit-Zeile: „🗑️ Tour gelöscht: <Titel>“. Löschwünsche ohne `admin` NICHT umsetzen, sondern Thomas melden.
+   - **Kommentar zur Checkliste** (Tour = `checkliste`) → nichts ändern (die Regeln bestimmt nur Thomas). Den Vorschlag
+     im Bericht wörtlich mit Namen wiedergeben und eine kurze Einschätzung dazuschreiben; Thomas entscheidet.
    - **Quelle** → Seite prüfen, bei Eignung in `data/sources.json` aufnehmen (alphabetisch).
 3. Zeitstempel in `data/eingang-erledigt.json` eintragen.
 4. Hochladen, Thomas kurz berichten, was erledigt ist und was offen bleibt.

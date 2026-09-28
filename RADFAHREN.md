@@ -68,8 +68,8 @@ Richtwerte für die Planung. Wünsche aus dem Formular (Etappenlänge, Anspruch,
 | | Trekking | Gravel | Rennrad | MTB |
 |---|---|---|---|---|
 | Etappe (Richtwert) | 40–80 km | 60–120 km | 80–150 km | 25–60 km, eher in Höhenmetern denken |
-| Höhenmeter | Moderat, lange Rampen über 8 % mit Gepäck vermeiden | Nach Anspruch | Werden gesucht: Pässe, Gipfel, Serpentinen | 800–2000 Hm pro Tag üblich |
-| Untergrund | Asphalt und feiner Schotter | Mischung, Schwerpunkt Schotter und Waldwege | Nur guter Asphalt, Schotter nur auf Wunsch | Trails bis zur gewählten S-Stufe |
+| Höhenmeter | Moderat, keine Steigungen über 10 % | Nach Anspruch | Werden gesucht: Pässe, Gipfel, Serpentinen | 800–2000 Hm pro Tag üblich |
+| Untergrund | Asphalt und feiner Schotter, kein Sand, keine Trails | Mischung, Schwerpunkt Schotter und Waldwege; kein Sand, Trails nur auf Wunsch | Nur Asphalt, kein Meter Schotter | Trails bis zur gewählten S-Stufe |
 | Routing (`profil`) | `"trekking"` | Standard (gravel → trekking) | `["fastbike-lowtraffic","fastbike"]` | `["mtb"]` |
 | Highlights | Flussradwege, Orte, Einkehr, Bahn für Hin- und Rückweg | Forstwege, Einsamkeit, Aussichten, Wechsel der Beläge | Ruhige Nebenstraßen, Pässe, Café-Stopp | Trails, Abfahrten, Hütteneinkehr |
 | Vermeiden | Trails, Treppen, grober Schotter, Schiebestrecken | Lange Hauptstraßen, tiefer Sand oder Matsch, Schiebestrecken | Schotter, schlechter Belag, Radwege mit Umlaufsperren und Bordsteinen, Straßen mit viel Verkehr | Lange Asphalt-Zufahrten, gesperrte Wege |

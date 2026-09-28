@@ -7,11 +7,18 @@ Berechnet jede Etappe wie die Website über BRouter und meldet:
   - Radverbote (bicycle=no, Radwegbenutzungspflicht) und Einbahnstraßen gegen die Fahrtrichtung
   - Fußwege, Fußgängerzonen und Treppen ohne Radfreigabe (jede Länge; nur Zebrastreifen-Querungen bis 20 m nicht)
   - Hauptstraßen ohne Radweg ab 300 m am Stück (Rennrad: nur Bundesstraßen/primary – ruhige Landstraßen sind gewollt)
-  - Rennrad: unbefestigte Abschnitte (Schotter, Feld-/Waldweg) ab 50 m
-  - Eintönige Abschnitte, die länger als 30 Minuten dauern: immer am selben Gewässer entlang, immer dieselbe Wegart
+  - Eintönige Abschnitte, die länger als 20 Minuten dauern: immer am selben Gewässer entlang, immer dieselbe Wegart
     oder flach ohne Abbiegen geradeaus (Anstiege und Abfahrten gelten als Abwechslung)
   - Campingplätze, Hofflächen und Bauernhöfe auf der Strecke (aus der OpenStreetMap-Karte)
+  - Gravel und Trekking: kein Sand, keine Trails (Gravel-Trails nur, wenn die Tour sie ausdrücklich anbietet);
+    Trekking: keine groben Wege und keine Steigungen über 10 % (Schnitt über 200 m)
+  - Rennrad: jeder unbefestigte Meter
+  - Anspruch passend zu den Höhenmetern (Entspannt bis 6, Moderat 6–12, Anspruchsvoll über 12 Hm/km)
   - Anteil der Strecke auf ausgeschilderten Radrouten (Info)
+
+Begründete Ausnahmen (z. B. Stichstrecke zum Gipfel) stehen in der Etappe:
+  "ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]
+Befunde im Umkreis von 300 m zählen dann nicht.
 
 Aufruf: python3 tools/routen-check.py <tour-id> [...]   (ohne ID: alle Touren; --ohne-karte überspringt den Kartencheck)
 Exit-Code 1, wenn etwas beseitigt oder begründet werden muss.
@@ -26,12 +33,18 @@ stich = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(stich)
 UA = {"User-Agent": "gravel-kompass-routen-check"}
 KACHEL = (0.01, 0.015)   # Größe der Kartenausschnitte (Grad), ca. 1 x 1 km
 CACHE = pathlib.Path.home() / ".cache" / "gravel-kompass-karte"
-LANGWEILIG_MIN = 30      # so lange darf ein eintöniger Abschnitt höchstens dauern
+LANGWEILIG_MIN = 20      # so lange darf ein eintöniger Abschnitt höchstens dauern
 TEMPO = {"road": 27, "mtb": 12, "trekking": 17, "gravel": 20}   # km/h für die Umrechnung Minuten -> Strecke
 WASSER_M = 80            # so nah am Gewässer gilt als „am Wasser entlang“
 WEGART = {"track": "Feld-/Waldweg", "path": "Weg", "cycleway": "Radweg", "unclassified": "Nebenstraße",
           "residential": "Wohnstraße", "tertiary": "Kreisstraße", "secondary": "Landstraße", "primary": "Bundesstraße"}
 LUECKE_M = 400           # kürzere Unterbrechungen beenden einen eintönigen Abschnitt nicht
+TRAIL = re.compile(r"mtb:scale=[1-6]|sac_scale=(?!hiking)|smoothness=(very_bad|horrible|very_horrible|impassable)")
+NATURPFAD = re.compile(r"surface=(ground|dirt|earth|grass|rock|roots|mud)\b")
+GROB_TREKKING = re.compile(r"tracktype=grade5|surface=(rock|mud|grass|pebblestone)\b")
+MAX_STEIGUNG_TREKKING = 10   # %, auf mindestens 100 m
+AUSNAHME_M = 300             # Befunde so nah an einer begründeten Ausnahme zählen nicht
+ANSPRUCH = {"Entspannt": (0, 6), "Moderat": (6, 12), "Anspruchsvoll": (12, 99)}   # Hm pro km
 UNBEFESTIGT = re.compile(r"surface=(gravel|fine_gravel|compacted|unpaved|dirt|ground|grass|sand|earth|mud|pebblestone|woodchips|rock)\b|tracktype=grade[2-5]")
 
 
@@ -206,11 +219,27 @@ def eintoenig(coords3, zeilen, gewaesser, grenze_m):
 def radart(t):
     p = t.get("profil") or ""
     p = " ".join(p) if isinstance(p, list) else p
-    if "fastbike" in p or t.get("fahrradtyp") == "road":
+    typ = str(t.get("fahrradtyp", "")).lower()
+    if "fastbike" in p or typ in ("road", "rennrad"):
         return "road"
-    if "mtb" in p or t.get("fahrradtyp") == "mtb":
+    if "mtb" in p or typ in ("mtb", "mountainbike"):
         return "mtb"
-    return "trekking" if "trekking" in p or t.get("fahrradtyp") == "trekking" else "gravel"
+    return "trekking" if "trekking" in p or typ == "trekking" else "gravel"
+
+
+def steile_stuecke(coords3, grenze):
+    """Abschnitte, die im Schnitt über 200 m steiler als grenze % sind (beide Richtungen; 200 m glätten Höhendaten)."""
+    pts, hoehen = abtasten(coords3)
+    k = 13   # 195 m
+    out, start, maxi = [], None, 0
+    for i in range(len(pts) - k):
+        g = abs(hoehen[i + k] - hoehen[i]) / (k * stich.SCHRITT_M) * 100
+        if g > grenze:
+            start = i if start is None else start
+            maxi = max(maxi, g)
+        elif start is not None:
+            out.append(((i + k - start) * stich.SCHRITT_M, round(maxi), pts[start])); start, maxi = None, 0
+    return out
 
 
 def pruefe_etappe(t, n, e, mit_karte):
@@ -221,6 +250,7 @@ def pruefe_etappe(t, n, e, mit_karte):
     h = m[0]; iL, iA, iD, iT = h.index("Longitude"), h.index("Latitude"), h.index("Distance"), h.index("WayTags")
     rennrad = radart(t) == "road"
     haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
+    art_rad = radart(t)
     befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
     zeilen, stellen = [], []
@@ -260,16 +290,24 @@ def pruefe_etappe(t, n, e, mit_karte):
             if sum(strasse) >= 300:
                 befunde.append(f"{sum(strasse)} m {'Bundesstraße' if rennrad else 'Hauptstraße'} ohne Radweg vor {p[0]:.4f},{p[1]:.4f}")
             strasse = []
-        if rennrad and UNBEFESTIGT.search(tags) or rennrad and "highway=track" in tags and not re.search(r"surface=(asphalt|concrete|paved)", tags):
-            schotter.append((d, p))
-        elif schotter:
-            if sum(x[0] for x in schotter) >= 50:
-                befunde.append(f"Unbefestigt {sum(x[0] for x in schotter)} m (Rennrad) ab {schotter[0][1][0]:.4f},{schotter[0][1][1]:.4f}")
-            schotter = []
+        if rennrad and d > 0 and (UNBEFESTIGT.search(tags) or "highway=track" in tags and not re.search(r"surface=(asphalt|concrete|paved)", tags)):
+            melde("Unbefestigt (Rennrad fährt nur Asphalt)", d, p)
+        if art_rad in ("gravel", "trekking") and d > 0 and not fuss:
+            gravel_trails = art_rad == "gravel" and "trail" in json.dumps(t.get("oberflaeche", "")).lower()
+            if "surface=sand" in tags:
+                melde("Sand", d, p)
+            elif (not gravel_trails and not re.search(r"(?<![:\w])bicycle=designated|route_bicycle", tags)
+                  and (TRAIL.search(tags) or "highway=path" in tags and NATURPFAD.search(tags))):
+                melde("Trail", d, p)
+            elif art_rad == "trekking" and GROB_TREKKING.search(tags):
+                melde("Grober Weg (Trekking)", d, p)
     befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z in stellen]
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
         befunde.append(f"Stichstrecke {laenge / 1000:.2f} km bei {stich.naechster_ort(a, e['wegpunkte'])} ({a[0]:.4f},{a[1]:.4f})")
-    grenze_m = TEMPO[radart(t)] * 1000 * LANGWEILIG_MIN / 60
+    if art_rad == "trekking":
+        for laenge, g, a in steile_stuecke(coords3, MAX_STEIGUNG_TREKKING):
+            befunde.append(f"Steil: {laenge} m mit bis zu {g} % (Trekking höchstens {MAX_STEIGUNG_TREKKING} %) bei {a[0]:.4f},{a[1]:.4f}")
+    grenze_m = TEMPO[art_rad] * 1000 * LANGWEILIG_MIN / 60
     flaechen, gewaesser = karte(coords) if mit_karte else ([], [])
     befunde += eintoenig(coords3, zeilen, gewaesser, grenze_m)
     if mit_karte:
@@ -278,7 +316,20 @@ def pruefe_etappe(t, n, e, mit_karte):
         for (art, name, la, lo), k in privatflaechen(coords, wegtags, flaechen).items():
             befunde.append(f"{art} {name} wird durchfahren bei {la},{lo}".replace("  ", " "))
     km = int(f["properties"]["track-length"]) / 1000
-    return km, round(rad / max(gesamt, 1) * 100), befunde
+    hm = int(f["properties"].get("filtered ascend", 0))
+    return km, hm, round(rad / max(gesamt, 1) * 100), befunde
+
+
+def ausnahme(befund, ausnahmen):
+    """Begründete Ausnahme (Etappenfeld "ausnahmen": [{"lat", "lon", "grund"}]) in der Nähe des Befunds?"""
+    m = re.search(r"(-?\d+\.\d{3,}),\s?(-?\d+\.\d{3,})", befund)
+    if not m:
+        return None
+    p = (float(m.group(1)), float(m.group(2)))
+    for a in ausnahmen:
+        if dist(p, (a["lat"], a["lon"])) < AUSNAHME_M:
+            return a.get("grund", "begründet")
+    return None
 
 
 def main(args):
@@ -288,16 +339,27 @@ def main(args):
     fehler = False
     for f in files:
         t = json.loads(f.read_text(encoding="utf-8"))
+        summe_km = summe_hm = 0
         for n, e in enumerate(t["etappen"], 1):
             try:
-                km, anteil, befunde = pruefe_etappe(t, n, e, mit_karte)
+                km, hm, anteil, befunde = pruefe_etappe(t, n, e, mit_karte)
             except Exception as err:
                 print(f"?  {t['id']} Etappe {n}: nicht prüfbar ({err})"); fehler = True; continue
-            zeichen = "⚠️ " if befunde else "✓ "
-            print(f"{zeichen} {t['id']} Etappe {n}: {km:.1f} km, {anteil} % auf Radrouten")
+            summe_km += km; summe_hm += hm
+            offen = [b for b in befunde if not ausnahme(b, e.get("ausnahmen", []))]
+            zeichen = "⚠️ " if offen else "✓ "
+            print(f"{zeichen} {t['id']} Etappe {n}: {km:.1f} km, {hm} Hm, {anteil} % auf Radrouten")
             for b in befunde:
-                print(f"     - {b}")
-            fehler = fehler or bool(befunde)
+                grund = ausnahme(b, e.get("ausnahmen", []))
+                print(f"     - {b}" + (f"  → Ausnahme: {grund}" if grund else ""))
+            fehler = fehler or bool(offen)
+        spanne = ANSPRUCH.get(t.get("anspruch"))
+        if spanne and summe_km:
+            quote = summe_hm / summe_km
+            if not spanne[0] <= quote <= spanne[1]:
+                print(f"⚠️  {t['id']}: Anspruch „{t['anspruch']}“ passt nicht – {quote:.1f} Hm/km "
+                      f"(„{t['anspruch']}“ = {spanne[0]}–{spanne[1]} Hm/km)")
+                fehler = True
     return 1 if fehler else 0
 
 
