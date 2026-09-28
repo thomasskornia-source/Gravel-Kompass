@@ -10,7 +10,7 @@ eine von der Website erzeugte Datei landet nur bei Apps mit eigener Teilen-Erwei
 Nur Touren, deren Datei sich seit dem letzten Lauf geändert hat, werden neu berechnet
 (Stand in data/gpx/stand.json). Aufruf: python3 tools/gpx-export.py [<id> …]   (--alle erzwingt alles)
 """
-import hashlib, json, pathlib, sys, time, urllib.request
+import hashlib, json, math, pathlib, sys, time, urllib.request
 from xml.sax.saxutils import escape
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -33,10 +33,37 @@ def route(wps, profil, sperren=None):
     raise RuntimeError("BRouter nicht erreichbar")
 
 
+TOLERANZ_M = 2   # Punkte, die weniger als 2 m von der vereinfachten Linie abweichen, fallen weg
+
+
+def vereinfachen(coords):
+    """Douglas-Peucker: kleine Dateien laden auf dem Handy schnell (die Dateiansicht erscheint erst nach dem Laden)."""
+    if len(coords) < 3:
+        return coords
+    k = math.cos(math.radians(coords[0][0]))
+    xy = [(c[1] * 111320 * k, c[0] * 111320) for c in coords]
+    behalten = [False] * len(coords); behalten[0] = behalten[-1] = True
+    stapel = [(0, len(coords) - 1)]
+    while stapel:
+        a, b = stapel.pop()
+        (ax, ay), (bx, by) = xy[a], xy[b]
+        dx, dy = bx - ax, by - ay; n = math.hypot(dx, dy) or 1e-9
+        best, idx = 0, None
+        for i in range(a + 1, b):
+            # Abstand zur Linie a–b; bei Rundtouren (a = b) Abstand zum Punkt a
+            d = abs(dy * (xy[i][0] - ax) - dx * (xy[i][1] - ay)) / n if n > 1 else math.hypot(xy[i][0] - ax, xy[i][1] - ay)
+            if d > best:
+                best, idx = d, i
+        if idx is not None and best > TOLERANZ_M:
+            behalten[idx] = True
+            stapel += [(a, idx), (idx, b)]
+    return [c for c, k_ in zip(coords, behalten) if k_]
+
+
 def gpx(name, trk_name, coords):
     pts = "\n".join(
-        f'      <trkpt lat="{la:.6f}" lon="{lo:.6f}">' + (f"<ele>{el:.1f}</ele>" if el is not None else "") + "</trkpt>"
-        for la, lo, el in coords)
+        f'<trkpt lat="{la:.5f}" lon="{lo:.5f}">' + (f"<ele>{el:.0f}</ele>" if el is not None else "") + "</trkpt>"
+        for la, lo, el in vereinfachen(coords))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<gpx version="1.1" creator="Gravel Kompass" xmlns="http://www.topografix.com/GPX/1/1">\n'
             f"  <metadata><name>{escape(name)}</name></metadata>\n"
