@@ -648,15 +648,18 @@
   // GPX out: on phones the share sheet hands the file straight to Komoot, Hammerhead, Wahoo, Garmin …
   // (a plain download does nothing useful in the iPhone home-screen app); desktop falls back to a download.
   function gpxOut(filename, text){
-    var file;
-    try{ file = new File([text], filename, {type: "application/gpx+xml"}); }catch(e){}
-    if (file && navigator.canShare && navigator.share){
-      var ok = false;
-      try{ ok = navigator.canShare({files: [file]}); }catch(e){}
-      if (!ok){ try{ file = new File([text], filename, {type: "application/octet-stream"}); ok = navigator.canShare({files: [file]}); }catch(e){} }
-      if (ok){
-        navigator.share({files: [file]}).catch(function(e){ if (!e || e.name !== "AbortError") download(filename, text); });
-        return;
+    if (navigator.canShare && navigator.share){
+      // iOS picks the apps in the share sheet from the file type. Without a MIME type it takes the type from the
+      // ".gpx" ending (com.topografix.gpx), which Komoot, Hammerhead, Wahoo & Co. register for; an explicit
+      // "application/gpx+xml" is not recognised by every iOS version and then only "any file" apps show up.
+      var types = ["", "application/octet-stream", "application/gpx+xml"];
+      for (var i = 0; i < types.length; i++){
+        var file = null, ok = false;
+        try{ file = new File([text], filename, {type: types[i]}); ok = navigator.canShare({files: [file]}); }catch(e){}
+        if (ok){
+          navigator.share({files: [file]}).catch(function(e){ if (!e || e.name !== "AbortError") download(filename, text); });
+          return;
+        }
       }
     }
     download(filename, text);
