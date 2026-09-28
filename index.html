@@ -83,6 +83,16 @@
   .elev-tip{position:absolute;top:-6px;transform:translate(-50%,-100%);background:var(--ink);color:var(--paper);font-size:11.5px;padding:2px 7px;border-radius:5px;white-space:nowrap;pointer-events:none;font-variant-numeric:tabular-nums;}
   .elev .elev-leg{justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-top:2px;}
   .elev .elev-leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:-1px;}
+  .surf{padding:10px 18px 0;}
+  .surf-plot{position:relative;height:14px;border-radius:4px;overflow:hidden;touch-action:pan-y;cursor:crosshair;-webkit-user-select:none;user-select:none;}
+  .surf-plot svg{display:block;width:100%;height:14px;}
+  .surf-tip{position:absolute;top:-4px;transform:translate(-50%,-100%);background:var(--ink);color:var(--paper);font-size:11.5px;padding:2px 7px;border-radius:5px;white-space:nowrap;pointer-events:none;}
+  .surf-wrap{position:relative;padding-top:4px;}
+  .surf-leg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .surf-leg button{font:inherit;font-size:12px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 9px;cursor:pointer;font-variant-numeric:tabular-nums;}
+  .surf-leg button i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .surf-leg button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);}
+  .surf-leg button span{color:var(--ink-soft);}
   .elev .elev-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
   .route-status{font-size:12.5px;color:var(--ink-soft);padding:8px 18px 0;min-height:1.5em;}
   .stats{display:flex;gap:22px;flex-wrap:wrap;padding:12px 18px;}
@@ -404,6 +414,7 @@
           return {
             source: "BRouter (" + profiles[i] + ")",
             coords: f.geometry.coordinates.map(function(c){ return [c[1], c[0], c[2]]; }),
+            surf: surfaceString(f),
             distance: Number(f.properties["track-length"]) || null,
             ascend: Number(f.properties["filtered ascend"]) || null
           };
@@ -434,6 +445,107 @@
   }
   function loadCache(tour){ try{ var s = localStorage.getItem(cacheKey(tour)); return s ? JSON.parse(s) : null; }catch(e){ return null; } }
   function saveCache(tour, data){ try{ localStorage.setItem(cacheKey(tour), JSON.stringify(data)); }catch(e){} }
+
+  // ---------- Surface (from the OSM tags BRouter returns per way segment) ----------
+  // Groups: 0 Asphalt, 1 Feiner Schotter, 2 Schotter, 3 Naturweg, 4 Unbekannt
+  var SURF = [["Asphalt", "#5B6068"], ["Feiner Schotter", "#E0B866"], ["Schotter", "#A4672E"], ["Naturweg", "#5F9A3A"], ["Unbekannt", "#CFC9BC"]];
+  function surfaceClass(tags){
+    var m = /(?:^| )surface=([\w:]+)/.exec(tags), sf = m ? m[1] : "";
+    if (/^(asphalt|concrete|concrete:\w+|paved|paving_stones|sett|metal|wood|chipseal)$/.test(sf)) return 0;
+    if (/^(fine_gravel|compacted)$/.test(sf)) return 1;
+    if (/^(gravel|unpaved|pebblestone|cobblestone|unhewn_cobblestone)$/.test(sf)) return 2;
+    if (sf) return 3;   // ground, dirt, earth, grass, sand, mud, rock, woodchips …
+    var tt = /tracktype=grade(\d)/.exec(tags);
+    if (tt) return tt[1] === "1" ? 0 : tt[1] <= "3" ? 2 : 3;
+    // no surface tag: roads are practically always paved
+    if (/highway=(motorway|trunk|primary|secondary|tertiary|unclassified|residential|living_street|service)(_link)?\b/.test(tags)) return 0;
+    return 4;
+  }
+  // One digit per track point: group of the way segment that ends at this point
+  function surfaceString(f){
+    var msg = f.properties && f.properties.messages;
+    if (!msg || msg.length < 2) return null;
+    var h = msg[0], iL = h.indexOf("Longitude"), iA = h.indexOf("Latitude"), iT = h.indexOf("WayTags");
+    // row 1 is the start point; row j (j >= 2) describes the way segment that ends at its coordinates
+    var co = f.geometry.coordinates, out = "4", j = 2;
+    for (var i = 1; i < co.length; i++){
+      var row = msg[Math.min(j, msg.length - 1)];
+      out += surfaceClass(String(row[iT] || ""));
+      if (j < msg.length - 1 && Math.abs(co[i][0] * 1e6 - row[iL]) < 2 && Math.abs(co[i][1] * 1e6 - row[iA]) < 2) j++;
+    }
+    return out;
+  }
+  // Surface runs over the whole tour: [{from, to (m), cls, pts: [[lat,lon]…]}]
+  function surfaceRuns(results){
+    var runs = [], d = 0;
+    results.forEach(function(r){
+      if (!r.surf) return;
+      r.coords.forEach(function(c, i){
+        if (i === 0){ return; }
+        var seg = haversine(r.coords[i-1], c), cls = +r.surf[i] || 0, last = runs[runs.length - 1];
+        if (last && last.cls === cls && last.to === d) { last.to = d + seg; last.pts.push([c[0], c[1]]); }
+        else runs.push({from: d, to: d + seg, cls: cls, pts: [[r.coords[i-1][0], r.coords[i-1][1]], [c[0], c[1]]]});
+        d += seg;
+      });
+    });
+    return {runs: runs, total: d};
+  }
+  function surfaceAt(sr, v){
+    var lo = 0, hi = sr.runs.length - 1;
+    while (lo < hi){ var m = (lo + hi) >> 1; if (sr.runs[m].to < v) lo = m + 1; else hi = m; }
+    return sr.runs[lo];
+  }
+  // Bar below the elevation profile + legend with share per group; finger on the bar or a tap on the
+  // legend shows only that surface on the map
+  function attachSurface(box, results, map, stageLines){
+    var sr = surfaceRuns(results);
+    if (!sr.runs.length || sr.total <= 0 || results.some(function(r){ return !r.surf; })) return;
+    var sum = [0, 0, 0, 0, 0];
+    sr.runs.forEach(function(r){ sum[r.cls] += r.to - r.from; });
+    var W = 600, bar = sr.runs.map(function(r){
+      return '<rect x="' + (r.from / sr.total * W).toFixed(2) + '" y="0" width="' + Math.max(.4, (r.to - r.from) / sr.total * W).toFixed(2) + '" height="14" fill="' + SURF[r.cls][1] + '"/>';
+    }).join("");
+    box.innerHTML = '<div class="elev-lbl"><span>Untergrund</span></div>' +
+      '<div class="surf-wrap"><div class="surf-plot"><svg viewBox="0 0 ' + W + ' 14" preserveAspectRatio="none" role="img" aria-label="Untergrund entlang der Strecke">' + bar + '</svg></div><div class="surf-tip" hidden></div></div>' +
+      '<div class="surf-leg">' + SURF.map(function(g, i){
+        if (!sum[i]) return "";
+        return '<button type="button" data-cls="' + i + '" aria-pressed="false"><i style="background:' + g[1] + '"></i>' + g[0] + ' <span>' + Math.round(sum[i] / sr.total * 100) + ' % · ' + (sum[i] / 1000).toFixed(sum[i] < 10000 ? 1 : 0).replace(".", ",") + ' km</span></button>';
+      }).join("") + '</div>';
+    box.hidden = false;
+    var layer = null, sticky = null;
+    function highlight(cls){
+      if (layer){ layer.remove(); layer = null; }
+      stageLines.forEach(function(l){ l.setStyle({opacity: cls == null ? .9 : .25}); });
+      if (cls == null) return;
+      layer = L.layerGroup(sr.runs.filter(function(r){ return r.cls === cls; }).map(function(r){
+        return L.polyline(r.pts, {color: SURF[cls][1], weight: 7, opacity: 1, interactive: false});
+      })).addTo(map);
+    }
+    var plot = box.querySelector(".surf-plot"), tip = box.querySelector(".surf-tip"), current = null;
+    function show(ev){
+      var rc = plot.getBoundingClientRect(), f = Math.min(1, Math.max(0, (ev.clientX - rc.left) / rc.width));
+      var run = surfaceAt(sr, f * sr.total);
+      tip.hidden = false;
+      tip.style.left = Math.min(85, Math.max(15, f * 100)) + "%";
+      tip.textContent = SURF[run.cls][0] + " · " + (f * sr.total / 1000).toFixed(1).replace(".", ",") + " km";
+      if (current !== run.cls){ current = run.cls; highlight(run.cls); }
+    }
+    function end(){ tip.hidden = true; current = null; highlight(sticky); }
+    plot.addEventListener("pointerdown", function(ev){ try{ plot.setPointerCapture(ev.pointerId); }catch(e){} show(ev); });
+    plot.addEventListener("pointermove", function(ev){ if (ev.pointerType === "mouse" || ev.buttons || ev.pressure) show(ev); });
+    plot.addEventListener("pointerup", function(ev){ if (ev.pointerType !== "mouse") end(); });
+    plot.addEventListener("pointercancel", end);
+    plot.addEventListener("pointerleave", function(ev){ if (ev.pointerType === "mouse") end(); });
+    box.querySelectorAll("[data-cls]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var cls = +b.getAttribute("data-cls");
+        sticky = sticky === cls ? null : cls;
+        box.querySelectorAll("[data-cls]").forEach(function(o){ var on = +o.getAttribute("data-cls") === sticky; o.classList.toggle("on", on); o.setAttribute("aria-pressed", on ? "true" : "false"); });
+        highlight(sticky);
+      });
+    });
+    return sr;
+  }
 
   // Small elevation profile below the map (BRouter delivers the height as 3rd coordinate)
   function elevProfile(results){
@@ -486,7 +598,7 @@
   }
 
   // Slide along the profile: black dot on the map at exactly that point, plus km / height / gradient
-  function attachScrubber(elevEl, results, map){
+  function attachScrubber(elevEl, results, map, sr){
     var plot = elevEl.querySelector(".elev-plot");
     if (!plot) return;
     var track = [], d = 0;
@@ -510,7 +622,8 @@
       cursor.hidden = tip.hidden = false;
       cursor.style.left = (f * 100) + "%";
       tip.style.left = Math.min(85, Math.max(15, f * 100)) + "%";
-      tip.textContent = (v / 1000).toFixed(1).replace(".", ",") + " km" + (t[3] != null ? " · " + Math.round(t[3]) + " m" : "") + (grade != null ? " · " + grade + " %" : "");
+      tip.textContent = (v / 1000).toFixed(1).replace(".", ",") + " km" + (t[3] != null ? " · " + Math.round(t[3]) + " m" : "") + (grade != null ? " · " + grade + " %" : "") +
+        (sr ? " · " + SURF[surfaceAt(sr, v).cls][0] : "");
     }
     function hide(ev){
       if (ev.pointerType === "mouse"){ cursor.hidden = tip.hidden = true; if (dot){ dot.remove(); dot = null; } }
@@ -572,6 +685,7 @@
       '<div class="hint share-out" data-share-out hidden></div></div>' +
       '<div class="map" id="' + mapId + '"></div>' +
       '<div class="elev" data-elev hidden></div>' +
+      '<div class="surf" data-surf hidden></div>' +
       '<div class="route-status" data-status>Berechne Route auf echten Wegen …</div>' +
       '<div class="stats">' +
         '<div class="stat"><b data-km>–</b><span>km gesamt</span></div>' +
@@ -650,6 +764,8 @@
 
     var statusEl = el.querySelector("[data-status]");
     var results = loadCache(tour);
+    // routes cached before the surface profile existed are routed again once
+    if (results && results.some(function(r){ return !r.fallback && /^BRouter/.test(r.source) && !r.surf; })) results = null;
     var fromCache = !!results;
 
     (async function(){
@@ -664,10 +780,10 @@
       if (CURRENT !== mapState) return; // detail was closed while routing
       var totalM = 0, totalAsc = 0, haveAsc = true, bounds = [];
       var metaEls = el.querySelectorAll("[data-stage-meta]");
-      var gpxBtns = el.querySelectorAll("[data-stage-gpx]");
+      var gpxBtns = el.querySelectorAll("[data-stage-gpx]"), stageLines = [];
       results.forEach(function(r, i){
         var color = STAGE_COLORS[i % STAGE_COLORS.length];
-        L.polyline(r.coords.map(function(c){ return [c[0],c[1]]; }), {color:color, weight:5, opacity:.9, dashArray: r.fallback ? "6 8" : null})
+        stageLines[i] = L.polyline(r.coords.map(function(c){ return [c[0],c[1]]; }), {color:color, weight:5, opacity:.9, dashArray: r.fallback ? "6 8" : null})
           .addTo(map).bindPopup("Etappe " + (i+1) + ": " + esc(tour.etappen[i].von) + " → " + esc(tour.etappen[i].nach) + "<br>" + fmtKm(r.distance) + " km");
         r.coords.forEach(function(c){ bounds.push([c[0],c[1]]); });
         totalM += r.distance || 0;
@@ -687,7 +803,8 @@
       var elevEl = el.querySelector("[data-elev]");
       elevEl.innerHTML = elevProfile(results);
       elevEl.hidden = !elevEl.innerHTML;
-      attachScrubber(elevEl, results, map);
+      var sr = attachSurface(el.querySelector("[data-surf]"), results, map, stageLines);
+      attachScrubber(elevEl, results, map, sr);
       el.querySelector("[data-km]").textContent = fmtKm(totalM).toLocaleString("de-DE");
       if (haveAsc) el.querySelector("[data-hm]").textContent = Math.round(totalAsc).toLocaleString("de-DE");
       var sources = Array.from(new Set(results.map(function(r){ return r.source; })));
