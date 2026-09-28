@@ -639,6 +639,12 @@
   // Served from jsDelivr (mirror of this repo, application/gpx+xml): a file on the app's own address stays blank
   // when opened from the home-screen app; a foreign address opens in the Safari view with "Mehr …" → Hammerhead.
   function gpxUrl(id){ return "https://cdn.jsdelivr.net/gh/thomasskornia-source/Gravel-Kompass@main/data/gpx/" + id + ".gpx"; }
+  // Every tap gets a fresh address: the Safari view of the home-screen app shows a blank page when the same
+  // file is opened a second time. The link stays a real link, only its address changes right before the tap.
+  document.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest("a[data-gpx]");
+    if (a) a.href = a.getAttribute("data-gpx") + "?t=" + Date.now();
+  }, true);
 
   function renderTour(tour, container, idx){
     var el = document.createElement("article");
@@ -665,7 +671,7 @@
       '</div>' +
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
-        '<div class="actions"><a class="btn" href="' + esc(gpxUrl(tour.id)) + '" target="_blank" rel="noopener">GPX komplette Tour</a></div>' +
+        '<div class="actions"><a class="btn" data-gpx="' + esc(gpxUrl(tour.id)) + '" href="' + esc(gpxUrl(tour.id)) + '" target="_blank" rel="noopener">GPX komplette Tour</a></div>' +
         '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe. Auf dem Handy öffnet sich die GPX-Datei – dann „Mehr …“ oder <b>Teilen</b> → Komoot, Hammerhead oder Garmin.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
@@ -697,7 +703,7 @@
         '<div class="stage-title">' + esc(e.von) + ' → ' + esc(e.nach) + '</div>' +
         '<div class="stage-meta" data-stage-meta>ca. ' + (e.hmPlan||0) + ' Hm</div>' +
         '<div class="stage-text">' + esc(e.text||"") + '</div>' +
-        '<div class="stage-gpx"><a href="' + esc(gpxUrl(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id)) + '" target="_blank" rel="noopener">GPX Etappe ' + (i+1) + '</a></div>';
+        '<div class="stage-gpx"><a data-gpx="' + esc(gpxUrl(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id)) + '" href="' + esc(gpxUrl(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id)) + '" target="_blank" rel="noopener">GPX Etappe ' + (i+1) + '</a></div>';
       stagesEl.appendChild(row);
     });
 
