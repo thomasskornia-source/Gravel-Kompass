@@ -648,10 +648,14 @@
   // On phones the buttons open the fixed file data/gpx/<id>.gpx (made by tools/gpx-export.py via GitHub Action):
   // only a real file with a web address gets Komoot, Hammerhead and Garmin offered in the iOS share sheet –
   // a file handed over by the page only reaches apps with a share extension (WhatsApp, Drive …).
-  function gpxOpen(gpxId, stand, filename, makeText){
+  function gpxOpen(gpxId, stand, filename, makeText){   // stand: kept for later cache busting
     var mobile = navigator.share && matchMedia("(pointer: coarse)").matches;
     if (!mobile){ download(filename, makeText()); return; }
-    window.open(new URL("data/gpx/" + gpxId + ".gpx" + (stand ? "?v=" + stand : ""), location.href).href, "_blank", "noopener");
+    // a plain link to the file (like typing the address) – window.open from the home-screen app shows a blank page
+    var a = document.createElement("a");
+    a.href = new URL("data/gpx/" + gpxId + ".gpx", location.href).href;
+    a.target = "_blank"; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
   }
   function download(filename, text){
     var blob = new Blob([text], {type: "application/gpx+xml"});
@@ -688,7 +692,7 @@
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
         '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
-        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe. Auf dem Handy öffnet sich die GPX-Datei – dann <b>Teilen</b> → Komoot, Hammerhead oder Garmin.</p>' +
+        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe. Auf dem Handy öffnet sich die GPX-Datei – dann „Mehr …“ oder <b>Teilen</b> → Komoot, Hammerhead oder Garmin.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
