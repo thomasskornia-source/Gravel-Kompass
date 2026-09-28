@@ -100,7 +100,7 @@ def main(args):
         start = bewerte(t, e)
         if not start or not start["befunde"]:
             print(f"   Etappe {n}: nichts Eintöniges"); continue
-        grenze_km, grenze_str, stubs0 = max(start["km"] * MEHR_KM, start["km"] + MEHR_KM_MIN), start["strasse"] + MEHR_STRASSE_M, start["stubs"]
+        grenze_km, grenze_str, stubs0 = min(max(start["km"] * MEHR_KM, start["km"] + MEHR_KM_MIN), max(start["km"], t.get("etappeMaxKm", 9999))), start["strasse"] + MEHR_STRASSE_M, start["stubs"]
         stand = start
         for r in range(RUNDEN):
             if not stand["befunde"]:

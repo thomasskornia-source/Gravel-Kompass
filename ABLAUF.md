@@ -24,6 +24,15 @@ Danach Zeitstempel in `data/eingang-erledigt.json`.
    begründete Ausnahme eintragen, dann `--nur-pruefen`. Keine Etappe über der gewünschten Länge.
 3. `python3 tools/tours-index.py`. GPX-Dateien erzeugt die GitHub-Aktion selbst.
 
+Technik dazu: `tour-fertig.py` meldet u. a. Privatwege, Hofeinfahrten, Campingplätze und Hofflächen (OSM-Karte),
+Sackgassen ab 120 m, Fußwege, Radverbote, Einbahnstraßen, Hauptstraßen ohne Radweg ab 300 m, Schotter/Sand/Trails je
+Radart, Steigung über 10 % (Trekking), Eintönigkeit über 20 Minuten und den Anspruch. Grenze: Ein Hof, der in der Karte
+als öffentlicher Feldweg eingetragen ist, fällt nicht auf – im Zweifel die Straße nehmen. Wegpunkte auf die Strecke
+bzw. auf offizielle Radrouten legen, nicht in Ortskerne. **Begründete Ausnahme** (z. B. Sackgasse zum Gipfel) in der
+Etappe: `"ausnahmen": [{"lat": …, "lon": …, "grund": "…"}]` (300 m um den Punkt, `"radius_m"` für mehr, `"art"` für
+andere Befunde) und im Etappentext begründen. **Sperren** (`"sperren": [[lat, lon, radius_m]]`) setzt die Reparatur
+selbst; die Website rechnet mit denselben Sperren. Höchstlänge je Etappe: `"etappeMaxKm"` in der Tour.
+
 ## Formular auswerten
 - **Beschreibung**: Land/Region/Stadt und Wünsche; ohne Ort drei Vorschläge (bevorzugt D und Nachbarländer).
 - **Untergrund** = raueste erlaubte Stufe (Glatteres geht immer). Trekking: Asphalt → feiner Schotter → Feld-/Waldwege.

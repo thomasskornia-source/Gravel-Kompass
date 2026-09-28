@@ -141,7 +141,7 @@ def main(args):
         start = schnell(t, e)
         if not start:
             print(f"   Etappe {n}: nicht routbar – übersprungen"); continue
-        grenze = (start[0] * MEHR_KM, start[1] + MEHR_STRASSE_M)
+        grenze = (max(start[0], min(start[0] * MEHR_KM, t.get("etappeMaxKm", 9999))), start[1] + MEHR_STRASSE_M)
         ok = lambda q: q is not None and q[0] <= grenze[0] and q[1] <= grenze[1]
         abgelehnt = set()
         for r in range(RUNDEN):
