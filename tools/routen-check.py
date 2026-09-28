@@ -4,11 +4,12 @@
 Berechnet jede Etappe wie die Website über BRouter und meldet:
   - Stichstrecken / Sackgassen (doppelt befahrene Abschnitte ab 120 m)
   - Hofeinfahrten und Privatwege (service=driveway, access=private/no)
+  - Radverbote (bicycle=no, Radwegbenutzungspflicht) und Einbahnstraßen gegen die Fahrtrichtung
   - Fußwege, Fußgängerzonen und Treppen ohne Radfreigabe (jede Länge; nur Zebrastreifen-Querungen bis 20 m nicht)
   - Hauptstraßen ohne Radweg ab 300 m am Stück (Rennrad: nur Bundesstraßen/primary – ruhige Landstraßen sind gewollt)
   - Rennrad: unbefestigte Abschnitte (Schotter, Feld-/Waldweg) ab 50 m
   - Eintönige Abschnitte, die länger als 30 Minuten dauern: immer am selben Gewässer entlang, immer dieselbe Wegart
-    oder ohne Abbiegen geradeaus
+    oder flach ohne Abbiegen geradeaus (Anstiege und Abfahrten gelten als Abwechslung)
   - Campingplätze, Hofflächen und Bauernhöfe auf der Strecke (aus der OpenStreetMap-Karte)
   - Anteil der Strecke auf ausgeschilderten Radrouten (Info)
 
@@ -123,6 +124,20 @@ def abstand_linie(p, a, b):
     return math.hypot(px - ax - t * dx, py - ay - t * dy) * 111000
 
 
+def abtasten(coords3):
+    """Track alle SCHRITT_M Meter abtasten; liefert Punkte (lat, lon) und Höhen."""
+    pts, hoehen, rest = [coords3[0][:2]], [coords3[0][2]], 0.0
+    for a, b in zip(coords3, coords3[1:]):
+        d = dist(a, b)
+        pos = stich.SCHRITT_M - rest
+        while pos <= d:
+            f = pos / d
+            pts.append((a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f)); hoehen.append(a[2] + (b[2] - a[2]) * f)
+            pos += stich.SCHRITT_M
+        rest = d - (pos - stich.SCHRITT_M)
+    return pts, hoehen
+
+
 def laengste_strecke(pts, bedingung):
     """Längster Abschnitt (m) der abgetasteten Punkte, in dem bedingung(i) gilt; Lücken bis LUECKE_M werden überbrückt."""
     best, start, zuletzt = (0, None), None, None
@@ -137,9 +152,12 @@ def laengste_strecke(pts, bedingung):
     return best
 
 
-def eintoenig(coords, zeilen, gewaesser, grenze_m):
-    """Abschnitte über grenze_m am selben Gewässer, auf derselben Wegart oder ohne Abbiegen."""
-    pts = stich.resample([list(c) for c in coords])
+def eintoenig(coords3, zeilen, gewaesser, grenze_m):
+    """Abschnitte über grenze_m am selben Gewässer, auf derselben Wegart oder ohne Abbiegen.
+    Wegart und Geradeaus zählen nur im Flachen – ein Anstieg oder eine Abfahrt ist Abwechslung."""
+    pts, hoehen = abtasten(coords3)
+    k = 20   # 300 m
+    flach = [abs(hoehen[min(i + k, len(pts) - 1)] - hoehen[max(i - k, 0)]) < 18 for i in range(len(pts))]   # unter 3 %
     befunde = []
     # 1. am selben Gewässer entlang
     for name in {g[0] for g in gewaesser}:
@@ -162,16 +180,16 @@ def eintoenig(coords, zeilen, gewaesser, grenze_m):
     arten = [min(art_bei, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1] for p in pts[::4]]
     arten = [a for a in arten for _ in range(4)][:len(pts)]
     for art in set(arten):
-        laenge, wo = laengste_strecke(pts, lambda i: i < len(arten) and arten[i] == art)
+        laenge, wo = laengste_strecke(pts, lambda i: i < len(arten) and arten[i] == art and flach[i])
         if laenge > grenze_m:
-            befunde.append(f"Eintönig: {laenge / 1000:.1f} km immer auf {art} ab {wo[0]:.4f},{wo[1]:.4f}")
+            befunde.append(f"Eintönig: {laenge / 1000:.1f} km flach immer auf {art} ab {wo[0]:.4f},{wo[1]:.4f}")
     # 3. ohne Abbiegen geradeaus (Richtungswechsel unter 45° auf 120 m)
     def richtung(a, b):
         return math.degrees(math.atan2((b[1] - a[1]) * math.cos(math.radians(a[0])), b[0] - a[0]))
     abbiegen = [False] * len(pts)
     for i in range(4, len(pts) - 4):
         d = abs((richtung(pts[i], pts[i + 4]) - richtung(pts[i - 4], pts[i]) + 180) % 360 - 180)
-        abbiegen[i] = d > 45
+        abbiegen[i] = d > 45 or not flach[i]
     laenge, wo, start = 0, pts[0], 0
     for i in range(len(pts)):
         if abbiegen[i] or i == len(pts) - 1:
@@ -179,7 +197,7 @@ def eintoenig(coords, zeilen, gewaesser, grenze_m):
                 laenge, wo = (i - start) * stich.SCHRITT_M, pts[start]
             start = i
     if laenge > grenze_m:
-        befunde.append(f"Eintönig: {laenge / 1000:.1f} km ohne Abbiegen geradeaus ab {wo[0]:.4f},{wo[1]:.4f}")
+        befunde.append(f"Eintönig: {laenge / 1000:.1f} km flach ohne Abbiegen geradeaus ab {wo[0]:.4f},{wo[1]:.4f}")
     return befunde
 
 
@@ -196,6 +214,7 @@ def radart(t):
 def pruefe_etappe(t, n, e, mit_karte):
     f = brouter(e["wegpunkte"], t.get("profil"))
     coords = [(c[1], c[0]) for c in f["geometry"]["coordinates"]]
+    coords3 = [(c[1], c[0], c[2] if len(c) > 2 else 0) for c in f["geometry"]["coordinates"]]
     m = f["properties"]["messages"]
     h = m[0]; iL, iA, iD, iT = h.index("Longitude"), h.index("Latitude"), h.index("Distance"), h.index("WayTags")
     rennrad = radart(t) == "road"
@@ -211,18 +230,20 @@ def pruefe_etappe(t, n, e, mit_karte):
         if "route_bicycle" in tags:
             rad += d
         am_rand = min(dist(p, ende[0]), dist(p, ende[1])) < 150   # Start/Ziel selbst
-        radfrei = re.search(r"bicycle=(yes|designated|permissive)", tags)
+        radfrei = re.search(r"(?<![:\w])bicycle=(yes|designated|permissive)", tags)
         fuss = (re.search(r"highway=(footway|pedestrian|steps)\b", tags) or
                 re.search(r"highway=path\b", tags) and "foot=designated" in tags) and not radfrei
-        if re.search(r"access=(private|no)\b", tags) and "bicycle=yes" not in tags:
+        if re.search(r"access=(private|no)\b", tags) and not re.search(r"(?<![:\w])bicycle=yes", tags):
             befunde.append(f"Privatweg {d} m bei {p[0]:.4f},{p[1]:.4f}")
         elif "service=driveway" in tags and not am_rand:
             befunde.append(f"Hofeinfahrt {d} m bei {p[0]:.4f},{p[1]:.4f} (Sackgasse oder Privatgrund?)")
         elif fuss and not ("footway=crossing" in tags and d <= 20):
             art = "Treppe" if "highway=steps" in tags else "Fußgängerzone" if "highway=pedestrian" in tags else "Fußweg"
             befunde.append(f"{art} ohne Radfreigabe {d} m bei {p[0]:.4f},{p[1]:.4f}")
-        if "bicycle=no" in tags and not fuss:
+        if re.search(r"(?<![:\w])bicycle=(no|use_sidepath)\b", tags) and not fuss:
             befunde.append(f"Radverbot {d} m bei {p[0]:.4f},{p[1]:.4f}")
+        if "reversedirection=yes" in tags and re.search(r"(?<![:\w])oneway=yes", tags) and "oneway:bicycle=no" not in tags:
+            befunde.append(f"Einbahnstraße gegen die Fahrtrichtung {d} m bei {p[0]:.4f},{p[1]:.4f}")
         if haupt.search(tags) and "cycleway" not in tags:
             strasse.append(d)
         else:
@@ -239,7 +260,7 @@ def pruefe_etappe(t, n, e, mit_karte):
         befunde.append(f"Stichstrecke {laenge / 1000:.2f} km bei {stich.naechster_ort(a, e['wegpunkte'])} ({a[0]:.4f},{a[1]:.4f})")
     grenze_m = TEMPO[radart(t)] * 1000 * LANGWEILIG_MIN / 60
     flaechen, gewaesser = karte(coords) if mit_karte else ([], [])
-    befunde += eintoenig(coords, zeilen, gewaesser, grenze_m)
+    befunde += eintoenig(coords3, zeilen, gewaesser, grenze_m)
     if mit_karte:
         def wegtags(p):
             return min(zeilen, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1]
