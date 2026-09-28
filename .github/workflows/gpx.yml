@@ -1,0 +1,32 @@
+name: GPX-Dateien erzeugen
+
+# Erzeugt bei jeder Änderung an einer Tour die festen GPX-Dateien unter data/gpx/ neu (tools/gpx-export.py).
+# Nur echte Dateien mit Web-Adresse bietet iOS beim Teilen Komoot, Hammerhead und Garmin an.
+on:
+  push:
+    branches: [main]
+    paths: ["data/tours/**", "tools/gpx-export.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gpx
+  cancel-in-progress: false
+
+jobs:
+  gpx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/gpx-export.py
+      - name: Hochladen
+        run: |
+          git add data/gpx
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git config user.name "gravel-kompass-bot"
+          git config user.email "gravel-kompass-bot@users.noreply.github.com"
+          git commit -m "GPX-Dateien aktualisiert"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1

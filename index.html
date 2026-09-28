@@ -645,23 +645,13 @@
     });
     return x + '</gpx>\n';
   }
-  // GPX out: on phones the share sheet hands the file straight to Komoot, Hammerhead, Wahoo, Garmin …
-  // (a plain download does nothing useful in the iPhone home-screen app); desktop falls back to a download.
-  function gpxOut(filename, text){
-    if (navigator.canShare && navigator.share){
-      // iOS picks the apps in the share sheet from the file type: "application/gpx+xml" maps to the GPX type that
-      // Komoot, Hammerhead, Wahoo & Co. register for; the others are fallbacks for browsers that refuse it.
-      var types = ["application/gpx+xml", "application/octet-stream", ""];
-      for (var i = 0; i < types.length; i++){
-        var file = null, ok = false;
-        try{ file = new File([text], filename, {type: types[i]}); ok = navigator.canShare({files: [file]}); }catch(e){}
-        if (ok){
-          navigator.share({files: [file]}).catch(function(e){ if (!e || e.name !== "AbortError") download(filename, text); });
-          return;
-        }
-      }
-    }
-    download(filename, text);
+  // On phones the buttons open the fixed file data/gpx/<id>.gpx (made by tools/gpx-export.py via GitHub Action):
+  // only a real file with a web address gets Komoot, Hammerhead and Garmin offered in the iOS share sheet –
+  // a file handed over by the page only reaches apps with a share extension (WhatsApp, Drive …).
+  function gpxOpen(gpxId, stand, filename, makeText){
+    var mobile = navigator.share && matchMedia("(pointer: coarse)").matches;
+    if (!mobile){ download(filename, makeText()); return; }
+    window.open(new URL("data/gpx/" + gpxId + ".gpx" + (stand ? "?v=" + stand : ""), location.href).href, "_blank", "noopener");
   }
   function download(filename, text){
     var blob = new Blob([text], {type: "application/gpx+xml"});
@@ -671,6 +661,7 @@
     setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
   }
 
+  function standOf(tour){ var e = (TOURS || []).filter(function(t){ return t.id === tour.id; })[0]; return e && e.stand; }
   function renderTour(tour, container, idx){
     var el = document.createElement("article");
     el.className = "tour";
@@ -697,7 +688,7 @@
       '<div class="tour-body">' +
         '<p>' + esc(tour.beschreibung) + '</p>' +
         '<div class="actions"><button class="btn" data-gpx-one disabled>GPX komplette Tour</button></div>' +
-        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe.</p>' +
+        '<p class="sub" style="margin:0">„Komplette Tour“ = eine durchgehende Strecke; einzelne Etappen gibt es unten bei jeder Etappe. Auf dem Handy öffnet sich die GPX-Datei – dann <b>Teilen</b> → Komoot, Hammerhead oder Garmin.</p>' +
         '<div class="stages" data-stages></div>' +
         (tour.quellen && tour.quellen.length ? '<div class="quellen">Quellen: ' + tour.quellen.map(function(q){ return '<a href="' + esc(safeUrl(q.url)) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>'; }).join(" · ") + '</div>' : '') +
         '<div class="comments">' +
@@ -794,7 +785,9 @@
         metaEls[i].textContent = fmtKm(r.distance) + " km · " + hmTxt;
         gpxBtns[i].disabled = false;
         gpxBtns[i].addEventListener("click", function(){
-          gpxOut(slug(tour.title) + "-etappe-" + (i+1) + ".gpx", buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]));
+          gpxOpen(tour.etappen.length > 1 ? tour.id + "-etappe-" + (i+1) : tour.id, standOf(tour), slug(tour.title) + "-etappe-" + (i+1) + ".gpx", function(){
+            return buildGpx(tour.title + " – Etappe " + (i+1), [{name: "Etappe " + (i+1) + ": " + tour.etappen[i].von + " – " + tour.etappen[i].nach, coords: r.coords}]);
+          });
         });
       });
       // Finish marker
@@ -814,7 +807,7 @@
 
       var oneBtn = el.querySelector("[data-gpx-one]");
       oneBtn.disabled = false;
-      oneBtn.addEventListener("click", function(){ gpxOut(slug(tour.title) + "-komplett.gpx", joinedGpx()); });
+      oneBtn.addEventListener("click", function(){ gpxOpen(tour.id, standOf(tour), slug(tour.title) + "-komplett.gpx", joinedGpx); });
       function joinedGpx(){
         // All stages joined into one continuous track (shared start/end points not duplicated)
         var joined = [];

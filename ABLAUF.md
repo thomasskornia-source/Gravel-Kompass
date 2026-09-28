@@ -43,6 +43,10 @@
 - Nach jeder Änderung an einer Tour (neue Tour, geänderte Kopfdaten oder Wegpunkte) den Index neu bauen:
   `python3 tools/tours-index.py`. Die Tourenseite selbst liest immer die einzelne Datei.
 
+## GPX-Dateien
+Die festen GPX-Dateien unter `data/gpx/` erzeugt die GitHub-Aktion „GPX-Dateien erzeugen“ automatisch nach jedem Push,
+der `data/tours/` ändert – nichts von Hand tun.
+
 ## Tourqualität
 Die Regeln für gute Touren stehen in **`TOURQUALITAET.md`** – vor jeder neuen oder geänderten Tour lesen.
 **Pflicht vor dem Hochladen:** `python3 tools/routen-check.py <tour-id>` (Stichstrecken, Hofeinfahrten, Privatwege, Campingplätze,
