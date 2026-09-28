@@ -63,8 +63,8 @@
           "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"
         ],
         [
-          48.9278,
-          10.5008,
+          48.91813,
+          10.49965,
           "Maihingen (Kloster, Einkehr Klosterschenke)"
         ],
         [
@@ -179,6 +179,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km). Die Sackgasse zu Kloster Maihingen mit Klosterschenke bleibt bewusst – lohnendes Ziel."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Routen-Check: weitere Problemstellen über Sperren umfahren."
     }
   ]
 }

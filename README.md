@@ -7,6 +7,7 @@ Persönliches Planungstool für mehrtägige Gravel-Touren, gemeinsam mit Claude 
 - `data/tours-index.json` – Kurzfassung aller Touren (neueste zuerst) für Übersicht und Suche; die Tourenseite lädt die einzelne Datei nach. Wird mit `python3 tools/tours-index.py` aus den Tour-Dateien neu gebaut
 - `TOURQUALITAET.md` – Regeln für gute Touren, wächst mit dem Feedback aus gefahrenen Touren
 - `tools/routen-reparieren.py` – behebt Routen-Check-Befunde automatisch, soweit möglich (Sperren, Wegpunkte)
+- `tools/abwechslung-planen.py` – bricht eintönige Abschnitte durch Abstecher auf (Regel 7)
 - `RADFAHREN.md` – warum wir Rad fahren und was jede Radart von einer Tour braucht
 - `tools/gpx-export.py` – feste GPX-Dateien je Tour/Etappe unter `data/gpx/` (läuft automatisch als GitHub-Aktion, wenn sich eine Tour ändert)
 - `tools/routen-check.py` – Qualitäts-Check einer Tour (Stichstrecken, Privatgrund, Campingplätze, Hauptstraßen, Radrouten-Anteil); `tools/stichstrecken-check.py` wird davon genutzt

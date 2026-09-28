@@ -65,9 +65,19 @@
           "Germering"
         ],
         [
+          48.08836,
+          11.47185,
+          "Neuried"
+        ],
+        [
           48.06598,
           11.61793,
           "Unterhaching"
+        ],
+        [
+          48.02059,
+          11.73774,
+          "Höhenkirchen-Siegertsbrunn"
         ],
         [
           47.99263,
@@ -238,6 +248,11 @@
           47.82223,
           12.64428,
           "Siegsdorf"
+        ],
+        [
+          47.819,
+          12.69362,
+          "Embach"
         ],
         [
           47.7633,
@@ -697,6 +712,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Neuried, Höhenkirchen-Siegertsbrunn, Embach."
     }
   ]
 }

@@ -68,8 +68,8 @@
           "Bouzy"
         ],
         [
-          49.0783,
-          3.9642,
+          49.07274,
+          3.96772,
           "Hautvillers"
         ],
         [
@@ -180,6 +180,11 @@
           "Bergères-lès-Vertus"
         ],
         [
+          48.8191,
+          4.01509,
+          "Pierre-Morains"
+        ],
+        [
           48.7208,
           3.7192,
           "Sézanne"
@@ -215,6 +220,21 @@
           "Romilly-sur-Seine"
         ],
         [
+          48.46595,
+          3.93635,
+          "Droupt-Saint-Basle"
+        ],
+        [
+          48.37897,
+          3.96212,
+          "Payns"
+        ],
+        [
+          48.35982,
+          4.04218,
+          "Sainte-Maure"
+        ],
+        [
           48.2973,
           4.0744,
           "Troyes"
@@ -245,6 +265,11 @@
           48.514324,
           3.728143,
           15
+        ],
+        [
+          48.3487,
+          4.0575,
+          15
         ]
       ]
     },
@@ -260,9 +285,24 @@
           "Troyes"
         ],
         [
+          48.47187,
+          4.17637,
+          "Voué"
+        ],
+        [
           48.5333,
           4.1417,
           "Arcis-sur-Aube"
+        ],
+        [
+          48.63988,
+          4.25325,
+          "Trouans"
+        ],
+        [
+          48.87881,
+          4.38401,
+          "Abstecher"
         ],
         [
           48.9578,
@@ -439,6 +479,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km). Die Sackgasse zu Abtei Hautvillers (Dom Pérignon) bleibt bewusst – lohnendes Ziel."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Pierre-Morains, Droupt-Saint-Basle, Payns, Sainte-Maure, Voué, Trouans, Abstecher."
     }
   ]
 }

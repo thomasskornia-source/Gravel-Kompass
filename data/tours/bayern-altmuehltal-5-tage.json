@@ -45,6 +45,11 @@
           "Ingolstadt Hbf"
         ],
         [
+          48.75965,
+          11.57112,
+          "Menning"
+        ],
+        [
           48.896,
           11.821,
           "Kloster Weltenburg"
@@ -90,9 +95,24 @@
           "Kelheim"
         ],
         [
+          48.93032,
+          11.77559,
+          "Kelheim"
+        ],
+        [
           48.96429,
           11.68594,
           "Riedenburg"
+        ],
+        [
+          48.98073,
+          11.68201,
+          "Gundlfing"
+        ],
+        [
+          48.988,
+          11.62012,
+          "Untereggersberg"
         ],
         [
           49.03293,
@@ -163,6 +183,11 @@
           48.95,
           11.397,
           "Kipfenberg"
+        ],
+        [
+          48.94008,
+          11.26538,
+          "Rapperszell"
         ],
         [
           48.89096,
@@ -280,9 +305,24 @@
           "Weißenburg"
         ],
         [
+          48.95839,
+          11.03881,
+          "Neudorf"
+        ],
+        [
+          48.93857,
+          11.06354,
+          "Schönau"
+        ],
+        [
           48.73592,
           11.18439,
           "Neuburg an der Donau"
+        ],
+        [
+          48.75794,
+          11.30668,
+          "Irgertsheim"
         ],
         [
           48.7665,
@@ -304,6 +344,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Menning, Gundlfing, Untereggersberg, Rapperszell, Neudorf, Schönau, Irgertsheim."
     }
   ]
 }

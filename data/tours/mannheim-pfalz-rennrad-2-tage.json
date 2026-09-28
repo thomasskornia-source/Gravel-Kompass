@@ -287,6 +287,11 @@
           "Schweigen"
         ],
         [
+          49.05937,
+          8.03173,
+          "Steinfeld (Pfalz)"
+        ],
+        [
           49.083,
           8.196,
           "Kandel"
@@ -302,9 +307,24 @@
           "Karlsruhe"
         ],
         [
+          49.04094,
+          8.44,
+          "Waldstadt"
+        ],
+        [
           49.12358,
           8.59783,
           "Bruchsal"
+        ],
+        [
+          49.18645,
+          8.63254,
+          "Stettfeld"
+        ],
+        [
+          49.20614,
+          8.69841,
+          "Östringen-Stadt"
         ],
         [
           49.29374,
@@ -442,6 +462,11 @@
           49.479196,
           8.470718,
           15
+        ],
+        [
+          49.201145,
+          8.693712,
+          15
         ]
       ]
     }
@@ -457,6 +482,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km)."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Steinfeld (Pfalz), Waldstadt, Stettfeld, Östringen-Stadt."
     }
   ]
 }

@@ -8,7 +8,7 @@
   "region": "Burgund (Côte-d'Or / Saône-et-Loire)",
   "tage": 5,
   "fahrradtyp": "Trekking",
-  "anspruch": "Entspannt",
+  "anspruch": "Moderat",
   "streckenform": "Rundtour",
   "oberflaeche": [
     "Feiner Schotter",
@@ -214,6 +214,11 @@
           "Givry"
         ],
         [
+          46.76155,
+          4.72432,
+          "Saint-Désert"
+        ],
+        [
           46.72415,
           4.67502,
           "Buxy"
@@ -222,6 +227,21 @@
           46.6297,
           4.6836,
           "Saint-Gengoux-le-National"
+        ],
+        [
+          46.60688,
+          4.6798,
+          "Sercy"
+        ],
+        [
+          46.54477,
+          4.72638,
+          "Chapaize"
+        ],
+        [
+          46.46689,
+          4.72112,
+          "Blanot"
         ],
         [
           46.4342,
@@ -277,6 +297,11 @@
           46.3069,
           4.8286,
           "Mâcon"
+        ],
+        [
+          46.46874,
+          4.88799,
+          "Montbellet"
         ],
         [
           46.5686,
@@ -337,6 +362,11 @@
           46.89459,
           5.02428,
           "Verdun-sur-le-Doubs"
+        ],
+        [
+          46.93289,
+          5.10544,
+          "Charnay-lès-Chalon"
         ],
         [
           47.1042,
@@ -444,6 +474,11 @@
           46.78024,
           4.85996,
           15
+        ],
+        [
+          46.9438,
+          5.118,
+          15
         ]
       ]
     },
@@ -459,9 +494,29 @@
           "Saint-Jean-de-Losne"
         ],
         [
+          47.17617,
+          5.22779,
+          "Moulin de Tart-l'Abbaye"
+        ],
+        [
+          47.21291,
+          5.19907,
+          "Tart-le-Haut"
+        ],
+        [
           47.22429,
           5.12768,
           "Longecourt-en-Plaine"
+        ],
+        [
+          47.2272,
+          5.06422,
+          "Saulon-la-Rue"
+        ],
+        [
+          47.30292,
+          5.04578,
+          "Université"
         ],
         [
           47.322,
@@ -534,6 +589,116 @@
           47.315247,
           5.028809,
           15
+        ],
+        [
+          47.223746,
+          5.066827,
+          15
+        ],
+        [
+          47.301749,
+          5.048909,
+          15
+        ],
+        [
+          47.302024,
+          5.04905,
+          15
+        ],
+        [
+          47.322358,
+          5.043539,
+          15
+        ],
+        [
+          47.322379,
+          5.043103,
+          15
+        ],
+        [
+          47.32242,
+          5.04266,
+          15
+        ],
+        [
+          47.322145,
+          5.042471,
+          15
+        ],
+        [
+          47.179874,
+          5.240902,
+          15
+        ],
+        [
+          47.320776,
+          5.042629,
+          15
+        ],
+        [
+          47.320974,
+          5.04226,
+          15
+        ],
+        [
+          47.321185,
+          5.041869,
+          15
+        ],
+        [
+          47.177207,
+          5.24215,
+          15
+        ],
+        [
+          47.319251,
+          5.043256,
+          15
+        ],
+        [
+          47.319718,
+          5.040998,
+          15
+        ],
+        [
+          47.175185,
+          5.232928,
+          15
+        ],
+        [
+          47.176619,
+          5.234247,
+          15
+        ],
+        [
+          47.318926,
+          5.040581,
+          15
+        ],
+        [
+          47.319003,
+          5.040173,
+          15
+        ],
+        [
+          47.167734,
+          5.22517,
+          15
+        ],
+        [
+          47.309196,
+          5.046069,
+          15
+        ],
+        [
+          47.318804,
+          5.040274,
+          15
+        ],
+        [
+          47.307599,
+          5.042399,
+          15
         ]
       ]
     }
@@ -549,6 +714,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km)."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Saint-Désert, Sercy, Chapaize, Blanot, Montbellet, Charnay-lès-Chalon, Moulin de Tart-l'Abbaye, Tart-le-Haut, Saulon-la-Rue, Université. Durch die Abstecher in die Weinberge ist die Tour wieder „Moderat“ (gut 7 Hm pro km)."
     }
   ]
 }

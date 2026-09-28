@@ -54,6 +54,10 @@ Wegpunkte an der Spitze von Sackgassen werden an den Abzweig gelegt, Hofeinfahrt
 Campingplätze usw. kommen als Sperre in die Etappe (`"sperren": [[lat, lon, radius_m]]` – die Website rechnet mit
 denselben Sperren). Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit: Wegpunkte neu planen.
 
+**Abwechslung:** `python3 tools/abwechslung-planen.py <tour-id>` probiert neben eintönigen Abschnitten Abstecher
+(1–3,5 km seitlich) und übernimmt den besten – höchstens 15 % bzw. 8 km länger, ohne zusätzliche Hauptstraße und
+ohne neue Sackgassen. Danach `routen-reparieren.py` und `routen-check.py`.
+
 **Begründete Ausnahmen:** Ist ein Befund gewollt (z. B. Stichstrecke zum Gipfel, weil es keinen Rundweg gibt), in der
 Etappe eintragen: `"ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]`. Stichstrecken im
 Umkreis von 300 m zählen dann nicht (für eine andere Befundart `"art": "…"` ergänzen). Die Begründung gehört auch in den Etappentext.

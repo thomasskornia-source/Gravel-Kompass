@@ -45,9 +45,19 @@
           "Neustrelitz"
         ],
         [
+          53.41777,
+          13.02889,
+          "Klein Vielen"
+        ],
+        [
           53.429,
           12.94,
           "Kratzeburg"
+        ],
+        [
+          53.49612,
+          12.85782,
+          "Klein Dratow"
         ],
         [
           53.517,
@@ -255,6 +265,11 @@
           "Teterow"
         ],
         [
+          53.75052,
+          12.38799,
+          "Lalendorf"
+        ],
+        [
           53.817,
           12.2953,
           "Glasewitz"
@@ -360,6 +375,11 @@
           53.780609,
           12.203774,
           15
+        ],
+        [
+          53.746,
+          12.409,
+          15
         ]
       ]
     },
@@ -375,9 +395,19 @@
           "Krakow am See"
         ],
         [
-          53.5392,
-          12.2627,
+          53.61672,
+          12.19726,
+          "Dobbertin"
+        ],
+        [
+          53.5383,
+          12.26203,
           "Karow"
+        ],
+        [
+          53.50071,
+          12.21321,
+          "Plauerhagen"
         ],
         [
           53.45758,
@@ -398,6 +428,11 @@
           53.46854,
           12.43058,
           "Malchow"
+        ],
+        [
+          53.41241,
+          12.52799,
+          "Groß Kelle"
         ],
         [
           53.375,
@@ -495,6 +530,11 @@
           53.426034,
           12.338112,
           15
+        ],
+        [
+          53.621835,
+          12.22308,
+          15
         ]
       ]
     },
@@ -515,9 +555,19 @@
           "Mirow"
         ],
         [
+          53.2781,
+          12.89131,
+          "Roggentin"
+        ],
+        [
           53.28032,
           12.97155,
           "Wesenberg"
+        ],
+        [
+          53.2919,
+          13.0511,
+          "Neustrelitz"
         ],
         [
           53.362,
@@ -675,6 +725,56 @@
           53.254285,
           12.787965,
           15
+        ],
+        [
+          53.234639,
+          12.784843,
+          15
+        ],
+        [
+          53.25128,
+          12.802579,
+          15
+        ],
+        [
+          53.261139,
+          12.809749,
+          15
+        ],
+        [
+          53.260867,
+          12.812409,
+          15
+        ],
+        [
+          53.26109,
+          12.812945,
+          15
+        ],
+        [
+          53.29853,
+          13.041009,
+          15
+        ],
+        [
+          53.300511,
+          13.079166,
+          15
+        ],
+        [
+          53.310182,
+          13.084066,
+          15
+        ],
+        [
+          53.29253,
+          13.027546,
+          15
+        ],
+        [
+          53.292931,
+          13.028873,
+          15
         ]
       ]
     }
@@ -690,6 +790,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km)."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Klein Vielen, Klein Dratow, Lalendorf, Dobbertin, Plauerhagen, Groß Kelle, Roggentin."
     }
   ]
 }

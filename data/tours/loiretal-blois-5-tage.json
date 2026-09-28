@@ -64,9 +64,19 @@
           "Cheverny"
         ],
         [
+          47.48503,
+          1.39139,
+          "Cormeray"
+        ],
+        [
           47.47914,
           1.17817,
           "Chaumont-sur-Loire"
+        ],
+        [
+          47.42005,
+          1.07799,
+          "Souvigny-de-Touraine"
         ],
         [
           47.4132,
@@ -283,6 +293,41 @@
         [
           47.410451,
           0.983328,
+          15
+        ],
+        [
+          47.490846,
+          1.399325,
+          15
+        ],
+        [
+          47.494543,
+          1.295297,
+          15
+        ],
+        [
+          47.494953,
+          1.293531,
+          15
+        ],
+        [
+          47.411905,
+          0.983012,
+          15
+        ],
+        [
+          47.503644,
+          1.333941,
+          15
+        ],
+        [
+          47.411359,
+          0.981672,
+          15
+        ],
+        [
+          47.494171,
+          1.29583,
           15
         ]
       ]
@@ -529,6 +574,16 @@
           "Chinon"
         ],
         [
+          47.14989,
+          0.20173,
+          "La Roche-Clermault"
+        ],
+        [
+          47.13412,
+          0.16663,
+          "Seuilly"
+        ],
+        [
           47.18185,
           0.04983,
           "Fontevraud-l'Abbaye"
@@ -624,6 +679,16 @@
           "Saumur"
         ],
         [
+          47.2648,
+          0.07948,
+          "Chouzé-sur-Loire"
+        ],
+        [
+          47.27054,
+          0.11873,
+          "Saint-Nicolas-de-Bourgueil"
+        ],
+        [
           47.26115,
           0.16472,
           "Bourgueil"
@@ -699,6 +764,21 @@
           "Tours"
         ],
         [
+          47.38989,
+          0.73801,
+          "Saint-Pierre-des-Corps"
+        ],
+        [
+          47.32146,
+          0.97596,
+          "Bléré"
+        ],
+        [
+          47.33661,
+          1.01582,
+          "Civray-de-Touraine"
+        ],
+        [
           47.3242,
           1.0703,
           "Chenonceaux"
@@ -707,6 +787,11 @@
           47.34223,
           1.18678,
           "Montrichard"
+        ],
+        [
+          47.39428,
+          1.26421,
+          "Pontlevoy"
         ],
         [
           47.5861,
@@ -889,6 +974,51 @@
           47.580221,
           1.325944,
           15
+        ],
+        [
+          47.397096,
+          0.702384,
+          15
+        ],
+        [
+          47.397185,
+          0.703501,
+          15
+        ],
+        [
+          47.396643,
+          0.708781,
+          15
+        ],
+        [
+          47.39591,
+          0.70886,
+          15
+        ],
+        [
+          47.390568,
+          0.769793,
+          15
+        ],
+        [
+          47.383837,
+          0.784143,
+          15
+        ],
+        [
+          47.330044,
+          0.991785,
+          15
+        ],
+        [
+          47.389992,
+          1.253287,
+          15
+        ],
+        [
+          47.389847,
+          1.254763,
+          15
         ]
       ]
     }
@@ -904,6 +1034,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km)."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Cormeray, Souvigny-de-Touraine, La Roche-Clermault, Seuilly, Chouzé-sur-Loire, Saint-Nicolas-de-Bourgueil, Saint-Pierre-des-Corps, Bléré, Civray-de-Touraine, Pontlevoy."
     }
   ]
 }
