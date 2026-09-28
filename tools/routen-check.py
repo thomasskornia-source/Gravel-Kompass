@@ -10,6 +10,7 @@ Berechnet jede Etappe wie die Website über BRouter und meldet:
   - Eintönige Abschnitte, die länger als 20 Minuten dauern: immer am selben Gewässer entlang, immer dieselbe Wegart
     oder flach ohne Abbiegen geradeaus (Anstiege und Abfahrten gelten als Abwechslung)
   - Campingplätze, Hofflächen und Bauernhöfe auf der Strecke (aus der OpenStreetMap-Karte)
+  - Gravel: grober, loser Schotter nur, wenn die Tour „Grober Schotter“ in `oberflaeche` anbietet
   - Gravel und Trekking: kein Sand, keine Trails (Gravel-Trails nur, wenn die Tour sie ausdrücklich anbietet);
     Trekking: keine groben Wege und keine Steigungen über 10 % (Schnitt über 200 m)
   - Rennrad: jeder unbefestigte Meter
@@ -44,6 +45,7 @@ WEGART = {"track": "Feld-/Waldweg", "path": "Weg", "cycleway": "Radweg", "unclas
 LUECKE_M = 400           # kürzere Unterbrechungen beenden einen eintönigen Abschnitt nicht
 TRAIL = re.compile(r"mtb:scale=[1-6]|sac_scale=(?!hiking)|smoothness=(very_bad|horrible|very_horrible|impassable)")
 NATURPFAD = re.compile(r"surface=(ground|dirt|earth|grass|rock|roots|mud)\b")
+GROBER_SCHOTTER = re.compile(r"surface=(gravel|pebblestone|unpaved|rock)\b.*(tracktype=grade[3-5]|smoothness=(bad|very_bad|horrible))|tracktype=grade[45]")
 GROB_TREKKING = re.compile(r"tracktype=grade5|surface=(rock|mud|grass|pebblestone)\b")
 MAX_STEIGUNG_TREKKING = 10   # %, auf mindestens 100 m
 AUSNAHME_M = 300             # Befunde so nah an einer begründeten Ausnahme zählen nicht
@@ -262,6 +264,7 @@ def pruefe_etappe(t, n, e, mit_karte):
     rennrad = radart(t) == "road"
     haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
     art_rad = radart(t)
+    grober_schotter_ok = "grober schotter" in json.dumps(t.get("oberflaeche", ""), ensure_ascii=False).lower()
     reparatur = {"sperren": [], "stubs": [], "flaechen": [], "strasse": [], "strasse_m": 0}
     befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
@@ -324,6 +327,8 @@ def pruefe_etappe(t, n, e, mit_karte):
                 melde("Trail", d, p)
             elif art_rad == "trekking" and GROB_TREKKING.search(tags):
                 melde("Grober Weg (Trekking)", d, p)
+            elif art_rad == "gravel" and not grober_schotter_ok and GROBER_SCHOTTER.search(tags):
+                melde("Grober Schotter", d, p)
     befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z, _ in stellen]
     reparatur["sperren"] = [(art, mm) for art, _, _, _, _, mitten in stellen for mm in mitten]
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
@@ -353,7 +358,7 @@ def ausnahme(befund, ausnahmen):
         return None
     p = (float(m.group(1)), float(m.group(2)))
     for a in ausnahmen:   # gilt für Stichstrecken, außer "art" nennt eine andere Befundart
-        if a.get("art", "Stichstrecke") in befund and dist(p, (a["lat"], a["lon"])) < AUSNAHME_M:
+        if a.get("art", "Stichstrecke") in befund and dist(p, (a["lat"], a["lon"])) < a.get("radius_m", AUSNAHME_M):
             return a.get("grund", "begründet")
     return None
 

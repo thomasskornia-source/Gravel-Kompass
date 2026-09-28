@@ -78,6 +78,8 @@ def kandidaten(t, e, original):
     km, hm, anteil, befunde, rep = rc.pruefe_etappe(t, 0, e, True)
     wps, sperren, out = e["wegpunkte"], e.get("sperren", []), []
     for a, b in rep["stubs"]:
+        if rc.ausnahme(f"Stichstrecke bei {a[0]:.4f},{a[1]:.4f}", e.get("ausnahmen", [])):
+            continue   # begründete Sackgasse (lohnendes Ziel) bleibt
         i = naechster(a, wps)
         if 0 < i < len(wps) - 1 and rc.dist(a, wps[i][:2]) < 400:
             out.append(("wp", i, (round(b[0], 5), round(b[1], 5)), "sackgasse"))
