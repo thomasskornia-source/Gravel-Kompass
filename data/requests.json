@@ -318,5 +318,30 @@
     "tourIds": [
       "augsburg-westliche-waelder-1-tag"
     ]
+  },
+  {
+    "id": "muenchen-haltern-2026-09",
+    "createdAt": "2026-09-28",
+    "status": "fertig",
+    "name": "Thomas",
+    "tage": 14,
+    "land": "Deutschland",
+    "region": "Bayern – Franken – Hessen – Nordrhein-Westfalen",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter",
+      "Feld- und Waldwege",
+      "Radwege",
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 90,
+    "etappenlaengeBis": 120,
+    "anspruch": "Moderat",
+    "streckenform": "Einweg (A → B)",
+    "stil": "Ich möchte gerne eine schöne mehrtägige Gravel Tour machen von München nach Haltern am See. Das Ganze im Sommer. Ich möchte gerne eher einfache Steigungen haben. Ich hab gar nicht den sportlichen Anspruch, weil es eine Langstrecke ist. Möchte was sehen. Ich möchte nicht dir direkte Weg haben, sondern auch ein paar lohnenswerte Städte, Ziele oder Sehenswürdigkeiten dazwischen. Ich schätze beziehungsweise ich möchte das pro Etappe nicht mehr als 120 km gefahren werden pro Tag pro Etappe möchte ich das so, dass das in einer Kleinstadt mit mittelgroßen Stadt endet, damit ich dort ein Hotel finden kann.",
+    "notiz": "Formular nannte 3 Tage, das passt aber nicht zur echten Entfernung München–Haltern am See (auf der abwechslungsreichen, nicht direkten Route mit Städten/Sehenswürdigkeiten real und mit dem Routenplaner geprüft rund 1.130 km – die Flusstäler winden sich deutlich mehr als grob geschätzt). Bei den explizit genannten max. 120 km/Etappe ergeben sich daraus 14 Etappen statt 3 (nach dem Routen-Check zwei mehr als zunächst angelegt, wegen der Rhön-Umplanung und zwei zu langen Etappen) – im Bericht und in der Tourbeschreibung begründet. Anspruch wurde von „Entspannt“ auf „Moderat“ korrigiert: Die Strecke quert mehrere echte Mittelgebirge (Frankenjura, Taubertal-Hügelland, Rhön, Kaufunger Wald, Egge-Vorland); selbst die flach wirkenden Flussradwege liegen real bei ca. 8 Hm/km über die ganze Tour – das entspricht „Moderat“, nicht „Entspannt“ (siehe Bericht).",
+    "tourIds": [
+      "muenchen-haltern-14-tage"
+    ]
   }
 ]

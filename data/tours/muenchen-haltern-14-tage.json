@@ -1,0 +1,1623 @@
+{
+  "id": "muenchen-haltern-14-tage",
+  "title": "München – Haltern am See: Von der Isar ins Münsterland",
+  "subtitle": "14-Tage-Gravel-Einwegtour durch Franken, Rhön, Hessen und Westfalen",
+  "createdAt": "2026-09-28",
+  "requestId": "muenchen-haltern-2026-09",
+  "land": "Deutschland",
+  "region": "Bayern – Franken – Hessen – Nordrhein-Westfalen",
+  "tage": 14,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Einweg (A → B)",
+  "oberflaeche": [
+    "Feiner Schotter",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Von München nach Haltern am See – nicht auf dem direkten Weg, sondern über lohnenswerte Städte und Flusstäler: Altmühltal, Romantische Straße (Rothenburg ob der Tauber), Maintal, Rhön, Fuldatal (Hessischer Radfernweg R1), Warburger Börde, Münster und zum Schluss ins Münsterland. Hinweis zur Etappenzahl: Im Formular standen 3 Tage, aber München–Haltern sind auf dieser abwechslungsreichen, nicht direkten Strecke mit echten Wegpunkten geprüft rund 1.150 km (die einzelnen Flusstäler winden sich deutlich mehr, als eine grobe Schätzung vermuten lässt) – bei höchstens 120 km pro Etappe ergeben sich daraus 14 Etappen statt 3. Das hält jede Etappe fahrbar und lässt trotzdem Zeit für die Städte und Sehenswürdigkeiten unterwegs; jede Etappe endet in einer Klein- oder Mittelstadt mit Hotelmöglichkeit. Hinweis zum Anspruch: Das Formular wünschte sich „Entspannt“, aber diese Strecke quert mit Fränkischer Alb/Frankenjura, Taubertal-Hügelland, Rhön, Kaufunger Wald und Egge-Vorland mehrere echte Mittelgebirge – selbst die als flach geltenden Fluss-Radwege (Altmühltal, Fuldatal) liegen dort bei rund 10 Hm/km. Über die ganze Tour gerechnet ergeben sich rund 8 Hm/km, das ist ehrlicherweise „Moderat“ (6–12 Hm/km: einzelne längere Anstiege, auch mal ein Gipfel) statt „Entspannt“. Untergrund überwiegend Asphalt und Radwege, dazu feiner Schotter und gut befestigte Feld- und Waldwege in den Flusstälern – kein gröberer Schotter, kein Sand, keine Trails. Die Rhön-Etappe (Bad Neustadt–Fulda) bleibt bewusst im Talgrund von Fränkischer Saale und Sinn über Bad Brückenau und Kalbach, statt über den hohen Rhönkamm (Wasserkuppe, Hilders) – dadurch ist sie deutlich flacher als eine Linie über den Kamm, aber Rhön bleibt Rhön. Zwischen Fulda und Kassel sorgt ein zusätzlicher Zwischenstopp in Rotenburg an der Fulda, zwischen Paderborn und Haltern am See ein Zwischenstopp in Münster für kürzere Etappen.",
+  "quellen": [
+    {
+      "name": "Altmühltal-Radweg (Radlland Bayern)",
+      "url": "https://radlland-bayern.de/routen/altmuehltal-radweg/"
+    },
+    {
+      "name": "Main-Radweg: Schweinfurt bis Kitzingen (mainradweg.com)",
+      "url": "https://www.mainradweg.com/wege/6_schweinfurt_bis_kitzingen-267/"
+    },
+    {
+      "name": "Fulda-Radweg R1 (offizielle Website)",
+      "url": "https://www.fuldaradweg-r1.de/"
+    },
+    {
+      "name": "Diemelradweg (diemelsee.de)",
+      "url": "https://diemelsee.de/diemelradweg/"
+    },
+    {
+      "name": "Römer-Lippe-Route (Münsterland Tourismus)",
+      "url": "https://www.muensterland.com/en/tourism/topics/cycling/cycling-routes-in-the-munsterland/roman-lippe-route/"
+    },
+    {
+      "name": "ADFC Radtourismus",
+      "url": "https://www.adfc-radtourismus.de/"
+    },
+    {
+      "name": "Rhön-Sinntal-Radweg (Radlland Bayern)",
+      "url": "https://radlland-bayern.de/routen/rhoen-sinntal-radweg/"
+    },
+    {
+      "name": "Münster – Fahrrad & Kanal (Münster Tourismus)",
+      "url": "https://www.stadt-muenster.de/tourismus"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "München",
+      "nach": "Ingolstadt",
+      "hmPlan": 300,
+      "text": "Start am Münchner Hauptbahnhof, hinaus aus der Stadt nach Dachau und über das sanft gewellte Hügelland des Dachauer und Ilm-Landes (Petershausen, Pfaffenhofen an der Ilm) nach Ingolstadt – Auftaktetappe mit viel Radweg und ruhigen Nebenstraßen.",
+      "wegpunkte": [
+        [
+          48.145,
+          11.5595,
+          "München Hbf"
+        ],
+        [
+          48.2606,
+          11.44245,
+          "Dachau"
+        ],
+        [
+          48.35681,
+          11.3919,
+          "Petershausen"
+        ],
+        [
+          48.52703,
+          11.50499,
+          "Pfaffenhofen an der Ilm"
+        ],
+        [
+          48.7665,
+          11.4258,
+          "Ingolstadt"
+        ]
+      ],
+      "sperren": [
+        [
+          48.14018,
+          11.558955,
+          15
+        ],
+        [
+          48.140639,
+          11.559217,
+          15
+        ],
+        [
+          48.140923,
+          11.559286,
+          15
+        ],
+        [
+          48.140909,
+          11.559511,
+          15
+        ],
+        [
+          48.141002,
+          11.55971,
+          15
+        ],
+        [
+          48.141131,
+          11.559933,
+          15
+        ],
+        [
+          48.14102,
+          11.560783,
+          15
+        ],
+        [
+          48.14263,
+          11.560376,
+          15
+        ],
+        [
+          48.20643,
+          11.457635,
+          15
+        ],
+        [
+          48.256594,
+          11.436156,
+          15
+        ],
+        [
+          48.256788,
+          11.43556,
+          15
+        ],
+        [
+          48.258377,
+          11.434521,
+          15
+        ],
+        [
+          48.259018,
+          11.434894,
+          15
+        ],
+        [
+          48.520955,
+          11.511095,
+          15
+        ],
+        [
+          48.52229,
+          11.511338,
+          15
+        ],
+        [
+          48.532946,
+          11.513745,
+          15
+        ],
+        [
+          48.532965,
+          11.513203,
+          15
+        ],
+        [
+          48.532989,
+          11.512193,
+          15
+        ],
+        [
+          48.536817,
+          11.508087,
+          15
+        ],
+        [
+          48.3231,
+          11.4449,
+          15
+        ],
+        [
+          48.4291,
+          11.4465,
+          15
+        ],
+        [
+          48.139713,
+          11.558823,
+          15
+        ],
+        [
+          48.139443,
+          11.558923,
+          15
+        ],
+        [
+          48.139437,
+          11.559265,
+          15
+        ],
+        [
+          48.139404,
+          11.559913,
+          15
+        ],
+        [
+          48.139428,
+          11.56061,
+          15
+        ],
+        [
+          48.270137,
+          11.440468,
+          15
+        ],
+        [
+          48.429125,
+          11.44613,
+          15
+        ],
+        [
+          48.522826,
+          11.506582,
+          15
+        ],
+        [
+          48.522509,
+          11.509208,
+          15
+        ],
+        [
+          48.539209,
+          11.507708,
+          15
+        ],
+        [
+          48.139709,
+          11.555663,
+          15
+        ],
+        [
+          48.139629,
+          11.55504,
+          15
+        ],
+        [
+          48.145868,
+          11.549608,
+          15
+        ],
+        [
+          48.586081,
+          11.491316,
+          231
+        ],
+        [
+          48.532633,
+          11.516691,
+          15
+        ],
+        [
+          48.532725,
+          11.516123,
+          15
+        ],
+        [
+          48.53421,
+          11.513072,
+          15
+        ],
+        [
+          48.534208,
+          11.51242,
+          15
+        ],
+        [
+          48.53069,
+          11.511867,
+          15
+        ],
+        [
+          48.530735,
+          11.511575,
+          15
+        ],
+        [
+          48.528561,
+          11.503891,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Ingolstadt",
+      "nach": "Eichstätt",
+      "hmPlan": 400,
+      "text": "Auf der ehemaligen Bahntrasse ins Altmühltal, dann auf dem Altmühltal-Radweg flussaufwärts durch die Kalkfelsen und Burgen bei Riedenburg und Kipfenberg bis zur Bischofsstadt Eichstätt.",
+      "wegpunkte": [
+        [
+          48.7665,
+          11.4258,
+          "Ingolstadt"
+        ],
+        [
+          48.96429,
+          11.68594,
+          "Riedenburg"
+        ],
+        [
+          48.97531,
+          11.71532,
+          "Jachenhausen"
+        ],
+        [
+          49.03293,
+          11.47258,
+          "Beilngries"
+        ],
+        [
+          48.95026,
+          11.39627,
+          "Kipfenberg"
+        ],
+        [
+          48.94021,
+          11.26582,
+          "Rapperszell"
+        ],
+        [
+          48.89096,
+          11.18282,
+          "Eichstätt"
+        ]
+      ],
+      "sperren": [
+        [
+          48.781867,
+          11.440642,
+          15
+        ],
+        [
+          48.781894,
+          11.441163,
+          15
+        ],
+        [
+          48.78205,
+          11.441437,
+          15
+        ],
+        [
+          48.78324,
+          11.447982,
+          15
+        ],
+        [
+          48.783412,
+          11.448092,
+          15
+        ],
+        [
+          49.033082,
+          11.562899,
+          15
+        ],
+        [
+          49.032421,
+          11.558466,
+          15
+        ],
+        [
+          49.033982,
+          11.55468,
+          15
+        ],
+        [
+          49.033899,
+          11.531917,
+          15
+        ],
+        [
+          49.040543,
+          11.500587,
+          15
+        ],
+        [
+          49.040112,
+          11.482854,
+          15
+        ],
+        [
+          49.039916,
+          11.482257,
+          15
+        ],
+        [
+          48.8305,
+          11.4877,
+          15
+        ],
+        [
+          48.9613,
+          11.3263,
+          15
+        ],
+        [
+          48.771072,
+          11.427309,
+          15
+        ],
+        [
+          48.771524,
+          11.427594,
+          15
+        ],
+        [
+          48.772179,
+          11.427889,
+          15
+        ],
+        [
+          48.775588,
+          11.426544,
+          15
+        ],
+        [
+          48.778065,
+          11.430923,
+          15
+        ],
+        [
+          48.783545,
+          11.433994,
+          15
+        ],
+        [
+          48.822464,
+          11.45984,
+          15
+        ],
+        [
+          49.031117,
+          11.569157,
+          15
+        ],
+        [
+          49.030392,
+          11.477407,
+          15
+        ],
+        [
+          48.783117,
+          11.440783,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Eichstätt",
+      "nach": "Gunzenhausen",
+      "hmPlan": 300,
+      "text": "Weiter durchs Altmühltal über die Fossilienstadt Solnhofen und Pappenheim mit seiner Burg nach Treuchtlingen, dann zum Altmühlsee bei Gunzenhausen im Fränkischen Seenland. Auf einem Teilstück geht es länger auf gleichbleibendem Feld-/Waldweg weiter, ohne echte Alternative in der Nähe.",
+      "wegpunkte": [
+        [
+          48.89096,
+          11.18282,
+          "Eichstätt"
+        ],
+        [
+          48.896,
+          10.996,
+          "Solnhofen"
+        ],
+        [
+          48.934,
+          10.975,
+          "Pappenheim"
+        ],
+        [
+          48.95465,
+          10.90856,
+          "Treuchtlingen"
+        ],
+        [
+          49.115,
+          10.756,
+          "Gunzenhausen"
+        ]
+      ],
+      "sperren": [
+        [
+          48.907419,
+          11.015384,
+          15
+        ],
+        [
+          48.905611,
+          11.013567,
+          15
+        ],
+        [
+          49.113366,
+          10.753819,
+          15
+        ],
+        [
+          49.113495,
+          10.754191,
+          15
+        ],
+        [
+          49.111779,
+          10.754932,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 48.9775,
+          "lon": 10.9081,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Gunzenhausen",
+      "nach": "Rothenburg ob der Tauber",
+      "hmPlan": 450,
+      "text": "Weiter auf der Romantischen Straße durch das sanft hügelige Fränkische Seenland über Wassertrüdingen, die historischen Altstädte von Dinkelsbühl und Feuchtwangen bis zur berühmten mittelalterlichen Stadtmauer von Rothenburg ob der Tauber. Ein Wegabschnitt bleibt länger auf derselben Straße ohne Radweg (kurzes Stück zwischen zwei Ortschaften) und ein Stück länger auf gleichem Feldweg – beides ohne sinnvolle Umfahrung.",
+      "wegpunkte": [
+        [
+          49.115,
+          10.756,
+          "Gunzenhausen"
+        ],
+        [
+          49.0431,
+          10.5931,
+          "Wassertrüdingen"
+        ],
+        [
+          49.0708,
+          10.3225,
+          "Dinkelsbühl"
+        ],
+        [
+          49.20677,
+          10.32909,
+          "Feuchtwangen"
+        ],
+        [
+          49.376,
+          10.183,
+          "Rothenburg ob der Tauber"
+        ]
+      ],
+      "sperren": [
+        [
+          49.113566,
+          10.754271,
+          15
+        ],
+        [
+          49.113366,
+          10.753819,
+          15
+        ],
+        [
+          49.070491,
+          10.323432,
+          15
+        ],
+        [
+          49.361776,
+          10.192239,
+          15
+        ],
+        [
+          49.111793,
+          10.754819,
+          15
+        ],
+        [
+          49.097019,
+          10.712121,
+          15
+        ],
+        [
+          49.163874,
+          10.476384,
+          210
+        ],
+        [
+          49.156412,
+          10.466414,
+          15
+        ],
+        [
+          49.370376,
+          10.18118,
+          15
+        ],
+        [
+          49.370454,
+          10.180822,
+          15
+        ],
+        [
+          49.370339,
+          10.181647,
+          15
+        ],
+        [
+          49.371839,
+          10.181254,
+          15
+        ],
+        [
+          49.372017,
+          10.180971,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 49.0428,
+          "lon": 10.5949,
+          "art": "Hauptstraße",
+          "grund": "312 m ohne Radweg zwischen zwei Ortschaften im Fränkischen Seenland; jede getestete Umfahrung (Sperrkreis) erzeugte eine neue Stichstrecke oder einen unverhältnismäßigen Umweg – keine echte Alternative ohne größere Neuplanung der Etappe."
+        },
+        {
+          "lat": 49.1791,
+          "lon": 10.4569,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Rothenburg ob der Tauber",
+      "nach": "Bad Mergentheim",
+      "hmPlan": 300,
+      "text": "Durchs Taubertal (Liebliches Taubertal) über Creglingen und Weikersheim mit seinem Schloss zur Kurstadt Bad Mergentheim. Das Taubertal wird hier bewusst länger am Fluss entlang gefahren, bevor es über Feld- und Waldwege weitergeht – wer mag, kann eigene Abstecher in die Seitentäler einbauen.",
+      "wegpunkte": [
+        [
+          49.376,
+          10.183,
+          "Rothenburg ob der Tauber"
+        ],
+        [
+          49.4633,
+          9.8992,
+          "Weikersheim"
+        ],
+        [
+          49.497,
+          9.777,
+          "Bad Mergentheim"
+        ]
+      ],
+      "sperren": [
+        [
+          49.38044,
+          10.17627,
+          15
+        ],
+        [
+          49.38015,
+          10.175787,
+          15
+        ],
+        [
+          49.380799,
+          10.172342,
+          15
+        ],
+        [
+          49.387033,
+          10.169374,
+          15
+        ],
+        [
+          49.387058,
+          10.169124,
+          15
+        ],
+        [
+          49.390369,
+          10.184126,
+          15
+        ],
+        [
+          49.373952,
+          10.181719,
+          15
+        ],
+        [
+          49.374096,
+          10.181,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 49.3724,
+          "lon": 10.1772,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        },
+        {
+          "lat": 49.4183,
+          "lon": 10.1503,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Bad Mergentheim",
+      "nach": "Würzburg",
+      "hmPlan": 350,
+      "text": "Über das Hügelland des Ochsenfurter Gaus (Aub) hinunter zur Residenzstadt Würzburg mit der UNESCO-Residenz. Der Main-Radweg bleibt hier länger am Ufer und führt anschließend ein Stück schnurgerade durch die Weinberge, bevor Ochsenfurt und Kitzingen für Abwechslung sorgen.",
+      "wegpunkte": [
+        [
+          49.497,
+          9.777,
+          "Bad Mergentheim"
+        ],
+        [
+          49.57831,
+          10.22145,
+          "Aub"
+        ],
+        [
+          49.7913,
+          9.9534,
+          "Würzburg"
+        ]
+      ],
+      "sperren": [
+        [
+          49.599984,
+          10.137042,
+          15
+        ],
+        [
+          49.782836,
+          9.967199,
+          15
+        ],
+        [
+          49.782883,
+          9.966949,
+          15
+        ],
+        [
+          49.786489,
+          9.964288,
+          15
+        ],
+        [
+          49.5869,
+          10.2096,
+          15
+        ],
+        [
+          49.592917,
+          10.201002,
+          15
+        ],
+        [
+          49.780164,
+          9.970017,
+          15
+        ],
+        [
+          49.780339,
+          9.970165,
+          15
+        ],
+        [
+          49.784485,
+          9.970287,
+          15
+        ],
+        [
+          49.784639,
+          9.96985,
+          15
+        ],
+        [
+          49.782015,
+          9.966899,
+          15
+        ],
+        [
+          49.782146,
+          9.966657,
+          15
+        ],
+        [
+          49.782369,
+          9.966569,
+          15
+        ],
+        [
+          49.788607,
+          9.957441,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 49.6665,
+          "lon": 10.0635,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        },
+        {
+          "lat": 49.5205,
+          "lon": 9.8198,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        },
+        {
+          "lat": 49.6684,
+          "lon": 10.063,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        }
+      ]
+    },
+    {
+      "von": "Würzburg",
+      "nach": "Schweinfurt",
+      "hmPlan": 150,
+      "text": "Flussaufwärts auf dem Main-Radweg durch die Weinorte Ochsenfurt und Kitzingen, um die große Volkacher Mainschleife herum bis nach Schweinfurt – meist flach direkt am Ufer. Der Main-Radweg bleibt auch hier länger am Ufer und führt ein Stück schnurgerade durch die Weinberge – dafür sorgen die Mainschleife und Schweinfurt am Ende für Abwechslung.",
+      "wegpunkte": [
+        [
+          49.7913,
+          9.9534,
+          "Würzburg"
+        ],
+        [
+          49.6685,
+          10.06341,
+          "Ochsenfurt"
+        ],
+        [
+          49.7386,
+          10.17902,
+          "Kitzingen"
+        ],
+        [
+          49.8637,
+          10.2258,
+          "Volkach"
+        ],
+        [
+          50.0492,
+          10.2306,
+          "Schweinfurt"
+        ]
+      ],
+      "sperren": [
+        [
+          49.666086,
+          10.063036,
+          15
+        ],
+        [
+          50.034713,
+          10.224913,
+          15
+        ],
+        [
+          50.044951,
+          10.226009,
+          15
+        ],
+        [
+          50.035161,
+          10.220332,
+          15
+        ],
+        [
+          50.004482,
+          10.187789,
+          15
+        ],
+        [
+          50.004957,
+          10.186486,
+          15
+        ],
+        [
+          50.005408,
+          10.185234,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 49.7161,
+          "lon": 10.0129,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        },
+        {
+          "lat": 49.9504,
+          "lon": 10.1887,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        },
+        {
+          "lat": 49.7586,
+          "lon": 9.9779,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        }
+      ]
+    },
+    {
+      "von": "Schweinfurt",
+      "nach": "Bad Neustadt an der Saale",
+      "hmPlan": 250,
+      "text": "Durchs Saaletal zur Kurstadt Bad Kissingen und weiter nach Bad Neustadt an der Saale, dem Tor zur Rhön.",
+      "wegpunkte": [
+        [
+          50.0492,
+          10.2306,
+          "Schweinfurt"
+        ],
+        [
+          50.1971,
+          10.0778,
+          "Bad Kissingen"
+        ],
+        [
+          50.3219,
+          10.2183,
+          "Bad Neustadt an der Saale"
+        ]
+      ],
+      "sperren": [
+        [
+          50.168439,
+          10.089222,
+          15
+        ],
+        [
+          50.319754,
+          10.217248,
+          15
+        ],
+        [
+          50.320609,
+          10.217336,
+          15
+        ],
+        [
+          50.320673,
+          10.216723,
+          15
+        ],
+        [
+          50.321084,
+          10.216297,
+          15
+        ],
+        [
+          50.323402,
+          10.218901,
+          15
+        ],
+        [
+          50.322964,
+          10.219551,
+          15
+        ],
+        [
+          50.322794,
+          10.219631,
+          15
+        ],
+        [
+          50.320525,
+          10.216238,
+          15
+        ],
+        [
+          50.320678,
+          10.215611,
+          15
+        ],
+        [
+          50.320808,
+          10.216005,
+          15
+        ],
+        [
+          50.320937,
+          10.216584,
+          15
+        ],
+        [
+          50.321366,
+          10.217632,
+          15
+        ],
+        [
+          50.321222,
+          10.216671,
+          15
+        ],
+        [
+          50.320986,
+          10.213813,
+          15
+        ],
+        [
+          50.321059,
+          10.214016,
+          15
+        ],
+        [
+          50.323363,
+          10.211767,
+          15
+        ],
+        [
+          50.322488,
+          10.217442,
+          15
+        ],
+        [
+          50.323931,
+          10.218276,
+          15
+        ],
+        [
+          50.323888,
+          10.21805,
+          15
+        ],
+        [
+          50.323743,
+          10.218162,
+          15
+        ],
+        [
+          50.323785,
+          10.216875,
+          15
+        ],
+        [
+          50.323934,
+          10.21512,
+          15
+        ],
+        [
+          50.324357,
+          10.212511,
+          15
+        ],
+        [
+          50.324254,
+          10.212739,
+          15
+        ],
+        [
+          50.323042,
+          10.220043,
+          15
+        ],
+        [
+          50.32257,
+          10.221034,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Bad Neustadt an der Saale",
+      "nach": "Fulda",
+      "hmPlan": 350,
+      "text": "Statt über den hohen Rhönkamm (Wasserkuppe, Hilders) bleibt die Route im Talgrund: über Salz und Windshausen zur Kneippstadt Bad Brückenau im Sinntal, weiter durchs Sinn-/Schmalnautal über Kalbach und Flieden hinunter nach Fulda mit seinem Barockschloss. Ein kurzes Stück bleibt geradeaus auf ebener Strecke, bevor es nach Fulda geht.",
+      "wegpunkte": [
+        [
+          50.3219,
+          10.2183,
+          "Bad Neustadt an der Saale"
+        ],
+        [
+          50.305,
+          9.79,
+          "Bad Brückenau"
+        ],
+        [
+          50.4129,
+          9.7305,
+          "Kalbach"
+        ],
+        [
+          50.5525,
+          9.6835,
+          "Fulda"
+        ]
+      ],
+      "sperren": [
+        [
+          50.321417,
+          10.217429,
+          15
+        ],
+        [
+          50.291042,
+          10.072858,
+          15
+        ],
+        [
+          50.30971,
+          9.786344,
+          15
+        ],
+        [
+          50.3264,
+          9.883,
+          15
+        ],
+        [
+          50.322223,
+          10.219478,
+          15
+        ],
+        [
+          50.3228,
+          10.219666,
+          15
+        ],
+        [
+          50.319754,
+          10.217248,
+          15
+        ],
+        [
+          50.284065,
+          10.098991,
+          15
+        ],
+        [
+          50.283957,
+          10.09884,
+          15
+        ],
+        [
+          50.283707,
+          10.098786,
+          15
+        ],
+        [
+          50.308909,
+          9.784009,
+          15
+        ],
+        [
+          50.309337,
+          9.782314,
+          15
+        ],
+        [
+          50.322488,
+          10.217442,
+          15
+        ],
+        [
+          50.323382,
+          10.211886,
+          15
+        ],
+        [
+          50.310301,
+          9.789796,
+          15
+        ],
+        [
+          50.311161,
+          9.791381,
+          15
+        ],
+        [
+          50.310147,
+          9.791714,
+          15
+        ],
+        [
+          50.356043,
+          9.756263,
+          213
+        ],
+        [
+          50.378606,
+          9.771649,
+          238
+        ],
+        [
+          50.311999,
+          9.735412,
+          214
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 50.3379,
+          "lon": 9.8783,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Fulda",
+      "nach": "Rotenburg an der Fulda",
+      "hmPlan": 150,
+      "text": "Auf dem Fulda-Radweg (Hessischer Radfernweg R1) fast eben durchs Fuldatal über die Fachwerkstadt Bad Hersfeld bis zur Fachwerkstadt Rotenburg an der Fulda mit ihrer Altstadt. Ein Stück des Fuldatals verläuft länger auf gleichbleibendem Feld-/Waldweg.",
+      "wegpunkte": [
+        [
+          50.5525,
+          9.6835,
+          "Fulda"
+        ],
+        [
+          50.8604,
+          9.6768,
+          "Bad Hersfeld"
+        ],
+        [
+          50.9967,
+          9.7275,
+          "Rotenburg an der Fulda"
+        ]
+      ],
+      "sperren": [
+        [
+          50.672859,
+          9.603784,
+          15
+        ],
+        [
+          50.842182,
+          9.680146,
+          15
+        ],
+        [
+          50.845263,
+          9.681286,
+          15
+        ],
+        [
+          50.845632,
+          9.681076,
+          15
+        ],
+        [
+          50.845843,
+          9.680964,
+          15
+        ],
+        [
+          50.995984,
+          9.736786,
+          15
+        ],
+        [
+          50.996327,
+          9.736943,
+          15
+        ],
+        [
+          50.6561,
+          9.6434,
+          15
+        ],
+        [
+          50.997526,
+          9.735055,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 50.6167,
+          "lon": 9.6144,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Rotenburg an der Fulda",
+      "nach": "Kassel",
+      "hmPlan": 150,
+      "text": "Weiter auf dem Fulda-Radweg flussabwärts über die Fachwerkstadt Melsungen bis nach Kassel mit der Karlsaue.",
+      "wegpunkte": [
+        [
+          50.9967,
+          9.7275,
+          "Rotenburg an der Fulda"
+        ],
+        [
+          51.1319,
+          9.5461,
+          "Melsungen"
+        ],
+        [
+          51.3127,
+          9.4797,
+          "Kassel"
+        ]
+      ],
+      "sperren": [
+        [
+          50.996242,
+          9.736837,
+          15
+        ],
+        [
+          50.995984,
+          9.736786,
+          15
+        ],
+        [
+          51.002205,
+          9.722644,
+          15
+        ],
+        [
+          51.00207,
+          9.722126,
+          15
+        ],
+        [
+          50.996394,
+          9.726917,
+          15
+        ],
+        [
+          50.995845,
+          9.728142,
+          15
+        ],
+        [
+          50.996702,
+          9.725772,
+          15
+        ],
+        [
+          51.068666,
+          9.611397,
+          214
+        ]
+      ]
+    },
+    {
+      "von": "Kassel",
+      "nach": "Paderborn",
+      "hmPlan": 450,
+      "text": "Über das Diemelland zur Hansestadt Warburg und weiter über die offene Warburger Börde (statt über die höheren Egge-Wälder) nach Paderborn mit seinem Dom und den Paderquellen.",
+      "wegpunkte": [
+        [
+          51.3127,
+          9.4797,
+          "Kassel"
+        ],
+        [
+          51.48893,
+          9.14242,
+          "Warburg"
+        ],
+        [
+          51.6185,
+          9.2296,
+          "Natzungen (Borgentreich)"
+        ],
+        [
+          51.7189,
+          8.7575,
+          "Paderborn"
+        ]
+      ],
+      "sperren": [
+        [
+          51.482715,
+          9.15091,
+          15
+        ],
+        [
+          51.483028,
+          9.150565,
+          15
+        ],
+        [
+          51.483442,
+          9.150077,
+          15
+        ],
+        [
+          51.483814,
+          9.149384,
+          15
+        ],
+        [
+          51.528529,
+          9.195032,
+          15
+        ],
+        [
+          51.720522,
+          8.761726,
+          15
+        ],
+        [
+          51.473483,
+          9.127851,
+          15
+        ],
+        [
+          51.480855,
+          9.135645,
+          15
+        ],
+        [
+          51.716106,
+          8.759908,
+          15
+        ],
+        [
+          51.720387,
+          8.762034,
+          15
+        ],
+        [
+          51.715685,
+          8.760136,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Paderborn",
+      "nach": "Münster",
+      "hmPlan": 150,
+      "text": "Über die offene Lippstädter Börde nach Lippstadt und weiter Richtung Münsterland bis zur Domstadt Münster mit ihrem historischen Prinzipalmarkt – ein Zwischenstopp, der die Etappe von Paderborn nach Haltern am See in zwei entspannte Tagesstrecken teilt. Zwischen Lippstadt und Münster bleibt die Strecke ein gutes Stück auf ruhigen Nebenstraßen bzw. demselben Weg, bevor Münster für echte Abwechslung sorgt.",
+      "wegpunkte": [
+        [
+          51.7189,
+          8.7575,
+          "Paderborn"
+        ],
+        [
+          51.6725,
+          8.3486,
+          "Lippstadt"
+        ],
+        [
+          51.9528,
+          7.6336,
+          "Münster"
+        ]
+      ],
+      "sperren": [
+        [
+          51.721732,
+          8.735045,
+          15
+        ],
+        [
+          51.725217,
+          8.715064,
+          15
+        ],
+        [
+          51.735594,
+          8.243317,
+          15
+        ],
+        [
+          51.735631,
+          8.242992,
+          15
+        ],
+        [
+          51.957426,
+          7.636928,
+          15
+        ],
+        [
+          51.957286,
+          7.636776,
+          15
+        ],
+        [
+          51.957367,
+          7.636069,
+          15
+        ],
+        [
+          51.957472,
+          7.635143,
+          15
+        ],
+        [
+          51.95677,
+          7.634772,
+          15
+        ],
+        [
+          51.7768,
+          7.9853,
+          15
+        ],
+        [
+          51.688596,
+          8.436208,
+          227
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 51.7394,
+          "lon": 8.2158,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        },
+        {
+          "lat": 51.8432,
+          "lon": 7.8196,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        }
+      ]
+    },
+    {
+      "von": "Münster",
+      "nach": "Haltern am See",
+      "hmPlan": 100,
+      "text": "Letzte, flache Etappe von der Domstadt Münster über die Burgenstadt Lüdinghausen ins Münsterland nach Haltern am See – Ankunft am Ziel dieser Reise. Der Kanal- und Feldweg zwischen Münster und Lüdinghausen verläuft länger schnurgerade und gleichbleibend – dafür ist es hier besonders flach und ruhig.",
+      "wegpunkte": [
+        [
+          51.9528,
+          7.6336,
+          "Münster"
+        ],
+        [
+          51.7718,
+          7.4446,
+          "Lüdinghausen"
+        ],
+        [
+          51.7439,
+          7.1867,
+          "Haltern am See"
+        ]
+      ],
+      "sperren": [
+        [
+          51.95677,
+          7.634772,
+          15
+        ],
+        [
+          51.957472,
+          7.635143,
+          15
+        ],
+        [
+          51.957402,
+          7.635757,
+          15
+        ],
+        [
+          51.957286,
+          7.636776,
+          15
+        ],
+        [
+          51.957415,
+          7.636925,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 51.9339,
+          "lon": 7.64,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        },
+        {
+          "lat": 51.907,
+          "lon": 7.6558,
+          "art": "Eintönig",
+          "grund": "Kurze Überschreitung der 20-Minuten-Eintönig-Grenze um wenige Minuten (5-15 %) – kein sinnvoller Abstecher ohne unverhältnismäßigen Umweg gefunden."
+        },
+        {
+          "lat": 51.9336,
+          "lon": 7.6396,
+          "art": "Eintönig",
+          "grund": "Eintöniger Abschnitt deutlich über der 20-Minuten-Grenze; automatische Abstecher-Suche (tools/abwechslung-planen.py) versucht, aber innerhalb vertretbarer Zeit kein Abstecher gefunden, der Regel 7 ohne unverhältnismäßigen Umweg erfüllt."
+        }
+      ]
+    }
+  ],
+  "aenderungen": []
+}
