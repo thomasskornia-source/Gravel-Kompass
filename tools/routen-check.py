@@ -221,7 +221,15 @@ def pruefe_etappe(t, n, e, mit_karte):
     haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
     befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
-    zeilen = []
+    zeilen, stellen = [], []
+
+    def melde(art, d, p, zusatz=""):
+        """Gleichartige Stellen im Abstand bis 200 m zu einem Befund zusammenfassen."""
+        if stellen and stellen[-1][0] == art and dist(stellen[-1][3], p) < 200:
+            stellen[-1][1] += d; stellen[-1][3] = p
+        else:
+            stellen.append([art, d, p, p, zusatz])
+
     for r in m[1:]:
         d, tags = int(r[iD]), r[iT]
         p = (int(r[iA]) / 1e6, int(r[iL]) / 1e6)
@@ -234,16 +242,16 @@ def pruefe_etappe(t, n, e, mit_karte):
         fuss = (re.search(r"highway=(footway|pedestrian|steps)\b", tags) or
                 re.search(r"highway=path\b", tags) and "foot=designated" in tags) and not radfrei
         if re.search(r"access=(private|no)\b", tags) and not re.search(r"(?<![:\w])bicycle=yes", tags):
-            befunde.append(f"Privatweg {d} m bei {p[0]:.4f},{p[1]:.4f}")
+            melde("Privatweg", d, p)
         elif "service=driveway" in tags and not am_rand:
-            befunde.append(f"Hofeinfahrt {d} m bei {p[0]:.4f},{p[1]:.4f} (Sackgasse oder Privatgrund?)")
-        elif fuss and not ("footway=crossing" in tags and d <= 20):
+            melde("Hofeinfahrt", d, p, " (Sackgasse oder Privatgrund?)")
+        elif fuss and d > 0 and not ("footway=crossing" in tags and d <= 20) and min(dist(p, ende[0]), dist(p, ende[1])) > 50:
             art = "Treppe" if "highway=steps" in tags else "Fußgängerzone" if "highway=pedestrian" in tags else "Fußweg"
-            befunde.append(f"{art} ohne Radfreigabe {d} m bei {p[0]:.4f},{p[1]:.4f}")
+            melde(f"{art} ohne Radfreigabe", d, p)
         if re.search(r"(?<![:\w])bicycle=(no|use_sidepath)\b", tags) and not fuss:
-            befunde.append(f"Radverbot {d} m bei {p[0]:.4f},{p[1]:.4f}")
+            melde("Radverbot", d, p)
         if "reversedirection=yes" in tags and re.search(r"(?<![:\w])oneway=yes", tags) and "oneway:bicycle=no" not in tags:
-            befunde.append(f"Einbahnstraße gegen die Fahrtrichtung {d} m bei {p[0]:.4f},{p[1]:.4f}")
+            melde("Einbahnstraße gegen die Fahrtrichtung", d, p)
         if haupt.search(tags) and "cycleway" not in tags:
             strasse.append(d)
         else:
@@ -256,6 +264,7 @@ def pruefe_etappe(t, n, e, mit_karte):
             if sum(x[0] for x in schotter) >= 50:
                 befunde.append(f"Unbefestigt {sum(x[0] for x in schotter)} m (Rennrad) ab {schotter[0][1][0]:.4f},{schotter[0][1][1]:.4f}")
             schotter = []
+    befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z in stellen]
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
         befunde.append(f"Stichstrecke {laenge / 1000:.2f} km bei {stich.naechster_ort(a, e['wegpunkte'])} ({a[0]:.4f},{a[1]:.4f})")
     grenze_m = TEMPO[radart(t)] * 1000 * LANGWEILIG_MIN / 60
