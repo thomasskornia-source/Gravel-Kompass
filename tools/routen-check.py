@@ -18,7 +18,7 @@ Berechnet jede Etappe wie die Website über BRouter und meldet:
 
 Begründete Ausnahmen (z. B. Stichstrecke zum Gipfel) stehen in der Etappe:
   "ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]
-Befunde im Umkreis von 300 m zählen dann nicht.
+Stichstrecken im Umkreis von 300 m zählen dann nicht (andere Befundart: "art": "Trail" o. Ä. dazuschreiben).
 
 Gesperrte Stellen (damit der Routenplaner z. B. eine Hofeinfahrt meidet) stehen ebenfalls in der Etappe:
   "sperren": [[47.92, 12.35, 20]]   (lat, lon, Radius in m – die Website rechnet mit denselben Sperren)
@@ -134,6 +134,8 @@ def privatflaechen(coords, wegtags, flaechen):
         drin = [p for p in coords if inside(p, poly)]
         if art != "Campingplatz":
             drin = [p for p in drin if not OEFFENTLICH.search(wegtags(p))]
+        else:   # ausgeschilderte Radroute oder Radweg quer über das Gelände ist öffentlich
+            drin = [p for p in drin if not re.search(r"route_bicycle|highway=cycleway|(?<![:\w])bicycle=designated", wegtags(p))]
         if drin:
             treffer[(art, name, round(drin[0][0], 4), round(drin[0][1], 4))] = len(drin)
     return treffer
@@ -260,7 +262,7 @@ def pruefe_etappe(t, n, e, mit_karte):
     rennrad = radart(t) == "road"
     haupt = re.compile(r"highway=(primary|trunk)\b" if rennrad else r"highway=(primary|secondary|trunk)\b")
     art_rad = radart(t)
-    reparatur = {"sperren": [], "stubs": [], "flaechen": [], "strasse": []}
+    reparatur = {"sperren": [], "stubs": [], "flaechen": [], "strasse": [], "strasse_m": 0}
     befunde, rad, gesamt, strasse, schotter = [], 0, 0, [], []
     ende = (e["wegpunkte"][0][:2], e["wegpunkte"][-1][:2])
     zeilen, stellen, vorher = [], [], coords[0]
@@ -308,7 +310,7 @@ def pruefe_etappe(t, n, e, mit_karte):
             strasse.append(d)
         else:
             if sum(strasse) >= 300:
-                reparatur["strasse"].append(p)
+                reparatur["strasse"].append(p); reparatur["strasse_m"] += sum(strasse)
                 befunde.append(f"{sum(strasse)} m {'Bundesstraße' if rennrad else 'Hauptstraße'} ohne Radweg vor {p[0]:.4f},{p[1]:.4f}")
             strasse = []
         if rennrad and d > 0 and (UNBEFESTIGT.search(tags) or "highway=track" in tags and not re.search(r"surface=(asphalt|concrete|paved)", tags)):
@@ -350,8 +352,8 @@ def ausnahme(befund, ausnahmen):
     if not m:
         return None
     p = (float(m.group(1)), float(m.group(2)))
-    for a in ausnahmen:
-        if dist(p, (a["lat"], a["lon"])) < AUSNAHME_M:
+    for a in ausnahmen:   # gilt für Stichstrecken, außer "art" nennt eine andere Befundart
+        if a.get("art", "Stichstrecke") in befund and dist(p, (a["lat"], a["lon"])) < AUSNAHME_M:
             return a.get("grund", "begründet")
     return None
 

@@ -6,8 +6,8 @@
     Schotter beim Rennrad, Campingplätze und Hofflächen: die Stelle kommt in "sperren" der Etappe
     (BRouter-Sperrkreis, die Website rechnet mit denselben Sperren) – der Routenplaner sucht sich einen anderen Weg.
   - Liegt eine solche Stelle an einem Wegpunkt, wird der Wegpunkt auf die Strecke ohne ihn verschoben.
-Wiederholt, bis nichts mehr zu reparieren ist. Wird eine Etappe dadurch über 15 % länger, bleibt die letzte Runde
-unberücksichtigt. Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit (Wegpunkte neu planen).
+Wiederholt, bis nichts mehr zu reparieren ist. Eine Änderung, die die Etappe über 15 % länger macht oder mehr als
+500 m zusätzliche Hauptstraße ohne Radweg bringt, wird verworfen. Wegpunkte wandern höchstens 600 m. Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit (Wegpunkte neu planen).
 
 Aufruf: python3 tools/routen-reparieren.py <tour-id> [<etappe-nr> …]   – schreibt die Tourdatei, danach
         python3 tools/routen-check.py <tour-id> und python3 tools/tours-index.py laufen lassen.
@@ -22,7 +22,10 @@ rc = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(rc)
 RADIUS_M = 15       # Sperrkreis
 AM_WEGPUNKT_M = 60  # so nah an einem Wegpunkt wird nicht gesperrt, sondern der Wegpunkt verschoben
 RUNDEN = 10
+MAX_VERSCHIEBUNG_M = 600   # weiter wird ein Wegpunkt nie verschoben (das Ziel soll Ziel bleiben)
+MAX_SACKGASSE_M = 1500     # Wegpunkt an der Spitze einer Sackgasse darf bis zum Abzweig wandern
 MEHR_KM = 1.15
+MEHR_STRASSE_M = 500   # mehr Hauptstraße ohne Radweg als vorher wird nicht in Kauf genommen
 
 
 def naechster(p, pts):
@@ -70,50 +73,99 @@ def wegpunkt_verschieben(t, e, i, stelle):
     return False
 
 
-def runde(t, e):
-    """Eine Reparaturrunde; True, wenn etwas geändert wurde."""
+def kandidaten(t, e, original):
+    """Vorgeschlagene Änderungen aus dem Routen-Check: ("wp", index, (lat, lon)) oder ("sperre", [lat, lon, r])."""
     km, hm, anteil, befunde, rep = rc.pruefe_etappe(t, 0, e, True)
-    wps, geaendert = e["wegpunkte"], False
+    wps, sperren, out = e["wegpunkte"], e.get("sperren", []), []
     for a, b in rep["stubs"]:
         i = naechster(a, wps)
         if 0 < i < len(wps) - 1 and rc.dist(a, wps[i][:2]) < 400:
-            wps[i][0], wps[i][1] = round(b[0], 5), round(b[1], 5)
-            geaendert = True
-    sperren = e.setdefault("sperren", [])
+            out.append(("wp", i, (round(b[0], 5), round(b[1], 5)), "sackgasse"))
     for art, p in rep["sperren"] + rep["flaechen"]:
         i = naechster(p, wps)
         if rc.dist(p, wps[i][:2]) < AM_WEGPUNKT_M:
-            if 0 < i < len(wps) - 1 and wegpunkt_verschieben(t, e, i, p):
-                geaendert = True
+            if 0 < i < len(wps) - 1:
+                probe = copy.deepcopy(e)
+                if wegpunkt_verschieben(t, probe, i, p):
+                    out.append(("wp", i, tuple(probe["wegpunkte"][i][:2])))
             continue
         if not any(rc.dist(p, s[:2]) < RADIUS_M for s in sperren):
-            sperren.append([round(p[0], 6), round(p[1], 6), RADIUS_M])
-            geaendert = True
-    if not sperren:
-        del e["sperren"]
-    return km, geaendert
+            out.append(("sperre", [round(p[0], 6), round(p[1], 6), RADIUS_M]))
+    return [c for c in out if c[0] != "wp" or
+            rc.dist(c[2], original[c[1]]) <= (MAX_SACKGASSE_M if c[-1] == "sackgasse" else MAX_VERSCHIEBUNG_M)]
+
+
+def schluessel(c):
+    return (c[0], c[1], round(c[2][0], 4), round(c[2][1], 4)) if c[0] == "wp" else (c[0], round(c[1][0], 5), round(c[1][1], 5))
+
+
+def anwenden(e, aenderungen):
+    neu = copy.deepcopy(e)
+    for c in aenderungen:
+        if c[0] == "wp":
+            neu["wegpunkte"][c[1]][0], neu["wegpunkte"][c[1]][1] = c[2]
+        elif not any(rc.dist(c[1], s[:2]) < RADIUS_M for s in neu.get("sperren", [])):
+            neu.setdefault("sperren", []).append(c[1])
+    return neu
+
+
+def schnell(t, e):
+    """Länge (km) und Meter auf Hauptstraßen ohne Radweg (Abschnitte ab 300 m) – oder None, wenn nicht routbar."""
+    try:
+        f = rc.brouter(e["wegpunkte"], t.get("profil"), e.get("sperren"))
+    except RuntimeError:
+        return None
+    m = f["properties"]["messages"]; h = m[0]; iD, iT = h.index("Distance"), h.index("WayTags")
+    haupt = r"highway=(primary|trunk)\b" if rc.radart(t) == "road" else r"highway=(primary|secondary|trunk)\b"
+    summe, lauf = 0, 0
+    for r in m[1:] + [[0] * len(h)]:
+        tags = str(r[iT])
+        if rc.re.search(haupt, tags) and "cycleway" not in tags:
+            lauf += int(r[iD])
+        else:
+            summe += lauf if lauf >= 300 else 0; lauf = 0
+    return int(f["properties"]["track-length"]) / 1000, summe
 
 
 def main(args):
     tid, nummern = args[0], [int(a) for a in args[1:]]
     pfad = ROOT / "data" / "tours" / f"{tid}.json"
     t = json.loads(pfad.read_text(encoding="utf-8"))
-    for n, e in enumerate(t["etappen"], 1):
+    for n in range(1, len(t["etappen"]) + 1):
         if nummern and n not in nummern:
             continue
-        start_km = None
+        e = t["etappen"][n - 1]
+        original = [w[:2] for w in e["wegpunkte"]]
+        start = schnell(t, e)
+        if not start:
+            print(f"   Etappe {n}: nicht routbar – übersprungen"); continue
+        grenze = (start[0] * MEHR_KM, start[1] + MEHR_STRASSE_M)
+        ok = lambda q: q is not None and q[0] <= grenze[0] and q[1] <= grenze[1]
+        abgelehnt = set()
         for r in range(RUNDEN):
-            vorher = copy.deepcopy(e)
-            km, geaendert = runde(t, e)
-            start_km = start_km or km
-            if km > start_km * MEHR_KM:
-                e.clear(); e.update(vorletzt)
-                print(f"   Etappe {n}: Umweg zu groß ({km:.1f} statt {start_km:.1f} km) – letzte Runde verworfen")
+            try:
+                cands = [c for c in kandidaten(t, e, original) if schluessel(c) not in abgelehnt]
+            except RuntimeError as err:
+                print(f"   Etappe {n}: {err}"); break
+            if not cands:
                 break
-            vorletzt = vorher
-            print(f"   Etappe {n}, Runde {r + 1}: {km:.1f} km, {len(e.get('sperren', []))} Sperren")
-            if not geaendert:
-                break
+            neu = anwenden(e, cands)
+            if ok(schnell(t, neu)):
+                e = neu
+            else:   # einzeln probieren: nur übernehmen, was keinen Umweg und keine Hauptstraße bringt
+                vorher = e
+                for c in cands:
+                    probe = anwenden(e, [c])
+                    if ok(schnell(t, probe)):
+                        e = probe
+                    else:
+                        abgelehnt.add(schluessel(c))
+                if e is vorher:
+                    break
+            q = schnell(t, e)
+            print(f"   Etappe {n}, Runde {r + 1}: {q[0]:.1f} km, {q[1]} m Hauptstraße, {len(e.get('sperren', []))} Sperren, "
+                  f"{len(abgelehnt)} Vorschläge verworfen")
+        t["etappen"][n - 1] = e
         pfad.write_text(json.dumps(t, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return 0
 

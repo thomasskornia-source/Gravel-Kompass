@@ -45,13 +45,13 @@
           "Wellenburg"
         ],
         [
-          48.3393,
-          10.7747,
+          48.33978,
+          10.77468,
           "Anhausen (Einkehr Gasthof zur Traube)"
         ],
         [
-          48.2819,
-          10.7607,
+          48.28244,
+          10.75802,
           "Burgwalden"
         ],
         [
@@ -80,8 +80,8 @@
           "Klimmach"
         ],
         [
-          48.2351,
-          10.7336,
+          48.23398,
+          10.73767,
           "Reinhartshofen"
         ],
         [
@@ -99,8 +99,21 @@
           10.8263,
           "Wellenburg"
         ]
+      ],
+      "sperren": [
+        [
+          48.234564,
+          10.734766,
+          15
+        ]
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
+    }
+  ]
 }

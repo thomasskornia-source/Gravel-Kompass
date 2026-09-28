@@ -8,7 +8,7 @@
   "region": "Nördlinger Ries (Bayerisch-Schwaben)",
   "tage": 1,
   "fahrradtyp": "Gravel",
-  "anspruch": "Moderat",
+  "anspruch": "Entspannt",
   "streckenform": "Rundtour",
   "oberflaeche": [
     "Feiner Schotter"
@@ -58,8 +58,8 @@
           "Baldingen"
         ],
         [
-          48.8871,
-          10.476,
+          48.88822,
+          10.474,
           "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"
         ],
         [
@@ -73,13 +73,13 @@
           "Deiningen"
         ],
         [
-          48.8451,
-          10.6212,
+          48.84419,
+          10.61696,
           "Alerheim"
         ],
         [
-          48.8107,
-          10.583,
+          48.82114,
+          10.58608,
           "Möttingen"
         ],
         [
@@ -92,8 +92,93 @@
           10.4886,
           "Nördlingen (Marktplatz)"
         ]
+      ],
+      "sperren": [
+        [
+          48.874524,
+          10.474665,
+          15
+        ],
+        [
+          48.876493,
+          10.536769,
+          15
+        ],
+        [
+          48.810792,
+          10.582131,
+          15
+        ],
+        [
+          48.80769,
+          10.467595,
+          15
+        ],
+        [
+          48.846337,
+          10.489434,
+          15
+        ],
+        [
+          48.846467,
+          10.489304,
+          15
+        ],
+        [
+          48.8048,
+          10.5303,
+          15
+        ],
+        [
+          48.852221,
+          10.49629,
+          15
+        ],
+        [
+          48.852073,
+          10.496128,
+          15
+        ],
+        [
+          48.848711,
+          10.493675,
+          15
+        ],
+        [
+          48.848462,
+          10.493242,
+          15
+        ],
+        [
+          48.853253,
+          10.498734,
+          15
+        ],
+        [
+          48.849668,
+          10.49358,
+          15
+        ],
+        [
+          48.849177,
+          10.492399,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 48.9278,
+          "lon": 10.5008,
+          "grund": "Kloster Maihingen mit Klosterschenke – lohnendes Ziel"
+        }
       ]
     }
   ],
-  "aenderungen": []
+  "aenderungen": [
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren. Anspruch von „Moderat“ auf „Entspannt“ geändert (weniger als 6 Hm pro km). Die Sackgasse zu Kloster Maihingen mit Klosterschenke bleibt bewusst – lohnendes Ziel."
+    }
+  ]
 }

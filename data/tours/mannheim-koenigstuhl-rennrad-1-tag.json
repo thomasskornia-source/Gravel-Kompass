@@ -42,8 +42,8 @@
           "Mannheim (Augustaanlage)"
         ],
         [
-          49.4937,
-          8.5263,
+          49.49281,
+          8.52815,
           "Mannheim-Feudenheim"
         ],
         [
@@ -52,23 +52,23 @@
           "Ilvesheim"
         ],
         [
-          49.4785,
-          8.6089,
+          49.4744,
+          8.60978,
           "Ladenburg"
         ],
         [
-          49.4419,
-          8.6489,
+          49.43857,
+          8.65164,
           "Edingen-Neckarhausen"
         ],
         [
-          49.4144,
-          8.6821,
+          49.4141,
+          8.67638,
           "Heidelberg-Neuenheim"
         ],
         [
-          49.3802,
-          8.6874,
+          49.38057,
+          8.68999,
           "Heidelberg-Rohrbach"
         ],
         [
@@ -92,8 +92,8 @@
           "Kohlhof"
         ],
         [
-          49.3982,
-          8.7246,
+          49.39973,
+          8.72389,
           "Königstuhl (Landessternwarte)"
         ],
         [
@@ -117,8 +117,8 @@
           "Ketsch"
         ],
         [
-          49.406,
-          8.522,
+          49.40685,
+          8.52379,
           "Brühl"
         ],
         [
@@ -131,6 +131,123 @@
           8.4811,
           "Mannheim (Augustaanlage)"
         ]
+      ],
+      "sperren": [
+        [
+          49.441866,
+          8.647763,
+          15
+        ],
+        [
+          49.398322,
+          8.689262,
+          15
+        ],
+        [
+          49.343496,
+          8.720164,
+          15
+        ],
+        [
+          49.34139,
+          8.725592,
+          15
+        ],
+        [
+          49.399086,
+          8.723872,
+          15
+        ],
+        [
+          49.398882,
+          8.72359,
+          15
+        ],
+        [
+          49.407345,
+          8.692372,
+          15
+        ],
+        [
+          49.380477,
+          8.568869,
+          15
+        ],
+        [
+          49.372209,
+          8.53969,
+          15
+        ],
+        [
+          49.391886,
+          8.52995,
+          15
+        ],
+        [
+          49.395643,
+          8.531385,
+          15
+        ],
+        [
+          49.395826,
+          8.531807,
+          15
+        ],
+        [
+          49.3804,
+          8.6035,
+          15
+        ],
+        [
+          49.437831,
+          8.649051,
+          15
+        ],
+        [
+          49.438673,
+          8.651549,
+          15
+        ],
+        [
+          49.4401,
+          8.649862,
+          15
+        ],
+        [
+          49.440566,
+          8.649345,
+          15
+        ],
+        [
+          49.438548,
+          8.651669,
+          15
+        ],
+        [
+          49.37865,
+          8.527929,
+          15
+        ],
+        [
+          49.394942,
+          8.534298,
+          15
+        ],
+        [
+          49.395124,
+          8.534309,
+          15
+        ],
+        [
+          49.398333,
+          8.532269,
+          15
+        ],
+        [
+          49.385196,
+          8.537597,
+          15
+        ]
       ]
     }
   ],
@@ -140,6 +257,11 @@
       "von": "Thomas",
       "kommentar": "Keine Stichstrecken fahren (hin und zurück auf demselben Weg) – außer am Ende wartet etwas Lohnendes wie ein See oder Gipfel.",
       "antwort": "Königstuhl als Runde: hinauf weiter über die milde Südauffahrt ab Gauangelloch (jetzt über Leimen/Ochsenbach angefahren statt über Gaiberg hin und zurück), hinunter über die Molkenkur nach Heidelberg statt 18 km auf demselben Weg zurück (Etappe 1: ca. 92 km, 651 Hm, mit tools/stichstrecken-check.py geprüft)."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Claude",
+      "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
     }
   ]
 }

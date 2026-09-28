@@ -55,8 +55,8 @@ Campingplätze usw. kommen als Sperre in die Etappe (`"sperren": [[lat, lon, rad
 denselben Sperren). Eintönige Abschnitte, Steigungen und Hauptstraßen bleiben Handarbeit: Wegpunkte neu planen.
 
 **Begründete Ausnahmen:** Ist ein Befund gewollt (z. B. Stichstrecke zum Gipfel, weil es keinen Rundweg gibt), in der
-Etappe eintragen: `"ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]`. Befunde im
-Umkreis von 300 m zählen dann nicht. Die Begründung gehört auch in den Etappentext.
+Etappe eintragen: `"ausnahmen": [{"lat": 49.32, "lon": 8.08, "grund": "Gipfel Kalmit – kein Rundweg"}]`. Stichstrecken im
+Umkreis von 300 m zählen dann nicht (für eine andere Befundart `"art": "…"` ergänzen). Die Begründung gehört auch in den Etappentext.
 
 ## Aus gefahrenen Touren gelernt
 
