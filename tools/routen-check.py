@@ -232,11 +232,14 @@ def radart(t):
     p = t.get("profil") or ""
     p = " ".join(p) if isinstance(p, list) else p
     typ = str(t.get("fahrradtyp", "")).lower()
-    if "fastbike" in p or typ in ("road", "rennrad"):
+    # das Fahrrad der Anfrage zählt; das Routing-Profil nur, wenn kein Fahrradtyp angegeben ist
+    if typ in ("road", "rennrad") or not typ and "fastbike" in p:
         return "road"
-    if "mtb" in p or typ in ("mtb", "mountainbike"):
+    if typ in ("mtb", "mountainbike") or not typ and "mtb" in p:
         return "mtb"
-    return "trekking" if "trekking" in p or typ == "trekking" else "gravel"
+    if typ == "trekking" or not typ and "trekking" in p:
+        return "trekking"
+    return "gravel"
 
 
 def steile_stuecke(coords3, grenze):
