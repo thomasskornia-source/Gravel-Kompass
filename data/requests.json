@@ -339,5 +339,26 @@
     "tourIds": [
       "muenchen-haltern-7-tage"
     ]
+  },
+  {
+    "id": "nils-2026-09-29",
+    "name": "Nils",
+    "createdAt": "2026-09-29",
+    "status": "fertig",
+    "tage": 1,
+    "land": "Deutschland",
+    "region": "München-Freiham",
+    "fahrradtyp": "Rennrad",
+    "oberflaeche": [
+      "Asphalt"
+    ],
+    "etappenlaengeVon": 60,
+    "etappenlaengeBis": 100,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Start am Gut Freiham, ungefähr 1 h 30 fahren mit möglichst vielen Höhenmetern.",
+    "tourIds": [
+      "freiham-starnberg-rennrad-1-tag"
+    ]
   }
 ]

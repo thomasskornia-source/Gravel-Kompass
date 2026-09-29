@@ -1,0 +1,107 @@
+{
+  "id": "freiham-starnberg-rennrad-1-tag",
+  "title": "Freiham–Starnberger See: kurze Rennradrunde mit Höhenmetern",
+  "subtitle": "Rennrad-Feierabendrunde ab Gut Freiham, ca. 50 km durchs Würmtal an den Starnberger See",
+  "createdAt": "2026-09-29",
+  "requestId": "nils-2026-09-29",
+  "land": "Deutschland",
+  "region": "Bayern (Münchner Westen, Fünfseenland)",
+  "tage": 1,
+  "fahrradtyp": "Rennrad",
+  "anspruch": "Entspannt",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Asphalt"
+  ],
+  "profil": [
+    "fastbike-lowtraffic",
+    "fastbike"
+  ],
+  "beschreibung": "Kurze Rennradrunde ab Gut Freiham für etwa 1,5 bis 2 Stunden, auf ruhigen Asphaltstraßen und möglichst vielen Höhenmetern, die der flache Münchner Westen hergibt: hinunter ins Würmtal nach Gauting, am Würmtal entlang nach Starnberg an den See, dann hinauf nach Söcking und über die Moränenhügel bei Hadorf und Weßling zurück nach Freiham. Rund 50 km und 250 Höhenmeter – wer mehr Höhenmeter will, hängt die Runde über Andechs an.",
+  "quellen": [
+    {
+      "name": "quäldich.de – Rennradtouren im Münchner Umland",
+      "url": "https://www.quaeldich.de/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Gut Freiham",
+      "nach": "Gut Freiham",
+      "hmPlan": 250,
+      "text": "Gut Freiham – Gauting (Würmtal) – Starnberg am See – Anstieg nach Söcking – Hadorf – Weßling – zurück nach Freiham. Nur Asphalt, ruhige Nebenstraßen und Radwege.",
+      "wegpunkte": [
+        [
+          48.13667,
+          11.40323,
+          "Gut Freiham"
+        ],
+        [
+          48.06668,
+          11.38038,
+          "Gauting"
+        ],
+        [
+          47.99663,
+          11.34378,
+          "Starnberg"
+        ],
+        [
+          48.00262,
+          11.31797,
+          "Söcking"
+        ],
+        [
+          48.01545,
+          11.28544,
+          "Hadorf"
+        ],
+        [
+          48.0736,
+          11.25374,
+          "Weßling"
+        ],
+        [
+          48.13667,
+          11.40323,
+          "Gut Freiham"
+        ]
+      ],
+      "sperren": [
+        [
+          48.114373,
+          11.423622,
+          15
+        ],
+        [
+          48.113692,
+          11.423037,
+          15
+        ],
+        [
+          48.071416,
+          11.261399,
+          15
+        ],
+        [
+          48.073805,
+          11.253699,
+          15
+        ],
+        [
+          48.10802,
+          11.415653,
+          15
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-09-29",
+      "von": "Claude",
+      "antwort": "Gewünscht waren ca. 1,5 Stunden mit möglichst vielen Höhenmetern (Formular: 60–100 km, Moderat). 1,5 Stunden Rennrad sind rund 40–50 km; im flachen Münchner Westen bringt die Runde über Würmtal und Starnberger See 255 Hm – das ist „Entspannt“. Für mehr Höhenmeter lässt sich die Runde über Andechs verlängern."
+    }
+  ],
+  "etappeMaxKm": 60
+}
