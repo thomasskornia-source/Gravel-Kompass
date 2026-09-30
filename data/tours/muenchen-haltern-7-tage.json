@@ -685,6 +685,12 @@
       "datum": "2026-09-29",
       "von": "Claude",
       "antwort": "Angefragt waren 3 Tage – die Strecke ist aber gut 770 km lang. Nach Rücksprache mit Thomas 7 Etappen zwischen 98 und 120 km, entspannt (4 Hm pro km), überwiegend auf ausgeschilderten Radfernwegen und feinem Schotter."
+    },
+    {
+      "datum": "2026-09-28",
+      "von": "Thomas",
+      "kommentar": "Von Ingolstadt nach Eichstätt bitte direkt, den Schlenker bei Gunzenhausen rausnehmen, zwischen Rothenburg ob der Tauber und Dettelbach zu viele Schlenker, Strecke zwischen Bad Kissingen und Fulda glätten.",
+      "antwort": "Kommentar kam noch unter der ID „muenchen-haltern-14-tage“ (14-Etappen-Version, parallel von der Routine angelegt und am 28.09. als Dublette wieder gelöscht). Die genannten Orte (Ingolstadt, Eichstätt, Gunzenhausen, Dettelbach, Bad Kissingen, Fulda) liegen nicht auf der jetzt gültigen 7-Etappen-Route (München–Donauwörth–Rothenburg–Wertheim–Hanau–Marburg–Meschede–Haltern) und werden daher nicht übernommen. Falls Thomas die 7-Etappen-Route dennoch über Ingolstadt/Eichstätt führen möchte, gerne als neuer Kommentar zur aktuellen Tour."
     }
   ],
   "etappeMaxKm": 120,
