@@ -28,6 +28,12 @@ def art(befund):
 
 def main(args):
     tid = args[0]
+    t = json.loads((ROOT / "data" / "tours" / f"{tid}.json").read_text(encoding="utf-8"))
+    if t.get("spur"):   # eigene Aufzeichnung: nicht umbauen, nicht neu routen
+        sp = json.loads((ROOT / t["spur"]).read_text(encoding="utf-8"))
+        q = sp["hm"] / max(sp["km"], 1)
+        print(f"✓  Eigene Aufzeichnung ({t['spur']}): {sp['km']:.0f} km, {sp['hm']} Hm, {q:.1f} Hm/km – wird nicht umgebaut")
+        return 0
     log = f"/tmp/tour-fertig-{tid}.log"
     if "--nur-pruefen" not in args:
         open(log, "w").close()

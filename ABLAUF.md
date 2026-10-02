@@ -48,6 +48,17 @@ Etappe: `"ausnahmen": [{"lat": …, "lon": …, "grund": "…"}]` (300 m um den 
 andere Befunde) und im Etappentext begründen. **Sperren** (`"sperren": [[lat, lon, radius_m]]`) setzt die Reparatur
 selbst; die Website rechnet mit denselben Sperren. Höchstlänge je Etappe: `"etappeMaxKm"` in der Tour.
 
+## Eigene Aufzeichnung als feste Spur (GPX, z. B. aus Komoot)
+Soll eine Tour **genau** einer gefahrenen Aufzeichnung folgen (nicht neu berechnet):
+1. `python3 tools/spur-import.py <datei.gpx> <tour-id> --orte` – schreibt `data/spuren/<tour-id>.json` (vereinfachte
+   Originalgeometrie mit Höhen, ca. alle 25 m ein Punkt, ohne Zeitstempel; km und Hm aus der vollen Aufzeichnung) und
+   schlägt Orte entlang der Strecke vor.
+2. Tourdatei wie gewohnt anlegen, dazu `"spur": "data/spuren/<tour-id>.json"`. Wegpunkte trotzdem eintragen (Start,
+   markante Orte, Ziel – für Übersicht und Suche). Anspruch nach Hm/km der Spur setzen.
+3. Karte, Höhenprofil, km/Hm und GPX-Export nutzen dann die Spur statt Routing. `tour-fertig.py`, `routen-check.py`,
+   `routen-reparieren.py` und `abwechslung-planen.py` bauen solche Touren nicht um (nur km/Hm-Ausgabe). Mehrtägige
+   Touren mit Spur: die Spur gilt für die ganze Tour, darum nur bei eintägigen Touren verwenden.
+
 ## Formular auswerten
 - **Beschreibung**: Land/Region/Stadt und Wünsche; ohne Ort den naheliegendsten Vorschlag planen (bevorzugt D und Nachbarländer).
 - **Untergrund** = raueste erlaubte Stufe (Glatteres geht immer). Trekking: Asphalt → feiner Schotter → Feld-/Waldwege.

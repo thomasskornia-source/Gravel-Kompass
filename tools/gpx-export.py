@@ -85,7 +85,11 @@ def main(args):
         if not alle and stand.get(t["id"]) == h and (OUT / f"{t['id']}.gpx").exists():
             continue
         try:
-            stages = [route(e["wegpunkte"], t.get("profil"), e.get("sperren")) for e in t["etappen"]]
+            if t.get("spur"):   # eigene Aufzeichnung: genau diese Linie, nicht neu berechnen
+                sp = json.loads((ROOT / t["spur"]).read_text(encoding="utf-8"))
+                stages = [[(p[0], p[1], p[2] if len(p) > 2 else None) for p in sp["punkte"]]]
+            else:
+                stages = [route(e["wegpunkte"], t.get("profil"), e.get("sperren")) for e in t["etappen"]]
         except Exception as err:
             print(f"⚠️  {t['id']}: {err}")
             continue

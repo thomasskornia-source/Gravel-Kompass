@@ -20,6 +20,9 @@ for f in sorted((ROOT / "data" / "tours").glob("*.json")):
                 orte.append(n)
     e["orte"] = orte
     e["skizze"] = [[[w[0], w[1]] for w in st["wegpunkte"]] for st in t["etappen"]]
+    if t.get("spur"):   # eigene Aufzeichnung: Länge für die Kachel, ohne die Spur zu laden
+        e["spur"] = t["spur"]
+        e["km"] = json.loads((ROOT / t["spur"]).read_text(encoding="utf-8"))["km"]
     if any(st.get("sperren") for st in t["etappen"]):   # gleicher Routen-Cache-Schlüssel wie die volle Tour
         e["sperren"] = [st.get("sperren", []) for st in t["etappen"]]
     # Stand der Datei: ändert sich bei jeder Änderung an der Tour (für „Neu“/„Geändert“ auf den Kacheln)

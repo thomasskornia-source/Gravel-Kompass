@@ -741,12 +741,21 @@
     });
 
     var statusEl = el.querySelector("[data-status]");
-    var results = loadCache(tour);
+    var results = tour.spur ? null : loadCache(tour);
     // routes cached before the surface profile existed are routed again once
     if (results && results.some(function(r){ return !r.fallback && /^BRouter/.test(r.source) && !r.surf; })) results = null;
     var fromCache = !!results;
 
     (async function(){
+      if (tour.spur){
+        // own recording: the line is fixed, nothing is routed
+        statusEl.textContent = "Lade Aufzeichnung …";
+        try{
+          var sp = await fetchJson(tour.spur, 30000);
+          results = [{source: "eigene Aufzeichnung", coords: sp.punkte, distance: sp.km * 1000, ascend: sp.hm, surf: null}];
+          saveCache(tour, results);
+        }catch(e){ results = null; }
+      }
       if (!results){
         results = [];
         for (var i=0;i<tour.etappen.length;i++){
@@ -1011,6 +1020,7 @@
   function landOf(t){ return String(t.land || "").split(" (")[0].trim(); }
   function tourKm(t){
     var c = loadCache(t);
+    if (!c && t.km) return Math.round(t.km);   // tours with a fixed recording carry their length in the index
     return c ? fmtKm(c.reduce(function(s, r){ return s + (r.distance || 0); }, 0)) : null;
   }
   function miniSvg(t){

@@ -93,6 +93,8 @@ def main(args):
     tid, nummern = args[0], [int(a) for a in args[1:]]
     pfad = ROOT / "data" / "tours" / f"{tid}.json"
     t = json.loads(pfad.read_text(encoding="utf-8"))
+    if t.get("spur"):
+        print(f"   {tid}: eigene Aufzeichnung – wird nicht umgebaut"); return 0
     for n in range(1, len(t["etappen"]) + 1):
         if nummern and n not in nummern:
             continue

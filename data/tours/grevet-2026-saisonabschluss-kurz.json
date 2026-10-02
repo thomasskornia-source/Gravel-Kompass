@@ -1,0 +1,103 @@
+{
+  "id": "grevet-2026-saisonabschluss-kurz",
+  "title": "Grevet 2026 Saisonabschluss kurz",
+  "subtitle": "Kürzere Gravel-Rundtour ab Krailling über Andechs und Tutzing – eigene Aufzeichnung von Thomas",
+  "createdAt": "2026-10-02",
+  "von": "Thomas",
+  "land": "Deutschland",
+  "region": "Bayern (Würmtal, Fünfseenland)",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter",
+    "Feld- und Waldwege",
+    "Asphalt"
+  ],
+  "spur": "data/spuren/grevet-2026-saisonabschluss-kurz.json",
+  "beschreibung": "Die kürzere Variante der Saisonabschluss-Runde ab Krailling, gefahren am 1. Oktober 2026: über Pentenried, Hochstadt und Meiling direkt nach Andechs, über Erling und Pähl nach Tutzing an den Starnberger See und über Maising, Söcking und das Würmtal bei Leutstetten zurück nach Krailling. Rund 80 km mit gut 600 Höhenmetern, ohne den Abstecher an Wörthsee und Ammersee.",
+  "quellen": [],
+  "etappen": [
+    {
+      "von": "Krailling",
+      "nach": "Krailling",
+      "hmPlan": 638,
+      "text": "Krailling – Pentenried – Hochstadt – Meiling – Kloster Andechs – Erling – Pähl – Tutzing – Maising – Söcking – Leutstetten – Buchendorf – Krailling.",
+      "wegpunkte": [
+        [
+          48.0928,
+          11.39979,
+          "Krailling"
+        ],
+        [
+          48.08561,
+          11.3373,
+          "Pentenried"
+        ],
+        [
+          48.05572,
+          11.28339,
+          "Hochstadt"
+        ],
+        [
+          48.03665,
+          11.21885,
+          "Meiling"
+        ],
+        [
+          47.99371,
+          11.18837,
+          "Andechs"
+        ],
+        [
+          47.95686,
+          11.17829,
+          "Erling"
+        ],
+        [
+          47.90618,
+          11.17963,
+          "Pähl"
+        ],
+        [
+          47.89888,
+          11.24751,
+          "Tutzing"
+        ],
+        [
+          47.97756,
+          11.2823,
+          "Maising"
+        ],
+        [
+          48.00623,
+          11.3305,
+          "Söcking"
+        ],
+        [
+          48.03399,
+          11.35833,
+          "Leutstetten"
+        ],
+        [
+          48.05806,
+          11.40116,
+          "Buchendorf"
+        ],
+        [
+          48.09278,
+          11.39978,
+          "Krailling"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-02",
+      "von": "Thomas",
+      "antwort": "Eigene Aufzeichnung vom 01.10.2026 (Komoot). Die Strecke folgt genau dieser Aufzeichnung: 78 km, 638 Hm."
+    }
+  ]
+}

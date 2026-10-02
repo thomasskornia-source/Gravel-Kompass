@@ -374,6 +374,9 @@ def main(args):
     fehler = False
     for f in files:
         t = json.loads(f.read_text(encoding="utf-8"))
+        if t.get("spur"):
+            print(f"✓  {t['id']}: eigene Aufzeichnung ({t['spur']}) – wird nicht geprüft oder umgebaut")
+            continue
         summe_km = summe_hm = 0
         for n, e in enumerate(t["etappen"], 1):
             try:
