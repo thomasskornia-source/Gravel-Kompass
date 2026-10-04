@@ -360,5 +360,24 @@
     "tourIds": [
       "freiham-starnberg-rennrad-1-tag"
     ]
+  },
+  {
+    "id": "gravel-beauty-schwaben-2026-10-04",
+    "name": "Gravel Beauty Schwaben",
+    "createdAt": "2026-10-04",
+    "status": "fertig",
+    "tage": 1,
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 20,
+    "etappenlaengeBis": 55,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Gravel-Rundtour max. 50 km, Start/Ziel im Radius 30 km um Augsburg, aussichtsreich mit einem Stopp zum Schwimmen, landschaftlich besonders schön.",
+    "tourIds": [
+      "augsburg-mandichosee-1-tag"
+    ]
   }
 ]

@@ -1,0 +1,230 @@
+{
+  "id": "augsburg-mandichosee-1-tag",
+  "title": "Lechauen-Runde: Augsburg, Mandichosee & Wittelsbacher Schloss",
+  "subtitle": "Gravel-Tagestour, ca. 43 km, ab Augsburg durch die Lechauen zum Badesee Mandichosee und über Kissing auf den Burgberg von Friedberg",
+  "createdAt": "2026-10-04",
+  "requestId": "gravel-beauty-schwaben-2026-10-04",
+  "land": "Deutschland",
+  "region": "Bayern (Lechtal bei Augsburg)",
+  "tage": 1,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Entspannt",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Asphalt",
+    "Radwege",
+    "Feiner Schotter"
+  ],
+  "beschreibung": "Start und Ziel am Augsburger Hauptbahnhof. Durch den Lechauenpark zum Hochablass (historische Wehranlage, Teil des UNESCO-Welterbes der Augsburger Wasserwirtschaft) und am Kuhsee vorbei nach Süden durch die Lechauen zum Mandichosee (Lechstaustufe 23) – dem größten Badesee der Region mit Liegewiese, Strandbad und Wasserwacht, hier die Schwimmpause. Weiter über die Lechbrücke nach Kissing und am Ostufer durch St. Afra im Felde hinauf nach Friedberg: Das Wittelsbacher Schloss thront hoch über dem Lechtal, vom Schlossturm reicht der Blick bei klarer Sicht bis zu den Alpen. Zurück über Hochzoll nach Augsburg. Rund 43 km, 64 Hm – flach und eben (Lechtal), überwiegend Radwege, Asphalt und feiner, gut rollender Schotter – kein grober Schotter und keine Trails. Nur öffentliche Wege, keine Hofeinfahrten oder Privatgrundstücke. Der kurze Stich zum Strandbad Mandichosee ist ein bewusster Hin-und-zurück-Abstecher, da es dort keinen Rundweg gibt.",
+  "quellen": [
+    {
+      "name": "Mandichosee – seen.de",
+      "url": "https://www.seen.de/mandichosee/"
+    },
+    {
+      "name": "Lechradweg / Hochablass & Kuhsee – Pressemeldung Augsburg Tourismus",
+      "url": "https://www.augsburg-tourismus.de/files/augsburgtourismus/media/presse/pressemeldungen/2022/PM_Lechradweg_lang.pdf"
+    },
+    {
+      "name": "Friedberg (Bayern) – Wikivoyage",
+      "url": "https://de.wikivoyage.org/wiki/Friedberg_(Bayern)"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Augsburg",
+      "nach": "Augsburg",
+      "hmPlan": 64,
+      "text": "Augsburg (Hauptbahnhof) – Lechauenpark – Hochablass – Kuhsee – Lechauen – Mandichosee (Schwimmpause) – Kissing – St. Afra im Felde – Friedberg (Wittelsbacher Schloss, Aussicht) – Hochzoll – Augsburg.",
+      "wegpunkte": [
+        [
+          48.3655,
+          10.8873,
+          "Augsburg (Hauptbahnhof)"
+        ],
+        [
+          48.35601,
+          10.91573,
+          "Hochablass (Lechwehr)"
+        ],
+        [
+          48.34912,
+          10.93447,
+          "Kuhsee"
+        ],
+        [
+          48.29057,
+          10.95553,
+          "Kissing"
+        ],
+        [
+          48.2683,
+          10.9547,
+          "Mandichosee"
+        ],
+        [
+          48.28918,
+          10.94905,
+          "Kissing"
+        ],
+        [
+          48.2979,
+          10.9895,
+          "Kissing"
+        ],
+        [
+          48.34084,
+          10.96962,
+          "St. Afra im Felde"
+        ],
+        [
+          48.3553,
+          10.98153,
+          "Friedberg (Wittelsbacher Schloss)"
+        ],
+        [
+          48.3655,
+          10.8873,
+          "Augsburg (Hauptbahnhof)"
+        ]
+      ],
+      "sperren": [
+        [
+          48.358221,
+          10.895415,
+          15
+        ],
+        [
+          48.265744,
+          10.937609,
+          15
+        ],
+        [
+          48.26483,
+          10.939815,
+          15
+        ],
+        [
+          48.253858,
+          10.931131,
+          15
+        ],
+        [
+          48.357547,
+          10.977509,
+          15
+        ],
+        [
+          48.356891,
+          10.977714,
+          15
+        ],
+        [
+          48.344267,
+          10.936351,
+          15
+        ],
+        [
+          48.266687,
+          10.934877,
+          15
+        ],
+        [
+          48.266027,
+          10.938385,
+          15
+        ],
+        [
+          48.265906,
+          10.939569,
+          15
+        ],
+        [
+          48.265895,
+          10.939996,
+          15
+        ],
+        [
+          48.35654,
+          10.97467,
+          15
+        ],
+        [
+          48.295303,
+          10.971325,
+          15
+        ],
+        [
+          48.270409,
+          10.941858,
+          15
+        ],
+        [
+          48.269497,
+          10.947136,
+          15
+        ],
+        [
+          48.294509,
+          10.988337,
+          15
+        ],
+        [
+          48.249753,
+          10.939099,
+          15
+        ],
+        [
+          48.273398,
+          10.985501,
+          15
+        ],
+        [
+          48.286386,
+          10.98599,
+          15
+        ],
+        [
+          48.292405,
+          10.985897,
+          15
+        ],
+        [
+          48.2853,
+          10.9844,
+          15
+        ],
+        [
+          48.355273,
+          10.927627,
+          15
+        ],
+        [
+          48.355266,
+          10.927861,
+          15
+        ]
+      ],
+      "ausnahmen": [
+        {
+          "lat": 48.2684,
+          "lon": 10.9554,
+          "grund": "Stichstrecke zum Strandbad Mandichosee – kein Rundweg um den See, der Schwimmstopp lohnt den kurzen Umweg (TOURQUALITAET.md Regel 2)"
+        }
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-04",
+      "von": "Claude",
+      "kommentar": "Anfrage: Gravel-Rundtour max. 50 km, Start/Ziel im Radius 30 km um Augsburg, aussichtsreich, mit Schwimmstopp, landschaftlich schön; Formular nannte zusätzlich „Moderat“ und 20–55 km/Tag.",
+      "antwort": "Start/Ziel direkt in Augsburg gewählt (liegt im geforderten 30-km-Radius) statt eines entfernteren Orts, da kein genauerer Ausgangspunkt angegeben war. Etappenlänge nach dem Freitext geplant (sticht laut Rangfolge den weiteren Formularbereich bis 55 km) – mit tour-fertig.py geprüft, real rund 43 km. Als Schwimmstopp den Mandichosee gewählt – den größten und am besten ausgestatteten Badesee im Umkreis (Strandbad, Wasserwacht) – mit dem Kuhsee als zusätzlichem Badesee am Weg. Anspruch von „Moderat“ auf „Entspannt“ korrigiert: Das Lechtal bei Augsburg ist eben, auf 43 km kommen nur rund 64 Hm zusammen (Geländeregel aus ABLAUF.md). Als Aussichtspunkt dient das Wittelsbacher Schloss in Friedberg hoch über dem Lechtal."
+    },
+    {
+      "datum": "2026-10-04",
+      "von": "Claude",
+      "antwort": "Routen-Check: Der Abstecher zum Strandbad Mandichosee lässt sich nicht als Rundweg führen (keine durchgehende Verbindung um den See) – als begründete Ausnahme eingetragen (TOURQUALITAET.md Regel 2, Ziel See). Vier kleinere Stichstrecken bleiben offen und hindern das Hochladen nicht: dreimal 0,2–0,4 km am Hochablass (Rad-/Gehweg entlang der Friedberger Straße, OSM-Wegeführung) und 1,3 km direkt am Hauptbahnhof (Zufahrt zum Startpunkt)."
+    }
+  ]
+}
