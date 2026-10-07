@@ -379,5 +379,23 @@
     "tourIds": [
       "augsburg-mandichosee-1-tag"
     ]
+  },
+  {
+    "id": "eichenau-wieskirche-2026-10-07",
+    "createdAt": "2026-10-07",
+    "status": "fertig",
+    "tage": 1,
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 20,
+    "etappenlaengeBis": 105,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Rundtour von Eichenau nach Wieskirche (UNESCO-Welterbe) am liebsten über schöne Feldwege, schön grün, wenig Landstraße.",
+    "tourIds": [
+      "eichenau-wieskirche-3-tage"
+    ]
   }
 ]

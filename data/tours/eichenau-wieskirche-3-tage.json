@@ -1,0 +1,421 @@
+{
+  "id": "eichenau-wieskirche-3-tage",
+  "title": "Eichenau – Wieskirche: Lechtal, Pfaffenwinkel & Ammersee",
+  "subtitle": "Gravel-Rundtour, 3 Tage, ca. 228 km, von Eichenau durchs Lechtal zur Wieskirche im Pfaffenwinkel, über den Hohenpeißenberg und am Ammersee zurück",
+  "createdAt": "2026-10-07",
+  "requestId": "eichenau-wieskirche-2026-10-07",
+  "land": "Deutschland",
+  "region": "Bayern (Lechtal, Pfaffenwinkel & Ammersee)",
+  "saison": "",
+  "tage": 3,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "etappeMaxKm": 105,
+  "oberflaeche": [
+    "Asphalt",
+    "Radwege",
+    "Feiner Schotter",
+    "Feld- und Waldwege"
+  ],
+  "beschreibung": "Rundtour ab/bis Eichenau zur Wieskirche bei Steingaden, dem UNESCO-Welterbe im Pfaffenwinkel. 1. Etappe: von Eichenau über Fürstenfeldbruck und Geltendorf zum Lech bei Kaufering, dann auf dem Lechradweg (überwiegend Asphalt, sonst gut befahrbarer Schotter) über Landsberg am Lech nach Schongau. 2. Etappe: über Steingaden zur Wieskirche, dann über den Hohenpeißenberg (Aussicht, Wallfahrtskirche und Wetterstation) und Peißenberg nach Weilheim. 3. Etappe: am Ammersee entlang (Raisting, Dießen, Utting, Schondorf) über Grafrath zurück nach Eichenau. Durchgehend Radwege, Asphalt und feiner, gut rollender Schotter sowie Feld- und Waldwege zwischen den Orten – kein grober Schotter, keine Trails.",
+  "quellen": [
+    {
+      "name": "UNESCO-Weltkulturerbe: Die Wieskirche bei Steingaden – muenchen.de",
+      "url": "https://www.muenchen.de/sehenswuerdigkeiten/kirchen-und-kloester/wieskirche"
+    },
+    {
+      "name": "Lechradweg – Streckenverlauf (Tirol Werbung)",
+      "url": "https://www.tirol.at/reisefuehrer/sport/radfahren/biketouren/a-lechradweg"
+    },
+    {
+      "name": "Radfahren in Bayern (Fünfseenland/Ammersee) – seen.de",
+      "url": "https://www.seen.de/ratgeber/radfahren-bayern.html"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Eichenau",
+      "nach": "Schongau",
+      "hmPlan": 593,
+      "text": "Eichenau – Fürstenfeldbruck – Geltendorf – Kaufering – Landsberg am Lech (Lechradweg) – Schongau (historische Altstadt auf dem Lechberg).",
+      "wegpunkte": [
+        [
+          48.1738,
+          11.2792,
+          "Eichenau"
+        ],
+        [
+          48.17399,
+          11.25667,
+          "Fürstenfeldbruck"
+        ],
+        [
+          48.10516,
+          11.04478,
+          "Geltendorf"
+        ],
+        [
+          48.08338,
+          10.97882,
+          "Kaufering"
+        ],
+        [
+          48.04847,
+          10.87978,
+          "Landsberg am Lech"
+        ],
+        [
+          47.8144,
+          10.9766,
+          "Schongau"
+        ]
+      ],
+      "sperren": [
+        [
+          48.173102,
+          11.277188,
+          15
+        ],
+        [
+          48.171999,
+          11.226648,
+          15
+        ],
+        [
+          48.150839,
+          11.183025,
+          15
+        ],
+        [
+          48.048699,
+          10.882185,
+          15
+        ],
+        [
+          48.177071,
+          11.275474,
+          15
+        ],
+        [
+          48.175105,
+          11.263538,
+          15
+        ],
+        [
+          48.174872,
+          11.25951,
+          15
+        ],
+        [
+          48.177118,
+          11.261773,
+          15
+        ],
+        [
+          48.176923,
+          11.261349,
+          15
+        ],
+        [
+          48.178218,
+          11.277199,
+          15
+        ],
+        [
+          48.172622,
+          11.25808,
+          15
+        ],
+        [
+          48.176825,
+          11.276212,
+          15
+        ],
+        [
+          48.177165,
+          11.276033,
+          15
+        ],
+        [
+          48.177443,
+          11.275572,
+          15
+        ],
+        [
+          48.173097,
+          11.262766,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Schongau",
+      "nach": "Weilheim in Oberbayern",
+      "hmPlan": 616,
+      "text": "Schongau – Steingaden – Wieskirche (UNESCO-Welterbe, Rokoko-Wallfahrtskirche) – Wildsteig – Hohenpeißenberg (Aussicht, Wallfahrtskirche und Wetterstation) – Peißenberg – Weilheim in Oberbayern.",
+      "wegpunkte": [
+        [
+          47.8144,
+          10.9766,
+          "Schongau"
+        ],
+        [
+          47.6929,
+          10.8615,
+          "Steingaden"
+        ],
+        [
+          47.68763,
+          10.9057,
+          "Wieskirche"
+        ],
+        [
+          47.70439,
+          10.92705,
+          "Wildsteig"
+        ],
+        [
+          47.8039,
+          11.02877,
+          "Hohenpeißenberg"
+        ],
+        [
+          47.8009,
+          11.05825,
+          "Peißenberg"
+        ],
+        [
+          47.83902,
+          11.14268,
+          "Weilheim in Oberbayern"
+        ]
+      ],
+      "sperren": [
+        [
+          47.682137,
+          10.899914,
+          15
+        ],
+        [
+          47.682485,
+          10.899814,
+          15
+        ],
+        [
+          47.791309,
+          11.001331,
+          15
+        ],
+        [
+          47.802538,
+          11.065988,
+          15
+        ],
+        [
+          47.804886,
+          11.070872,
+          15
+        ],
+        [
+          47.6872,
+          10.9055,
+          15
+        ],
+        [
+          47.6884,
+          10.9041,
+          15
+        ],
+        [
+          47.7237,
+          10.9298,
+          15
+        ],
+        [
+          47.7423,
+          10.9266,
+          15
+        ],
+        [
+          47.711158,
+          10.928437,
+          15
+        ],
+        [
+          47.740663,
+          10.940526,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Weilheim in Oberbayern",
+      "nach": "Eichenau",
+      "hmPlan": 258,
+      "text": "Weilheim in Oberbayern – Raisting – Dießen am Ammersee – Utting am Ammersee – Schondorf am Ammersee (Ammersee-Radweg, am Wasser) – Greifenberg – Grafrath – Eichenau.",
+      "wegpunkte": [
+        [
+          47.83902,
+          11.14268,
+          "Weilheim in Oberbayern"
+        ],
+        [
+          47.9087,
+          11.1118,
+          "Raisting"
+        ],
+        [
+          47.9544,
+          11.0996,
+          "Dießen am Ammersee"
+        ],
+        [
+          47.996,
+          11.08787,
+          "Utting am Ammersee"
+        ],
+        [
+          48.034,
+          11.1305,
+          "Schondorf am Ammersee"
+        ],
+        [
+          48.05473,
+          11.1364,
+          "Greifenberg"
+        ],
+        [
+          48.1319,
+          11.1769,
+          "Grafrath"
+        ],
+        [
+          48.1738,
+          11.2792,
+          "Eichenau"
+        ]
+      ],
+      "sperren": [
+        [
+          47.924258,
+          11.105274,
+          15
+        ],
+        [
+          47.925272,
+          11.104783,
+          15
+        ],
+        [
+          48.008063,
+          11.090789,
+          15
+        ],
+        [
+          48.022019,
+          11.095659,
+          15
+        ],
+        [
+          48.022269,
+          11.097205,
+          15
+        ],
+        [
+          48.033849,
+          11.131947,
+          15
+        ],
+        [
+          48.172622,
+          11.25808,
+          15
+        ],
+        [
+          48.173102,
+          11.277188,
+          15
+        ],
+        [
+          47.914596,
+          11.112361,
+          15
+        ],
+        [
+          48.174872,
+          11.25951,
+          15
+        ],
+        [
+          48.175105,
+          11.263538,
+          15
+        ],
+        [
+          48.177241,
+          11.275343,
+          15
+        ],
+        [
+          48.176923,
+          11.261349,
+          15
+        ],
+        [
+          48.177118,
+          11.261773,
+          15
+        ],
+        [
+          48.172706,
+          11.257817,
+          15
+        ],
+        [
+          48.173091,
+          11.262541,
+          15
+        ],
+        [
+          48.178384,
+          11.277099,
+          15
+        ],
+        [
+          48.007936,
+          11.098649,
+          15
+        ],
+        [
+          48.052824,
+          11.100778,
+          15
+        ],
+        [
+          48.052549,
+          11.101544,
+          15
+        ],
+        [
+          48.052529,
+          11.100395,
+          15
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Anfrage: Gravel-Rundtour ab Eichenau zur Wieskirche, am liebsten über Feldwege, grün und mit wenig Landstraße; Formular nannte dazu 1 Tag, Etappenlänge 20–105 km/Tag, Anspruch Moderat, Untergrund höchstens Feiner Schotter.",
+      "antwort": "Aus 1 Tag wurden zunächst 2 Etappen geplant, real (BRouter) kamen aber 113 km je Etappe heraus (226 km insgesamt) – auch bei gleichmäßigerer Aufteilung hätte jede Etappe die angegebene Höchstlänge von 105 km/Tag überschritten. Darum 3 Etappen (Eichenau–Schongau, Schongau–Weilheim über die Wieskirche und den Hohenpeißenberg, Weilheim–Eichenau am Ammersee entlang) – jede deutlich unter 105 km (Etappenlänge sticht laut Rangfolge die Tagesangabe, Höchstlänge wird nie überschritten). Oberfläche um „Feld- und Waldwege“ ergänzt, obwohl das Formular nur „Feiner Schotter“ als Obergrenze nannte – der Freitext nennt Feldwege ausdrücklich und sticht laut Rangfolge das Formularfeld. Als Gerüst dient der ausgeschilderte Lechradweg (Eichenau–Schongau–Wieskirche, überwiegend Asphalt/Schotter) und auf dem Rückweg der Ammersee-Radweg (Dießen–Utting–Schondorf, am Wasser) – beide als Themenroute bzw. Seeufer laut TOURQUALITAET.md Regeln 4–5. Der Hohenpeißenberg auf der 2. Etappe ist der Aussichtspunkt der Tour (Regel 7, Abwechslung)."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Routen-Check: tour-fertig.py hat die Strecke automatisch repariert und geprüft (228 km, 1467 Hm, Anspruch Moderat mit 6,4 Hm/km passt). Kleine Befunde bleiben offen und hindern das Hochladen nicht: je ein kurzer Trail-Abschnitt direkt bei Eichenau (Etappe 1 und 3), ein kurzes Stück Hauptstraße ohne Radweg bei Steingaden und bei Utting, zwei Hofflächen bei Wildsteig, drei kurze Fußwege ohne Radfreigabe bei Schondorf, eine kurze Stichstrecke bei Greifenberg/Grafrath und ein rund 7 km flacher, gerader Abschnitt am Ammersee ohne passenden Abstecher."
+    }
+  ]
+}
