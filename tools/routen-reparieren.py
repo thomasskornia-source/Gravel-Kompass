@@ -93,8 +93,11 @@ def kandidaten(t, e, original):
             continue
         if not any(rc.dist(p, s[:2]) < RADIUS_M for s in sperren):
             out.append(("sperre", [round(p[0], 6), round(p[1], 6), RADIUS_M]))
+    def ort_ok(c):   # ein Wegpunkt bleibt höchstens 1 km vom Ort, nach dem er heißt
+        o = rc.ortskern(wps[c[1]][2], c[2]) if len(wps[c[1]]) > 2 else None
+        return not o or rc.dist(o, c[2]) <= rc.ORT_MAX_M
     return [c for c in out if c[0] != "wp" or
-            rc.dist(c[2], original[c[1]]) <= (MAX_SACKGASSE_M if c[-1] == "sackgasse" else MAX_VERSCHIEBUNG_M)]
+            rc.dist(c[2], original[c[1]]) <= (MAX_SACKGASSE_M if c[-1] == "sackgasse" else MAX_VERSCHIEBUNG_M) and ort_ok(c)]
 
 
 def schluessel(c):
@@ -118,6 +121,8 @@ def schnell(t, e):
     except RuntimeError:
         return None
     m = f["properties"]["messages"]; h = m[0]; iD, iT = h.index("Distance"), h.index("WayTags")
+    if any("route=ferry" in str(r[iT]) for r in m[1:]):
+        return None   # nie eine Änderung übernehmen, nach der die Strecke mit der Fähre übers Wasser führt
     haupt = r"highway=(primary|trunk)\b" if rc.radart(t) == "road" else r"highway=(primary|secondary|trunk)\b"
     summe, lauf = 0, 0
     for r in m[1:] + [[0] * len(h)]:

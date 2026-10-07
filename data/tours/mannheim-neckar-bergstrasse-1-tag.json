@@ -51,8 +51,8 @@
           "Ladenburg"
         ],
         [
-          49.41529,
-          8.70963,
+          49.41352,
+          8.69583,
           "Heidelberg"
         ],
         [
@@ -76,8 +76,8 @@
           "Molkenkur"
         ],
         [
-          49.41506,
-          8.76182,
+          49.41494,
+          8.76181,
           "Ziegelhausen"
         ],
         [
@@ -526,6 +526,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Heidelberg, Ziegelhausen. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

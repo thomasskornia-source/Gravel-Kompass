@@ -55,13 +55,13 @@
       "text": "Von Eichenau quer durch den Münchner Süden auf ruhigen Neben- und Waldwegen Richtung Mangfalltal. Ab Feldkirchen-Westerham folgt die Route dem Mangfallradweg flussabwärts durch Wiesen und Auwälder über Bad Aibling bis Rosenheim.",
       "wegpunkte": [
         [
-          48.1672,
-          11.3333,
+          48.17256,
+          11.32232,
           "Eichenau"
         ],
         [
-          48.13117,
-          11.38962,
+          48.14327,
+          11.36639,
           "Germering"
         ],
         [
@@ -75,23 +75,28 @@
           "Unterhaching"
         ],
         [
-          48.02059,
-          11.73774,
+          48.02594,
+          11.72849,
           "Höhenkirchen-Siegertsbrunn"
         ],
         [
-          47.99263,
-          11.75826,
+          48.01603,
+          11.7391,
+          "Abstecher bei Höhenkirchen-Siegertsbrunn"
+        ],
+        [
+          47.96975,
+          11.77985,
           "Aying"
         ],
         [
-          47.8608,
-          11.9967,
+          47.90209,
+          11.83836,
           "Feldkirchen-Westerham"
         ],
         [
-          47.85672,
-          12.02085,
+          47.8608,
+          12.01065,
           "Bad Aibling"
         ],
         [
@@ -175,6 +180,16 @@
           47.858976,
           12.016343,
           15
+        ],
+        [
+          48.13543,
+          11.403434,
+          15
+        ],
+        [
+          48.10326,
+          11.446713,
+          15
         ]
       ]
     },
@@ -240,8 +255,8 @@
           "Grabenstätt"
         ],
         [
-          47.8167,
-          12.5833,
+          47.81535,
+          12.57725,
           "Bergen"
         ],
         [
@@ -250,9 +265,14 @@
           "Siegsdorf"
         ],
         [
-          47.819,
-          12.69362,
+          47.82838,
+          12.70759,
           "Embach"
+        ],
+        [
+          47.81813,
+          12.6983,
+          "Abstecher bei Embach"
         ],
         [
           47.7633,
@@ -435,8 +455,8 @@
           "Bad Reichenhall"
         ],
         [
-          47.6146,
-          12.979,
+          47.6053,
+          12.98356,
           "Schönau am Königssee"
         ],
         [
@@ -450,18 +470,18 @@
           "Berchtesgaden"
         ],
         [
-          47.7041,
-          13.0384,
+          47.69612,
+          13.04645,
           "Marktschellenberg"
         ],
         [
-          47.7639,
-          13.0361,
+          47.74056,
+          13.04416,
           "Grödig"
         ],
         [
-          47.8095,
-          13.055,
+          47.7996,
+          13.04812,
           "Salzburg"
         ]
       ],
@@ -717,6 +737,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Neuried, Höhenkirchen-Siegertsbrunn, Embach."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Aying, Bad Aibling, Bergen, Eichenau, Embach, Feldkirchen-Westerham, Germering, Grödig, Höhenkirchen-Siegertsbrunn, Marktschellenberg, Salzburg, Schönau am Königssee; umbenannt bzw. ersetzt:  → Abstecher bei Embach, Abstecher bei Höhenkirchen-Siegertsbrunn. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

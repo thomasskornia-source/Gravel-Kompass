@@ -45,9 +45,19 @@
           "Ingolstadt Hbf"
         ],
         [
-          48.75965,
-          11.57112,
+          48.77759,
+          11.51529,
+          "Abstecher bei Katharinenberg"
+        ],
+        [
+          48.78099,
+          11.59881,
           "Menning"
+        ],
+        [
+          48.78116,
+          11.6167,
+          "Oberdünzing"
         ],
         [
           48.896,
@@ -55,8 +65,8 @@
           "Kloster Weltenburg"
         ],
         [
-          48.917,
-          11.887,
+          48.91849,
+          11.87228,
           "Kelheim"
         ]
       ],
@@ -80,6 +90,36 @@
           48.905528,
           11.892704,
           15
+        ],
+        [
+          48.780833,
+          11.589838,
+          15
+        ],
+        [
+          48.774755,
+          11.61918,
+          15
+        ],
+        [
+          48.773816,
+          11.619086,
+          15
+        ],
+        [
+          48.773042,
+          11.618989,
+          15
+        ],
+        [
+          48.782927,
+          11.595177,
+          15
+        ],
+        [
+          48.7958,
+          11.689788,
+          15
         ]
       ]
     },
@@ -90,14 +130,19 @@
       "text": "Hinein ins Altmühltal: am Main-Donau-Kanal nach Riedenburg und Beilngries, vorbei an Kalkfelsen und Burgen.",
       "wegpunkte": [
         [
-          48.917,
-          11.887,
+          48.91849,
+          11.87228,
           "Kelheim"
         ],
         [
-          48.93032,
-          11.77559,
+          48.91848,
+          11.87227,
           "Kelheim"
+        ],
+        [
+          48.93031,
+          11.77563,
+          "Abstecher bei Kelheim"
         ],
         [
           48.96429,
@@ -105,14 +150,19 @@
           "Riedenburg"
         ],
         [
-          48.98073,
-          11.68201,
+          48.9897,
+          11.67901,
           "Gundlfing"
         ],
         [
-          48.988,
-          11.62012,
+          48.97434,
+          11.65384,
           "Untereggersberg"
+        ],
+        [
+          48.98759,
+          11.62079,
+          "Abstecher bei Untereggersberg"
         ],
         [
           49.03293,
@@ -170,6 +220,11 @@
           49.030392,
           11.477407,
           15
+        ],
+        [
+          49.016857,
+          11.59527,
+          15
         ]
       ]
     },
@@ -185,13 +240,13 @@
           "Kipfenberg"
         ],
         [
-          48.94008,
-          11.26538,
+          48.93305,
+          11.28505,
           "Rapperszell"
         ],
         [
-          48.89096,
-          11.18282,
+          48.88998,
+          11.19428,
           "Eichstätt"
         ],
         [
@@ -224,6 +279,46 @@
         [
           48.9613,
           11.3263,
+          15
+        ],
+        [
+          48.892825,
+          11.187869,
+          15
+        ],
+        [
+          48.893762,
+          11.183219,
+          15
+        ],
+        [
+          48.892685,
+          11.187739,
+          15
+        ],
+        [
+          48.892803,
+          11.187271,
+          15
+        ],
+        [
+          48.892317,
+          11.189747,
+          15
+        ],
+        [
+          48.890336,
+          11.190841,
+          15
+        ],
+        [
+          48.892967,
+          11.182906,
+          15
+        ],
+        [
+          48.893579,
+          11.182514,
           15
         ]
       ]
@@ -305,13 +400,18 @@
           "Weißenburg"
         ],
         [
-          48.95839,
-          11.03881,
+          48.96595,
+          11.02081,
           "Neudorf"
         ],
         [
-          48.93857,
-          11.06354,
+          48.93925,
+          11.07732,
+          "Abstecher bei Schönau"
+        ],
+        [
+          48.91261,
+          11.07938,
           "Schönau"
         ],
         [
@@ -349,6 +449,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Menning, Gundlfing, Untereggersberg, Rapperszell, Neudorf, Schönau, Irgertsheim."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Eichstätt, Gundlfing, Kelheim, Menning, Neudorf, Rapperszell, Schönau, Untereggersberg; umbenannt bzw. ersetzt:  → Abstecher bei Katharinenberg, Abstecher bei Kelheim, Abstecher bei Schönau, Abstecher bei Untereggersberg, Oberdünzing. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

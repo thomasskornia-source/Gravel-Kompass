@@ -9,7 +9,7 @@
   "saison": "",
   "tage": 3,
   "fahrradtyp": "Gravel",
-  "anspruch": "Moderat",
+  "anspruch": "Entspannt",
   "streckenform": "Rundtour",
   "etappeMaxKm": 105,
   "oberflaeche": [
@@ -41,33 +41,38 @@
       "text": "Eichenau – Fürstenfeldbruck – Geltendorf – Kaufering – Landsberg am Lech (Lechradweg) – Schongau (historische Altstadt auf dem Lechberg).",
       "wegpunkte": [
         [
-          48.1738,
-          11.2792,
+          48.17256,
+          11.32232,
           "Eichenau"
         ],
         [
-          48.17399,
-          11.25667,
+          48.17964,
+          11.25574,
           "Fürstenfeldbruck"
         ],
         [
-          48.10516,
-          11.04478,
+          48.14621,
+          11.14781,
+          "Abstecher bei Grafrath"
+        ],
+        [
+          48.12144,
+          11.02922,
           "Geltendorf"
         ],
         [
-          48.08338,
-          10.97882,
+          48.0903,
+          10.86022,
           "Kaufering"
         ],
         [
-          48.04847,
-          10.87978,
+          48.04704,
+          10.87927,
           "Landsberg am Lech"
         ],
         [
-          47.8144,
-          10.9766,
+          47.81111,
+          10.90229,
           "Schongau"
         ]
       ],
@@ -146,6 +151,266 @@
           48.173097,
           11.262766,
           15
+        ],
+        [
+          48.172418,
+          11.263274,
+          15
+        ],
+        [
+          48.172282,
+          11.261858,
+          15
+        ],
+        [
+          48.122798,
+          11.027168,
+          15
+        ],
+        [
+          48.084672,
+          10.861056,
+          15
+        ],
+        [
+          48.050689,
+          10.877808,
+          15
+        ],
+        [
+          48.049762,
+          10.877806,
+          15
+        ],
+        [
+          48.1703,
+          11.31,
+          15
+        ],
+        [
+          48.173182,
+          11.263733,
+          15
+        ],
+        [
+          48.173322,
+          11.262505,
+          15
+        ],
+        [
+          48.173155,
+          11.262408,
+          15
+        ],
+        [
+          48.172293,
+          11.263447,
+          15
+        ],
+        [
+          48.172156,
+          11.26258,
+          15
+        ],
+        [
+          48.171963,
+          11.262523,
+          15
+        ],
+        [
+          48.17192,
+          11.262113,
+          15
+        ],
+        [
+          48.171906,
+          11.2619,
+          15
+        ],
+        [
+          48.174304,
+          11.264174,
+          15
+        ],
+        [
+          48.173054,
+          11.26112,
+          15
+        ],
+        [
+          48.086949,
+          10.861451,
+          15
+        ],
+        [
+          48.086816,
+          10.860623,
+          15
+        ],
+        [
+          48.173445,
+          11.264701,
+          15
+        ],
+        [
+          48.086982,
+          10.86166,
+          15
+        ],
+        [
+          48.176233,
+          11.263267,
+          15
+        ],
+        [
+          48.176348,
+          11.262402,
+          15
+        ],
+        [
+          48.176711,
+          11.261933,
+          15
+        ],
+        [
+          48.176781,
+          11.261649,
+          15
+        ],
+        [
+          48.087288,
+          10.862984,
+          15
+        ],
+        [
+          48.177274,
+          11.263258,
+          15
+        ],
+        [
+          48.177388,
+          11.263107,
+          15
+        ],
+        [
+          48.090391,
+          10.875744,
+          15
+        ],
+        [
+          48.085962,
+          10.865986,
+          15
+        ],
+        [
+          48.086402,
+          10.867123,
+          15
+        ],
+        [
+          48.087737,
+          10.872094,
+          15
+        ],
+        [
+          48.17271,
+          11.319302,
+          15
+        ],
+        [
+          48.088645,
+          10.866528,
+          15
+        ],
+        [
+          48.085575,
+          10.864202,
+          15
+        ],
+        [
+          48.085534,
+          10.864806,
+          15
+        ],
+        [
+          48.086871,
+          10.865178,
+          15
+        ],
+        [
+          48.086799,
+          10.864943,
+          15
+        ],
+        [
+          48.086732,
+          10.864718,
+          15
+        ],
+        [
+          48.086807,
+          10.869284,
+          15
+        ],
+        [
+          48.084345,
+          10.859692,
+          15
+        ],
+        [
+          48.086693,
+          10.859332,
+          15
+        ],
+        [
+          48.086658,
+          10.858183,
+          15
+        ],
+        [
+          48.086774,
+          10.857491,
+          15
+        ],
+        [
+          48.08296,
+          10.859875,
+          15
+        ],
+        [
+          48.065591,
+          10.860529,
+          15
+        ],
+        [
+          48.058712,
+          10.865687,
+          15
+        ],
+        [
+          48.053802,
+          10.869018,
+          15
+        ],
+        [
+          48.178725,
+          11.231009,
+          15
+        ],
+        [
+          48.178743,
+          11.230778,
+          15
+        ],
+        [
+          48.179035,
+          11.228323,
+          15
+        ],
+        [
+          48.179156,
+          11.256687,
+          15
         ]
       ]
     },
@@ -156,8 +421,8 @@
       "text": "Schongau – Steingaden – Wieskirche (UNESCO-Welterbe, Rokoko-Wallfahrtskirche) – Wildsteig – Hohenpeißenberg (Aussicht, Wallfahrtskirche und Wetterstation) – Peißenberg – Weilheim in Oberbayern.",
       "wegpunkte": [
         [
-          47.8144,
-          10.9766,
+          47.81111,
+          10.90229,
           "Schongau"
         ],
         [
@@ -176,13 +441,13 @@
           "Wildsteig"
         ],
         [
-          47.8039,
-          11.02877,
+          47.79265,
+          11.0081,
           "Hohenpeißenberg"
         ],
         [
-          47.8009,
-          11.05825,
+          47.80206,
+          11.06538,
           "Peißenberg"
         ],
         [
@@ -246,6 +511,66 @@
           47.740663,
           10.940526,
           15
+        ],
+        [
+          47.809753,
+          10.902559,
+          15
+        ],
+        [
+          47.810635,
+          10.893232,
+          15
+        ],
+        [
+          47.810071,
+          10.892259,
+          15
+        ],
+        [
+          47.798897,
+          11.061592,
+          15
+        ],
+        [
+          47.799013,
+          11.061454,
+          15
+        ],
+        [
+          47.8091,
+          10.8984,
+          15
+        ],
+        [
+          47.807989,
+          10.893489,
+          15
+        ],
+        [
+          47.808188,
+          10.892793,
+          15
+        ],
+        [
+          47.793571,
+          11.05828,
+          15
+        ],
+        [
+          47.794411,
+          11.058372,
+          15
+        ],
+        [
+          47.797366,
+          11.058329,
+          15
+        ],
+        [
+          47.810321,
+          10.891338,
+          15
         ]
       ]
     },
@@ -276,28 +601,28 @@
           "Rieden"
         ],
         [
-          47.996,
-          11.08787,
+          48.02271,
+          11.09422,
           "Utting am Ammersee"
         ],
         [
-          48.034,
-          11.1305,
+          48.04986,
+          11.09754,
           "Schondorf am Ammersee"
         ],
         [
-          48.05473,
-          11.1364,
+          48.071,
+          11.08749,
           "Greifenberg"
         ],
         [
-          48.1319,
-          11.1769,
+          48.12301,
+          11.16149,
           "Grafrath"
         ],
         [
-          48.1738,
-          11.2792,
+          48.17256,
+          11.32232,
           "Eichenau"
         ]
       ],
@@ -325,11 +650,6 @@
         [
           48.022269,
           11.097205,
-          15
-        ],
-        [
-          48.033849,
-          11.131947,
           15
         ],
         [
@@ -426,6 +746,36 @@
           48.053622,
           11.099437,
           15
+        ],
+        [
+          48.052939,
+          11.093374,
+          15
+        ],
+        [
+          48.095699,
+          11.117638,
+          15
+        ],
+        [
+          48.1703,
+          11.31,
+          15
+        ],
+        [
+          48.052423,
+          11.093806,
+          15
+        ],
+        [
+          48.172712,
+          11.319156,
+          15
+        ],
+        [
+          48.171624,
+          11.32116,
+          15
         ]
       ]
     }
@@ -470,6 +820,12 @@
       "von": "Claude",
       "kommentar": "Kommentar: „Check die Tour auf Basis unserer Basistoureinstellungen.“",
       "antwort": "Tour erneut gegen TOURQUALITAET.md geprüft (tour-fertig.py --nur-pruefen): unverändert 223 km, 1485 Hm, Anspruch Moderat mit 6,7 Hm/km passt (Regel 12). Ein zusätzlicher Durchlauf mit automatischer Reparatur wurde versucht, hat die 3. Etappe aber verschlechtert (90 statt 70 km, dazu neue Radverbote, Trails und eine Sackgasse) und wurde verworfen – die bestehende, bereits mehrfach geprüfte Streckenführung bleibt unverändert. Verbleibende kleine Befunde unverändert und hindern das Hochladen nicht: ein kurzer Trail bei Eichenau (Etappe 1), ein kurzes Stück Hauptstraße ohne Radweg sowie zwei kurze Hofflächen bei Wildsteig (Etappe 2), ein kurzes Stück Hauptstraße ohne Radweg bei Utting, eine kurze Hofeinfahrt, eine kurze Einbahnstraße gegen die Fahrtrichtung, zwei kurze Fußwege ohne Radfreigabe und ein kurzer Privatweg bei Dießen/Rieden sowie ein kurzer Trail bei Eichenau (Etappe 3)."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Korrektur auf Hinweis von Thomas: Schondorf und Greifenberg lagen am Ostufer, die Strecke fuhr mit der Fähre über den See.",
+      "antwort": "Thomas hatte recht – die früheren Antworten „keine Änderung nötig“ waren falsch. Der Wegpunkt „Schondorf am Ammersee“ lag im See vor Schondorf (48,034/11,1305), „Greifenberg“ am Ostufer (48,055/11,136); der Routenplaner fuhr deshalb zweimal mit der Ammersee-Fähre (Schondorf–Breitbrunn/Stegen). Schondorf liegt jetzt am Westufer (48,0519/11,1003), Greifenberg im Ort (48,0707/11,0836), die Sperre bei 48,0338/11,1319 ist entfernt. Die Strecke bleibt durchgehend am Westufer, ohne Fähre. Zusätzlich liegen alle Wegpunkte jetzt höchstens 1 km vom Ort, nach dem sie heißen (u. a. Eichenau, Fürstenfeldbruck, Kaufering, Schongau, Utting und Grafrath korrigiert). Die Prüfung meldet Fähren, Lücken und falsch liegende Wegpunkte künftig als Fehler. Weil Start und Ziel jetzt wirklich in Eichenau liegen, ist die Tour etwas flacher geworden (228 km, 1333 Hm, 5,8 Hm/km) – Anspruch ehrlich auf „Entspannt“ gesetzt."
     }
   ]
 }

@@ -64,9 +64,14 @@
           "Cheverny"
         ],
         [
-          47.48503,
-          1.39139,
+          47.49001,
+          1.4061,
           "Cormeray"
+        ],
+        [
+          47.50015,
+          1.42963,
+          "Abstecher bei Cheverny"
         ],
         [
           47.47914,
@@ -74,8 +79,8 @@
           "Chaumont-sur-Loire"
         ],
         [
-          47.42005,
-          1.07799,
+          47.4122,
+          1.09006,
           "Souvigny-de-Touraine"
         ],
         [
@@ -559,6 +564,31 @@
           47.411905,
           0.983012,
           15
+        ],
+        [
+          47.393,
+          0.812171,
+          15
+        ],
+        [
+          47.351003,
+          0.550086,
+          15
+        ],
+        [
+          47.351191,
+          0.549891,
+          15
+        ],
+        [
+          47.3516,
+          0.55,
+          15
+        ],
+        [
+          47.352092,
+          0.567005,
+          15
         ]
       ]
     },
@@ -574,8 +604,8 @@
           "Chinon"
         ],
         [
-          47.14989,
-          0.20173,
+          47.1435,
+          0.19516,
           "La Roche-Clermault"
         ],
         [
@@ -679,18 +709,23 @@
           "Saumur"
         ],
         [
-          47.2648,
-          0.07948,
+          47.24423,
+          0.10329,
           "Chouzé-sur-Loire"
         ],
         [
-          47.27054,
-          0.11873,
+          47.23688,
+          0.11318,
+          "Chouzé-sur-Loire"
+        ],
+        [
+          47.28128,
+          0.12677,
           "Saint-Nicolas-de-Bourgueil"
         ],
         [
-          47.26115,
-          0.16472,
+          47.28097,
+          0.1671,
           "Bourgueil"
         ],
         [
@@ -704,9 +739,14 @@
           "Huismes"
         ],
         [
-          47.2911,
-          0.4331,
+          47.25371,
+          0.29886,
           "Rigny-Ussé"
+        ],
+        [
+          47.25091,
+          0.33213,
+          "Abstecher bei Rivarennes"
         ],
         [
           47.3264,
@@ -744,6 +784,21 @@
           47.206159,
           0.148183,
           15
+        ],
+        [
+          47.237263,
+          0.248796,
+          15
+        ],
+        [
+          47.259334,
+          0.315545,
+          15
+        ],
+        [
+          47.266833,
+          0.312914,
+          15
         ]
       ]
     },
@@ -764,18 +819,23 @@
           "Tours"
         ],
         [
-          47.38989,
-          0.73801,
+          47.39697,
+          0.71993,
           "Saint-Pierre-des-Corps"
         ],
         [
-          47.32146,
-          0.97596,
+          47.39292,
+          0.74997,
+          "La Vicairerie"
+        ],
+        [
+          47.32819,
+          0.99086,
           "Bléré"
         ],
         [
-          47.33661,
-          1.01582,
+          47.32507,
+          1.03974,
           "Civray-de-Touraine"
         ],
         [
@@ -789,8 +849,8 @@
           "Montrichard"
         ],
         [
-          47.39428,
-          1.26421,
+          47.39068,
+          1.25259,
           "Pontlevoy"
         ],
         [
@@ -1019,6 +1079,21 @@
           47.389847,
           1.254763,
           15
+        ],
+        [
+          47.324268,
+          0.407963,
+          15
+        ],
+        [
+          47.494543,
+          1.295297,
+          15
+        ],
+        [
+          47.494171,
+          1.29583,
+          15
         ]
       ]
     }
@@ -1039,6 +1114,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Cormeray, Souvigny-de-Touraine, La Roche-Clermault, Seuilly, Chouzé-sur-Loire, Saint-Nicolas-de-Bourgueil, Saint-Pierre-des-Corps, Bléré, Civray-de-Touraine, Pontlevoy."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Bléré, Bourgueil, Chouzé-sur-Loire, Civray-de-Touraine, Cormeray, La Roche-Clermault, Pontlevoy, Rigny-Ussé, Saint-Nicolas-de-Bourgueil, Saint-Pierre-des-Corps, Souvigny-de-Touraine; umbenannt bzw. ersetzt:  → Abstecher bei Cheverny, Abstecher bei Rivarennes, La Vicairerie. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

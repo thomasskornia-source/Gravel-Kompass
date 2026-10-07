@@ -1,7 +1,7 @@
 {
   "id": "grevet-2026-saisonabschluss-kurz",
   "title": "Grevet 2026 Saisonabschluss kurz",
-  "subtitle": "Kürzere Gravel-Rundtour ab Krailling über Andechs und Tutzing – eigene Aufzeichnung von Thomas",
+  "subtitle": "Kürzere Gravel-Rundtour ab Krailling über Andechs und Pähl – eigene Aufzeichnung von Thomas",
   "createdAt": "2026-10-02",
   "von": "Thomas",
   "land": "Deutschland",
@@ -16,14 +16,14 @@
     "Asphalt"
   ],
   "spur": "data/spuren/grevet-2026-saisonabschluss-kurz.json",
-  "beschreibung": "Die kürzere Variante der Saisonabschluss-Runde ab Krailling, gefahren am 1. Oktober 2026: über Pentenried, Hochstadt und Meiling direkt nach Andechs, über Erling und Pähl nach Tutzing an den Starnberger See und über Maising, Söcking und das Würmtal bei Leutstetten zurück nach Krailling. Rund 80 km mit gut 600 Höhenmetern, ohne den Abstecher an Wörthsee und Ammersee.",
+  "beschreibung": "Die kürzere Variante der Saisonabschluss-Runde ab Krailling, gefahren am 1. Oktober 2026: über Pentenried, Hochstadt und an Meiling vorbei direkt nach Andechs, über Erling und Pähl nach Monatshausen oberhalb von Tutzing und über Maising, Söcking und das Würmtal bei Leutstetten zurück nach Krailling. Rund 80 km mit gut 600 Höhenmetern, ohne den Abstecher an Wörthsee und Ammersee.",
   "quellen": [],
   "etappen": [
     {
       "von": "Krailling",
       "nach": "Krailling",
       "hmPlan": 638,
-      "text": "Krailling – Pentenried – Hochstadt – Meiling – Kloster Andechs – Erling – Pähl – Tutzing – Maising – Söcking – Leutstetten – Buchendorf – Krailling.",
+      "text": "Krailling – Pentenried – Hochstadt – Kloster Andechs – Erling – Pähl – Monatshausen – Maising – Söcking – Leutstetten – Buchendorf – Krailling.",
       "wegpunkte": [
         [
           48.0928,
@@ -36,23 +36,18 @@
           "Pentenried"
         ],
         [
-          48.05572,
-          11.28339,
+          48.05584,
+          11.2686,
           "Hochstadt"
         ],
         [
-          48.03665,
-          11.21885,
-          "Meiling"
-        ],
-        [
-          47.99371,
-          11.18837,
+          47.97444,
+          11.17978,
           "Andechs"
         ],
         [
-          47.95686,
-          11.17829,
+          47.96774,
+          11.18347,
           "Erling"
         ],
         [
@@ -61,18 +56,18 @@
           "Pähl"
         ],
         [
-          47.89888,
-          11.24751,
-          "Tutzing"
+          47.90541,
+          11.21925,
+          "Monatshausen"
         ],
         [
-          47.97756,
-          11.2823,
+          47.98526,
+          11.28956,
           "Maising"
         ],
         [
-          48.00623,
-          11.3305,
+          48.00332,
+          11.32472,
           "Söcking"
         ],
         [
@@ -98,6 +93,11 @@
       "datum": "2026-10-02",
       "von": "Thomas",
       "antwort": "Eigene Aufzeichnung vom 01.10.2026 (Komoot). Die Strecke folgt genau dieser Aufzeichnung: 78 km, 638 Hm."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Andechs, Erling, Hochstadt, Maising, Söcking; umbenannt bzw. ersetzt: Meiling, Tutzing → Monatshausen. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre). Die Aufzeichnung selbst ist unverändert; sie führt oberhalb von Tutzing über Monatshausen und nicht an den Starnberger See – Beschreibung entsprechend korrigiert."
     }
   ]
 }

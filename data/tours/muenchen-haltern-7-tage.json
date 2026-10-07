@@ -51,13 +51,13 @@
           "München"
         ],
         [
-          48.14553,
-          11.52379,
+          48.15501,
+          11.53288,
           "Neuhausen-Nymphenburg"
         ],
         [
-          48.37732,
-          10.94755,
+          48.37789,
+          10.91242,
           "Lechhausen"
         ],
         [
@@ -166,8 +166,8 @@
           "Feuchtwangen"
         ],
         [
-          49.37721,
-          10.17901,
+          49.3658,
+          10.16292,
           "Rothenburg ob der Tauber"
         ]
       ],
@@ -186,8 +186,8 @@
       "text": "Das Taubertal hinunter: Creglingen, Schloss Weikersheim, Bad Mergentheim und Tauberbischofsheim bis zur Tauber-Mündung in Wertheim am Main.",
       "wegpunkte": [
         [
-          49.37721,
-          10.17901,
+          49.3658,
+          10.16292,
           "Rothenburg ob der Tauber"
         ],
         [
@@ -251,6 +251,11 @@
           "Miltenberg"
         ],
         [
+          49.74769,
+          9.20598,
+          "Abstecher bei Klotzenhof"
+        ],
+        [
           49.8239,
           9.11072,
           "Obernburg am Main"
@@ -266,8 +271,8 @@
           "Seligenstadt"
         ],
         [
-          50.12071,
-          8.90993,
+          50.13288,
+          8.91698,
           "Hanau"
         ]
       ],
@@ -336,6 +341,11 @@
           49.74702,
           9.202924,
           15
+        ],
+        [
+          50.132746,
+          8.917939,
+          15
         ]
       ]
     },
@@ -346,8 +356,8 @@
       "text": "Von Hanau durch die Wetterau über Friedberg mit seiner Burg und das Kurstädtchen Bad Nauheim nach Gießen, dann an der Lahn entlang nach Marburg mit Schloss und Altstadt.",
       "wegpunkte": [
         [
-          50.12071,
-          8.90993,
+          50.13288,
+          8.91698,
           "Hanau"
         ],
         [
@@ -361,8 +371,8 @@
           "Bad Nauheim"
         ],
         [
-          50.50499,
-          8.70248,
+          50.52987,
+          8.67714,
           "Leihgestern"
         ],
         [
@@ -511,6 +521,11 @@
           "Hallenberg"
         ],
         [
+          51.12881,
+          8.62646,
+          "Liesen"
+        ],
+        [
           51.19325,
           8.53107,
           "Winterberg"
@@ -521,8 +536,8 @@
           "Olsberg"
         ],
         [
-          51.37916,
-          8.39135,
+          51.35599,
+          8.38007,
           "Velmede"
         ],
         [
@@ -601,6 +616,11 @@
           50.808218,
           8.772252,
           15
+        ],
+        [
+          50.947306,
+          8.705673,
+          15
         ]
       ]
     },
@@ -608,7 +628,7 @@
       "von": "Meschede",
       "nach": "Haltern am See",
       "hmPlan": 0,
-      "text": "Das Ruhrtal hinunter nach Arnsberg, dann über den Haarstrang und Lünen ins Münsterland – über Datteln, Ahsen und Oer-Erkenschwick nach Haltern am See.",
+      "text": "Das Ruhrtal hinunter nach Arnsberg, dann über den Haarstrang und Lünen ins Münsterland – über Datteln, an der Wüsten Mühle vorbei und durch das Waldgebiet Haard nach Haltern am See.",
       "wegpunkte": [
         [
           51.34365,
@@ -633,12 +653,12 @@
         [
           51.67223,
           7.31648,
-          "Ahsen"
+          "Wüste Mühle (Datteln)"
         ],
         [
-          51.69189,
-          7.21664,
-          "Oer-Erkenschwick"
+          51.68965,
+          7.22283,
+          "Haard"
         ],
         [
           51.7433,
@@ -691,6 +711,11 @@
       "von": "Thomas",
       "kommentar": "Von Ingolstadt nach Eichstätt bitte direkt, den Schlenker bei Gunzenhausen rausnehmen, zwischen Rothenburg ob der Tauber und Dettelbach zu viele Schlenker, Strecke zwischen Bad Kissingen und Fulda glätten.",
       "antwort": "Kommentar kam noch unter der ID „muenchen-haltern-14-tage“ (14-Etappen-Version, parallel von der Routine angelegt und am 28.09. als Dublette wieder gelöscht). Die genannten Orte (Ingolstadt, Eichstätt, Gunzenhausen, Dettelbach, Bad Kissingen, Fulda) liegen nicht auf der jetzt gültigen 7-Etappen-Route (München–Donauwörth–Rothenburg–Wertheim–Hanau–Marburg–Meschede–Haltern) und werden daher nicht übernommen. Falls Thomas die 7-Etappen-Route dennoch über Ingolstadt/Eichstätt führen möchte, gerne als neuer Kommentar zur aktuellen Tour."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Hanau, Lechhausen, Leihgestern, Neuhausen-Nymphenburg, Rothenburg ob der Tauber, Velmede; umbenannt bzw. ersetzt: Ahsen, Oer-Erkenschwick → Abstecher bei Klotzenhof, Haard, Liesen, Wüste Mühle (Datteln). Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre). Etappe 7 führte nie durch Ahsen und Oer-Erkenschwick (2,9 bzw. 6,5 km daneben); beide Orte anzufahren hätte die Etappe über 120 km gebracht – darum Wegpunkte und Text auf die tatsächliche Strecke (Wüste Mühle bei Datteln, Waldgebiet Haard) korrigiert."
     }
   ],
   "etappeMaxKm": 120,

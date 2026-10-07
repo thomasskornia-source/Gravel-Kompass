@@ -11,6 +11,11 @@ bearbeiten**; gesperrte/leere nicht anfassen, nur ihre Anzahl berichten. `admin`
   `data/requests.json` (`name` falls angegeben). Widersprüche: siehe unten.
 - **Kommentar** → umsetzen und unter `aenderungen` dokumentieren (Datum, `von`, Kommentar, Antwort). Auch größere
   Umbauten umsetzen, wenn der Wunsch klar ist; bei Unklarem nach der Rangfolge unten entscheiden und offenlegen.
+  **Soll ein Kommentar die Route ausdrücklich ändern** (Ort raus/rein, anderes Ufer, keine Fähre …), wird er immer
+  umgesetzt. „Keine Änderung nötig“ ist nur erlaubt, wenn die berechnete Strecke selbst geprüft wurde – nicht nur die
+  Wegpunkte-Namen: Wegpunkt-Koordinaten mit dem Ort vergleichen, die Strecke auf Fähren, Lücken und Umwege ansehen
+  (`tour-fertig.py --nur-pruefen` meldet das als ❌ FEHLER). Meldet jemand denselben Punkt zweimal, liegt der Fehler
+  fast sicher bei uns.
 - **Löschen** (nur `admin`): Tourdatei entfernen, ID aus `tourIds` in `requests.json` nehmen; Commit „🗑️ Tour gelöscht: …“.
 - **Kommentar zur Checkliste** → nichts ändern; Vorschlag wörtlich mit Namen und kurzer Einschätzung berichten.
 - **Quelle** → prüfen, bei Eignung alphabetisch in `data/sources.json`.
@@ -37,6 +42,10 @@ oder einem Ort, der sich gar nicht finden lässt (dann den ähnlichsten nehmen u
 2. **`python3 tools/tour-fertig.py <tour-id>`** – repariert (Sperren, Wegpunkte aus Sackgassen), baut Abstecher gegen
    Eintönigkeit ein und prüft; gibt je Etappe eine Zeile aus. Bleiben Befunde: Wegpunkte von Hand ändern oder
    begründete Ausnahme eintragen, dann `--nur-pruefen`. Keine Etappe über der gewünschten Länge.
+   **❌ FEHLER sind nie „kleine Befunde“** und lassen keine Ausnahme zu: Lücke über 1 km in der Strecke, Fähre bzw.
+   Strecke übers Wasser, Wegpunkt im Wasser, Wegpunkt über 1 km vom Ort, nach dem er heißt. Wegpunkt korrigieren
+   (Ort nachschlagen, auf die Straße an Land legen – `python3 tools/wegpunkte-orte.py <tour-id>` macht das für
+   falsch liegende Wegpunkte) und neu prüfen; mit ❌ wird nicht hochgeladen.
 3. `python3 tools/tours-index.py`. GPX-Dateien erzeugt die GitHub-Aktion selbst.
 
 Technik dazu: `tour-fertig.py` meldet u. a. Privatwege, Hofeinfahrten, Campingplätze und Hofflächen (OSM-Karte),

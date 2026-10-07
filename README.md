@@ -8,13 +8,14 @@ Persönliches Planungstool für mehrtägige Gravel-Touren, gemeinsam mit Claude 
 - `CLAUDE.md` – feste Hinweise für Claude (Arbeitsweise, GPX-Knopf: was funktioniert und was nicht)
 - `TOURQUALITAET.md` – Regeln für gute Touren, wächst mit dem Feedback aus gefahrenen Touren
 - `tools/tour-fertig.py` – ein Befehl, der eine Tour repariert, auflockert und prüft (kurze Ausgabe)
+- `tools/wegpunkte-orte.py` – legt Wegpunkte, die über 1 km vom Ort ihres Namens oder im Wasser liegen, an den richtigen Ort
 - `tools/routen-reparieren.py` – behebt Routen-Check-Befunde automatisch, soweit möglich (Sperren, Wegpunkte)
 - `tools/abwechslung-planen.py` – bricht eintönige Abschnitte durch Abstecher auf (Regel 7)
 - `RADFAHREN.md` – warum wir Rad fahren und was jede Radart von einer Tour braucht
 - `data/spuren/<id>.json` – feste Spur aus einer eigenen Aufzeichnung (Tourfeld `"spur"`); Karte, Höhenprofil, km/Hm und GPX nutzen sie statt Routing, die Prüfwerkzeuge bauen solche Touren nicht um
 - `tools/spur-import.py` – übernimmt eine GPX-Aufzeichnung als Spur: `python3 tools/spur-import.py <datei.gpx> <tour-id> --orte`
 - `tools/gpx-export.py` – feste GPX-Dateien je Tour/Etappe unter `data/gpx/` (läuft automatisch als GitHub-Aktion, wenn sich eine Tour ändert)
-- `tools/routen-check.py` – Qualitäts-Check einer Tour (Stichstrecken, Privatgrund, Campingplätze, Hauptstraßen, Radrouten-Anteil); `tools/stichstrecken-check.py` wird davon genutzt
+- `tools/routen-check.py` – Qualitäts-Check einer Tour (FEHLER: Lücken über 1 km, Fähren/Wasser, Wegpunkte über 1 km vom Ort; dazu Stichstrecken, Privatgrund, Campingplätze, Hauptstraßen, Radrouten-Anteil); `tools/stichstrecken-check.py` wird davon genutzt
 - `data/sources.json` – Quellen-Datenbank für die Recherche
 - `data/requests.json` – bisherige Tour-Anfragen
 - `sw.js`, `.github/workflows/mitteilung.yml`, `tools/push-mitteilung.js` – Push-Mitteilung mit roter Zahl am App-Symbol bei jedem Push auf `main` (Secrets `VAPID_PRIVATE_KEY` und `PUSH_SUBSCRIPTIONS`)

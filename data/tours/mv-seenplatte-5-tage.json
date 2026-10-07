@@ -47,7 +47,7 @@
         [
           53.41777,
           13.02889,
-          "Klein Vielen"
+          "Abstecher bei Klein Vielen"
         ],
         [
           53.429,
@@ -55,8 +55,8 @@
           "Kratzeburg"
         ],
         [
-          53.49612,
-          12.85782,
+          53.50615,
+          12.87097,
           "Klein Dratow"
         ],
         [
@@ -397,7 +397,7 @@
         [
           53.61672,
           12.19726,
-          "Dobbertin"
+          "Abstecher bei Dobbertin"
         ],
         [
           53.5383,
@@ -425,13 +425,13 @@
           "Bad Stuer"
         ],
         [
-          53.46854,
-          12.43058,
+          53.47756,
+          12.42452,
           "Malchow"
         ],
         [
-          53.41241,
-          12.52799,
+          53.4056,
+          12.54362,
           "Groß Kelle"
         ],
         [
@@ -550,6 +550,11 @@
           "Röbel/Müritz"
         ],
         [
+          53.24632,
+          12.83907,
+          "Peetsch"
+        ],
+        [
           53.27205,
           12.82017,
           "Mirow"
@@ -557,7 +562,7 @@
         [
           53.2781,
           12.89131,
-          "Roggentin"
+          "Abstecher bei Roggentin"
         ],
         [
           53.28032,
@@ -565,8 +570,8 @@
           "Wesenberg"
         ],
         [
-          53.2919,
-          13.0511,
+          53.36233,
+          13.06356,
           "Neustrelitz"
         ],
         [
@@ -775,6 +780,166 @@
           53.292931,
           13.028873,
           15
+        ],
+        [
+          53.375102,
+          12.840676,
+          15
+        ],
+        [
+          53.370307,
+          12.842449,
+          15
+        ],
+        [
+          53.367335,
+          12.845404,
+          15
+        ],
+        [
+          53.290276,
+          12.854824,
+          15
+        ],
+        [
+          53.315911,
+          12.883441,
+          15
+        ],
+        [
+          53.326616,
+          12.924461,
+          15
+        ],
+        [
+          53.317228,
+          12.940753,
+          15
+        ],
+        [
+          53.29543,
+          12.933003,
+          15
+        ],
+        [
+          53.289353,
+          12.95948,
+          15
+        ],
+        [
+          53.296738,
+          12.959988,
+          15
+        ],
+        [
+          53.298354,
+          12.963327,
+          15
+        ],
+        [
+          53.29993,
+          12.964935,
+          15
+        ],
+        [
+          53.303876,
+          12.987993,
+          15
+        ],
+        [
+          53.339384,
+          12.984616,
+          15
+        ],
+        [
+          53.356457,
+          13.0507,
+          15
+        ],
+        [
+          53.204839,
+          12.809654,
+          15
+        ],
+        [
+          53.197131,
+          12.81541,
+          15
+        ],
+        [
+          53.290153,
+          12.867999,
+          15
+        ],
+        [
+          53.295908,
+          12.877042,
+          15
+        ],
+        [
+          53.317304,
+          12.879155,
+          15
+        ],
+        [
+          53.294993,
+          12.961916,
+          15
+        ],
+        [
+          53.289498,
+          12.956349,
+          15
+        ],
+        [
+          53.288627,
+          12.954992,
+          15
+        ],
+        [
+          53.2358,
+          12.753,
+          15
+        ],
+        [
+          53.334513,
+          12.888253,
+          15
+        ],
+        [
+          53.343289,
+          12.908987,
+          15
+        ],
+        [
+          53.347108,
+          12.9234,
+          15
+        ],
+        [
+          53.34753,
+          12.925165,
+          15
+        ],
+        [
+          53.348043,
+          12.926151,
+          15
+        ],
+        [
+          53.291174,
+          12.967796,
+          15
+        ],
+        [
+          53.254553,
+          12.835048,
+          15
+        ],
+        [
+          53.2601,
+          12.8179,
+          15
         ]
       ]
     }
@@ -795,6 +960,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Klein Vielen, Klein Dratow, Lalendorf, Dobbertin, Plauerhagen, Groß Kelle, Roggentin."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Groß Kelle, Klein Dratow, Malchow, Neustrelitz; umbenannt bzw. ersetzt: Dobbertin, Klein Vielen, Roggentin → Abstecher bei Dobbertin, Abstecher bei Klein Vielen, Abstecher bei Roggentin, Peetsch. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre). Die Abstecher-Punkte bei Dobbertin, Walow, Klein Vielen und Roggentin heißen jetzt „Abstecher bei …“, weil sie nicht im Ort selbst liegen."
     }
   ]
 }

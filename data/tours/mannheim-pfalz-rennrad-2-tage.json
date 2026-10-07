@@ -287,8 +287,8 @@
           "Schweigen"
         ],
         [
-          49.05937,
-          8.03173,
+          49.05042,
+          8.03486,
           "Steinfeld (Pfalz)"
         ],
         [
@@ -322,8 +322,8 @@
           "Stettfeld"
         ],
         [
-          49.20614,
-          8.69841,
+          49.21875,
+          8.71012,
           "Östringen-Stadt"
         ],
         [
@@ -346,11 +346,6 @@
         [
           49.047875,
           7.959611,
-          15
-        ],
-        [
-          49.037267,
-          8.298095,
           15
         ],
         [
@@ -404,53 +399,8 @@
           15
         ],
         [
-          49.03729,
-          8.299699,
-          15
-        ],
-        [
-          49.03723,
-          8.299396,
-          15
-        ],
-        [
           49.479456,
           8.470788,
-          15
-        ],
-        [
-          49.03795,
-          8.298078,
-          15
-        ],
-        [
-          49.037811,
-          8.298039,
-          15
-        ],
-        [
-          49.037673,
-          8.298757,
-          15
-        ],
-        [
-          49.037366,
-          8.301197,
-          15
-        ],
-        [
-          49.037089,
-          8.303434,
-          15
-        ],
-        [
-          49.036821,
-          8.305569,
-          15
-        ],
-        [
-          49.036982,
-          8.312345,
           15
         ],
         [
@@ -487,6 +437,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Steinfeld (Pfalz), Waldstadt, Stettfeld, Östringen-Stadt."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Steinfeld (Pfalz), Östringen-Stadt. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre). Etappe 2 fuhr wegen Sperren auf der Rheinbrücke Maxau mit der Fähre über den Rhein – Sperren auf der Brücke entfernt, die Strecke nimmt jetzt wie beschrieben die Brücke (123 statt 134 km)."
     }
   ]
 }

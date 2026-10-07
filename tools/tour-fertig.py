@@ -7,6 +7,8 @@ bei Befunden gruppiert nach Art (Anzahl, erste Stelle).
 
 Aufruf: python3 tools/tour-fertig.py <tour-id> [--nur-pruefen]
 Exit-Code 1, wenn offene Befunde bleiben (dann Wegpunkte von Hand ändern oder begründete Ausnahme eintragen).
+❌ FEHLER (Lücke über 1 km, Fähre/Strecke übers Wasser, Wegpunkt im Wasser, Wegpunkt über 1 km vom Ort seines Namens)
+sind nie „kleine Befunde“: keine Ausnahme möglich, die Tour darf so nicht hochgeladen werden – Exit-Code 2.
 """
 import collections, importlib.util, json, pathlib, re, subprocess, sys
 
@@ -40,20 +42,29 @@ def main(args):
         for s in ("routen-reparieren.py", "abwechslung-planen.py", "routen-reparieren.py"):
             schritt(s, tid, log)
     t = json.loads((ROOT / "data" / "tours" / f"{tid}.json").read_text(encoding="utf-8"))
-    offen, summe_km, summe_hm = False, 0, 0
+    offen, fehler, summe_km, summe_hm = False, False, 0, 0
     for n, e in enumerate(t["etappen"], 1):
         km, hm, anteil, befunde, _ = rc.pruefe_etappe(t, n, e, True)
         summe_km += km; summe_hm += hm
-        rest = [b for b in befunde if not rc.ausnahme(b, e.get("ausnahmen", []))]
+        harte = [b for b in befunde if rc.ist_fehler(b)]
+        rest = [b for b in befunde if not rc.ist_fehler(b) and not rc.ausnahme(b, e.get("ausnahmen", []))]
         gruppen = collections.OrderedDict()
         for b in rest:
             gruppen.setdefault(art(b), []).append(b)
         kopf = f"E{n} {e['von']} → {e['nach']}: {km:.0f} km, {hm} Hm, {anteil} % Radrouten"
+        if harte:
+            fehler = True
+            print(f"❌ {kopf}")
+            for b in harte:
+                print(f"     FEHLER: {b}")
+            if not gruppen:
+                continue
         if not gruppen:
             print(f"✓  {kopf}")
             continue
         offen = True
-        print(f"⚠️  {kopf}")
+        if not harte:
+            print(f"⚠️  {kopf}")
         for a, bs in gruppen.items():
             stelle = re.search(r"(-?\d+\.\d{3,}),\s?(-?\d+\.\d{3,})", bs[0])
             print(f"     {len(bs)}× {a}" + (f" (z. B. {stelle.group(1)},{stelle.group(2)})" if stelle else ""))
@@ -63,8 +74,10 @@ def main(args):
         ok = spanne[0] <= q <= spanne[1]
         offen = offen or not ok
         print(f"{'✓ ' if ok else '⚠️'} Anspruch „{t['anspruch']}“: {q:.1f} Hm/km ({summe_km:.0f} km, {summe_hm} Hm)")
+    if fehler:
+        print("❌ FEHLER – so nicht hochladen: Wegpunkte korrigieren und neu prüfen (keine Ausnahme möglich)")
     print(f"(Details: {log})")
-    return 1 if offen else 0
+    return 2 if fehler else 1 if offen else 0
 
 
 if __name__ == "__main__":

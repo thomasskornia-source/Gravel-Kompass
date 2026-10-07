@@ -27,7 +27,7 @@ Gesperrte Stellen (damit der Routenplaner z. B. eine Hofeinfahrt meidet) stehen 
 Aufruf: python3 tools/routen-check.py <tour-id> [...]   (ohne ID: alle Touren; --ohne-karte überspringt den Kartencheck)
 Exit-Code 1, wenn etwas beseitigt oder begründet werden muss.
 """
-import importlib.util, json, math, pathlib, re, sys, time, urllib.request
+import importlib.util, json, math, os, pathlib, re, sys, time, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -49,8 +49,93 @@ GROBER_SCHOTTER = re.compile(r"surface=(gravel|pebblestone|unpaved|rock)\b.*(tra
 GROB_TREKKING = re.compile(r"tracktype=grade5|surface=(rock|mud|grass|pebblestone)\b")
 MAX_STEIGUNG_TREKKING = 10   # %, auf mindestens 100 m
 AUSNAHME_M = 300             # Befunde so nah an einer begründeten Ausnahme zählen nicht
+LUECKE_FEHLER_M = 1000      # größerer Sprung zwischen zwei Streckenpunkten = Lücke (Fehler)
+ORT_MAX_M = 1000            # so weit darf ein Wegpunkt höchstens vom Ort liegen, nach dem er heißt
+# Fehler sind nie „kleine Befunde“: keine Ausnahme möglich, Tour so nicht hochladen
+# Wegpunkte, die nach einer Sehenswürdigkeit heißen, werden nicht mit einem Ortskern verglichen
+SEHENSWUERDIGKEIT = re.compile(r"(Kloster|Moulin|Mühle|Burg|Schloss|Kirche|Kapelle|Abtei|Abbaye|Château|Gipfel|Aussicht|"
+                               r"Bahnhof|Gare|Hütte|Alm|Brücke|Pont)\b", re.I)
+FEHLER = re.compile(r"^(Lücke|Fähre|Im Wasser|Wegpunkt „)")
 ANSPRUCH = {"Entspannt": (0, 6), "Moderat": (6, 12), "Anspruchsvoll": (12, 99)}   # Hm pro km
 UNBEFESTIGT = re.compile(r"surface=(gravel|fine_gravel|compacted|unpaved|dirt|ground|grass|sand|earth|mud|pebblestone|woodchips|rock)\b|tracktype=grade[2-5]")
+
+
+def ist_fehler(befund):
+    return bool(FEHLER.match(befund))
+
+
+def _nominatim(pfad):
+    time.sleep(1.1)
+    url = "https://nominatim.openstreetmap.org/" + pfad
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+        return json.load(r)
+
+
+def _zwischenspeicher(name, schluessel, holen):
+    datei = CACHE / name
+    CACHE.mkdir(parents=True, exist_ok=True)
+    def lesen():
+        try:
+            return json.loads(datei.read_text())
+        except (OSError, ValueError):
+            return {}
+    daten = lesen()
+    if schluessel not in daten:
+        try:
+            wert = holen()
+        except Exception:
+            return None   # Dienst nicht erreichbar: nicht als Befund werten, nicht speichern
+        daten = lesen(); daten[schluessel] = wert   # frisch lesen: mehrere Prüfungen können gleichzeitig laufen
+        tmp = datei.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(daten, ensure_ascii=False)); os.replace(tmp, datei)
+    return daten[schluessel]
+
+
+def im_wasser(p):
+    """Name des Sees/Flusses, in dem der Punkt liegt – sonst None (Nominatim: nächstes Gewässer + dessen Umriss)."""
+    def holen():
+        d = _nominatim(f"reverse?format=jsonv2&lat={p[0]}&lon={p[1]}&layer=natural&zoom=18")
+        if d.get("type") not in ("lake", "water", "reservoir", "river", "riverbank", "pond", "bay", "basin"):
+            return ""
+        k = d["osm_type"][0].upper() + str(d["osm_id"])
+        g = _nominatim(f"lookup?osm_ids={k}&format=json&polygon_geojson=1&polygon_threshold=0.00005")[0]["geojson"]
+        polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"] if g["type"] == "MultiPolygon" else []
+        for poly in polys:
+            ringe = [[(q[1], q[0]) for q in r] for r in poly]
+            if inside(p, ringe[0]) and not any(inside(p, h) for h in ringe[1:]):
+                return d.get("name") or d["type"]
+        return ""
+    return _zwischenspeicher("wasser.json", f"{p[0]:.5f},{p[1]:.5f}", holen) or None
+
+
+def ortskern(name, p):
+    """(lat, lon) des Ortes, nach dem ein Wegpunkt heißt (nächster Treffer im Umkreis) – oder None."""
+    name = re.sub(r"\s*\(.*?\)", "", name).strip()
+    if not name or name == "?" or name.startswith("Abstecher") or SEHENSWUERDIGKEIT.match(name) or re.match(r"[\d.,\s-]+$", name):
+        return None
+    def holen():
+        q = urllib.parse.quote(name)
+        box = f"{p[1] - .3},{p[0] + .2},{p[1] + .3},{p[0] - .2}"
+        treffer = _nominatim(f"search?format=jsonv2&limit=5&featureType=settlement&bounded=1&viewbox={box}&q={q}")
+        return [[float(x["lat"]), float(x["lon"]), x.get("addresstype", "")] for x in treffer]
+    treffer = _zwischenspeicher("orte.json", f"{name}|{p[0]:.3f},{p[1]:.3f}", holen) or []
+    orte = [x[:2] for x in treffer if x[2] not in ("county", "state", "state_district", "region", "country", "province")]
+    return tuple(min(orte, key=lambda o: dist(o, p))) if orte else None
+
+
+def wegpunkt_befunde(e):
+    """Wegpunkte im Wasser oder weiter als ORT_MAX_M vom Ort, nach dem sie heißen."""
+    out = []
+    for w in e["wegpunkte"]:
+        name = w[2] if len(w) > 2 else ""
+        see = im_wasser(w[:2])
+        if see:
+            out.append(f"Im Wasser: Wegpunkt „{name}“ bei {w[0]:.5f},{w[1]:.5f} liegt im {see}")
+        o = ortskern(name, w[:2])
+        if o and dist(o, w[:2]) > ORT_MAX_M:
+            out.append(f"Wegpunkt „{name}“ bei {w[0]:.5f},{w[1]:.5f} liegt {dist(o, w[:2]) / 1000:.1f} km vom Ort entfernt "
+                       f"(Ort bei {o[0]:.5f},{o[1]:.5f})")
+    return out
 
 
 def nogos(sperren):
@@ -313,6 +398,8 @@ def pruefe_etappe(t, n, e, mit_karte):
             melde("Radverbot", d, p)
         if "reversedirection=yes" in tags and re.search(r"(?<![:\w])oneway=yes", tags) and "oneway:bicycle=no" not in tags:
             melde("Einbahnstraße gegen die Fahrtrichtung", d, p)
+        if "route=ferry" in tags:
+            melde("Fähre (Strecke führt übers Wasser)", d, p)
         if haupt.search(tags) and "cycleway" not in tags:
             strasse.append(d)
         else:
@@ -334,6 +421,14 @@ def pruefe_etappe(t, n, e, mit_karte):
             elif art_rad == "gravel" and not grober_schotter_ok and GROBER_SCHOTTER.search(tags):
                 melde("Grober Schotter", d, p)
     befunde += [f"{art} {d} m bei {a[0]:.4f},{a[1]:.4f}{z}" for art, d, a, _, z, _ in stellen]
+    # Lücke: Sprung über 1 km, der keinem Weg folgt (lange gerade Feldwege/Straßen ohne Zwischenpunkte sind keine Lücke)
+    zeile_bei = sorted((index[(round(p[0], 5), round(p[1], 5))], tags) for p, tags in zeilen
+                       if (round(p[0], 5), round(p[1], 5)) in index)
+    for i, (a, b) in enumerate(zip(coords, coords[1:])):
+        if dist(a, b) > LUECKE_FEHLER_M:
+            tags = next((tg for j, tg in zeile_bei if j >= i + 1), "")
+            if "highway=" not in tags or "route=ferry" in tags:
+                befunde.append(f"Lücke {dist(a, b) / 1000:.1f} km in der Strecke bei {a[0]:.4f},{a[1]:.4f} → {b[0]:.4f},{b[1]:.4f}")
     reparatur["sperren"] = [(art, mm) for art, _, _, _, _, mitten in stellen for mm in mitten]
     for laenge, a, b in stich.doppelte_abschnitte([list(c) for c in coords]):
         reparatur["stubs"].append((a, b))
@@ -345,6 +440,8 @@ def pruefe_etappe(t, n, e, mit_karte):
     flaechen, gewaesser = karte(coords) if mit_karte else ([], [])
     befunde += eintoenig(coords3, zeilen, gewaesser, grenze_m)
     if mit_karte:
+        befunde += wegpunkt_befunde(e)
+
         def wegtags(p):
             return min(zeilen, key=lambda q: (q[0][0] - p[0]) ** 2 + (q[0][1] - p[1]) ** 2)[1]
         for (art, name, la, lo), k in privatflaechen(coords, wegtags, flaechen).items():
@@ -384,12 +481,12 @@ def main(args):
             except Exception as err:
                 print(f"?  {t['id']} Etappe {n}: nicht prüfbar ({err})"); fehler = True; continue
             summe_km += km; summe_hm += hm
-            offen = [b for b in befunde if not ausnahme(b, e.get("ausnahmen", []))]
-            zeichen = "⚠️ " if offen else "✓ "
+            offen = [b for b in befunde if ist_fehler(b) or not ausnahme(b, e.get("ausnahmen", []))]
+            zeichen = "❌" if any(map(ist_fehler, befunde)) else "⚠️ " if offen else "✓ "
             print(f"{zeichen} {t['id']} Etappe {n}: {km:.1f} km, {hm} Hm, {anteil} % auf Radrouten")
             for b in befunde:
-                grund = ausnahme(b, e.get("ausnahmen", []))
-                print(f"     - {b}" + (f"  → Ausnahme: {grund}" if grund else ""))
+                grund = None if ist_fehler(b) else ausnahme(b, e.get("ausnahmen", []))
+                print(f"     - {'FEHLER: ' if ist_fehler(b) else ''}{b}" + (f"  → Ausnahme: {grund}" if grund else ""))
             fehler = fehler or bool(offen)
         spanne = ANSPRUCH.get(t.get("anspruch"))
         if spanne and summe_km:

@@ -634,8 +634,8 @@
           "Olot"
         ],
         [
-          42.23385,
-          2.28613,
+          42.23443,
+          2.2876,
           "Sant Joan de les Abadesses"
         ],
         [
@@ -1203,6 +1203,16 @@
         [
           41.927669,
           3.14762,
+          15
+        ],
+        [
+          42.312459,
+          2.364323,
+          15
+        ],
+        [
+          42.312906,
+          2.363902,
           15
         ]
       ]
@@ -1809,6 +1819,16 @@
           42.431956,
           2.862324,
           15
+        ],
+        [
+          42.438303,
+          2.864924,
+          15
+        ],
+        [
+          42.437813,
+          2.864835,
+          15
         ]
       ]
     },
@@ -1839,8 +1859,8 @@
           "Sant Pere Pescador"
         ],
         [
-          42.12255,
-          3.12799,
+          42.11353,
+          3.13874,
           "L'Escala"
         ]
       ],
@@ -2399,6 +2419,26 @@
           41.927669,
           3.14762,
           15
+        ],
+        [
+          42.126613,
+          3.128946,
+          15
+        ],
+        [
+          42.115838,
+          3.136701,
+          15
+        ],
+        [
+          42.115954,
+          3.136095,
+          15
+        ],
+        [
+          42.115736,
+          3.136573,
+          15
         ]
       ],
       "ausnahmen": [
@@ -2417,8 +2457,8 @@
       "text": "Über Torroella de Montgrí an die Costa Brava nach Begur, durch das Hinterland über Palafrugell und La Bisbal d'Empordà (Keramikstadt) zurück nach Girona.",
       "wegpunkte": [
         [
-          42.12255,
-          3.12799,
+          42.11353,
+          3.13874,
           "L'Escala"
         ],
         [
@@ -3121,6 +3161,11 @@
       "datum": "2026-09-28",
       "kommentar": "Also kann pro Tag ruhig ca. 100km sein mit 1000hm. Keine dicken Schotterpassagen",
       "antwort": "Umgebaut auf 5 Etappen um 85 km (im Schnitt gut 1.100 Hm): Girona–Olot, Olot–Prats-de-Mollo (Coll d'Ares, der härteste Tag), Prats-de-Mollo–Figueres, Figueres–L'Escala (Cap de Creus, Cadaqués), L'Escala–Girona (Begur). 100 km mit 1.000 Hm geht bei 5.800 Hm auf gut 400 km nicht für jeden Tag gleichzeitig. Grober, loser Schotter wird umfahren, wo es Alternativen gibt."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: L'Escala, Sant Joan de les Abadesses. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

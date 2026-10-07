@@ -34,6 +34,8 @@ def bewerte(t, e):
     coords3 = [(c[1], c[0], c[2] if len(c) > 2 else 0) for c in f["geometry"]["coordinates"]]
     m = f["properties"]["messages"]; h = m[0]
     iL, iA, iD, iT = h.index("Longitude"), h.index("Latitude"), h.index("Distance"), h.index("WayTags")
+    if any("route=ferry" in str(r[iT]) for r in m[1:]):
+        return None   # kein Abstecher mit Fähre
     zeilen = [((int(r[iA]) / 1e6, int(r[iL]) / 1e6), r[iT]) for r in m[1:]]
     haupt = r"highway=(primary|trunk)\b" if rc.radart(t) == "road" else r"highway=(primary|secondary|trunk)\b"
     strasse, lauf = 0, 0
@@ -58,7 +60,11 @@ def ortsname(p):
         time.sleep(1.1)
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "gravel-kompass-check"}), timeout=30) as r:
             a = json.load(r).get("address", {})
-        return a.get("village") or a.get("hamlet") or a.get("town") or a.get("suburb") or a.get("city") or "Abstecher"
+        name = a.get("village") or a.get("hamlet") or a.get("town") or a.get("suburb") or a.get("city")
+        o = name and rc.ortskern(name, p)
+        if o and rc.dist(o, p) > rc.ORT_MAX_M:
+            return f"Abstecher bei {name}"   # Wegpunkt heißt nur nach einem Ort, wenn er höchstens 1 km davon liegt
+        return name or "Abstecher"
     except Exception:
         return "Abstecher"
 

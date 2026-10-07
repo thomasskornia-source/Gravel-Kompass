@@ -49,8 +49,13 @@
           "Gevrey-Chambertin"
         ],
         [
-          47.1794,
-          4.9494,
+          47.20711,
+          4.97576,
+          "Abstecher bei Gevrey-Chambertin"
+        ],
+        [
+          47.17912,
+          4.95617,
           "Vougeot"
         ],
         [
@@ -64,13 +69,13 @@
           "Beaune"
         ],
         [
-          46.96884,
-          4.76593,
+          46.97838,
+          4.76865,
           "Meursault"
         ],
         [
-          46.90616,
-          4.71492,
+          46.91151,
+          4.69963,
           "Santenay"
         ],
         [
@@ -184,6 +189,21 @@
           46.964068,
           4.766995,
           15
+        ],
+        [
+          47.223645,
+          4.961007,
+          15
+        ],
+        [
+          46.922309,
+          4.746658,
+          15
+        ],
+        [
+          46.922027,
+          4.747043,
+          15
         ]
       ]
     },
@@ -199,8 +219,8 @@
           "Chagny"
         ],
         [
-          46.8869,
-          4.7419,
+          46.87588,
+          4.73974,
           "Rully"
         ],
         [
@@ -214,18 +234,18 @@
           "Givry"
         ],
         [
-          46.76155,
-          4.72432,
+          46.75409,
+          4.71083,
           "Saint-Désert"
         ],
         [
-          46.72415,
-          4.67502,
+          46.71339,
+          4.69506,
           "Buxy"
         ],
         [
-          46.6297,
-          4.6836,
+          46.61484,
+          4.66507,
           "Saint-Gengoux-le-National"
         ],
         [
@@ -234,13 +254,13 @@
           "Sercy"
         ],
         [
-          46.54477,
-          4.72638,
+          46.55689,
+          4.73671,
           "Chapaize"
         ],
         [
-          46.46689,
-          4.72112,
+          46.47619,
+          4.72421,
           "Blanot"
         ],
         [
@@ -268,6 +288,16 @@
         [
           46.789324,
           4.746773,
+          15
+        ],
+        [
+          46.909229,
+          4.74678,
+          15
+        ],
+        [
+          46.713416,
+          4.702601,
           15
         ]
       ]
@@ -299,13 +329,13 @@
           "Mâcon"
         ],
         [
-          46.46874,
-          4.88799,
+          46.47641,
+          4.8795,
           "Montbellet"
         ],
         [
-          46.5686,
-          4.9019,
+          46.56292,
+          4.90429,
           "Tournus"
         ]
       ],
@@ -349,9 +379,14 @@
       "text": "Flach am Saône-Ufer entlang (Voie Bleue) über Chalon-sur-Saône und den Zusammenfluss von Saône und Doubs bei Verdun-sur-le-Doubs bis Saint-Jean-de-Losne, dem südlichen Tor des Canal de Bourgogne.",
       "wegpunkte": [
         [
-          46.5686,
-          4.9019,
+          46.56292,
+          4.90429,
           "Tournus"
+        ],
+        [
+          46.61985,
+          4.87808,
+          "Abstecher bei Sennecey-le-Grand"
         ],
         [
           46.7803,
@@ -364,9 +399,24 @@
           "Verdun-sur-le-Doubs"
         ],
         [
-          46.93289,
-          5.10544,
+          46.9403,
+          5.09792,
           "Charnay-lès-Chalon"
+        ],
+        [
+          46.94876,
+          5.13919,
+          "Abstecher bei Mont-lès-Seurre"
+        ],
+        [
+          47.08953,
+          5.18936,
+          "Abstecher bei Esbarres"
+        ],
+        [
+          47.09508,
+          5.21461,
+          "Esbarres"
         ],
         [
           47.1042,
@@ -479,6 +529,71 @@
           46.9438,
           5.118,
           15
+        ],
+        [
+          46.677287,
+          4.890576,
+          15
+        ],
+        [
+          46.700852,
+          4.891679,
+          15
+        ],
+        [
+          46.70127,
+          4.890283,
+          15
+        ],
+        [
+          46.77653,
+          4.847685,
+          15
+        ],
+        [
+          46.776699,
+          4.847766,
+          15
+        ],
+        [
+          46.777235,
+          4.847539,
+          15
+        ],
+        [
+          46.778154,
+          4.846956,
+          15
+        ],
+        [
+          47.10599,
+          5.255507,
+          15
+        ],
+        [
+          47.105455,
+          5.263617,
+          15
+        ],
+        [
+          47.105471,
+          5.264415,
+          15
+        ],
+        [
+          46.726638,
+          4.856331,
+          15
+        ],
+        [
+          46.775293,
+          4.845903,
+          15
+        ],
+        [
+          47.107759,
+          5.262584,
+          15
         ]
       ]
     },
@@ -496,16 +611,21 @@
         [
           47.17617,
           5.22779,
-          "Moulin de Tart-l'Abbaye"
+          "Moulin de Tart"
         ],
         [
-          47.21291,
-          5.19907,
+          47.20371,
+          5.20477,
           "Tart-le-Haut"
         ],
         [
-          47.22429,
-          5.12768,
+          47.20998,
+          5.18235,
+          "Marliens"
+        ],
+        [
+          47.20276,
+          5.15261,
           "Longecourt-en-Plaine"
         ],
         [
@@ -514,8 +634,8 @@
           "Saulon-la-Rue"
         ],
         [
-          47.30292,
-          5.04578,
+          47.31292,
+          5.05793,
           "Université"
         ],
         [
@@ -699,6 +819,81 @@
           47.307599,
           5.042399,
           15
+        ],
+        [
+          47.286585,
+          5.062793,
+          15
+        ],
+        [
+          47.287525,
+          5.061784,
+          15
+        ],
+        [
+          47.310702,
+          5.053293,
+          15
+        ],
+        [
+          47.310751,
+          5.053522,
+          15
+        ],
+        [
+          47.323052,
+          5.041175,
+          15
+        ],
+        [
+          47.288103,
+          5.060678,
+          15
+        ],
+        [
+          47.324095,
+          5.040239,
+          15
+        ],
+        [
+          47.323655,
+          5.04011,
+          15
+        ],
+        [
+          47.323245,
+          5.039992,
+          15
+        ],
+        [
+          47.32313,
+          5.040106,
+          15
+        ],
+        [
+          47.322813,
+          5.040334,
+          15
+        ],
+        [
+          47.290887,
+          5.059105,
+          15
+        ],
+        [
+          47.315741,
+          5.045211,
+          15
+        ],
+        [
+          47.291295,
+          5.058584,
+          15
+        ],
+        [
+          47.291475,
+          5.058438,
+          15
         ]
       ]
     }
@@ -719,6 +914,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Saint-Désert, Sercy, Chapaize, Blanot, Montbellet, Charnay-lès-Chalon, Moulin de Tart-l'Abbaye, Tart-le-Haut, Saulon-la-Rue, Université. Durch die Abstecher in die Weinberge ist die Tour wieder „Moderat“ (gut 7 Hm pro km)."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Blanot, Buxy, Chapaize, Charnay-lès-Chalon, Longecourt-en-Plaine, Meursault, Montbellet, Rully, Saint-Désert, Saint-Gengoux-le-National, Santenay, Tart-le-Haut, Tournus, Université, Vougeot; umbenannt bzw. ersetzt: Moulin de Tart-l'Abbaye → Abstecher bei Esbarres, Abstecher bei Gevrey-Chambertin, Abstecher bei Mont-lès-Seurre, Abstecher bei Sennecey-le-Grand, Esbarres, Marliens, Moulin de Tart. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

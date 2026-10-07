@@ -16,14 +16,14 @@
     "Asphalt"
   ],
   "spur": "data/spuren/grevet-2026-saisonabschluss.json",
-  "beschreibung": "Große Saisonabschluss-Runde ab Krailling, genau so gefahren am 1. Oktober 2026: übers Würmtal-Plateau nach Pentenried, durch Hochstadt und Meiling an den Wörthsee bei Bachern, weiter an den Ammersee nach Buch und Herrsching, hinauf zum Kloster Andechs, über Erling und Pähl hinüber an den Starnberger See nach Tutzing und über Traubing, Maising, Hanfeld und das Würmtal bei Leutstetten zurück nach Krailling. Rund 100 km mit gut 800 Höhenmetern auf den Hügeln zwischen den Seen.",
+  "beschreibung": "Große Saisonabschluss-Runde ab Krailling, genau so gefahren am 1. Oktober 2026: übers Würmtal-Plateau nach Pentenried, durch Hochstadt und an Meiling vorbei an den Wörthsee bei Bachern, an Breitbrunn vorbei weiter an den Ammersee nach Herrsching, hinauf zum Kloster Andechs, über Erling und Pähl hinüber nach Monatshausen oberhalb von Tutzing und über Traubing, Maising, an Hanfeld vorbei und durchs Würmtal bei Leutstetten zurück nach Krailling. Rund 100 km mit gut 800 Höhenmetern auf den Hügeln zwischen den Seen.",
   "quellen": [],
   "etappen": [
     {
       "von": "Krailling",
       "nach": "Krailling",
       "hmPlan": 791,
-      "text": "Krailling – Pentenried – Hochstadt – Meiling – Wörthsee (Bachern) – Buch am Ammersee – Herrsching – Kloster Andechs – Erling – Pähl – Tutzing – Traubing – Maising – Hanfeld – Leutstetten – Buchendorf – Krailling.",
+      "text": "Krailling – Pentenried – Hochstadt – Wörthsee (Bachern) – Herrsching – Kloster Andechs – Erling – Pähl – Monatshausen – Traubing – Maising – Leutstetten – Buchendorf – Krailling.",
       "wegpunkte": [
         [
           48.0928,
@@ -36,24 +36,14 @@
           "Pentenried"
         ],
         [
-          48.05572,
-          11.28339,
+          48.05584,
+          11.2686,
           "Hochstadt"
         ],
         [
-          48.06441,
-          11.23103,
-          "Meiling"
-        ],
-        [
-          48.07381,
-          11.17192,
+          48.06327,
+          11.16256,
           "Bachern (Wörthsee)"
-        ],
-        [
-          48.03737,
-          11.15212,
-          "Buch am Ammersee"
         ],
         [
           47.99901,
@@ -61,13 +51,13 @@
           "Herrsching am Ammersee"
         ],
         [
-          47.9892,
-          11.18802,
+          47.97444,
+          11.17978,
           "Andechs"
         ],
         [
-          47.9524,
-          11.17978,
+          47.96774,
+          11.18347,
           "Erling"
         ],
         [
@@ -76,9 +66,9 @@
           "Pähl"
         ],
         [
-          47.90127,
-          11.24897,
-          "Tutzing"
+          47.90541,
+          11.21925,
+          "Monatshausen"
         ],
         [
           47.94512,
@@ -89,11 +79,6 @@
           47.98131,
           11.2828,
           "Maising"
-        ],
-        [
-          48.00858,
-          11.33203,
-          "Hanfeld"
         ],
         [
           48.03583,
@@ -118,6 +103,11 @@
       "datum": "2026-10-02",
       "von": "Thomas",
       "antwort": "Eigene Aufzeichnung vom 01.10.2026 (Komoot). Die Strecke folgt genau dieser Aufzeichnung: 102 km, 791 Hm."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Andechs, Bachern (Wörthsee), Erling, Hochstadt; umbenannt bzw. ersetzt: Buch am Ammersee, Hanfeld, Meiling, Tutzing → Monatshausen. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre). Die Aufzeichnung selbst ist unverändert; sie führt oberhalb von Tutzing über Monatshausen und nicht an den Starnberger See – Beschreibung entsprechend korrigiert."
     }
   ]
 }

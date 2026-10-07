@@ -58,14 +58,14 @@
           "Baldingen"
         ],
         [
-          48.88822,
-          10.474,
+          48.89551,
+          10.47273,
           "Wallerstein (Schlossfelsen, Einkehr Brauhaus)"
         ],
         [
           48.91813,
           10.49965,
-          "Maihingen (Kloster, Einkehr Klosterschenke)"
+          "Kloster Maihingen (Einkehr Klosterschenke)"
         ],
         [
           48.8624,
@@ -78,8 +78,8 @@
           "Alerheim"
         ],
         [
-          48.82114,
-          10.58608,
+          48.81074,
+          10.58305,
           "Möttingen"
         ],
         [
@@ -163,6 +163,31 @@
           48.849177,
           10.492399,
           15
+        ],
+        [
+          48.869922,
+          10.459914,
+          15
+        ],
+        [
+          48.881091,
+          10.471467,
+          15
+        ],
+        [
+          48.907102,
+          10.500166,
+          15
+        ],
+        [
+          48.909307,
+          10.499934,
+          15
+        ],
+        [
+          48.911509,
+          10.491998,
+          15
         ]
       ],
       "ausnahmen": [
@@ -184,6 +209,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Routen-Check: weitere Problemstellen über Sperren umfahren."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Möttingen, Wallerstein (Schlossfelsen, Einkehr Brauhaus); umbenannt bzw. ersetzt: Maihingen (Kloster, Einkehr Klosterschenke) → Kloster Maihingen (Einkehr Klosterschenke). Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

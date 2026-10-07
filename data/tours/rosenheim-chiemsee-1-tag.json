@@ -72,8 +72,8 @@
           "Breitbrunn am Chiemsee"
         ],
         [
-          47.90122,
-          12.41543,
+          47.88826,
+          12.41753,
           "Gstadt am Chiemsee"
         ],
         [
@@ -102,8 +102,8 @@
           "Uferradweg Arlaching"
         ],
         [
-          47.90842,
-          12.50284,
+          47.9037,
+          12.52317,
           "Stöttham"
         ],
         [
@@ -127,8 +127,8 @@
           "Uferweg Hagenau"
         ],
         [
-          47.83376,
-          12.50797,
+          47.8374,
+          12.48109,
           "Feldwies"
         ],
         [
@@ -137,8 +137,8 @@
           "Chiemsee-Radweg Feldwies"
         ],
         [
-          47.81236,
-          12.45893,
+          47.81908,
+          12.47861,
           "Übersee"
         ],
         [
@@ -147,8 +147,8 @@
           "Chiemsee-Radweg Übersee"
         ],
         [
-          47.81364,
-          12.39765,
+          47.81312,
+          12.37946,
           "Bernau am Chiemsee"
         ],
         [
@@ -214,6 +214,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Routen-Check nachgeschärft: Wegpunkt an der Seenplatte bei Hemhof auf den ausgeschilderten Radweg gelegt (vorher kurzer Naturpfad hin und zurück). Anspruch auf „Entspannt“ gesetzt – knapp 4 Hm pro km."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Bernau am Chiemsee, Feldwies, Gstadt am Chiemsee, Stöttham, Übersee. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

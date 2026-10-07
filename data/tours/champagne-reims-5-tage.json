@@ -48,28 +48,28 @@
           "Reims"
         ],
         [
-          49.19193,
-          4.04316,
+          49.16482,
+          4.04398,
           "Rilly-la-Montagne"
         ],
         [
-          49.1547,
-          4.19,
+          49.16566,
+          4.14783,
           "Verzenay"
         ],
         [
-          49.1372,
-          4.1994,
+          49.14745,
+          4.15968,
           "Verzy"
         ],
         [
-          49.08105,
-          4.16301,
+          49.08117,
+          4.1477,
           "Bouzy"
         ],
         [
-          49.07274,
-          3.96772,
+          49.08305,
+          3.94334,
           "Hautvillers"
         ],
         [
@@ -133,6 +133,11 @@
           49.063572,
           3.967958,
           15
+        ],
+        [
+          49.202708,
+          4.013155,
+          15
         ]
       ],
       "ausnahmen": [
@@ -155,13 +160,13 @@
           "Épernay"
         ],
         [
-          48.96968,
-          3.99096,
+          48.98651,
+          3.99035,
           "Cramant"
         ],
         [
-          48.95618,
-          3.99833,
+          48.96942,
+          4.00038,
           "Avize"
         ],
         [
@@ -180,9 +185,14 @@
           "Bergères-lès-Vertus"
         ],
         [
-          48.8191,
-          4.01509,
+          48.83487,
+          4.0226,
           "Pierre-Morains"
+        ],
+        [
+          48.83197,
+          3.99611,
+          "Abstecher bei Pierre-Morains"
         ],
         [
           48.7208,
@@ -210,8 +220,8 @@
           "Sézanne"
         ],
         [
-          48.6389,
-          3.8194,
+          48.58454,
+          3.81461,
           "Anglure"
         ],
         [
@@ -220,18 +230,23 @@
           "Romilly-sur-Seine"
         ],
         [
-          48.46595,
-          3.93635,
+          48.47733,
+          3.94023,
           "Droupt-Saint-Basle"
         ],
         [
-          48.37897,
-          3.96212,
+          48.43527,
+          3.95869,
+          "Rilly-Sainte-Syre"
+        ],
+        [
+          48.37828,
+          3.97368,
           "Payns"
         ],
         [
-          48.35982,
-          4.04218,
+          48.34475,
+          4.05695,
           "Sainte-Maure"
         ],
         [
@@ -270,6 +285,11 @@
           48.3487,
           4.0575,
           15
+        ],
+        [
+          48.670215,
+          3.706268,
+          15
         ]
       ]
     },
@@ -285,9 +305,14 @@
           "Troyes"
         ],
         [
-          48.47187,
-          4.17637,
+          48.4576,
+          4.1276,
           "Voué"
+        ],
+        [
+          48.50081,
+          4.10964,
+          "Saint-Étienne-sous-Barbuise"
         ],
         [
           48.5333,
@@ -295,9 +320,24 @@
           "Arcis-sur-Aube"
         ],
         [
-          48.63988,
-          4.25325,
+          48.60882,
+          4.18909,
+          "Abstecher bei Dosnon"
+        ],
+        [
+          48.63041,
+          4.23863,
           "Trouans"
+        ],
+        [
+          48.63969,
+          4.25325,
+          "Abstecher bei Trouans"
+        ],
+        [
+          48.83122,
+          4.43641,
+          "Abstecher bei Vitry-la-Ville"
         ],
         [
           48.87881,
@@ -395,13 +435,13 @@
           "Châlons-en-Champagne"
         ],
         [
-          49.1381,
-          4.3653,
+          49.13535,
+          4.36471,
           "Mourmelon-le-Grand"
         ],
         [
-          49.1611,
-          4.2544,
+          49.1521,
+          4.25036,
           "Sept-Saulx"
         ],
         [
@@ -410,8 +450,8 @@
           "Sillery"
         ],
         [
-          49.18669,
-          4.12015,
+          49.17337,
+          4.18449,
           "Beaumont-sur-Vesle"
         ],
         [
@@ -484,6 +524,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Abwechslung nach TOURQUALITAET.md (nie länger als 20 Minuten dasselbe): eintönige Abschnitte – lange am selben Fluss oder Kanal, auf derselben Wegart oder schnurgerade – durch Abstecher aufgelockert über Pierre-Morains, Droupt-Saint-Basle, Payns, Sainte-Maure, Voué, Trouans, Abstecher."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Anglure, Avize, Beaumont-sur-Vesle, Bouzy, Cramant, Droupt-Saint-Basle, Hautvillers, Mourmelon-le-Grand, Payns, Pierre-Morains, Rilly-la-Montagne, Sainte-Maure, Sept-Saulx, Trouans, Verzenay, Verzy, Voué; umbenannt bzw. ersetzt:  → Abstecher bei Dosnon, Abstecher bei Pierre-Morains, Abstecher bei Trouans, Abstecher bei Vitry-la-Ville, Rilly-Sainte-Syre, Saint-Étienne-sous-Barbuise. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }

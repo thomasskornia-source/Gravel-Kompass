@@ -37,8 +37,8 @@
       "text": "Augustaanlage – Feudenheim – Ilvesheim – Ladenburg – Edingen-Neckarhausen – Heidelberg-Neuenheim – Rohrbach – Leimen – Ochsenbach – Gauangelloch – Südauffahrt über Kohlhof zum Königstuhl – Abfahrt über die Molkenkur nach Heidelberg – Eppelheim – Schwetzingen – Ketsch – Brühl – Mannheim-Neckarau – Augustaanlage.",
       "wegpunkte": [
         [
-          49.4816,
-          8.4811,
+          49.48797,
+          8.4796,
           "Mannheim (Augustaanlage)"
         ],
         [
@@ -52,13 +52,13 @@
           "Ilvesheim"
         ],
         [
-          49.4744,
-          8.60978,
+          49.46882,
+          8.59842,
           "Ladenburg"
         ],
         [
-          49.43857,
-          8.65164,
+          49.46346,
+          8.60297,
           "Edingen-Neckarhausen"
         ],
         [
@@ -117,18 +117,18 @@
           "Ketsch"
         ],
         [
-          49.40685,
-          8.52379,
+          49.39494,
+          8.53553,
           "Brühl"
         ],
         [
-          49.4585,
-          8.4772,
+          49.4508,
+          8.4885,
           "Mannheim-Neckarau"
         ],
         [
-          49.4816,
-          8.4811,
+          49.48797,
+          8.4796,
           "Mannheim (Augustaanlage)"
         ]
       ],
@@ -247,6 +247,21 @@
           49.385196,
           8.537597,
           15
+        ],
+        [
+          49.463904,
+          8.605342,
+          15
+        ],
+        [
+          49.464363,
+          8.611792,
+          15
+        ],
+        [
+          49.460133,
+          8.491274,
+          15
         ]
       ]
     }
@@ -262,6 +277,11 @@
       "datum": "2026-09-28",
       "von": "Claude",
       "antwort": "Qualitäts-Check nach TOURQUALITAET.md: Sackgassen in Ortskerne entfernt (Wegpunkte an den Abzweig gelegt), Hofeinfahrten, Fußwege, Privatwege, Campingplätze und Trails über gesperrte Stellen umfahren."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "antwort": "Prüfung aller Wegpunkte: Jeder Wegpunkt liegt jetzt höchstens 1 km vom Ort, nach dem er heißt, und nicht im Wasser – an den richtigen Ort gelegt: Brühl, Edingen-Neckarhausen, Ladenburg, Mannheim (Augustaanlage), Mannheim-Neckarau. Strecke danach mit tour-fertig.py neu geprüft (keine Fehler: keine Lücke, keine Fähre)."
     }
   ]
 }
