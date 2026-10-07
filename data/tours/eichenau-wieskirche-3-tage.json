@@ -458,6 +458,12 @@
       "von": "Claude",
       "kommentar": "Kommentar: „Ich möchte durch den See mit dem Fahrrad [fahren]“ und Breitbrunn am Ammersee aus der Routenführung nehmen.",
       "antwort": "Eine Strecke durch den See selbst lässt sich mit dem Fahrrad nicht sicher befahren und auch nicht über öffentliche Wege routen – Tourqualität und Sicherheit gehen laut Rangfolge immer vor, darum bleibt die 3. Etappe wie zuvor auf dem Höhenweg oberhalb des Westufers (Dießen–Rieden–Utting–Schondorf), der laut vorigem Kommentar von Thomas selbst einen schönen Blick auf den See geben soll und damit bereits nah am Wasser verläuft. Breitbrunn am Ammersee liegt am Ostufer, die Tour bleibt durchgehend am Westufer – ein Ort dieses Namens kommt in der Routenführung weiterhin nicht vor (keine Änderung nötig; vermutlich wieder eine Verwechslung mit der Chiemsee-Tour, dort liegt ein Breitbrunn direkt am Weg). Routen-Check (tour-fertig.py --nur-pruefen) unverändert: 223 km, 1485 Hm, Anspruch Moderat mit 6,7 Hm/km passt weiter; die kleinen offenen Befunde aus dem letzten Durchlauf bleiben unverändert und hindern das Hochladen nicht."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Kommentar: „Das hast du wieder falsch verstanden. Ich möchte NICHT durch den See fahren – auch keine Fähre. Nimm breitbrunn aus der Planung raus.“",
+      "antwort": "Zur Sicherheit nicht nur die Wegpunkte, sondern die tatsächlich erzeugten GPX-Koordinaten der 3. Etappe geprüft: Zwischen Dießen und Schondorf bleibt die Strecke durchgehend unter 11,12° Länge – der See selbst reicht dort bis über 11,15°, das Ostufer mit Breitbrunn liegt bei ca. 11,15°, also klar außerhalb der Route. Keine Fähre im Routenprofil, kein Ort Breitbrunn in dieser Tour, keine Berührung des Sees. Darum keine Änderung an der Route nötig – vermutlich weiterhin eine Verwechslung mit der Chiemsee-Tour (rosenheim-chiemsee-1-tag), dort liegt ein Breitbrunn direkt am Weg und wurde zeitgleich in eigenen Kommentaren dazu behandelt."
     }
   ]
 }
