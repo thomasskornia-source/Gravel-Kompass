@@ -464,6 +464,12 @@
       "von": "Claude",
       "kommentar": "Kommentar: „Das hast du wieder falsch verstanden. Ich möchte NICHT durch den See fahren – auch keine Fähre. Nimm breitbrunn aus der Planung raus.“",
       "antwort": "Zur Sicherheit nicht nur die Wegpunkte, sondern die tatsächlich erzeugten GPX-Koordinaten der 3. Etappe geprüft: Zwischen Dießen und Schondorf bleibt die Strecke durchgehend unter 11,12° Länge – der See selbst reicht dort bis über 11,15°, das Ostufer mit Breitbrunn liegt bei ca. 11,15°, also klar außerhalb der Route. Keine Fähre im Routenprofil, kein Ort Breitbrunn in dieser Tour, keine Berührung des Sees. Darum keine Änderung an der Route nötig – vermutlich weiterhin eine Verwechslung mit der Chiemsee-Tour (rosenheim-chiemsee-1-tag), dort liegt ein Breitbrunn direkt am Weg und wurde zeitgleich in eigenen Kommentaren dazu behandelt."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Kommentar: „Check die Tour auf Basis unserer Basistoureinstellungen.“",
+      "antwort": "Tour erneut gegen TOURQUALITAET.md geprüft (tour-fertig.py --nur-pruefen): unverändert 223 km, 1485 Hm, Anspruch Moderat mit 6,7 Hm/km passt (Regel 12). Ein zusätzlicher Durchlauf mit automatischer Reparatur wurde versucht, hat die 3. Etappe aber verschlechtert (90 statt 70 km, dazu neue Radverbote, Trails und eine Sackgasse) und wurde verworfen – die bestehende, bereits mehrfach geprüfte Streckenführung bleibt unverändert. Verbleibende kleine Befunde unverändert und hindern das Hochladen nicht: ein kurzer Trail bei Eichenau (Etappe 1), ein kurzes Stück Hauptstraße ohne Radweg sowie zwei kurze Hofflächen bei Wildsteig (Etappe 2), ein kurzes Stück Hauptstraße ohne Radweg bei Utting, eine kurze Hofeinfahrt, eine kurze Einbahnstraße gegen die Fahrtrichtung, zwei kurze Fußwege ohne Radfreigabe und ein kurzer Privatweg bei Dießen/Rieden sowie ein kurzer Trail bei Eichenau (Etappe 3)."
     }
   ]
 }
