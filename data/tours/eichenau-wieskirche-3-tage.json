@@ -18,7 +18,7 @@
     "Feiner Schotter",
     "Feld- und Waldwege"
   ],
-  "beschreibung": "Rundtour ab/bis Eichenau zur Wieskirche bei Steingaden, dem UNESCO-Welterbe im Pfaffenwinkel. 1. Etappe: von Eichenau über Fürstenfeldbruck und Geltendorf zum Lech bei Kaufering, dann auf dem Lechradweg (überwiegend Asphalt, sonst gut befahrbarer Schotter) über Landsberg am Lech nach Schongau. 2. Etappe: über Steingaden zur Wieskirche, dann über den Hohenpeißenberg (Aussicht, Wallfahrtskirche und Wetterstation) und Peißenberg nach Weilheim. 3. Etappe: am Ammersee entlang (Raisting, Dießen, Utting, Schondorf) über Grafrath zurück nach Eichenau. Durchgehend Radwege, Asphalt und feiner, gut rollender Schotter sowie Feld- und Waldwege zwischen den Orten – kein grober Schotter, keine Trails.",
+  "beschreibung": "Rundtour ab/bis Eichenau zur Wieskirche bei Steingaden, dem UNESCO-Welterbe im Pfaffenwinkel. 1. Etappe: von Eichenau über Fürstenfeldbruck und Geltendorf zum Lech bei Kaufering, dann auf dem Lechradweg (überwiegend Asphalt, sonst gut befahrbarer Schotter) über Landsberg am Lech nach Schongau. 2. Etappe: über Steingaden zur Wieskirche, dann über den Hohenpeißenberg (Aussicht, Wallfahrtskirche und Wetterstation) und Peißenberg nach Weilheim. 3. Etappe: über Raisting und Dießen am Ammersee auf den Höhenweg bei Holzhausen am Ammersee (Blick von oben auf den See statt direkt am Ufer), weiter über Schondorf, Greifenberg und Grafrath zurück nach Eichenau. Durchgehend Radwege, Asphalt und feiner, gut rollender Schotter sowie Feld- und Waldwege zwischen den Orten – kein grober Schotter, keine Trails.",
   "quellen": [
     {
       "name": "UNESCO-Weltkulturerbe: Die Wieskirche bei Steingaden – muenchen.de",
@@ -253,7 +253,7 @@
       "von": "Weilheim in Oberbayern",
       "nach": "Eichenau",
       "hmPlan": 258,
-      "text": "Weilheim in Oberbayern – Raisting – Dießen am Ammersee – Utting am Ammersee – Schondorf am Ammersee (Ammersee-Radweg, am Wasser) – Greifenberg – Grafrath – Eichenau.",
+      "text": "Weilheim in Oberbayern – Raisting – Dießen am Ammersee – Holzhausen am Ammersee (Höhenweg oberhalb von Utting, Blick auf den See) – Schondorf am Ammersee – Greifenberg – Grafrath – Eichenau.",
       "wegpunkte": [
         [
           47.83902,
@@ -271,9 +271,9 @@
           "Dießen am Ammersee"
         ],
         [
-          47.996,
-          11.08787,
-          "Utting am Ammersee"
+          48.00796,
+          11.09054,
+          "Holzhausen am Ammersee"
         ],
         [
           48.034,
@@ -401,6 +401,141 @@
           48.052529,
           11.100395,
           15
+        ],
+        [
+          47.950233,
+          11.109795,
+          15
+        ],
+        [
+          48.056652,
+          11.13309,
+          15
+        ],
+        [
+          48.056287,
+          11.135393,
+          15
+        ],
+        [
+          47.963513,
+          11.10545,
+          15
+        ],
+        [
+          47.963554,
+          11.105643,
+          15
+        ],
+        [
+          47.963603,
+          11.105863,
+          15
+        ],
+        [
+          47.963696,
+          11.10613,
+          15
+        ],
+        [
+          47.981723,
+          11.097629,
+          15
+        ],
+        [
+          47.981651,
+          11.098202,
+          15
+        ],
+        [
+          47.981627,
+          11.098893,
+          15
+        ],
+        [
+          48.075995,
+          11.135425,
+          15
+        ],
+        [
+          47.981965,
+          11.098857,
+          15
+        ],
+        [
+          47.982126,
+          11.097338,
+          15
+        ],
+        [
+          47.982064,
+          11.097917,
+          15
+        ],
+        [
+          47.981986,
+          11.098429,
+          15
+        ],
+        [
+          47.981853,
+          11.098497,
+          15
+        ],
+        [
+          47.981762,
+          11.098976,
+          15
+        ],
+        [
+          47.981897,
+          11.099463,
+          15
+        ],
+        [
+          48.052574,
+          11.100905,
+          15
+        ],
+        [
+          48.053552,
+          11.101685,
+          15
+        ],
+        [
+          48.052653,
+          11.099294,
+          15
+        ],
+        [
+          48.053033,
+          11.099622,
+          15
+        ],
+        [
+          48.053622,
+          11.099437,
+          15
+        ],
+        [
+          48.054858,
+          11.097996,
+          15
+        ],
+        [
+          48.054378,
+          11.098026,
+          15
+        ],
+        [
+          48.054181,
+          11.097891,
+          15
+        ],
+        [
+          48.054457,
+          11.097361,
+          15
         ]
       ]
     }
@@ -416,6 +551,12 @@
       "datum": "2026-10-07",
       "von": "Claude",
       "antwort": "Routen-Check: tour-fertig.py hat die Strecke automatisch repariert und geprüft (228 km, 1467 Hm, Anspruch Moderat mit 6,4 Hm/km passt). Kleine Befunde bleiben offen und hindern das Hochladen nicht: je ein kurzer Trail-Abschnitt direkt bei Eichenau (Etappe 1 und 3), ein kurzes Stück Hauptstraße ohne Radweg bei Steingaden und bei Utting, zwei Hofflächen bei Wildsteig, drei kurze Fußwege ohne Radfreigabe bei Schondorf, eine kurze Stichstrecke bei Greifenberg/Grafrath und ein rund 7 km flacher, gerader Abschnitt am Ammersee ohne passenden Abstecher."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Kommentar: Abstecher über Breitbrunn aus der 3. Etappe nehmen (unklar) und auf der 3. Etappe nicht direkt am Ufer des westlichen Ammersee entlangfahren, sondern etwas oberhalb für einen schönen Blick auf den See.",
+      "antwort": "Ein Abstecher über Breitbrunn kommt in dieser Tour nicht vor (weder in den Wegpunkten noch in den erzeugten GPX-Dateien) – vermutlich eine Verwechslung mit der Chiemsee-Tour, dort gab es einen solchen Kommentar. Dazu nichts zu ändern. Den Wegpunkt „Utting am Ammersee“ auf der 3. Etappe durch „Holzhausen am Ammersee“ ersetzt – ein Ortsteil von Utting auf dem Höhenweg oberhalb des Sees mit Blick auf den Ammersee, statt der direkten Uferstrecke. Erneuter Routen-Check (tour-fertig.py): 235 km, 1528 Hm, Anspruch Moderat mit 6,5 Hm/km passt weiterhin. Kleine Befunde bleiben offen und hindern das Hochladen nicht: je ein kurzer Trail-Abschnitt bei Eichenau (Etappe 1) und zwei bei Schondorf/Greifenberg (Etappe 3), ein kurzes Stück Hauptstraße ohne Radweg bei Steingaden, zwei Hofflächen bei Wildsteig, ein kurzer Fußweg ohne Radfreigabe und zwei kurze Stichstrecken bei Greifenberg/Grafrath sowie ein rund 14 km flacher Abschnitt am Ammersee ohne passenden Abstecher."
     }
   ]
 }
