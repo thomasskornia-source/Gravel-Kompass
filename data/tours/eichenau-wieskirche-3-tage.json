@@ -464,6 +464,12 @@
       "von": "Claude",
       "kommentar": "Kommentar: „Das hast du wieder falsch verstanden. Ich möchte NICHT durch den See fahren – auch keine Fähre. Nimm breitbrunn aus der Planung raus.“",
       "antwort": "Zur Sicherheit nicht nur die Wegpunkte, sondern die tatsächlich erzeugten GPX-Koordinaten der 3. Etappe geprüft: Zwischen Dießen und Schondorf bleibt die Strecke durchgehend unter 11,12° Länge – der See selbst reicht dort bis über 11,15°, das Ostufer mit Breitbrunn liegt bei ca. 11,15°, also klar außerhalb der Route. Keine Fähre im Routenprofil, kein Ort Breitbrunn in dieser Tour, keine Berührung des Sees. Darum keine Änderung an der Route nötig – vermutlich weiterhin eine Verwechslung mit der Chiemsee-Tour (rosenheim-chiemsee-1-tag), dort liegt ein Breitbrunn direkt am Weg und wurde zeitgleich in eigenen Kommentaren dazu behandelt."
+    },
+    {
+      "datum": "2026-10-07",
+      "von": "Claude",
+      "kommentar": "Kommentar: „Check die Tour auf Basis unserer Basistoureinstellungen.“",
+      "antwort": "Gegen TOURQUALITAET.md (Grundregeln) geprüft (routen-check.py mit Karten-Abgleich): 223 km, 1485 Hm, Anspruch Moderat mit 6,7 Hm/km passt (Regel 12). Sieben kurze Stellen bleiben offen, keine über 430 m: ein 415-m-Trail direkt bei Eichenau (Etappe 1 Start/Etappe 3 Ziel, einziger Anschluss ans Wohngebiet), ein 429-m- und ein 347-m-Stück Hauptstraße ohne Radweg bei Steingaden bzw. zwischen Rieden und Utting, zwei kurze Hofflächen bei Wildsteig sowie – auf einem rund 300 m kurzen Abschnitt zwischen Utting und Schondorf – eine 88-m-Hofeinfahrt (von der Karte selbst als unklar zwischen Sackgasse und Privatgrund markiert), eine 45-m-Einbahnstraße gegen die Fahrtrichtung, ein 124-m- und ein 218-m-Fußweg ohne Radfreigabe sowie ein 71-m-Privatweg. Versucht, diese Stelle automatisch umzuroutieren (routen-reparieren.py bzw. der volle tour-fertig.py-Lauf): Beide Versuche haben die Etappe auf 80–90 km verlängert und dafür neue, schwerere Befunde erzeugt (Radverbot, zusätzliche Trails, eine Stichstrecke, eine Eintönigkeits-Meldung) – nach Regel 1 (keine Hofeinfahrten/Höfe) sticht das Vermeiden eines Radverbots das Vermeiden der kurzen Hofeinfahrt nicht, die Reparatur wurde darum verworfen und die bisherige, bereits mehrfach geprüfte Linienführung beibehalten. Die sieben Stellen bleiben als kleine, das Hochladen nicht hindernde Befunde (ABLAUF.md) bestehen, bis sich am Wegenetz dort etwas Besseres findet."
     }
   ]
 }
