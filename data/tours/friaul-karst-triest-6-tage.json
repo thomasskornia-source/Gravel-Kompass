@@ -1,0 +1,433 @@
+{
+  "id": "friaul-karst-triest-6-tage",
+  "title": "Karst-Runde: Collio, Vipava-Tal & Triest",
+  "subtitle": "6-Tage-Gravel-Rundtour über die Karst-Hochfläche, mit Etappe durch Triest",
+  "createdAt": "2026-10-27",
+  "requestId": "anonym-2026-10-27-friaul-2",
+  "land": "Italien",
+  "region": "Friaul-Julisch Venetien (Karst, Triest)",
+  "tage": 6,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Anspruchsvoll",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Grober Schotter",
+    "Feiner Schotter",
+    "Feld- und Waldwege",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Startort ist Gorizia direkt an der slowenischen Grenze – näher am Karst und an Triest als Udine und damit besser geeignet, die gewünschten 80-140 km Tagesetappen auf den vorgegebenen sechs Tagen unterzubringen, ohne die Runde künstlich zu strecken. Von dort geht es durch die Weinberge von Collio und Brda, über das Vipava-Tal auf die Karst-Hochfläche (Štanjel, Komen, Lipica), durch die Steindörfer Richtung Triest, von dort über Muggia ein Stück der alten Bahntrasse Parenzana Richtung Grenze und zurück über den Karst-Rand an die Küste, durch die Isonzofront bei Redipuglia und Doberdò und über Cividale del Friuli zurück nach Gorizia. Der grobe, lose Schotter der Karst-Hochfläche ist hier ausdrücklich erlaubt und prägt die Tour; kein Abschnitt führt übers Wasser.",
+  "quellen": [
+    {
+      "name": "Bicitalia (FIAB) – nationales Radnetz Italien",
+      "url": "https://bicitalia.it/focus/bicitalia/"
+    },
+    {
+      "name": "Alpe Adria Trail – Il Carso triestino (Turismo FVG)",
+      "url": "https://www.turismofvg.it/de/43157/alpe-adria-trail-il-carso-triestino"
+    },
+    {
+      "name": "Ring aus Salbei und Schleierkraut – Karst-Radtour (Turismo FVG)",
+      "url": "https://www.turismofvg.it/de/bike/ring-aus-salbei-und-schleierkraut-p016"
+    },
+    {
+      "name": "Mit dem Gravelbike entlang des Alpe-Adria-Radwegs: Villach–Triest (ASI Reisen)",
+      "url": "https://www.asi-reisen.de/r/2ATKLU017B"
+    },
+    {
+      "name": "Lost in Friuli Venezia Giulia (CX03) – Gravel-Rundtour ab Gorizia (Julian Alps / Alvento)",
+      "url": "https://julian-alps.com/en/tour/gravel-bike/lost-in-friuli-venezia-giulia-cx03-/806377531/"
+    },
+    {
+      "name": "Gravelbiken around Duino-Aurisina / Devin-Nabrežina (Komoot Guide)",
+      "url": "https://www.komoot.com/de-de/guide/3466919/gravelbiken-around-duino-aurisina-devin-nabrezina"
+    },
+    {
+      "name": "Gravel biking around Doberdò del Lago / Doberdob (Komoot Guide)",
+      "url": "https://www.komoot.com/guide/3465718/gravel-biking-around-doberdo-del-lago-doberdob"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Gorizia",
+      "nach": "Nova Gorica",
+      "hmPlan": 0,
+      "text": "Durch die Weinberge des Collio – Cormons und Dolegna del Collio auf italienischer, Dobrovo und Šmartno im slowenischen Brda auf der anderen Seite der Grenze – und über San Floriano del Collio zurück ins Soča-Tal nach Nova Gorica, der Zwillingsstadt von Gorizia.",
+      "wegpunkte": [
+        [
+          45.9403,
+          13.618,
+          "Gorizia"
+        ],
+        [
+          45.9646,
+          13.4792,
+          "Cormons"
+        ],
+        [
+          46.0007,
+          13.461,
+          "Dolegna del Collio"
+        ],
+        [
+          46.0458,
+          13.5075,
+          "Dobrovo"
+        ],
+        [
+          46.0302,
+          13.4941,
+          "Šmartno"
+        ],
+        [
+          45.9775,
+          13.6617,
+          "San Floriano del Collio"
+        ],
+        [
+          45.9558,
+          13.6483,
+          "Nova Gorica"
+        ]
+      ],
+      "sperren": [
+        [
+          45.939811,
+          13.614842,
+          15
+        ],
+        [
+          45.958278,
+          13.650545,
+          15
+        ],
+        [
+          45.958301,
+          13.651448,
+          15
+        ],
+        [
+          45.9737,
+          13.4512,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Nova Gorica",
+      "nach": "Sežana",
+      "hmPlan": 0,
+      "text": "Durchs Vipava-Tal über Ajdovščina und Vipava, dann hinauf auf die Karst-Hochfläche: über Razdrto und Senožeče, wo einst die alte Wiener Bahnstrecke den Karst querte, nach Sežana.",
+      "wegpunkte": [
+        [
+          45.9558,
+          13.6483,
+          "Nova Gorica"
+        ],
+        [
+          45.88293,
+          13.91206,
+          "Ajdovščina"
+        ],
+        [
+          45.8481,
+          13.95832,
+          "Vipava"
+        ],
+        [
+          45.8339,
+          14.1225,
+          "Razdrto"
+        ],
+        [
+          45.7964,
+          14.0636,
+          "Senožeče"
+        ],
+        [
+          45.7097,
+          13.8714,
+          "Sežana"
+        ]
+      ],
+      "sperren": [
+        [
+          45.937116,
+          13.739402,
+          15
+        ],
+        [
+          45.908996,
+          13.751867,
+          15
+        ],
+        [
+          45.886951,
+          13.907108,
+          15
+        ],
+        [
+          45.867356,
+          13.965747,
+          15
+        ],
+        [
+          45.833662,
+          14.121073,
+          15
+        ],
+        [
+          45.833362,
+          14.121424,
+          15
+        ],
+        [
+          45.754253,
+          14.049616,
+          15
+        ],
+        [
+          45.744679,
+          14.025884,
+          15
+        ],
+        [
+          45.723608,
+          13.998881,
+          15
+        ],
+        [
+          45.722495,
+          13.993246,
+          15
+        ],
+        [
+          45.886836,
+          13.910021,
+          15
+        ],
+        [
+          45.834763,
+          14.12348,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Sežana",
+      "nach": "Trieste",
+      "hmPlan": 0,
+      "text": "Mitten durch den Karst: die Steinsiedlung Štanjel, Komen und das Gestüt Lipica, dann über Lokev und Monrupino auf der Hochfläche hoch über der Adria nach Opicina und hinunter nach Triest.",
+      "wegpunkte": [
+        [
+          45.7097,
+          13.8714,
+          "Sežana"
+        ],
+        [
+          45.8331,
+          13.8306,
+          "Štanjel"
+        ],
+        [
+          45.8192,
+          13.7486,
+          "Komen"
+        ],
+        [
+          45.6961,
+          13.8903,
+          "Lipica"
+        ],
+        [
+          45.6797,
+          13.8886,
+          "Lokev"
+        ],
+        [
+          45.7211,
+          13.7956,
+          "Monrupino"
+        ],
+        [
+          45.6967,
+          13.7725,
+          "Opicina"
+        ],
+        [
+          45.6495,
+          13.7768,
+          "Trieste"
+        ]
+      ]
+    },
+    {
+      "von": "Trieste",
+      "nach": "Sistiana",
+      "hmPlan": 0,
+      "text": "Von Triest über Muggia ein Stück der alten Bahntrasse Parenzana Richtung Grenze, durchs Val Rosandra und die Karstdörfer Osp und Črni Kal, zurück über Basovizza und Opicina auf den Karst-Rand und hinunter an die Küste nach Duino und Sistiana.",
+      "wegpunkte": [
+        [
+          45.6495,
+          13.7768,
+          "Trieste"
+        ],
+        [
+          45.6049,
+          13.7731,
+          "Muggia"
+        ],
+        [
+          45.6167,
+          13.8663,
+          "San Dorligo della Valle"
+        ],
+        [
+          45.6056,
+          13.8481,
+          "Val Rosandra"
+        ],
+        [
+          45.5733,
+          13.8333,
+          "Osp"
+        ],
+        [
+          45.5583,
+          13.8694,
+          "Črni Kal"
+        ],
+        [
+          45.6378,
+          13.8542,
+          "Basovizza"
+        ],
+        [
+          45.6611,
+          13.8064,
+          "Padriciano"
+        ],
+        [
+          45.6889,
+          13.7536,
+          "Prosecco"
+        ],
+        [
+          45.7567,
+          13.5956,
+          "Duino"
+        ],
+        [
+          45.7747,
+          13.6192,
+          "Sistiana"
+        ]
+      ]
+    },
+    {
+      "von": "Sistiana",
+      "nach": "Gradisca d'Isonzo",
+      "hmPlan": 0,
+      "text": "Der Küste entlang nach Monfalcone, dann hinein in den Karst der Isonzofront: die Seen von Doberdò, der Soldatenfriedhof von Redipuglia und San Martino del Carso, zurück ins Isonzotal nach Gradisca.",
+      "wegpunkte": [
+        [
+          45.7747,
+          13.6192,
+          "Sistiana"
+        ],
+        [
+          45.7781,
+          13.5486,
+          "Villaggio del Pescatore"
+        ],
+        [
+          45.8094,
+          13.5306,
+          "Monfalcone"
+        ],
+        [
+          45.8319,
+          13.4878,
+          "Ronchi dei Legionari"
+        ],
+        [
+          45.8706,
+          13.5006,
+          "Fogliano Redipuglia"
+        ],
+        [
+          45.8367,
+          13.5006,
+          "Doberdò del Lago"
+        ],
+        [
+          45.9165,
+          13.5116,
+          "Redipuglia"
+        ],
+        [
+          45.8914,
+          13.5225,
+          "San Martino del Carso"
+        ],
+        [
+          45.91,
+          13.4914,
+          "Sagrado"
+        ],
+        [
+          45.8898,
+          13.4904,
+          "Gradisca d'Isonzo"
+        ]
+      ]
+    },
+    {
+      "von": "Gradisca d'Isonzo",
+      "nach": "Gorizia",
+      "hmPlan": 0,
+      "text": "Durch das Judrio-Tal hinauf zum langobardischen Cividale del Friuli, dann über San Floriano del Collio zurück durch die Weinberge nach Gorizia.",
+      "wegpunkte": [
+        [
+          45.8898,
+          13.4904,
+          "Gradisca d'Isonzo"
+        ],
+        [
+          46.0919,
+          13.4269,
+          "Cividale del Friuli"
+        ],
+        [
+          45.9775,
+          13.6617,
+          "San Floriano del Collio"
+        ],
+        [
+          45.9403,
+          13.618,
+          "Gorizia"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Startort selbst gewählt (Formular nennt nur „Friaul“): Gorizia statt Udine, weil die Anfrage ausdrücklich Triest verlangt und Gorizia direkt an der Karst-Hochfläche und nur rund 50 km von Triest liegt – so lässt sich die gewünschte Etappenlänge von 80-140 km/Tag über 6 Tage als echte Rundtour durch Collio, Vipava-Tal, Karst und Triest ausfüllen, ohne die Strecke künstlich zu verlängern. Alternative Udine hätte zusätzliche Transfer-Kilometer vor dem eigentlichen Karst/Triest-Teil der Tour bedeutet."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Recherche zu „Gravel Deluxe“ (graveldeluxe.com, in data/sources.json als allgemeine Quelle bereits gelistet): Trotz mehrerer gezielter Suchen (u. a. „graveldeluxe.com Friaul Karst Triest“, „Gravel Deluxe Friaul Collio Karst Gravelbike Tour“) wurde keine konkrete Seite des Portals zu einer Friaul/Karst/Triest-Tour gefunden – die Seite scheint zu diesem Gebiet nicht (mehr) indexiert oder online zu sein. Deshalb kein Gravel-Deluxe-Link in „quellen“; stattdessen als Grundgerüst genutzt: die Gorizia-Rundtour „Lost in Friuli Venezia Giulia“ (Julian Alps/Alvento, anspruchsvoll, Start/Ziel Gorizia), die offizielle Karst-Radroute der Turismo-FVG-Seite sowie Komoot-Gravel-Guides rund um Duino-Aurisina und Doberdò del Lago."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Grober, loser Schotter ist bei dieser Anfrage ausdrücklich erlaubt (TOURQUALITAET.md Regel 11) und wird auf der Karst-Hochfläche (Etappen 2-5) gezielt genutzt – dort ist er der typische Belag der „strade bianche“ zwischen den Karstdörfern. Die Runde führt für die geforderte Karst-/Triest-Charakteristik mehrfach über die Grenze nach Slowenien (Brda, Vipava-Tal, Karst-Dörfer um Sežana/Štanjel/Komen, Val Rosandra bis Črni Kal) – alles auf dem Landweg, ohne Fähre oder Wasserquerung."
+    }
+  ],
+  "etappeMaxKm": 140
+}

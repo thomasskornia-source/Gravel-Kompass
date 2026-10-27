@@ -1,0 +1,1432 @@
+{
+  "id": "muenchen-nordkap-62-tage",
+  "title": "München–Nordkap: Durch sechs Länder bis ans Ende Europas",
+  "subtitle": "Lange Einweg-Gravel-Tour von Bayern bis zum Nordkap, moderate Etappen auf offiziellen Radfernwegen",
+  "createdAt": "2026-10-23",
+  "requestId": "thomas-2026-10-23-nordkap",
+  "land": "Deutschland, Dänemark, Schweden, Norwegen",
+  "region": "Bayern, Mitteldeutschland, Norddeutschland – Jütland, Fünen, Seeland – Schonen, Südschweden, Norrland, Lappland – Nordnorwegen bis zum Nordkap",
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Einweg (A → B)",
+  "oberflaeche": [
+    "Asphalt",
+    "Radwege",
+    "Feiner Schotter"
+  ],
+  "etappen": [
+    {
+      "von": "München",
+      "nach": "Ingolstadt",
+      "hmPlan": 0,
+      "text": "Aus München durch das Dachauer Land und das Hallertauer Hopfenland an die Donau nach Ingolstadt.",
+      "wegpunkte": [
+        [
+          48.1374,
+          11.5755,
+          "München"
+        ],
+        [
+          48.26,
+          11.4342,
+          "Dachau"
+        ],
+        [
+          48.5322,
+          11.5075,
+          "Pfaffenhofen an der Ilm"
+        ],
+        [
+          48.7665,
+          11.4257,
+          "Ingolstadt"
+        ]
+      ]
+    },
+    {
+      "von": "Ingolstadt",
+      "nach": "Nürnberg",
+      "hmPlan": 0,
+      "text": "Vom Donauufer hinauf in die Oberpfälzer Jurahöhen über Neumarkt in der Oberpfalz und am Ludwig-Donau-Main-Kanal entlang bis Nürnberg.",
+      "wegpunkte": [
+        [
+          48.7665,
+          11.4257,
+          "Ingolstadt"
+        ],
+        [
+          49.2794,
+          11.4597,
+          "Neumarkt in der Oberpfalz"
+        ],
+        [
+          49.4521,
+          11.0767,
+          "Nürnberg"
+        ]
+      ]
+    },
+    {
+      "von": "Nürnberg",
+      "nach": "Haßfurt",
+      "hmPlan": 0,
+      "text": "Am Regnitztal-Radweg über Erlangen und Forchheim nach Bamberg, dann am Main entlang weiter bis Haßfurt.",
+      "wegpunkte": [
+        [
+          49.4521,
+          11.0767,
+          "Nürnberg"
+        ],
+        [
+          49.5897,
+          11.004,
+          "Erlangen"
+        ],
+        [
+          49.7167,
+          11.0589,
+          "Forchheim"
+        ],
+        [
+          49.8988,
+          10.9028,
+          "Bamberg"
+        ],
+        [
+          50.0333,
+          10.5167,
+          "Haßfurt"
+        ]
+      ]
+    },
+    {
+      "von": "Haßfurt",
+      "nach": "Bad Neustadt an der Saale",
+      "hmPlan": 0,
+      "text": "Weiter am Main nach Schweinfurt, dann dem Fränkische-Saale-Radweg hinauf ins Grabfeld nach Bad Neustadt an der Saale.",
+      "wegpunkte": [
+        [
+          50.0333,
+          10.5167,
+          "Haßfurt"
+        ],
+        [
+          50.0493,
+          10.2305,
+          "Schweinfurt"
+        ],
+        [
+          50.3214,
+          10.2186,
+          "Bad Neustadt an der Saale"
+        ]
+      ]
+    },
+    {
+      "von": "Bad Neustadt an der Saale",
+      "nach": "Erfurt",
+      "hmPlan": 0,
+      "text": "Durch die Rhön nach Meiningen ins Werratal, dann über Arnstadt in den Thüringer Talkessel nach Erfurt.",
+      "wegpunkte": [
+        [
+          50.3214,
+          10.2186,
+          "Bad Neustadt an der Saale"
+        ],
+        [
+          50.5667,
+          10.4167,
+          "Meiningen"
+        ],
+        [
+          50.8392,
+          10.9472,
+          "Arnstadt"
+        ],
+        [
+          50.9848,
+          11.0299,
+          "Erfurt"
+        ]
+      ]
+    },
+    {
+      "von": "Erfurt",
+      "nach": "Halle (Saale)",
+      "hmPlan": 0,
+      "text": "Durch die Thüringer Ackerebene über Sömmerda und die Lutherstadt Eisleben hinunter nach Halle an der Saale.",
+      "wegpunkte": [
+        [
+          50.9848,
+          11.0299,
+          "Erfurt"
+        ],
+        [
+          51.1597,
+          11.1167,
+          "Sömmerda"
+        ],
+        [
+          51.5283,
+          11.5497,
+          "Lutherstadt Eisleben"
+        ],
+        [
+          51.4825,
+          11.9699,
+          "Halle (Saale)"
+        ]
+      ]
+    },
+    {
+      "von": "Halle (Saale)",
+      "nach": "Dessau-Roßlau",
+      "hmPlan": 0,
+      "text": "Über Bitterfeld und die Lutherstadt Wittenberg an die Elbe nach Dessau-Roßlau.",
+      "wegpunkte": [
+        [
+          51.4825,
+          11.9699,
+          "Halle (Saale)"
+        ],
+        [
+          51.6214,
+          12.32,
+          "Bitterfeld-Wolfen"
+        ],
+        [
+          51.8669,
+          12.6508,
+          "Lutherstadt Wittenberg"
+        ],
+        [
+          51.8395,
+          12.2425,
+          "Dessau-Roßlau"
+        ]
+      ]
+    },
+    {
+      "von": "Dessau-Roßlau",
+      "nach": "Magdeburg",
+      "hmPlan": 0,
+      "text": "Auf dem Elberadweg über Barby und Schönebeck nach Magdeburg.",
+      "wegpunkte": [
+        [
+          51.8395,
+          12.2425,
+          "Dessau-Roßlau"
+        ],
+        [
+          51.9833,
+          11.8833,
+          "Barby"
+        ],
+        [
+          52.0167,
+          11.75,
+          "Schönebeck (Elbe)"
+        ],
+        [
+          52.1205,
+          11.6276,
+          "Magdeburg"
+        ]
+      ]
+    },
+    {
+      "von": "Magdeburg",
+      "nach": "Havelberg",
+      "hmPlan": 0,
+      "text": "Weiter auf dem Elberadweg durch die Altmark über das historische Tangermünde bis Havelberg.",
+      "wegpunkte": [
+        [
+          52.1205,
+          11.6276,
+          "Magdeburg"
+        ],
+        [
+          52.5425,
+          11.9719,
+          "Tangermünde"
+        ],
+        [
+          52.8333,
+          12.0833,
+          "Havelberg"
+        ]
+      ]
+    },
+    {
+      "von": "Havelberg",
+      "nach": "Wittenberge",
+      "hmPlan": 0,
+      "text": "Kurzer, ruhiger Tag auf dem Elberadweg durch die Prignitz nach Wittenberge.",
+      "wegpunkte": [
+        [
+          52.8333,
+          12.0833,
+          "Havelberg"
+        ],
+        [
+          52.9967,
+          11.7503,
+          "Wittenberge"
+        ]
+      ]
+    },
+    {
+      "von": "Wittenberge",
+      "nach": "Boizenburg/Elbe",
+      "hmPlan": 0,
+      "text": "Weiter auf dem Elberadweg durch die Elbtalaue, am Rand der Lüneburger Heide, bis Boizenburg.",
+      "wegpunkte": [
+        [
+          52.9967,
+          11.7503,
+          "Wittenberge"
+        ],
+        [
+          53.1167,
+          11.2667,
+          "Dömitz"
+        ],
+        [
+          53.3714,
+          10.7233,
+          "Boizenburg/Elbe"
+        ]
+      ]
+    },
+    {
+      "von": "Boizenburg/Elbe",
+      "nach": "Hamburg",
+      "hmPlan": 0,
+      "text": "Die letzten Elberadweg-Kilometer über Lauenburg bis in die Hamburger Hafencity.",
+      "wegpunkte": [
+        [
+          53.3714,
+          10.7233,
+          "Boizenburg/Elbe"
+        ],
+        [
+          53.3733,
+          10.5667,
+          "Lauenburg/Elbe"
+        ],
+        [
+          53.5511,
+          9.9937,
+          "Hamburg"
+        ]
+      ]
+    },
+    {
+      "von": "Hamburg",
+      "nach": "Lübeck",
+      "hmPlan": 0,
+      "text": "Von der Elbe über die Hamburger Vier- und Marschlande und den Sachsenwald nach Lübeck.",
+      "wegpunkte": [
+        [
+          53.5511,
+          9.9937,
+          "Hamburg"
+        ],
+        [
+          53.5333,
+          10.4,
+          "Aumühle"
+        ],
+        [
+          53.8655,
+          10.6866,
+          "Lübeck"
+        ]
+      ]
+    },
+    {
+      "von": "Lübeck",
+      "nach": "Kiel",
+      "hmPlan": 0,
+      "text": "Auf dem Ostseeküsten-Radweg durch die Holsteinische Schweiz über Plön an den Kieler Hafen.",
+      "wegpunkte": [
+        [
+          53.8655,
+          10.6866,
+          "Lübeck"
+        ],
+        [
+          54.1667,
+          10.4167,
+          "Plön"
+        ],
+        [
+          54.3233,
+          10.1228,
+          "Kiel"
+        ]
+      ]
+    },
+    {
+      "von": "Kiel",
+      "nach": "Flensburg",
+      "hmPlan": 0,
+      "text": "Letzte deutsche Etappe auf dem Ostseeküsten-Radweg über Eckernförde und die Wikingerstadt Schleswig bis Flensburg an der dänischen Grenze.",
+      "wegpunkte": [
+        [
+          54.3233,
+          10.1228,
+          "Kiel"
+        ],
+        [
+          54.4692,
+          9.8369,
+          "Eckernförde"
+        ],
+        [
+          54.5236,
+          9.5586,
+          "Schleswig"
+        ],
+        [
+          54.7937,
+          9.4464,
+          "Flensburg"
+        ]
+      ]
+    },
+    {
+      "von": "Flensburg",
+      "nach": "Kolding",
+      "hmPlan": 0,
+      "text": "Über die Grenze und auf dem Hærvejsruten-Korridor durch Haderslev nach Kolding am Kleinen Belt.",
+      "wegpunkte": [
+        [
+          54.7937,
+          9.4464,
+          "Flensburg"
+        ],
+        [
+          55.25,
+          9.4833,
+          "Haderslev"
+        ],
+        [
+          55.4904,
+          9.4721,
+          "Kolding"
+        ]
+      ]
+    },
+    {
+      "von": "Kolding",
+      "nach": "Nyborg",
+      "hmPlan": 0,
+      "text": "Über die Kleine-Belt-Brücke (für Radfahrer freigegeben) nach Fünen, durch Odense und weiter bis Nyborg am Großen Belt.",
+      "wegpunkte": [
+        [
+          55.4904,
+          9.4721,
+          "Kolding"
+        ],
+        [
+          55.5667,
+          9.75,
+          "Fredericia"
+        ],
+        [
+          55.5058,
+          9.7378,
+          "Middelfart"
+        ],
+        [
+          55.4038,
+          10.4024,
+          "Odense"
+        ],
+        [
+          55.3122,
+          10.7881,
+          "Nyborg"
+        ]
+      ]
+    },
+    {
+      "von": "Nyborg",
+      "nach": "Korsør",
+      "hmPlan": 0,
+      "text": "Zugetappe, da Radfahren auf der Großer-Belt-Brücke/-Tunnel verboten ist – keine Fähre, der Regionalzug nimmt Fahrräder mit. Seit dem Bau der festen Verbindung 1998 gibt es auf dieser Strecke gar keine Fähre mehr.",
+      "wegpunkte": [
+        [
+          55.3122,
+          10.7881,
+          "Nyborg"
+        ],
+        [
+          55.33,
+          11.1397,
+          "Korsør"
+        ]
+      ]
+    },
+    {
+      "von": "Korsør",
+      "nach": "Roskilde",
+      "hmPlan": 0,
+      "text": "Durch die seeländische Landschaft über Slagelse, Sorø und Ringsted zum Dom und Fjord von Roskilde.",
+      "wegpunkte": [
+        [
+          55.33,
+          11.1397,
+          "Korsør"
+        ],
+        [
+          55.4047,
+          11.355,
+          "Slagelse"
+        ],
+        [
+          55.4342,
+          11.5561,
+          "Sorø"
+        ],
+        [
+          55.4425,
+          11.7903,
+          "Ringsted"
+        ],
+        [
+          55.6415,
+          12.0803,
+          "Roskilde"
+        ]
+      ]
+    },
+    {
+      "von": "Roskilde",
+      "nach": "Kastrup (København)",
+      "hmPlan": 0,
+      "text": "Durch Kopenhagen hindurch bis Kastrup am Flughafen, direkt an den dänischen Kopf der Öresundbrücke.",
+      "wegpunkte": [
+        [
+          55.6415,
+          12.0803,
+          "Roskilde"
+        ],
+        [
+          55.6761,
+          12.5683,
+          "København"
+        ],
+        [
+          55.6295,
+          12.6508,
+          "Kastrup"
+        ]
+      ]
+    },
+    {
+      "von": "Kastrup (København)",
+      "nach": "Hyllie (Malmö)",
+      "hmPlan": 0,
+      "text": "Zugetappe über den Öresund, da Radfahren und Gehen auf der Öresundbrücke verboten sind – keine Fähre, der Öresundzug nimmt Fahrräder mit (ca. 15 Minuten).",
+      "wegpunkte": [
+        [
+          55.6295,
+          12.6508,
+          "Kastrup"
+        ],
+        [
+          55.5625,
+          12.9958,
+          "Hyllie (Malmö)"
+        ]
+      ]
+    },
+    {
+      "von": "Hyllie (Malmö)",
+      "nach": "Helsingborg",
+      "hmPlan": 0,
+      "text": "Durch Malmö und an der Öresundküste über Lund und Landskrona nach Helsingborg.",
+      "wegpunkte": [
+        [
+          55.5625,
+          12.9958,
+          "Hyllie (Malmö)"
+        ],
+        [
+          55.605,
+          13.0038,
+          "Malmö"
+        ],
+        [
+          55.7047,
+          13.191,
+          "Lund"
+        ],
+        [
+          55.8705,
+          12.8306,
+          "Landskrona"
+        ],
+        [
+          56.0465,
+          12.6945,
+          "Helsingborg"
+        ]
+      ]
+    },
+    {
+      "von": "Helsingborg",
+      "nach": "Halmstad",
+      "hmPlan": 0,
+      "text": "Auf der Kattegattleden an der Kattegat-Küste entlang nach Halmstad.",
+      "wegpunkte": [
+        [
+          56.0465,
+          12.6945,
+          "Helsingborg"
+        ],
+        [
+          56.4406,
+          12.8514,
+          "Ängelholm"
+        ],
+        [
+          56.6745,
+          12.8568,
+          "Halmstad"
+        ]
+      ]
+    },
+    {
+      "von": "Halmstad",
+      "nach": "Varberg",
+      "hmPlan": 0,
+      "text": "Weiter auf der Kattegattleden an Dünen und Badeorten vorbei nach Varberg mit seiner Festung.",
+      "wegpunkte": [
+        [
+          56.6745,
+          12.8568,
+          "Halmstad"
+        ],
+        [
+          57.1057,
+          12.25,
+          "Varberg"
+        ]
+      ]
+    },
+    {
+      "von": "Varberg",
+      "nach": "Göteborg",
+      "hmPlan": 0,
+      "text": "Letztes Stück der Kattegattleden über Kungsbacka bis nach Göteborg.",
+      "wegpunkte": [
+        [
+          57.1057,
+          12.25,
+          "Varberg"
+        ],
+        [
+          57.4875,
+          12.0767,
+          "Kungsbacka"
+        ],
+        [
+          57.7089,
+          11.9746,
+          "Göteborg"
+        ]
+      ]
+    },
+    {
+      "von": "Göteborg",
+      "nach": "Borås",
+      "hmPlan": 0,
+      "text": "Aus Göteborg ins südschwedische Hochland nach Borås.",
+      "wegpunkte": [
+        [
+          57.7089,
+          11.9746,
+          "Göteborg"
+        ],
+        [
+          57.721,
+          12.9401,
+          "Borås"
+        ]
+      ]
+    },
+    {
+      "von": "Borås",
+      "nach": "Jönköping",
+      "hmPlan": 0,
+      "text": "Durch die småländischen Wälder bis an den Vättern-See nach Jönköping.",
+      "wegpunkte": [
+        [
+          57.721,
+          12.9401,
+          "Borås"
+        ],
+        [
+          57.7826,
+          14.1618,
+          "Jönköping"
+        ]
+      ]
+    },
+    {
+      "von": "Jönköping",
+      "nach": "Tranås",
+      "hmPlan": 0,
+      "text": "Am Ostufer des Vättern entlang (Vätternrundan-Strecke) nach Norden bis Tranås.",
+      "wegpunkte": [
+        [
+          57.7826,
+          14.1618,
+          "Jönköping"
+        ],
+        [
+          58.0403,
+          14.9803,
+          "Tranås"
+        ]
+      ]
+    },
+    {
+      "von": "Tranås",
+      "nach": "Linköping",
+      "hmPlan": 0,
+      "text": "Weiter durch Ostgötlands Seenlandschaft nach Linköping mit seinem Dom.",
+      "wegpunkte": [
+        [
+          58.0403,
+          14.9803,
+          "Tranås"
+        ],
+        [
+          58.4108,
+          15.6214,
+          "Linköping"
+        ]
+      ]
+    },
+    {
+      "von": "Linköping",
+      "nach": "Norrköping",
+      "hmPlan": 0,
+      "text": "Kurzer Tag am Göta-Kanal entlang nach Norrköping.",
+      "wegpunkte": [
+        [
+          58.4108,
+          15.6214,
+          "Linköping"
+        ],
+        [
+          58.5877,
+          16.1924,
+          "Norrköping"
+        ]
+      ]
+    },
+    {
+      "von": "Norrköping",
+      "nach": "Nyköping",
+      "hmPlan": 0,
+      "text": "An der Ostseeküste Södermanlands entlang über die Schärenküste nach Nyköping.",
+      "wegpunkte": [
+        [
+          58.5877,
+          16.1924,
+          "Norrköping"
+        ],
+        [
+          58.7531,
+          17.0097,
+          "Nyköping"
+        ]
+      ]
+    },
+    {
+      "von": "Nyköping",
+      "nach": "Stockholm",
+      "hmPlan": 0,
+      "text": "Über Södertälje am Mälarsee entlang hinein nach Stockholm.",
+      "wegpunkte": [
+        [
+          58.7531,
+          17.0097,
+          "Nyköping"
+        ],
+        [
+          59.1955,
+          17.6252,
+          "Södertälje"
+        ],
+        [
+          59.3293,
+          18.0686,
+          "Stockholm"
+        ]
+      ]
+    },
+    {
+      "von": "Stockholm",
+      "nach": "Uppsala",
+      "hmPlan": 0,
+      "text": "Aus Stockholm hinaus ins Mälartal nach Uppsala mit seinem Dom und der alten Universität.",
+      "wegpunkte": [
+        [
+          59.3293,
+          18.0686,
+          "Stockholm"
+        ],
+        [
+          59.8586,
+          17.6389,
+          "Uppsala"
+        ]
+      ]
+    },
+    {
+      "von": "Uppsala",
+      "nach": "Gävle",
+      "hmPlan": 0,
+      "text": "Weiter nach Norden durch Uppland an die Küste von Gästrikland nach Gävle.",
+      "wegpunkte": [
+        [
+          59.8586,
+          17.6389,
+          "Uppsala"
+        ],
+        [
+          60.6749,
+          17.1413,
+          "Gävle"
+        ]
+      ]
+    },
+    {
+      "von": "Gävle",
+      "nach": "Söderhamn",
+      "hmPlan": 0,
+      "text": "Entlang der Höga Kusten-Vorstufe nach Söderhamn.",
+      "wegpunkte": [
+        [
+          60.6749,
+          17.1413,
+          "Gävle"
+        ],
+        [
+          61.3036,
+          17.0575,
+          "Söderhamn"
+        ]
+      ]
+    },
+    {
+      "von": "Söderhamn",
+      "nach": "Hudiksvall",
+      "hmPlan": 0,
+      "text": "Kurzer Küstentag nach Hudiksvall, dem Tor zur Höga Kusten.",
+      "wegpunkte": [
+        [
+          61.3036,
+          17.0575,
+          "Söderhamn"
+        ],
+        [
+          61.7281,
+          17.1061,
+          "Hudiksvall"
+        ]
+      ]
+    },
+    {
+      "von": "Hudiksvall",
+      "nach": "Härnösand",
+      "hmPlan": 0,
+      "text": "An der Höga Kusten (Weltnaturerbe) mit ihren Brücken und Schären entlang nach Härnösand.",
+      "wegpunkte": [
+        [
+          61.7281,
+          17.1061,
+          "Hudiksvall"
+        ],
+        [
+          62.6324,
+          17.9389,
+          "Härnösand"
+        ]
+      ]
+    },
+    {
+      "von": "Härnösand",
+      "nach": "Sundsvall",
+      "hmPlan": 0,
+      "text": "Kurzer Tag über die Ångermanälven-Mündung nach Sundsvall.",
+      "wegpunkte": [
+        [
+          62.6324,
+          17.9389,
+          "Härnösand"
+        ],
+        [
+          62.3908,
+          17.3069,
+          "Sundsvall"
+        ]
+      ]
+    },
+    {
+      "von": "Sundsvall",
+      "nach": "Örnsköldsvik",
+      "hmPlan": 0,
+      "text": "Weiter an der Norrland-Küste nach Örnsköldsvik am Rand der Höga Kusten.",
+      "wegpunkte": [
+        [
+          62.3908,
+          17.3069,
+          "Sundsvall"
+        ],
+        [
+          63.2909,
+          18.7152,
+          "Örnsköldsvik"
+        ]
+      ]
+    },
+    {
+      "von": "Örnsköldsvik",
+      "nach": "Nordmaling",
+      "hmPlan": 0,
+      "text": "Kürzerer Küstentag nach Nordmaling an der Bottensee-Küste.",
+      "wegpunkte": [
+        [
+          63.2909,
+          18.7152,
+          "Örnsköldsvik"
+        ],
+        [
+          63.5833,
+          19.5,
+          "Nordmaling"
+        ]
+      ]
+    },
+    {
+      "von": "Nordmaling",
+      "nach": "Umeå",
+      "hmPlan": 0,
+      "text": "Letztes Stück an der Küste entlang nach Umeå, der Universitätsstadt Nordschwedens.",
+      "wegpunkte": [
+        [
+          63.5833,
+          19.5,
+          "Nordmaling"
+        ],
+        [
+          63.8258,
+          20.263,
+          "Umeå"
+        ]
+      ]
+    },
+    {
+      "von": "Umeå",
+      "nach": "Robertsfors",
+      "hmPlan": 0,
+      "text": "Durch die Wälder Västerbottens nach Robertsfors.",
+      "wegpunkte": [
+        [
+          63.8258,
+          20.263,
+          "Umeå"
+        ],
+        [
+          64.2006,
+          20.8528,
+          "Robertsfors"
+        ]
+      ]
+    },
+    {
+      "von": "Robertsfors",
+      "nach": "Skellefteå",
+      "hmPlan": 0,
+      "text": "Weiter nach Norden über die Flussmündungen Västerbottens nach Skellefteå.",
+      "wegpunkte": [
+        [
+          64.2006,
+          20.8528,
+          "Robertsfors"
+        ],
+        [
+          64.7507,
+          20.9528,
+          "Skellefteå"
+        ]
+      ]
+    },
+    {
+      "von": "Skellefteå",
+      "nach": "Piteå",
+      "hmPlan": 0,
+      "text": "Entlang der Küste Norrbottens nach Piteå.",
+      "wegpunkte": [
+        [
+          64.7507,
+          20.9528,
+          "Skellefteå"
+        ],
+        [
+          65.3172,
+          21.4794,
+          "Piteå"
+        ]
+      ]
+    },
+    {
+      "von": "Piteå",
+      "nach": "Boden",
+      "hmPlan": 0,
+      "text": "Über Luleå an der Bottenwiek-Mündung ins Landesinnere nach Boden.",
+      "wegpunkte": [
+        [
+          65.3172,
+          21.4794,
+          "Piteå"
+        ],
+        [
+          65.584,
+          22.1547,
+          "Luleå"
+        ],
+        [
+          65.8255,
+          21.6888,
+          "Boden"
+        ]
+      ]
+    },
+    {
+      "von": "Boden",
+      "nach": "Älvsbyn",
+      "hmPlan": 0,
+      "text": "Vom Garnisonsort Boden ins Pite-älv-Tal nach Älvsbyn.",
+      "wegpunkte": [
+        [
+          65.8255,
+          21.6888,
+          "Boden"
+        ],
+        [
+          65.6758,
+          21.0128,
+          "Älvsbyn"
+        ]
+      ]
+    },
+    {
+      "von": "Älvsbyn",
+      "nach": "Jokkmokk",
+      "hmPlan": 0,
+      "text": "Am Pite- und Lule-älv entlang hinauf ins lappländische Jokkmokk, Tor zum Nationalpark Muddus.",
+      "wegpunkte": [
+        [
+          65.6758,
+          21.0128,
+          "Älvsbyn"
+        ],
+        [
+          66.6064,
+          19.8181,
+          "Jokkmokk"
+        ]
+      ]
+    },
+    {
+      "von": "Jokkmokk",
+      "nach": "Gällivare",
+      "hmPlan": 0,
+      "text": "Weiter durch die lappländische Taiga nach Gällivare am Fuß des Dundret.",
+      "wegpunkte": [
+        [
+          66.6064,
+          19.8181,
+          "Jokkmokk"
+        ],
+        [
+          67.1372,
+          20.653,
+          "Gällivare"
+        ]
+      ]
+    },
+    {
+      "von": "Gällivare",
+      "nach": "Svappavaara",
+      "hmPlan": 0,
+      "text": "Durch Erzbahn-Land in Richtung Svappavaara.",
+      "wegpunkte": [
+        [
+          67.1372,
+          20.653,
+          "Gällivare"
+        ],
+        [
+          67.6606,
+          21.0611,
+          "Svappavaara"
+        ]
+      ]
+    },
+    {
+      "von": "Svappavaara",
+      "nach": "Kiruna",
+      "hmPlan": 0,
+      "text": "Letztes Stück Schweden: nach Kiruna, der nördlichsten Stadt des Landes.",
+      "wegpunkte": [
+        [
+          67.6606,
+          21.0611,
+          "Svappavaara"
+        ],
+        [
+          67.8558,
+          20.2253,
+          "Kiruna"
+        ]
+      ]
+    },
+    {
+      "von": "Kiruna",
+      "nach": "Abisko",
+      "hmPlan": 0,
+      "text": "Entlang des Torneträsk-Sees durch den Nationalpark Abisko.",
+      "wegpunkte": [
+        [
+          67.8558,
+          20.2253,
+          "Kiruna"
+        ],
+        [
+          68.354,
+          18.7903,
+          "Abisko"
+        ]
+      ]
+    },
+    {
+      "von": "Abisko",
+      "nach": "Narvik",
+      "hmPlan": 0,
+      "text": "Über den Bergpass Riksgränsen an der schwedisch-norwegischen Landgrenze (kein Wasser) hinunter zum Fjord nach Narvik.",
+      "wegpunkte": [
+        [
+          68.354,
+          18.7903,
+          "Abisko"
+        ],
+        [
+          68.4258,
+          18.1222,
+          "Riksgränsen"
+        ],
+        [
+          68.4384,
+          17.4272,
+          "Narvik"
+        ]
+      ]
+    },
+    {
+      "von": "Narvik",
+      "nach": "Setermoen",
+      "hmPlan": 0,
+      "text": "Auf der E6 über Bjerkvik und Gratangen ins Inland nach Setermoen im Bardutal.",
+      "wegpunkte": [
+        [
+          68.4384,
+          17.4272,
+          "Narvik"
+        ],
+        [
+          68.5603,
+          17.535,
+          "Bjerkvik"
+        ],
+        [
+          68.85,
+          17.9833,
+          "Gratangen"
+        ],
+        [
+          68.95,
+          18.5167,
+          "Setermoen"
+        ]
+      ]
+    },
+    {
+      "von": "Setermoen",
+      "nach": "Nordkjosbotn",
+      "hmPlan": 0,
+      "text": "Weiter auf der E6 durch das Inland Südtromsøs nach Nordkjosbotn.",
+      "wegpunkte": [
+        [
+          68.95,
+          18.5167,
+          "Setermoen"
+        ],
+        [
+          69.2167,
+          19.5,
+          "Nordkjosbotn"
+        ]
+      ]
+    },
+    {
+      "von": "Nordkjosbotn",
+      "nach": "Tromsø",
+      "hmPlan": 0,
+      "text": "Über die E8 und die Tromsø-Brücke auf die Insel Tromsøya in die Eismeerstadt Tromsø.",
+      "wegpunkte": [
+        [
+          69.2167,
+          19.5,
+          "Nordkjosbotn"
+        ],
+        [
+          69.6492,
+          18.9553,
+          "Tromsø"
+        ]
+      ]
+    },
+    {
+      "von": "Tromsø",
+      "nach": "Skibotn",
+      "hmPlan": 0,
+      "text": "Keine-Fähre-Umweg: zurück über die E8 zum Festland und auf der E6 ins Lyngental nach Skibotn – länger als die beiden Lyngenfjord-Fähren (Breivikeidet–Svensby, Olderdalen–Lyngseidet), aber ohne Fähre.",
+      "wegpunkte": [
+        [
+          69.6492,
+          18.9553,
+          "Tromsø"
+        ],
+        [
+          69.2167,
+          19.5,
+          "Nordkjosbotn"
+        ],
+        [
+          69.3889,
+          20.2778,
+          "Skibotn"
+        ]
+      ]
+    },
+    {
+      "von": "Skibotn",
+      "nach": "Olderdalen",
+      "hmPlan": 0,
+      "text": "Auf der E6 am Lyngenfjord-Grund entlang (statt über die Fähre) nach Olderdalen.",
+      "wegpunkte": [
+        [
+          69.3889,
+          20.2778,
+          "Skibotn"
+        ],
+        [
+          69.5833,
+          21.0,
+          "Olderdalen"
+        ]
+      ]
+    },
+    {
+      "von": "Olderdalen",
+      "nach": "Alta",
+      "hmPlan": 0,
+      "text": "Weiter auf der E6 durch Kåfjord und über Langfjordbotn hinunter nach Alta.",
+      "wegpunkte": [
+        [
+          69.5833,
+          21.0,
+          "Olderdalen"
+        ],
+        [
+          69.7667,
+          21.95,
+          "Langfjordbotn (Kåfjord)"
+        ],
+        [
+          69.9689,
+          23.2717,
+          "Alta"
+        ]
+      ]
+    },
+    {
+      "von": "Alta",
+      "nach": "Langfjordbotn (Porsanger)",
+      "hmPlan": 0,
+      "text": "Auf der E6 durch das Alta-Tal nach Langfjordbotn am Porsangerfjord.",
+      "wegpunkte": [
+        [
+          69.9689,
+          23.2717,
+          "Alta"
+        ],
+        [
+          70.1667,
+          24.0,
+          "Langfjordbotn (Porsanger)"
+        ]
+      ]
+    },
+    {
+      "von": "Langfjordbotn (Porsanger)",
+      "nach": "Olderfjord",
+      "hmPlan": 0,
+      "text": "Weiter auf der E6 am Porsangerfjord entlang bis zur Abzweigung der E69 in Olderfjord.",
+      "wegpunkte": [
+        [
+          70.1667,
+          24.0,
+          "Langfjordbotn (Porsanger)"
+        ],
+        [
+          70.3728,
+          24.9875,
+          "Olderfjord"
+        ]
+      ]
+    },
+    {
+      "von": "Olderfjord",
+      "nach": "Honningsvåg",
+      "hmPlan": 0,
+      "text": "Auf der E69 durch den Skarvbergtunnel (mit eigenem Rad-/Gehweg) nach Honningsvåg auf der Insel Magerøya.",
+      "wegpunkte": [
+        [
+          70.3728,
+          24.9875,
+          "Olderfjord"
+        ],
+        [
+          70.9821,
+          25.9704,
+          "Honningsvåg"
+        ]
+      ]
+    },
+    {
+      "von": "Honningsvåg",
+      "nach": "Nordkap",
+      "hmPlan": 0,
+      "text": "Letztes Stück auf der E69 durch den 6,9 km langen Nordkapptunnel (eine normale Straße unter dem Magerøysund, keine Fähre) hinauf zum Nordkap – dem Ziel der Reise.",
+      "wegpunkte": [
+        [
+          70.9821,
+          25.9704,
+          "Honningsvåg"
+        ],
+        [
+          71.1708,
+          25.784,
+          "Nordkap"
+        ]
+      ]
+    }
+  ],
+  "etappeMaxKm": 110,
+  "tage": 62,
+  "beschreibung": "Von München bis ans Nordkap, quer durch sechs Länder: durch Mitteldeutschland am Main, der Saale und der Elbe entlang nach Hamburg und Lübeck, auf dem Ostseeküsten-Radweg nach Flensburg und durch Jütland nach Odense auf Fünen. Angefragt waren 7 Tage – bei 70–110 km pro Etappe braucht die rund 5.300 km lange Strecke aber deutlich mehr: die Beschreibung im Formular sagt das selbst voraus, darum wurde die Etappenzahl entsprechend angepasst. Die Große-Belt- und die Öresund-Querung sind auf der Autobahnbrücke für Radfahrer gesperrt und werden – ohne Fähre – als kurze, ausdrücklich dokumentierte Zugetappen zurückgelegt (Nyborg–Korsør, Kastrup–Malmö). Über Schonen und die Kattegattleden nach Göteborg, am Vättern-See vorbei nach Stockholm, dann am Ostseeufer entlang durch Norrland und Lappland bis Kiruna. Die Weiterfahrt nach Norwegen folgt der Landgrenze bei Riksgränsen nach Narvik; der direkte Weg über den Lyngenfjord nach Tromsø nutzt zwei Fähren, die es laut Projektregel nicht geben darf – die rund 110 km längere, aber fährenfreie E6/E8-Inlandstrecke über Nordkjosbotn und Skibotn wird stattdessen gefahren. Über Alta und die Finnmark führt die E69 schließlich durch den Nordkapptunnel (eine normale Straßenverbindung, keine Fähre) zum Nordkap.",
+  "quellen": [
+    {
+      "name": "Radnetz Deutschland (D-Routen)",
+      "url": "https://www.radnetz-deutschland.de/"
+    },
+    {
+      "name": "ADFC Radtourismus",
+      "url": "https://www.adfc-radtourismus.de/"
+    },
+    {
+      "name": "Mainradweg",
+      "url": "https://www.mainradweg.com/"
+    },
+    {
+      "name": "Elberadweg",
+      "url": "https://www.elberadweg.de/"
+    },
+    {
+      "name": "Radroutenplaner Deutschland",
+      "url": "https://radroutenplaner-deutschland.de/"
+    },
+    {
+      "name": "Vejdirektoratet – Nationale Cykelruter (Faktaark)",
+      "url": "https://www.vejdirektoratet.dk/sites/default/files/2023-03/Faktaark%20engelsk.pdf"
+    },
+    {
+      "name": "Er cykel gratis i Øresundstog? (FAQ)",
+      "url": "https://www.skagenonline.dk/faq/er-cykel-gratis-i-oresundstog"
+    },
+    {
+      "name": "Kan man cykle over Øresund? (FAQ)",
+      "url": "https://www.skagenonline.dk/faq/kan-man-cykle-over-oresund"
+    },
+    {
+      "name": "Kann man die Brücke zwischen Dänemark und Schweden zu Fuß überqueren? (FAQ, Großer Belt)",
+      "url": "https://www.wandernundmehr.at/faq/kann-man-die-brucke-zwischen-danemark-und-schweden-zu-fu-uberqueren"
+    },
+    {
+      "name": "Kattegattleden (Västsverige)",
+      "url": "https://www.vastsverige.com/naturupplevelser/cykla/cykelleder-och-cykelkartor/kattegattleden/"
+    },
+    {
+      "name": "OpenStreetMap Wiki – Sweden/Cycle networks",
+      "url": "https://wiki.openstreetmap.org/wiki/Sweden%2FCycle_networks"
+    },
+    {
+      "name": "Waymarked Trails – Cycling",
+      "url": "https://cycling.waymarkedtrails.org/"
+    },
+    {
+      "name": "Cycle Norway – Tromsø–Nordkapp",
+      "url": "https://cyclenorway.com/routes/tromso-nordkapp/"
+    },
+    {
+      "name": "Nasjonale sykkelruter (Visit Norway)",
+      "url": "https://www.visitnorway.no/aktiviteter-og-attraksjoner/utendorsaktiviteter/sykling/nasjonale-sykkelruter/"
+    },
+    {
+      "name": "Statens vegvesen – Sykle i tunnel",
+      "url": "https://www.vegvesen.no/om-oss/presse/aktuelt/2024/07/sykle-i-tunnel/"
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Angefragt waren 7 Tage – München–Nordkap ist aber rund 5.300 km lang. Die Beschreibung sagt ausdrücklich, dass die Tage-Angabe bewusst falsch ist und es am Ende viele Etappen werden – darum nach Regel „Etappenlänge vor Tagen“ auf 62 Etappen zwischen gut 35 und 110 km geplant („etappeMaxKm“: 110), die meisten um 70–100 km."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Keine-Fähre-Regel bei zwei Meerengen: Auf der Großer-Belt-Querung (Fünen–Seeland) und der Öresundquerung (Seeland–Schweden) ist Radfahren auf der Autobahnbrücke verboten; eine Fähre gibt es auf beiden Strecken seit dem Bau der festen Verbindungen nicht mehr (Großer Belt seit 1998, Öresund seit 2000). Beide Querungen werden deshalb – wie von der Routine vorgesehen – als kurze, ausdrücklich dokumentierte Zugetappen mit Fahrradmitnahme gefahren (Nyborg–Korsør bzw. Kastrup–Malmö/Hyllie), keine Fähre. BRouter findet für diese zwei Etappen keine Rad-Route (es gibt keinen befahrbaren Weg übers Wasser) – das ist die erwartete, dokumentierte Ausnahme, kein Prüf-Fehler, und blockiert die übrigen Etappen nicht."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Keine-Fähre-Regel in Nordnorwegen: Der direkte, meistgefahrene Weg Tromsø–Alta nutzt zwei Lyngenfjord-Fähren (Breivikeidet–Svensby, Olderdalen–Lyngseidet) und wäre damit ca. 110 km kürzer. Nach der Keine-Fähre-Regel wird stattdessen die längere, aber durchgehend fährenfreie E6/E8-Inlandstrecke über Nordkjosbotn und Skibotn gefahren (Rückweg auf der E8 von Tromsø zum Festland ist unvermeidlich, da die Stadt nur über diese eine Straße erreichbar ist)."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Anspruch „Moderat“ (6–12 Hm/km) ist über weite Strecken (Flusstäler, Küste, Norrland) gut machbar; Nordnorwegen (Fjorde, Passhöhen zwischen Narvik und Alta) hat reale Steigungen. Die echten Höhenmeter liefert erst die Routenprüfung (tour-fertig.py) – sollte der Gesamtschnitt davon abweichen, wird das hier ehrlich ergänzt statt beschönigt."
+    }
+  ]
+}

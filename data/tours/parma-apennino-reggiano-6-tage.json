@@ -1,0 +1,749 @@
+{
+  "id": "parma-apennino-reggiano-6-tage",
+  "title": "Verdi-Land und Apennin-Vorland: Rundtour ab Busseto",
+  "subtitle": "6-Tage-Gravel-Rundtour durch Parmense und Reggiano, Emilia-Romagna",
+  "createdAt": "2026-10-26",
+  "requestId": "anonym-2026-10-26-emilia-romagna",
+  "land": "Italien",
+  "region": "Emilia-Romagna",
+  "tage": 6,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Eine Rundtour durch die Emilia zwischen Po-Ebene und Apennin-Vorland, angelehnt an bekannte Routen der Region: das Bikepacking-Rennen „Emilia Gravel“ (Busseto–Piacenza–Parma–Reggio Emilia), die Via Francigena im Taro-Tal und die Weinstraße „Strada dei Vini e dei Sapori dei Colli di Canossa e Scandiano“. Start und Ziel ist Busseto, Verdis Geburtsort. Über das Val d'Arda mit Castell'Arquato und Vigoleno geht es ins Taro-Tal nach Parma, auf der „Strada dei Castelli del Ducato“ über Torrechiara und Langhirano hinauf zur Burgruine von Canossa, weiter über Quattro Castella und Reggio Emilia zur Burg von Scandiano. Zurück geht es durch die Bassa (Po-Ebene) über Correggio, Novellara und Guastalla, am Po entlang nach Brescello (Don-Camillo-Filmdorf) und über die Reggia von Colorno und die Rocca Sanvitale in Fontanellato nach Busseto. Hügelige Apennin-Vorland-Etappen wechseln sich mit flachen Po-Ebene-Tagen ab; die hohen Apennin-Pässe (z. B. Passo della Cisa) bleiben bewusst außen vor, damit der Anspruch moderat bleibt. Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
+  "quellen": [
+    {
+      "name": "Emilia Gravel – Bikepacking-Route Busseto–Piacenza–Parma–Reggio Emilia (bikepacking.com)",
+      "url": "https://bikepacking.com/event/emilia-gravel-2025/"
+    },
+    {
+      "name": "Bicitalia (FIAB) – Nationales Radroutennetz Italien",
+      "url": "https://bicitalia.it/focus/bicitalia/"
+    },
+    {
+      "name": "The Historical Ways of Emilia – Via Francigena von Piacenza zum Passo della Cisa (Visit Emilia)",
+      "url": "https://visitemilia.com/en/itineraries/emilia-historical-ways-via-francigena"
+    },
+    {
+      "name": "The Parma Valleys by bike (Italia.it)",
+      "url": "https://www.italia.it/en/emilia-romagna/things-to-do/the-parma-valleys-by-bike"
+    },
+    {
+      "name": "Waymarked Trails – Cycling (OpenStreetMap-Radrouten Italien)",
+      "url": "https://cycling.waymarkedtrails.org/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Busseto",
+      "nach": "Castell'Arquato",
+      "hmPlan": 0,
+      "text": "Von Busseto, Verdis Geburtsort, durch die sanften Hügel des Val d'Arda über Fidenza und das Kurbad Salsomaggiore Terme, vorbei am mittelalterlichen Weiler Vigoleno zur Burg und Altstadt von Castell'Arquato.",
+      "wegpunkte": [
+        [
+          44.9897,
+          10.0336,
+          "Busseto"
+        ],
+        [
+          44.8653,
+          10.0612,
+          "Fidenza"
+        ],
+        [
+          44.81313,
+          9.98412,
+          "Salsomaggiore Terme"
+        ],
+        [
+          44.8044,
+          9.9794,
+          "Vigoleno"
+        ],
+        [
+          44.8508,
+          9.8735,
+          "Castell'Arquato"
+        ]
+      ],
+      "sperren": [
+        [
+          44.979209,
+          10.035625,
+          15
+        ],
+        [
+          44.97535,
+          10.039407,
+          15
+        ],
+        [
+          44.973239,
+          10.042274,
+          15
+        ],
+        [
+          44.973021,
+          10.043074,
+          15
+        ],
+        [
+          44.845624,
+          10.02702,
+          15
+        ],
+        [
+          44.8447,
+          10.025196,
+          15
+        ],
+        [
+          44.815458,
+          9.983167,
+          15
+        ],
+        [
+          44.815099,
+          9.982991,
+          15
+        ],
+        [
+          44.812359,
+          9.98206,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Castell'Arquato",
+      "nach": "Parma",
+      "hmPlan": 0,
+      "text": "Über Lugagnano Val d'Arda ins Taro-Tal, auf der historischen Via Francigena über Fornovo di Taro, dann über Sala Baganza mit der Burg von Felino hinein in die Herzogsstadt Parma.",
+      "wegpunkte": [
+        [
+          44.8508,
+          9.8735,
+          "Castell'Arquato"
+        ],
+        [
+          44.8206,
+          9.9114,
+          "Lugagnano Val d'Arda"
+        ],
+        [
+          44.7064,
+          9.9897,
+          "Fornovo di Taro"
+        ],
+        [
+          44.7319,
+          10.2581,
+          "Sala Baganza"
+        ],
+        [
+          44.7211,
+          10.2719,
+          "Felino"
+        ],
+        [
+          44.8015,
+          10.3279,
+          "Parma"
+        ]
+      ],
+      "sperren": [
+        [
+          44.851104,
+          9.874614,
+          15
+        ],
+        [
+          44.712703,
+          10.225062,
+          15
+        ],
+        [
+          44.711149,
+          10.229925,
+          15
+        ],
+        [
+          44.763452,
+          10.299962,
+          15
+        ],
+        [
+          44.785005,
+          10.310919,
+          15
+        ],
+        [
+          44.851241,
+          9.872152,
+          15
+        ],
+        [
+          44.712868,
+          10.230478,
+          15
+        ],
+        [
+          44.794322,
+          10.321932,
+          15
+        ],
+        [
+          44.794584,
+          10.323298,
+          15
+        ],
+        [
+          44.714512,
+          10.230293,
+          15
+        ],
+        [
+          44.794471,
+          10.32254,
+          15
+        ],
+        [
+          44.783581,
+          10.316272,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Parma",
+      "nach": "Canossa",
+      "hmPlan": 0,
+      "text": "Auf der „Strada dei Castelli del Ducato“ über Montechiarugolo, vorbei an der Burg Torrechiara und durch die Schinken-Stadt Langhirano, über Traversetolo hinauf zur sagenumwobenen Burgruine von Canossa.",
+      "wegpunkte": [
+        [
+          44.8015,
+          10.3279,
+          "Parma"
+        ],
+        [
+          44.7314,
+          10.4206,
+          "Montechiarugolo"
+        ],
+        [
+          44.71554,
+          10.30251,
+          "Torrechiara"
+        ],
+        [
+          44.6167,
+          10.2667,
+          "Langhirano"
+        ],
+        [
+          44.64243,
+          10.38613,
+          "Traversetolo"
+        ],
+        [
+          44.5802,
+          10.4479,
+          "Canossa"
+        ]
+      ],
+      "sperren": [
+        [
+          44.787501,
+          10.372215,
+          15
+        ],
+        [
+          44.747253,
+          10.323551,
+          15
+        ],
+        [
+          44.711051,
+          10.300228,
+          15
+        ],
+        [
+          44.637624,
+          10.268772,
+          15
+        ],
+        [
+          44.628193,
+          10.269858,
+          15
+        ],
+        [
+          44.617568,
+          10.322866,
+          15
+        ],
+        [
+          44.642044,
+          10.390039,
+          15
+        ],
+        [
+          44.600884,
+          10.413431,
+          15
+        ],
+        [
+          44.60029,
+          10.413318,
+          15
+        ],
+        [
+          44.581675,
+          10.437338,
+          15
+        ],
+        [
+          44.581536,
+          10.442839,
+          15
+        ],
+        [
+          44.57927,
+          10.445439,
+          15
+        ],
+        [
+          44.578824,
+          10.445994,
+          15
+        ],
+        [
+          44.6087,
+          10.4191,
+          15
+        ],
+        [
+          44.6148,
+          10.3074,
+          15
+        ],
+        [
+          44.7103,
+          10.2879,
+          15
+        ],
+        [
+          44.7351,
+          10.314,
+          15
+        ],
+        [
+          44.784792,
+          10.364338,
+          15
+        ],
+        [
+          44.766056,
+          10.325466,
+          15
+        ],
+        [
+          44.653457,
+          10.287912,
+          15
+        ],
+        [
+          44.577712,
+          10.453188,
+          15
+        ],
+        [
+          44.577846,
+          10.451971,
+          15
+        ],
+        [
+          44.578094,
+          10.450771,
+          15
+        ],
+        [
+          44.578815,
+          10.449061,
+          15
+        ],
+        [
+          44.6492,
+          10.3362,
+          15
+        ],
+        [
+          44.6546,
+          10.3071,
+          15
+        ],
+        [
+          44.7153,
+          10.3206,
+          15
+        ],
+        [
+          44.7275,
+          10.3208,
+          15
+        ],
+        [
+          44.785289,
+          10.361562,
+          15
+        ],
+        [
+          44.784703,
+          10.361326,
+          15
+        ],
+        [
+          44.654331,
+          10.289383,
+          15
+        ],
+        [
+          44.649421,
+          10.289818,
+          15
+        ],
+        [
+          44.637178,
+          10.385352,
+          15
+        ],
+        [
+          44.628553,
+          10.410834,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Canossa",
+      "nach": "Scandiano",
+      "hmPlan": 0,
+      "text": "Auf der Weinstraße „Strada dei Vini e dei Sapori dei Colli di Canossa e Scandiano“ über Quattro Castella und durch Reggio Emilia zur Burg von Scandiano.",
+      "wegpunkte": [
+        [
+          44.5802,
+          10.4479,
+          "Canossa"
+        ],
+        [
+          44.6333,
+          10.5,
+          "Quattro Castella"
+        ],
+        [
+          44.6989,
+          10.6307,
+          "Reggio Emilia"
+        ],
+        [
+          44.6967,
+          10.6936,
+          "Scandiano"
+        ]
+      ],
+      "sperren": [
+        [
+          44.57891,
+          10.449047,
+          15
+        ],
+        [
+          44.578094,
+          10.450771,
+          15
+        ],
+        [
+          44.577846,
+          10.451971,
+          15
+        ],
+        [
+          44.577839,
+          10.453127,
+          15
+        ],
+        [
+          44.61912,
+          10.515913,
+          15
+        ],
+        [
+          44.664463,
+          10.614432,
+          15
+        ],
+        [
+          44.697467,
+          10.630026,
+          15
+        ],
+        [
+          44.699488,
+          10.63122,
+          15
+        ],
+        [
+          44.698881,
+          10.651769,
+          15
+        ],
+        [
+          44.696427,
+          10.673441,
+          15
+        ],
+        [
+          44.695357,
+          10.674303,
+          15
+        ],
+        [
+          44.692053,
+          10.687335,
+          15
+        ],
+        [
+          44.578658,
+          10.44626,
+          15
+        ],
+        [
+          44.57927,
+          10.445439,
+          15
+        ],
+        [
+          44.581536,
+          10.442839,
+          15
+        ],
+        [
+          44.582837,
+          10.440026,
+          15
+        ],
+        [
+          44.583421,
+          10.440302,
+          15
+        ],
+        [
+          44.586356,
+          10.442955,
+          15
+        ],
+        [
+          44.701177,
+          10.639972,
+          15
+        ],
+        [
+          44.700212,
+          10.69428,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Scandiano",
+      "nach": "Guastalla",
+      "hmPlan": 0,
+      "text": "Hinaus in die Bassa, die Po-Ebene: über Rubiera und Correggio, vorbei an der Burg von Novellara, bis an den Po bei Guastalla.",
+      "wegpunkte": [
+        [
+          44.6967,
+          10.6936,
+          "Scandiano"
+        ],
+        [
+          44.6667,
+          10.7833,
+          "Rubiera"
+        ],
+        [
+          44.76897,
+          10.77779,
+          "Correggio"
+        ],
+        [
+          44.8464,
+          10.7322,
+          "Novellara"
+        ],
+        [
+          44.9177,
+          10.6557,
+          "Guastalla"
+        ]
+      ],
+      "sperren": [
+        [
+          44.739383,
+          10.825508,
+          15
+        ],
+        [
+          44.765068,
+          10.79598,
+          15
+        ],
+        [
+          44.76525,
+          10.795953,
+          15
+        ],
+        [
+          44.765284,
+          10.795578,
+          15
+        ],
+        [
+          44.770758,
+          10.782527,
+          15
+        ],
+        [
+          44.772813,
+          10.780085,
+          15
+        ],
+        [
+          44.772606,
+          10.779954,
+          15
+        ],
+        [
+          44.772128,
+          10.77697,
+          15
+        ],
+        [
+          44.772026,
+          10.776795,
+          15
+        ],
+        [
+          44.855582,
+          10.728382,
+          15
+        ],
+        [
+          44.772244,
+          10.783247,
+          15
+        ],
+        [
+          44.771592,
+          10.78057,
+          15
+        ],
+        [
+          44.771749,
+          10.779753,
+          15
+        ],
+        [
+          44.771731,
+          10.779334,
+          15
+        ],
+        [
+          44.771623,
+          10.7788,
+          15
+        ],
+        [
+          44.77173,
+          10.778104,
+          15
+        ],
+        [
+          44.771809,
+          10.777476,
+          15
+        ],
+        [
+          44.77168,
+          10.776404,
+          15
+        ],
+        [
+          44.766421,
+          10.781888,
+          15
+        ],
+        [
+          44.766265,
+          10.781513,
+          15
+        ],
+        [
+          44.766441,
+          10.781462,
+          15
+        ],
+        [
+          44.767392,
+          10.77902,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Guastalla",
+      "nach": "Busseto",
+      "hmPlan": 0,
+      "text": "Am Po entlang nach Brescello, bekannt aus den Don-Camillo-Filmen, zur herzoglichen Reggia von Colorno und zur Rocca Sanvitale in Fontanellato, zurück nach Busseto.",
+      "wegpunkte": [
+        [
+          44.9177,
+          10.6557,
+          "Guastalla"
+        ],
+        [
+          44.9058,
+          10.5003,
+          "Brescello"
+        ],
+        [
+          44.9275,
+          10.3764,
+          "Colorno"
+        ],
+        [
+          44.8767,
+          10.1673,
+          "Fontanellato"
+        ],
+        [
+          44.9897,
+          10.0336,
+          "Busseto"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Anfrage nannte nur die Region Emilia-Romagna, keinen Ort. Um Überlappung mit der parallel entstehenden Rundtour ab Bologna (Apennin südlich von Bologna) zu vermeiden, als Startort Busseto gewählt (Verdi-Land, Parmense/Piacentino) mit Rundtour über Castell'Arquato, Parma, Canossa, Reggio Emilia, Scandiano, Guastalla und Fontanellato – westlich von Bologna, im Apennin-Vorland der Provinzen Piacenza, Parma und Reggio Emilia, kein gemeinsamer Abschnitt mit der Bologna-Tour. Angelehnt an die reale Route des Bikepacking-Rennens „Emilia Gravel“ (Busseto–Piacenza–Parma–Reggio Emilia) sowie an die Weinstraße Canossa–Scandiano und die Via Francigena im Taro-Tal. Die hohen Apennin-Pässe (z. B. Passo della Cisa, 1.041 m) wurden bewusst ausgelassen, damit der Anspruch bei „Moderat“ (6–12 Hm/km) bleibt – stattdessen Burgen-Hügelland (Torrechiara, Canossa, Scandiano) und flache Po-Ebenen-Etappen zum Ausgleich."
+    }
+  ],
+  "etappeMaxKm": 130
+}

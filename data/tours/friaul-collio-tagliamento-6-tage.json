@@ -1,0 +1,486 @@
+{
+  "id": "friaul-collio-tagliamento-6-tage",
+  "title": "Friaul-Runde: Collio, Isonzo & Tagliamento",
+  "subtitle": "6-Tage-Gravel-Rundtour ab Udine durch Weinland, Ebene und Flusstäler",
+  "createdAt": "2026-10-26",
+  "requestId": "anonym-2026-10-26-friaul-1",
+  "land": "Italien",
+  "region": "Friaul (Friuli-Venezia Giulia)",
+  "tage": 6,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Feiner Schotter",
+    "Radwege",
+    "Asphalt"
+  ],
+  "beschreibung": "Eine Rundtour ab Udine durch die Friaulische Ebene, das Collio-Weinland und die Flusstäler von Isonzo und Tagliamento – ohne Karst und Triest, das die Schwestertour abdeckt. Über das UNESCO-Städtchen Cividale del Friuli ins Collio bei Cormons und Gorizia, durch die Isonzo-Ebene zur Römerstadt Aquileia (UNESCO) und zur Sternfestung Palmanova, am Tagliamento entlang über Latisana bis an den Rand nach Portogruaro, dann am Fluss zurück über Spilimbergo und San Daniele del Friuli bis an den Alpenrand nach Gemona del Friuli und Venzone, und über Tarcento zurück nach Udine. Angelehnt an Bausteine des FVG-Radwegenetzes (u. a. die Ciclovia del Tagliamento) und bekannte Gravel-Routen der Region. Die Linie auf der Karte wird beim Öffnen der Seite automatisch über echte Rad-Routing-Dienste berechnet; Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
+  "quellen": [
+    {
+      "name": "Bicitalia (FIAB)",
+      "url": "https://bicitalia.it/focus/bicitalia/"
+    },
+    {
+      "name": "PromoTurismoFVG – Ciclovia del Tagliamento (FVG6)",
+      "url": "https://www.turismofvg.it/en/bike/fvg6-a-tagliamento-river-cycle-route-alternative-path-c6va"
+    },
+    {
+      "name": "Lost in Friuli Venezia Giulia – Gravel-Tour (julian-alps.com)",
+      "url": "https://julian-alps.com/en/tour/gravel-bike/lost-in-friuli-venezia-giulia-cx03-/806377531/"
+    },
+    {
+      "name": "Friaul-Julisch Venetien mit dem Rad (outdoor-magazin.com)",
+      "url": "https://www.outdoor-magazin.com/wanderwege/friaul-julisch-venetien-mit-dem-rad-durch-die-berge-italiens/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Udine",
+      "nach": "Dolegna del Collio",
+      "hmPlan": 0,
+      "text": "Von Udine durch das Hügelland über Povoletto und Faedis zum UNESCO-Städtchen Cividale del Friuli, dann auf ruhigen Weinstraßen über Prepotto ins Collio hinein nach Dolegna del Collio.",
+      "wegpunkte": [
+        [
+          46.0693,
+          13.2346,
+          "Udine"
+        ],
+        [
+          46.1167,
+          13.2667,
+          "Povoletto"
+        ],
+        [
+          46.15,
+          13.3167,
+          "Faedis"
+        ],
+        [
+          46.1333,
+          13.3833,
+          "Torreano"
+        ],
+        [
+          46.09565,
+          13.42454,
+          "Cividale del Friuli"
+        ],
+        [
+          46.0392,
+          13.5086,
+          "Prepotto"
+        ],
+        [
+          46.0122,
+          13.4883,
+          "Dolegna del Collio"
+        ]
+      ],
+      "sperren": [
+        [
+          46.112459,
+          13.272748,
+          15
+        ],
+        [
+          46.112764,
+          13.270919,
+          15
+        ],
+        [
+          46.11269,
+          13.270716,
+          15
+        ],
+        [
+          46.112563,
+          13.272311,
+          15
+        ],
+        [
+          46.13975,
+          13.317988,
+          15
+        ],
+        [
+          46.095576,
+          13.427098,
+          15
+        ],
+        [
+          46.016441,
+          13.50281,
+          15
+        ],
+        [
+          46.016941,
+          13.502116,
+          15
+        ],
+        [
+          46.013728,
+          13.49998,
+          15
+        ],
+        [
+          46.094019,
+          13.247659,
+          15
+        ],
+        [
+          46.117469,
+          13.268791,
+          15
+        ],
+        [
+          46.115949,
+          13.271109,
+          15
+        ],
+        [
+          46.108642,
+          13.2727,
+          15
+        ],
+        [
+          46.098053,
+          13.239068,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Dolegna del Collio",
+      "nach": "Gradisca d'Isonzo",
+      "hmPlan": 0,
+      "text": "Durchs Collio-Weinland über Cormons und Capriva del Friuli und Mossa nach Gorizia, dann zurück in die Isonzo-Ebene nach Gradisca d'Isonzo.",
+      "wegpunkte": [
+        [
+          46.0122,
+          13.4883,
+          "Dolegna del Collio"
+        ],
+        [
+          45.9611,
+          13.4751,
+          "Cormons"
+        ],
+        [
+          45.9394,
+          13.4858,
+          "Capriva del Friuli"
+        ],
+        [
+          45.9336,
+          13.5321,
+          "Mossa"
+        ],
+        [
+          45.93966,
+          13.62182,
+          "Gorizia"
+        ],
+        [
+          45.8961,
+          13.4997,
+          "Gradisca d'Isonzo"
+        ]
+      ],
+      "sperren": [
+        [
+          45.960766,
+          13.474066,
+          15
+        ],
+        [
+          45.933648,
+          13.489425,
+          15
+        ],
+        [
+          45.933484,
+          13.489893,
+          15
+        ],
+        [
+          45.912662,
+          13.554946,
+          15
+        ],
+        [
+          45.948226,
+          13.479304,
+          15
+        ],
+        [
+          45.940349,
+          13.51444,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Gradisca d'Isonzo",
+      "nach": "Palmanova",
+      "hmPlan": 0,
+      "text": "Am Isonzo entlang durch die flache Ebene über Romans d'Isonzo und Turriaco zur Römerstadt Aquileia (UNESCO), über Terzo d'Aquileia und Cervignano del Friuli zur Sternfestung von Palmanova.",
+      "wegpunkte": [
+        [
+          45.8961,
+          13.4997,
+          "Gradisca d'Isonzo"
+        ],
+        [
+          45.8426,
+          13.4294,
+          "Romans d'Isonzo"
+        ],
+        [
+          45.8116,
+          13.4005,
+          "Turriaco"
+        ],
+        [
+          45.794,
+          13.3736,
+          "Fiumicello-Villa Vicentina"
+        ],
+        [
+          45.77028,
+          13.37215,
+          "Aquileia"
+        ],
+        [
+          45.8103,
+          13.3355,
+          "Terzo d'Aquileia"
+        ],
+        [
+          45.8298,
+          13.33675,
+          "Cervignano del Friuli"
+        ],
+        [
+          45.9057,
+          13.3098,
+          "Palmanova"
+        ]
+      ],
+      "sperren": [
+        [
+          45.892617,
+          13.499239,
+          15
+        ],
+        [
+          45.874298,
+          13.460832,
+          15
+        ],
+        [
+          45.85124,
+          13.430808,
+          15
+        ],
+        [
+          45.787266,
+          13.370575,
+          15
+        ],
+        [
+          45.810345,
+          13.342592,
+          15
+        ],
+        [
+          45.809927,
+          13.342645,
+          15
+        ],
+        [
+          45.809701,
+          13.342587,
+          15
+        ],
+        [
+          45.809478,
+          13.343016,
+          15
+        ],
+        [
+          45.830103,
+          13.333697,
+          15
+        ],
+        [
+          45.830035,
+          13.333383,
+          15
+        ],
+        [
+          45.83009,
+          13.333158,
+          15
+        ],
+        [
+          45.849533,
+          13.432046,
+          15
+        ],
+        [
+          45.82976,
+          13.333799,
+          15
+        ],
+        [
+          45.829781,
+          13.333541,
+          15
+        ],
+        [
+          45.82956,
+          13.333367,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Palmanova",
+      "nach": "Codroipo",
+      "hmPlan": 0,
+      "text": "Weiter durch die Ebene über Bagnaria Arsa nach Latisana am Tagliamento, ein Abstecher an den Südrand Friauls nach Portogruaro, dann am Westufer des Tagliamento über Cordovado, San Vito al Tagliamento und Casarsa della Delizia zurück nach Codroipo mit der Villa Manin.",
+      "wegpunkte": [
+        [
+          45.9057,
+          13.3098,
+          "Palmanova"
+        ],
+        [
+          45.8657,
+          13.1724,
+          "Bagnaria Arsa"
+        ],
+        [
+          45.7773,
+          13.0004,
+          "Latisana"
+        ],
+        [
+          45.7132,
+          12.9909,
+          "San Michele al Tagliamento"
+        ],
+        [
+          45.7708,
+          12.8382,
+          "Portogruaro"
+        ],
+        [
+          45.8242,
+          12.8993,
+          "Cordovado"
+        ],
+        [
+          45.9103,
+          12.8564,
+          "San Vito al Tagliamento"
+        ],
+        [
+          45.9608,
+          12.8719,
+          "Casarsa della Delizia"
+        ],
+        [
+          45.9594,
+          12.9814,
+          "Codroipo"
+        ]
+      ]
+    },
+    {
+      "von": "Codroipo",
+      "nach": "Venzone",
+      "hmPlan": 0,
+      "text": "Den Tagliamento aufwärts über Dignano und Spilimbergo und das Schinkenstädtchen San Daniele del Friuli, über Majano bis an den Alpenrand nach Gemona del Friuli und ins mittelalterliche Venzone.",
+      "wegpunkte": [
+        [
+          45.9594,
+          12.9814,
+          "Codroipo"
+        ],
+        [
+          46.0268,
+          12.9947,
+          "Dignano"
+        ],
+        [
+          46.1136,
+          12.8928,
+          "Spilimbergo"
+        ],
+        [
+          46.1583,
+          13.0036,
+          "San Daniele del Friuli"
+        ],
+        [
+          46.2103,
+          13.0442,
+          "Majano"
+        ],
+        [
+          46.2794,
+          13.1414,
+          "Gemona del Friuli"
+        ],
+        [
+          46.3414,
+          13.0983,
+          "Venzone"
+        ]
+      ]
+    },
+    {
+      "von": "Venzone",
+      "nach": "Udine",
+      "hmPlan": 0,
+      "text": "Zurück durchs Vorland über Artegna und Tarcento am Fuß der Julischen Voralpen, über Tricesimo zurück nach Udine – Schluss der Runde.",
+      "wegpunkte": [
+        [
+          46.3414,
+          13.0983,
+          "Venzone"
+        ],
+        [
+          46.2419,
+          13.1001,
+          "Artegna"
+        ],
+        [
+          46.2144,
+          13.2131,
+          "Tarcento"
+        ],
+        [
+          46.1486,
+          13.2283,
+          "Tricesimo"
+        ],
+        [
+          46.0693,
+          13.2346,
+          "Udine"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Anfrage nannte nur „Friaul“ ohne genauen Startort: Udine gewählt, zentral in der Region und gut mit dem Rad erreichbar (Entscheidungsregel 5). Route bewusst ohne Karst/Triest geplant (parallele Schwestertour deckt das ab) und auf Friaulische Ebene, Collio-Weinland und die Flusstäler von Isonzo und Tagliamento konzentriert: Cividale del Friuli, Collio (Cormons/Gorizia), Aquileia, Palmanova, Tagliamento-Talweg über Latisana, San Daniele del Friuli bis Gemona/Venzone am Alpenrand, zurück über Tarcento. Für die gewünschten 85–130 km/Tag bei 6 Etappen musste die Runde über die engere Friaulische Ebene hinaus bis knapp über die Grenze ins angrenzende Portogruaro (Venetien, direkt an der Tagliamento-Mündung) erweitert werden – immer noch flaches Flusstal, kein Karst und keine Küste."
+    }
+  ],
+  "etappeMaxKm": 130
+}

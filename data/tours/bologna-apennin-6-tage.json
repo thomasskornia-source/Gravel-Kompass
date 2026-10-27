@@ -1,0 +1,431 @@
+{
+  "id": "bologna-apennin-6-tage",
+  "title": "Apennin-Runde ab Bologna: Reno-Tal, Pistoiese & Setta-Tal",
+  "subtitle": "6-Tage-Gravel-Rundtour durch den nördlichen Apennin südlich von Bologna",
+  "createdAt": "2026-10-24",
+  "requestId": "uli-2026-10-24-bologna",
+  "land": "Italien",
+  "region": "Bologna / Apennino Bolognese",
+  "tage": 6,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Asphalt",
+    "Feiner Schotter",
+    "Radwege"
+  ],
+  "beschreibung": "Eine Rundtour durch den nördlichen Apennin südlich von Bologna, angelehnt an die Bologna-Florenz-Pilgerroute Via degli Dei und die Bikepacking-Runde \"Campari Long Ride\" um Porretta Terme. Von Bologna geht es durchs Reno-Tal hinauf nach Porretta Terme, über den historischen Apennin-Übergang Passo della Collina (932 m, hier soll laut Überlieferung schon Hannibal mit seinen Elefanten gezogen sein) ins toskanische Pistoiese und weiter ins Val di Bisenzio. Über den Pass bei Montepiano geht es zurück nach Emilia ins Setta-Tal, von dort über Monghidoro und einen Abstecher ins Idice-Tal nach Castel San Pietro Terme und zuletzt ruhig durch die Ebene östlich von Bologna zurück in die Stadt. Durchgehend feiner, gut rollender Schotter und ruhige Landstraßen, keine groben Wege oder Trails. Höhenmeter und Kilometer sind Schätzungen, bis der Routingdienst beim Öffnen der Seite die echte Strecke berechnet.",
+  "quellen": [
+    {
+      "name": "Campari Long Ride (bikepacking.com)",
+      "url": "https://bikepacking.com/routes/campari-long-ride/"
+    },
+    {
+      "name": "Via degli Dei in Gravel, Tailor-made (Appennino Slow)",
+      "url": "https://appenninoslow.it/en/travels/via-degli-dei-in-gravel-tailor-made/"
+    },
+    {
+      "name": "Mountain passes around San Benedetto Val di Sambro (Komoot Guide)",
+      "url": "https://www.komoot.com/guide/582914/mountain-passes-around-san-benedetto-val-di-sambro"
+    },
+    {
+      "name": "Bicitalia (FIAB)",
+      "url": "https://bicitalia.it/focus/bicitalia/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Bologna",
+      "nach": "Porretta Terme",
+      "hmPlan": 0,
+      "text": "Von Bologna durch das Reno-Tal über Sasso Marconi – am Zusammenfluss von Reno und Setta – und Marzabotto mit dem Gedenkpark Monte Sole hinauf zum Kurort Porretta Terme am Fuß des Apennin-Kamms.",
+      "wegpunkte": [
+        [
+          44.4949,
+          11.3426,
+          "Bologna"
+        ],
+        [
+          44.47793,
+          11.28509,
+          "Casalecchio di Reno"
+        ],
+        [
+          44.39438,
+          11.24734,
+          "Sasso Marconi"
+        ],
+        [
+          44.34417,
+          11.21105,
+          "Marzabotto"
+        ],
+        [
+          44.2934,
+          11.1151,
+          "Vergato"
+        ],
+        [
+          44.1601,
+          10.9733,
+          "Porretta Terme"
+        ]
+      ],
+      "sperren": [
+        [
+          44.444237,
+          11.271586,
+          15
+        ],
+        [
+          44.421746,
+          11.262669,
+          15
+        ],
+        [
+          44.420815,
+          11.262234,
+          15
+        ],
+        [
+          44.41422,
+          11.258457,
+          15
+        ],
+        [
+          44.412858,
+          11.25798,
+          15
+        ],
+        [
+          44.390061,
+          11.24684,
+          15
+        ],
+        [
+          44.389758,
+          11.246048,
+          15
+        ],
+        [
+          44.38444,
+          11.237258,
+          15
+        ],
+        [
+          44.384225,
+          11.237711,
+          15
+        ],
+        [
+          44.381381,
+          11.235634,
+          15
+        ],
+        [
+          44.308848,
+          11.160358,
+          15
+        ],
+        [
+          44.303744,
+          11.159153,
+          15
+        ],
+        [
+          44.229953,
+          11.06461,
+          15
+        ],
+        [
+          44.229897,
+          11.058226,
+          15
+        ],
+        [
+          44.444088,
+          11.271377,
+          15
+        ],
+        [
+          44.443809,
+          11.27157,
+          15
+        ],
+        [
+          44.416565,
+          11.266321,
+          15
+        ],
+        [
+          44.412577,
+          11.262539,
+          15
+        ],
+        [
+          44.394971,
+          11.254655,
+          15
+        ],
+        [
+          44.395072,
+          11.254471,
+          15
+        ],
+        [
+          44.395227,
+          11.254219,
+          15
+        ],
+        [
+          44.387632,
+          11.24294,
+          15
+        ],
+        [
+          44.382139,
+          11.234702,
+          15
+        ],
+        [
+          44.444543,
+          11.272382,
+          15
+        ],
+        [
+          44.444345,
+          11.272305,
+          15
+        ],
+        [
+          44.416623,
+          11.271404,
+          15
+        ],
+        [
+          44.416147,
+          11.271768,
+          15
+        ],
+        [
+          44.415346,
+          11.272385,
+          15
+        ],
+        [
+          44.414908,
+          11.272721,
+          15
+        ],
+        [
+          44.394749,
+          11.251797,
+          15
+        ],
+        [
+          44.444721,
+          11.271661,
+          15
+        ],
+        [
+          44.444344,
+          11.271962,
+          15
+        ],
+        [
+          44.44414,
+          11.272067,
+          15
+        ],
+        [
+          44.443994,
+          11.272174,
+          15
+        ],
+        [
+          44.431108,
+          11.281485,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Porretta Terme",
+      "nach": "Cutigliano",
+      "hmPlan": 0,
+      "text": "Über Granaglione und Pavana auf die toskanische Seite, am Passo della Collina (932 m) über den Apennin-Kamm – hier soll schon Hannibal mit seinen Elefanten durchgezogen sein – und über Pracchia hinauf nach San Marcello Piteglio und Cutigliano im Val di Lima.",
+      "wegpunkte": [
+        [
+          44.1601,
+          10.9733,
+          "Porretta Terme"
+        ],
+        [
+          44.1232,
+          10.9333,
+          "Granaglione"
+        ],
+        [
+          44.1003,
+          10.8814,
+          "Pavana"
+        ],
+        [
+          44.1064,
+          10.8611,
+          "Sambuca Pistoiese"
+        ],
+        [
+          44.0186,
+          10.8345,
+          "Pracchia"
+        ],
+        [
+          44.052,
+          10.7985,
+          "San Marcello Piteglio"
+        ],
+        [
+          44.0735,
+          10.7265,
+          "Cutigliano"
+        ]
+      ]
+    },
+    {
+      "von": "Cutigliano",
+      "nach": "Vernio",
+      "hmPlan": 0,
+      "text": "Entlang der Pistoiese Berge über Gavinana (Schauplatz der Schlacht von 1530) und den Höhenort Prunetta, dann hinunter ins Val di Bisenzio nach Vernio – der anspruchsvollste Tag der Tour.",
+      "wegpunkte": [
+        [
+          44.0735,
+          10.7265,
+          "Cutigliano"
+        ],
+        [
+          44.0516,
+          10.7584,
+          "Gavinana"
+        ],
+        [
+          44.0205,
+          10.7903,
+          "Prunetta"
+        ],
+        [
+          44.059,
+          11.155,
+          "Vernio"
+        ]
+      ]
+    },
+    {
+      "von": "Vernio",
+      "nach": "Monghidoro",
+      "hmPlan": 0,
+      "text": "Über den historischen Pass bei Montepiano zurück nach Emilia, vorbei an Castiglione dei Pepoli und San Benedetto Val di Sambro im Setta-Tal, hinauf nach Monghidoro auf der Wasserscheide zur Via degli Dei.",
+      "wegpunkte": [
+        [
+          44.059,
+          11.155,
+          "Vernio"
+        ],
+        [
+          44.062,
+          11.102,
+          "Montepiano"
+        ],
+        [
+          44.118,
+          11.167,
+          "Castiglione dei Pepoli"
+        ],
+        [
+          44.168,
+          11.241,
+          "San Benedetto Val di Sambro"
+        ],
+        [
+          44.2083,
+          11.3286,
+          "Monghidoro"
+        ]
+      ]
+    },
+    {
+      "von": "Monghidoro",
+      "nach": "Castel San Pietro Terme",
+      "hmPlan": 0,
+      "text": "Von Monghidoro über Loiano und das Savena-Tal bei Pianoro mit einem Abstecher ins Idice-Tal nach Monterenzio (Etruskermuseum) und weiter zum Kurort Castel San Pietro Terme.",
+      "wegpunkte": [
+        [
+          44.2083,
+          11.3286,
+          "Monghidoro"
+        ],
+        [
+          44.285,
+          11.338,
+          "Loiano"
+        ],
+        [
+          44.3792,
+          11.3391,
+          "Pianoro"
+        ],
+        [
+          44.308,
+          11.415,
+          "Monterenzio"
+        ],
+        [
+          44.3997,
+          11.5667,
+          "Castel San Pietro Terme"
+        ]
+      ]
+    },
+    {
+      "von": "Castel San Pietro Terme",
+      "nach": "Bologna",
+      "hmPlan": 0,
+      "text": "Durch die Ebene östlich von Bologna über Medicina, Budrio und Castenaso zurück in die Stadt – ein ruhiger Ausklang nach fünf Bergtagen.",
+      "wegpunkte": [
+        [
+          44.3997,
+          11.5667,
+          "Castel San Pietro Terme"
+        ],
+        [
+          44.4786,
+          11.6412,
+          "Medicina"
+        ],
+        [
+          44.5347,
+          11.5333,
+          "Budrio"
+        ],
+        [
+          44.5094,
+          11.4453,
+          "Castenaso"
+        ],
+        [
+          44.4949,
+          11.3426,
+          "Bologna"
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Neue Anfrage von Uli (Freigabe ok). Widersprüche nach Rangfolge gelöst: Freitext schlägt Formular – „sechs Tage“ statt der 3 Tage im Formularfeld, „60–120 km/Tag“ statt 60–130 km/Tag (\"etappeMaxKm\": 120 gesetzt). Den im Freitext diktierten Tippfehler „zwischen sechs 700 Höhenmeter“ als „zwischen ca. 700 und maximal 1300 Höhenmeter pro Tag“ interpretiert. Route so geplant, dass sie bei Anspruch „Moderat“ (6–12 Hm/km) auf 60–120 km/Tag im Schnitt in den gewünschten 700–1300-Hm-Bereich kommt: Rundtour von Bologna über das Reno-Tal nach Porretta Terme, über den Apennin-Kamm (Passo della Collina) ins toskanische Pistoiese und Val di Bisenzio, zurück über Montepiano und das Setta-Tal, mit einem Abstecher ins Idice-Tal und einer ruhigeren Schlussetappe durch die Ebene östlich von Bologna. Echte Orte recherchiert (siehe „quellen“), Koordinaten können nach dem Lauf von tools/tour-fertig.py / wegpunkte-orte.py noch leicht an die Ortskerne angepasst werden."
+    }
+  ]
+}
