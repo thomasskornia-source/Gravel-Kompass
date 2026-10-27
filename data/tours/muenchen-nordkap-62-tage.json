@@ -88,8 +88,8 @@
           "Forchheim"
         ],
         [
-          49.8988,
-          10.9028,
+          49.8916,
+          10.88685,
           "Bamberg"
         ],
         [
@@ -190,8 +190,8 @@
           "Halle (Saale)"
         ],
         [
-          51.6214,
-          12.32,
+          51.6425,
+          12.30763,
           "Bitterfeld-Wolfen"
         ],
         [
@@ -200,8 +200,8 @@
           "Lutherstadt Wittenberg"
         ],
         [
-          51.8395,
-          12.2425,
+          51.86209,
+          12.24054,
           "Dessau-Roßlau"
         ]
       ]
@@ -213,13 +213,13 @@
       "text": "Auf dem Elberadweg über Barby und Schönebeck nach Magdeburg.",
       "wegpunkte": [
         [
-          51.8395,
-          12.2425,
+          51.86209,
+          12.24054,
           "Dessau-Roßlau"
         ],
         [
-          51.9833,
-          11.8833,
+          51.96751,
+          11.8893,
           "Barby"
         ],
         [
@@ -228,8 +228,8 @@
           "Schönebeck (Elbe)"
         ],
         [
-          52.1205,
-          11.6276,
+          52.13148,
+          11.64008,
           "Magdeburg"
         ]
       ]
@@ -241,8 +241,8 @@
       "text": "Weiter auf dem Elberadweg durch die Altmark über das historische Tangermünde bis Havelberg.",
       "wegpunkte": [
         [
-          52.1205,
-          11.6276,
+          52.13148,
+          11.64008,
           "Magdeburg"
         ],
         [
@@ -251,8 +251,8 @@
           "Tangermünde"
         ],
         [
-          52.8333,
-          12.0833,
+          52.82383,
+          12.07574,
           "Havelberg"
         ]
       ]
@@ -264,8 +264,8 @@
       "text": "Kurzer, ruhiger Tag auf dem Elberadweg durch die Prignitz nach Wittenberge.",
       "wegpunkte": [
         [
-          52.8333,
-          12.0833,
+          52.82383,
+          12.07574,
           "Havelberg"
         ],
         [
@@ -287,8 +287,8 @@
           "Wittenberge"
         ],
         [
-          53.1167,
-          11.2667,
+          53.13884,
+          11.2615,
           "Dömitz"
         ],
         [
@@ -310,8 +310,8 @@
           "Boizenburg/Elbe"
         ],
         [
-          53.3733,
-          10.5667,
+          53.37898,
+          10.55139,
           "Lauenburg/Elbe"
         ],
         [
@@ -333,8 +333,8 @@
           "Hamburg"
         ],
         [
-          53.5333,
-          10.4,
+          53.53676,
+          10.36361,
           "Aumühle"
         ],
         [
@@ -389,8 +389,8 @@
           "Schleswig"
         ],
         [
-          54.7937,
-          9.4464,
+          54.78431,
+          9.43866,
           "Flensburg"
         ]
       ]
@@ -402,13 +402,13 @@
       "text": "Über die Grenze und auf dem Hærvejsruten-Korridor durch Haderslev nach Kolding am Kleinen Belt.",
       "wegpunkte": [
         [
-          54.7937,
-          9.4464,
+          54.78431,
+          9.43866,
           "Flensburg"
         ],
         [
-          55.25,
-          9.4833,
+          55.2518,
+          9.48846,
           "Haderslev"
         ],
         [
@@ -440,8 +440,8 @@
           "Middelfart"
         ],
         [
-          55.4038,
-          10.4024,
+          55.40075,
+          10.38464,
           "Odense"
         ],
         [
@@ -514,13 +514,13 @@
           "Roskilde"
         ],
         [
-          55.6761,
-          12.5683,
+          55.68672,
+          12.57007,
           "København"
         ],
         [
-          55.6295,
-          12.6508,
+          55.63783,
+          12.63859,
           "Kastrup"
         ]
       ]
@@ -532,13 +532,13 @@
       "text": "Zugetappe über den Öresund, da Radfahren und Gehen auf der Öresundbrücke verboten sind – keine Fähre, der Öresundzug nimmt Fahrräder mit (ca. 15 Minuten).",
       "wegpunkte": [
         [
-          55.6295,
-          12.6508,
+          55.63783,
+          12.63859,
           "Kastrup"
         ],
         [
-          55.5625,
-          12.9958,
+          55.56944,
+          12.97712,
           "Hyllie (Malmö)"
         ]
       ]
@@ -550,8 +550,8 @@
       "text": "Durch Malmö und an der Öresundküste über Lund und Landskrona nach Helsingborg.",
       "wegpunkte": [
         [
-          55.5625,
-          12.9958,
+          55.56944,
+          12.97712,
           "Hyllie (Malmö)"
         ],
         [
@@ -588,8 +588,8 @@
           "Helsingborg"
         ],
         [
-          56.4406,
-          12.8514,
+          56.24231,
+          12.85705,
           "Ängelholm"
         ],
         [
@@ -909,8 +909,8 @@
           "Örnsköldsvik"
         ],
         [
-          63.5833,
-          19.5,
+          63.56978,
+          19.49978,
           "Nordmaling"
         ]
       ]
@@ -922,8 +922,8 @@
       "text": "Letztes Stück an der Küste entlang nach Umeå, der Universitätsstadt Nordschwedens.",
       "wegpunkte": [
         [
-          63.5833,
-          19.5,
+          63.56978,
+          19.49978,
           "Nordmaling"
         ],
         [
@@ -1076,8 +1076,8 @@
           "Gällivare"
         ],
         [
-          67.6606,
-          21.0611,
+          67.64787,
+          21.06062,
           "Svappavaara"
         ]
       ]
@@ -1089,13 +1089,13 @@
       "text": "Letztes Stück Schweden: nach Kiruna, der nördlichsten Stadt des Landes.",
       "wegpunkte": [
         [
-          67.6606,
-          21.0611,
+          67.64787,
+          21.06062,
           "Svappavaara"
         ],
         [
-          67.8558,
-          20.2253,
+          67.84807,
+          20.30571,
           "Kiruna"
         ]
       ]
@@ -1107,13 +1107,13 @@
       "text": "Entlang des Torneträsk-Sees durch den Nationalpark Abisko.",
       "wegpunkte": [
         [
-          67.8558,
-          20.2253,
+          67.84807,
+          20.30571,
           "Kiruna"
         ],
         [
-          68.354,
-          18.7903,
+          68.35017,
+          18.83001,
           "Abisko"
         ]
       ]
@@ -1125,8 +1125,8 @@
       "text": "Über den Bergpass Riksgränsen an der schwedisch-norwegischen Landgrenze (kein Wasser) hinunter zum Fjord nach Narvik.",
       "wegpunkte": [
         [
-          68.354,
-          18.7903,
+          68.35017,
+          18.83001,
           "Abisko"
         ],
         [
@@ -1153,8 +1153,8 @@
           "Narvik"
         ],
         [
-          68.5603,
-          17.535,
+          68.54936,
+          17.55747,
           "Bjerkvik"
         ],
         [
@@ -1163,8 +1163,8 @@
           "Gratangen"
         ],
         [
-          68.95,
-          18.5167,
+          68.86109,
+          18.34875,
           "Setermoen"
         ]
       ]
@@ -1176,13 +1176,13 @@
       "text": "Weiter auf der E6 durch das Inland Südtromsøs nach Nordkjosbotn.",
       "wegpunkte": [
         [
-          68.95,
-          18.5167,
+          68.86109,
+          18.34875,
           "Setermoen"
         ],
         [
-          69.2167,
-          19.5,
+          69.21732,
+          19.55831,
           "Nordkjosbotn"
         ]
       ]
@@ -1194,8 +1194,8 @@
       "text": "Über die E8 und die Tromsø-Brücke auf die Insel Tromsøya in die Eismeerstadt Tromsø.",
       "wegpunkte": [
         [
-          69.2167,
-          19.5,
+          69.21732,
+          19.55831,
           "Nordkjosbotn"
         ],
         [
@@ -1217,8 +1217,8 @@
           "Tromsø"
         ],
         [
-          69.2167,
-          19.5,
+          69.21732,
+          19.55831,
           "Nordkjosbotn"
         ],
         [
@@ -1281,8 +1281,8 @@
           "Alta"
         ],
         [
-          70.1667,
-          24.0,
+          70.1819,
+          24.01308,
           "Langfjordbotn (Porsanger)"
         ]
       ]
@@ -1294,13 +1294,13 @@
       "text": "Weiter auf der E6 am Porsangerfjord entlang bis zur Abzweigung der E69 in Olderfjord.",
       "wegpunkte": [
         [
-          70.1667,
-          24.0,
+          70.1819,
+          24.01308,
           "Langfjordbotn (Porsanger)"
         ],
         [
-          70.3728,
-          24.9875,
+          70.47395,
+          25.07058,
           "Olderfjord"
         ]
       ]
@@ -1312,8 +1312,8 @@
       "text": "Auf der E69 durch den Skarvbergtunnel (mit eigenem Rad-/Gehweg) nach Honningsvåg auf der Insel Magerøya.",
       "wegpunkte": [
         [
-          70.3728,
-          24.9875,
+          70.47395,
+          25.07058,
           "Olderfjord"
         ],
         [
