@@ -1,0 +1,622 @@
+{
+  "id": "friaul-triest-6-tage",
+  "title": "Friaul-Rundtour: Collio, Julische Vorberge & Karst bis Triest",
+  "subtitle": "6-Tage-Gravel-Rundtour durch Friaul-Julisch Venetien mit Etappe nach Triest",
+  "createdAt": "2026-10-27",
+  "requestId": "friaul-2026-10-27",
+  "land": "Italien",
+  "region": "Friaul-Julisch Venetien (Collio, Julische Voralpen, Karst, Triest)",
+  "saison": "",
+  "tage": 6,
+  "fahrradtyp": "Gravel",
+  "anspruch": "Moderat",
+  "streckenform": "Rundtour",
+  "oberflaeche": [
+    "Asphalt",
+    "Feiner Schotter",
+    "Grober Schotter"
+  ],
+  "beschreibung": "Rundkurs mit Start und Ziel in Gorizia: durch die Weinberge des Collio nach Cividale del Friuli, weiter über San Daniele (Prosciutto) in die ersten Vorberge der Julischen Alpen bis Gemona, hinein in die Wälder des Val d'Arzino bis Tramonti di Sotto (härteste Etappe, Forstwege), zurück über die Tagliamento-Ebene und die Sternfestung Palmanova, über das römische Aquileia und die Lagune von Grado an die Küste, und am letzten Tag über Duino und Sistiana auf die Karst-Hochebene bis Triest und über Opicina zurück nach Gorizia. Eine konkrete Tour unter dem Namen „Gravel Deluxe“ war für Friaul/Triest nicht auffindbar; die Strecke orientiert sich stattdessen an den bekannten Routen „Lost in Friuli Venezia Giulia“ (Gorizia-Rundkurs über Val d'Arzino) und dem Alpe-Adria-Gravel Villach–Triest. Der Rilke-Pfad bei Duino ist laut mehreren Quellen für Räder gesperrt bzw. nur mit Schieben befahrbar – stattdessen die ruhige Straßenschleife Sistiana–Duino–Triest–Opicina gewählt. Die Linie auf der Karte wird beim Öffnen der Seite automatisch über echte Rad-Routing-Dienste berechnet; Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
+  "quellen": [
+    {
+      "name": "Lost in Friuli Venezia Giulia (julian-alps.com)",
+      "url": "https://julian-alps.com/en/tour/gravel-bike/lost-in-friuli-venezia-giulia-cx03-/806377531/"
+    },
+    {
+      "name": "ASI Reisen – Villach–Triest Gravel",
+      "url": "https://www.asi-reisen.de/r/2ATKLU017B"
+    },
+    {
+      "name": "Komoot – Gravel biking around Duino-Aurisina/Trieste",
+      "url": "https://www.komoot.com/guide/3466919/gravel-biking-around-duino-aurisina-devin-nabrezina"
+    },
+    {
+      "name": "italia.it – Radweg der Adria (FVG)",
+      "url": "https://www.italia.it/de/friaul-julisch-venetien/erlebnisse-und-sehenswertes/radweg-der-adria-fvg2"
+    },
+    {
+      "name": "outdoor-magazin.com – Friaul mit dem Rad",
+      "url": "https://www.outdoor-magazin.com/wanderwege/friaul-julisch-venetien-mit-dem-rad-durch-die-berge-italiens/"
+    }
+  ],
+  "etappen": [
+    {
+      "von": "Gorizia",
+      "nach": "Cividale del Friuli",
+      "hmPlan": 750,
+      "text": "Durch die Weinberge des Collio über Dolegna del Collio und Cormons zur Römerstadt und UNESCO-Altstadt Cividale del Friuli.",
+      "wegpunkte": [
+        [
+          45.9403,
+          13.621,
+          "Gorizia"
+        ],
+        [
+          46.01658,
+          13.48431,
+          "Dolegna del Collio"
+        ],
+        [
+          45.95904,
+          13.47341,
+          "Cormons"
+        ],
+        [
+          46.0924,
+          13.4287,
+          "Cividale del Friuli"
+        ]
+      ],
+      "sperren": [
+        [
+          45.960937,
+          13.473826,
+          15
+        ],
+        [
+          46.09238,
+          13.424677,
+          15
+        ],
+        [
+          45.9737,
+          13.4512,
+          15
+        ],
+        [
+          45.9794,
+          13.4648,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Cividale del Friuli",
+      "nach": "Gemona del Friuli",
+      "hmPlan": 850,
+      "text": "Durch das Hügelland nördlich von Udine über San Daniele del Friuli (Prosciutto) und Osoppo in die ersten Vorberge der Julischen Alpen bis Gemona.",
+      "wegpunkte": [
+        [
+          46.0924,
+          13.4287,
+          "Cividale del Friuli"
+        ],
+        [
+          46.15808,
+          13.00017,
+          "San Daniele del Friuli"
+        ],
+        [
+          46.25744,
+          13.0752,
+          "Osoppo"
+        ],
+        [
+          46.2772,
+          13.1428,
+          "Gemona del Friuli"
+        ]
+      ],
+      "sperren": [
+        [
+          46.093056,
+          13.429005,
+          15
+        ],
+        [
+          46.095576,
+          13.427098,
+          15
+        ],
+        [
+          46.095344,
+          13.424301,
+          15
+        ],
+        [
+          46.094986,
+          13.422265,
+          15
+        ],
+        [
+          46.105568,
+          13.229173,
+          15
+        ],
+        [
+          46.097544,
+          13.134967,
+          15
+        ],
+        [
+          46.097715,
+          13.134531,
+          15
+        ],
+        [
+          46.162139,
+          13.003523,
+          15
+        ],
+        [
+          46.161943,
+          13.00358,
+          15
+        ],
+        [
+          46.161966,
+          13.004028,
+          15
+        ],
+        [
+          46.27754,
+          13.139731,
+          15
+        ],
+        [
+          46.162301,
+          13.003278,
+          15
+        ],
+        [
+          46.162472,
+          13.003569,
+          15
+        ],
+        [
+          46.162607,
+          13.003684,
+          15
+        ],
+        [
+          46.162548,
+          13.004194,
+          15
+        ],
+        [
+          46.165428,
+          13.00893,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Gemona del Friuli",
+      "nach": "Tramonti di Sotto",
+      "hmPlan": 1800,
+      "text": "Die härteste Etappe: über Vito d'Asio hinein in die Wälder des Val d'Arzino bis Tramonti di Sotto, mit Forstwegen und gröberem Schotter.",
+      "wegpunkte": [
+        [
+          46.2772,
+          13.1428,
+          "Gemona del Friuli"
+        ],
+        [
+          46.22782,
+          12.9383,
+          "Vito d'Asio"
+        ],
+        [
+          46.28703,
+          12.79121,
+          "Tramonti di Sotto"
+        ]
+      ],
+      "sperren": [
+        [
+          46.393443,
+          12.866418,
+          15
+        ],
+        [
+          46.301107,
+          12.787936,
+          15
+        ],
+        [
+          46.221185,
+          12.953125,
+          15
+        ],
+        [
+          46.226902,
+          12.9186,
+          15
+        ],
+        [
+          46.22716,
+          12.918162,
+          15
+        ],
+        [
+          46.227709,
+          12.918315,
+          15
+        ],
+        [
+          46.229874,
+          12.914994,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Tramonti di Sotto",
+      "nach": "Palmanova",
+      "hmPlan": 350,
+      "text": "Zurück ins Flachland über Spilimbergo und die Tagliamento-Ebene bei Casarsa della Delizia bis zur Sternfestung Palmanova.",
+      "wegpunkte": [
+        [
+          46.28703,
+          12.79121,
+          "Tramonti di Sotto"
+        ],
+        [
+          46.24189,
+          12.76551,
+          "Abstecher bei Meduno"
+        ],
+        [
+          46.1139,
+          12.8917,
+          "Spilimbergo"
+        ],
+        [
+          46.06687,
+          12.84911,
+          "Abstecher bei Rauscedo"
+        ],
+        [
+          45.95552,
+          12.84234,
+          "Casarsa della Delizia"
+        ],
+        [
+          45.9056,
+          13.3089,
+          "Palmanova"
+        ]
+      ],
+      "sperren": [
+        [
+          46.10711,
+          12.895631,
+          15
+        ],
+        [
+          46.106869,
+          12.895812,
+          15
+        ],
+        [
+          46.106147,
+          12.895193,
+          15
+        ],
+        [
+          46.106018,
+          12.895128,
+          15
+        ],
+        [
+          46.105868,
+          12.895137,
+          15
+        ],
+        [
+          45.960262,
+          12.984737,
+          15
+        ],
+        [
+          45.922562,
+          13.295015,
+          15
+        ],
+        [
+          45.908114,
+          13.302002,
+          15
+        ],
+        [
+          45.906077,
+          13.308307,
+          15
+        ],
+        [
+          45.959473,
+          12.980332,
+          15
+        ],
+        [
+          46.231478,
+          12.766547,
+          15
+        ],
+        [
+          46.236818,
+          12.777122,
+          15
+        ],
+        [
+          46.000042,
+          12.857846,
+          15
+        ],
+        [
+          45.999891,
+          12.85805,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Palmanova",
+      "nach": "Monfalcone",
+      "hmPlan": 200,
+      "text": "Über die Ausgrabungen des römischen Aquileia (UNESCO) und die Lagune von Grado an die Küste bis Monfalcone.",
+      "wegpunkte": [
+        [
+          45.9056,
+          13.3089,
+          "Palmanova"
+        ],
+        [
+          45.78897,
+          13.32933,
+          "Abstecher bei San Martino"
+        ],
+        [
+          45.76824,
+          13.37243,
+          "Aquileia"
+        ],
+        [
+          45.67814,
+          13.39662,
+          "Grado"
+        ],
+        [
+          45.80501,
+          13.53313,
+          "Monfalcone"
+        ]
+      ],
+      "sperren": [
+        [
+          45.899303,
+          13.309641,
+          15
+        ],
+        [
+          45.898658,
+          13.309939,
+          15
+        ],
+        [
+          45.767437,
+          13.36957,
+          15
+        ],
+        [
+          45.767894,
+          13.369338,
+          15
+        ],
+        [
+          45.768252,
+          13.369184,
+          15
+        ],
+        [
+          45.767533,
+          13.371367,
+          15
+        ],
+        [
+          45.679551,
+          13.387854,
+          15
+        ],
+        [
+          45.678914,
+          13.39576,
+          15
+        ],
+        [
+          45.678059,
+          13.396697,
+          15
+        ],
+        [
+          45.678092,
+          13.397033,
+          15
+        ],
+        [
+          45.806816,
+          13.521162,
+          15
+        ],
+        [
+          45.77296,
+          13.366182,
+          15
+        ],
+        [
+          45.77269,
+          13.366333,
+          15
+        ],
+        [
+          45.774074,
+          13.365562,
+          15
+        ],
+        [
+          45.778098,
+          13.363378,
+          15
+        ]
+      ]
+    },
+    {
+      "von": "Monfalcone",
+      "nach": "Gorizia",
+      "hmPlan": 1100,
+      "text": "Entlang der Küste über Duino und Sistiana, hinauf auf die Karst-Hochebene bis Triest und über Opicina zurück ins Collio nach Gorizia.",
+      "wegpunkte": [
+        [
+          45.80501,
+          13.53313,
+          "Monfalcone"
+        ],
+        [
+          45.77415,
+          13.60868,
+          "Duino"
+        ],
+        [
+          45.77252,
+          13.62792,
+          "Sistiana"
+        ],
+        [
+          45.65013,
+          13.77776,
+          "Triest"
+        ],
+        [
+          45.68615,
+          13.78353,
+          "Opicina"
+        ],
+        [
+          45.9403,
+          13.621,
+          "Gorizia"
+        ]
+      ],
+      "sperren": [
+        [
+          45.774761,
+          13.639056,
+          15
+        ],
+        [
+          45.766263,
+          13.684906,
+          15
+        ],
+        [
+          45.766109,
+          13.685392,
+          15
+        ],
+        [
+          45.754846,
+          13.707147,
+          15
+        ],
+        [
+          45.753869,
+          13.710402,
+          15
+        ],
+        [
+          45.74583,
+          13.723313,
+          15
+        ],
+        [
+          45.745448,
+          13.723775,
+          15
+        ],
+        [
+          45.678183,
+          13.754525,
+          15
+        ],
+        [
+          45.653096,
+          13.771423,
+          15
+        ],
+        [
+          45.683435,
+          13.783271,
+          15
+        ],
+        [
+          45.890229,
+          13.669656,
+          15
+        ],
+        [
+          45.921186,
+          13.653854,
+          15
+        ],
+        [
+          45.658294,
+          13.772063,
+          15
+        ],
+        [
+          45.658129,
+          13.772156,
+          15
+        ],
+        [
+          45.657606,
+          13.772461,
+          15
+        ],
+        [
+          45.656931,
+          13.772081,
+          15
+        ],
+        [
+          45.684194,
+          13.784162,
+          15
+        ]
+      ]
+    }
+  ],
+  "aenderungen": [
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "kommentar": "Anfrage: Route durchs Friaul, angelehnt an bekannte/beliebte Radwege und eine Tour von „Gravel Deluxe“, mit Station Triest, Anspruch Anspruchsvoll, Untergrund bis Grober Schotter, 80–140 km/Tag.",
+      "antwort": "Eine konkrete „Gravel Deluxe“-Tour für Friaul/Triest war nicht auffindbar – Route stattdessen aus bekannten Bausteinen zusammengesetzt (Lost in Friuli Venezia Giulia, Alpe-Adria-Gravel Villach–Triest, Karst-Schleifen bei Duino-Aurisina). Der Rilke-Pfad bei Duino ist für Räder gesperrt bzw. nur mit Schieben befahrbar – daher die Straßenschleife Sistiana–Triest–Opicina gewählt statt des Pfads selbst. Kein Startort war angegeben; Gorizia gewählt (Collio-Weinberge als Auftakt, Runde schließt über Triest). Grober Schotter/Forstwege nur in der Val-d'Arzino-Etappe eingeplant, sonst Asphalt/feiner Schotter."
+    },
+    {
+      "datum": "2026-10-27",
+      "von": "Claude",
+      "antwort": "Nach Prüfung mit tour-fertig.py: 442 km/6 Tage, Ø 9,1 Hm/km – Anspruch ehrlich auf „Moderat“ gesetzt statt des angegebenen „Anspruchsvoll“, da das reale Gelände (auch mit der Val-d'Arzino-Etappe) rechnerisch darunterbleibt; die Etappe Palmanova–Monfalcone ist mit 41 km kürzer als die gewünschten 80–140 km/Tag, da Friaul-Julisch Venetien auf dieser Linie keine längere sinnvolle Strecke ohne unnötige Umwege bietet – die Sehenswürdigkeiten Aquileia und Grado liegen dicht beieinander. Alle sechs Etappen fehlerfrei (keine ❌), nur kleine Befunde (⚠️, v. a. Hauptstraßenabschnitte ohne Radweg) bleiben."
+    }
+  ]
+}

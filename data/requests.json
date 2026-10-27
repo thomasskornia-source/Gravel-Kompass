@@ -397,5 +397,66 @@
     "tourIds": [
       "eichenau-wieskirche-3-tage"
     ]
+  },
+  {
+    "id": "uli-2026-10-24",
+    "name": "Uli",
+    "createdAt": "2026-10-24",
+    "status": "fertig",
+    "tage": 6,
+    "land": "Italien",
+    "region": "Bologna",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 60,
+    "etappenlaengeBis": 130,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Gravel-Rundtour mit Start/Ziel in Bologna für sechs Tage, 60–130 km/Tag, zwischen 700 und 1300 Höhenmetern pro Tag.",
+    "tourIds": [
+      "bologna-apennin-6-tage"
+    ]
+  },
+  {
+    "id": "emilia-romagna-2026-10-26",
+    "createdAt": "2026-10-26",
+    "status": "fertig",
+    "tage": 6,
+    "land": "Italien",
+    "region": "Emilia-Romagna",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Feiner Schotter"
+    ],
+    "etappenlaengeVon": 85,
+    "etappenlaengeBis": 130,
+    "anspruch": "Moderat",
+    "streckenform": "Rundtour",
+    "stil": "Route durch Norditalien/Emilia-Romagna, orientiert an bekannten Routen, kein Startort angegeben.",
+    "tourIds": [
+      "parma-po-delta-6-tage"
+    ]
+  },
+  {
+    "id": "friaul-2026-10-27",
+    "createdAt": "2026-10-27",
+    "status": "fertig",
+    "tage": 6,
+    "land": "Italien",
+    "region": "Friaul-Julisch Venetien",
+    "fahrradtyp": "Gravel",
+    "oberflaeche": [
+      "Grober Schotter"
+    ],
+    "etappenlaengeVon": 80,
+    "etappenlaengeBis": 140,
+    "anspruch": "Anspruchsvoll",
+    "streckenform": "Rundtour",
+    "stil": "Route durch das Friaul, angelehnt an bekannte/beliebte Radwege und eine Tour von „Gravel Deluxe“, mit Station Triest.",
+    "tourIds": [
+      "friaul-triest-6-tage"
+    ]
   }
 ]
