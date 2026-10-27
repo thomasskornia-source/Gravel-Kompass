@@ -304,6 +304,13 @@
           11.64008,
           "Magdeburg"
         ]
+      ],
+      "sperren": [
+        [
+          51.917,
+          11.8745,
+          500
+        ]
       ]
     },
     {
@@ -1282,7 +1289,7 @@
     },
     {
       "von": "Jokkmokk",
-      "nach": "Gällivare kommun",
+      "nach": "Gällivare-Vaikijaur",
       "hmPlan": 0,
       "text": "Weiter durch die lappländische Taiga nach Gällivare am Fuß des Dundret. (1. Teil, automatisch bei Gällivare kommun geteilt – Originaletappe war 166 km.)",
       "wegpunkte": [
@@ -1294,12 +1301,12 @@
         [
           66.58058,
           21.07491,
-          "Gällivare kommun"
+          "Gällivare-Vaikijaur"
         ]
       ]
     },
     {
-      "von": "Gällivare kommun",
+      "von": "Gällivare-Vaikijaur",
       "nach": "Gällivare",
       "hmPlan": 0,
       "text": "Weiter durch die lappländische Taiga nach Gällivare am Fuß des Dundret. (2. Teil, automatisch bei Gällivare kommun geteilt.)",
@@ -1307,7 +1314,7 @@
         [
           66.58058,
           21.07491,
-          "Gällivare kommun"
+          "Gällivare-Vaikijaur"
         ],
         [
           67.1372,
@@ -1318,7 +1325,7 @@
     },
     {
       "von": "Gällivare",
-      "nach": "Gällivare kommun",
+      "nach": "Gällivare-Ost",
       "hmPlan": 0,
       "text": "Durch Erzbahn-Land in Richtung Svappavaara. (1. Teil, automatisch bei Gällivare kommun geteilt – Originaletappe war 168 km.)",
       "wegpunkte": [
@@ -1330,12 +1337,12 @@
         [
           67.32585,
           21.64188,
-          "Gällivare kommun"
+          "Gällivare-Ost"
         ]
       ]
     },
     {
-      "von": "Gällivare kommun",
+      "von": "Gällivare-Ost",
       "nach": "Svappavaara",
       "hmPlan": 0,
       "text": "Durch Erzbahn-Land in Richtung Svappavaara. (2. Teil, automatisch bei Gällivare kommun geteilt.)",
@@ -1343,7 +1350,7 @@
         [
           67.32585,
           21.64188,
-          "Gällivare kommun"
+          "Gällivare-Ost"
         ],
         [
           67.64787,
@@ -1386,11 +1393,18 @@
           18.83001,
           "Abisko"
         ]
+      ],
+      "sperren": [
+        [
+          68.1826,
+          18.4705,
+          500
+        ]
       ]
     },
     {
       "von": "Abisko",
-      "nach": "Narvik",
+      "nach": "Bjørnfjell",
       "hmPlan": 0,
       "text": "Über den Bergpass Riksgränsen an der schwedisch-norwegischen Landgrenze (kein Wasser) hinunter zum Fjord nach Narvik. (1. Teil, automatisch bei Narvik geteilt – Originaletappe war 117 km.)",
       "wegpunkte": [
@@ -1407,12 +1421,12 @@
         [
           68.35689,
           17.97326,
-          "Narvik"
+          "Bjørnfjell"
         ]
       ]
     },
     {
-      "von": "Narvik",
+      "von": "Bjørnfjell",
       "nach": "Narvik",
       "hmPlan": 0,
       "text": "Über den Bergpass Riksgränsen an der schwedisch-norwegischen Landgrenze (kein Wasser) hinunter zum Fjord nach Narvik. (2. Teil, automatisch bei Narvik geteilt.)",
@@ -1420,7 +1434,7 @@
         [
           68.35689,
           17.97326,
-          "Narvik"
+          "Bjørnfjell"
         ],
         [
           68.4384,
@@ -1509,6 +1523,18 @@
           18.9553,
           "Tromsø"
         ]
+      ],
+      "sperren": [
+        [
+          69.5926,
+          18.8586,
+          500
+        ],
+        [
+          69.6465,
+          18.9603,
+          500
+        ]
       ]
     },
     {
@@ -1532,6 +1558,18 @@
           20.2778,
           "Skibotn"
         ]
+      ],
+      "sperren": [
+        [
+          69.5926,
+          18.8586,
+          500
+        ],
+        [
+          69.545,
+          18.7684,
+          500
+        ]
       ]
     },
     {
@@ -1549,6 +1587,23 @@
           69.5833,
           21.0,
           "Olderdalen"
+        ]
+      ],
+      "sperren": [
+        [
+          69.9822,
+          20.2694,
+          500
+        ],
+        [
+          70.041,
+          20.7786,
+          500
+        ],
+        [
+          70.0353,
+          20.9812,
+          500
         ]
       ]
     },
@@ -1609,6 +1664,18 @@
           24.01308,
           "Langfjordbotn (Porsanger)"
         ]
+      ],
+      "sperren": [
+        [
+          70.1434,
+          23.2731,
+          500
+        ],
+        [
+          70.1374,
+          23.3273,
+          500
+        ]
       ]
     },
     {
@@ -1644,6 +1711,13 @@
           70.9821,
           25.9704,
           "Honningsvåg"
+        ]
+      ],
+      "sperren": [
+        [
+          70.9809,
+          25.969,
+          500
         ]
       ]
     },

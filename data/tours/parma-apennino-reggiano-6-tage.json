@@ -15,7 +15,7 @@
     "Radwege",
     "Asphalt"
   ],
-  "beschreibung": "Eine Rundtour durch die Emilia zwischen Po-Ebene und Apennin-Vorland, angelehnt an bekannte Routen der Region: das Bikepacking-Rennen „Emilia Gravel“ (Busseto–Piacenza–Parma–Reggio Emilia), die Via Francigena im Taro-Tal und die Weinstraße „Strada dei Vini e dei Sapori dei Colli di Canossa e Scandiano“. Start und Ziel ist Busseto, Verdis Geburtsort. Über das Val d'Arda mit Castell'Arquato und Vigoleno geht es ins Taro-Tal nach Parma, auf der „Strada dei Castelli del Ducato“ über Torrechiara und Langhirano hinauf zur Burgruine von Canossa, weiter über Quattro Castella und Reggio Emilia zur Burg von Scandiano. Zurück geht es durch die Bassa (Po-Ebene) über Correggio, Novellara und Guastalla, am Po entlang nach Brescello (Don-Camillo-Filmdorf) und über die Reggia von Colorno und die Rocca Sanvitale in Fontanellato nach Busseto. Hügelige Apennin-Vorland-Etappen wechseln sich mit flachen Po-Ebene-Tagen ab; die hohen Apennin-Pässe (z. B. Passo della Cisa) bleiben bewusst außen vor, damit der Anspruch moderat bleibt. Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
+  "beschreibung": "Eine Rundtour durch die Emilia zwischen Po-Ebene und Apennin-Vorland, angelehnt an bekannte Routen der Region: das Bikepacking-Rennen „Emilia Gravel“ (Busseto–Piacenza–Parma–Reggio Emilia), die Via Francigena im Taro-Tal, die „Via Matildica del Volto Santo“ (Pilgerweg der Gräfin Mathilde von Canossa durch Casina, Carpineti und Viano) und die Weinstraße „Strada dei Vini e dei Sapori dei Colli di Canossa e Scandiano“. Start und Ziel ist Busseto, Verdis Geburtsort. Über Cortemaggiore, Fiorenzuola d'Arda, Salsomaggiore Terme und Vernasca geht es ins Val d'Arda mit Castell'Arquato und Vigoleno, dann ins Taro-Tal nach Parma, auf der „Strada dei Castelli del Ducato“ über Torrechiara und Langhirano und am Matilde-Schloss Bianello bei Quattro Castella vorbei hinauf zur Burgruine von Canossa. Auf der Via Matildica geht es weiter über Casina, Carpineti, Viano und Baiso zur Burg von Scandiano, dann durch Reggio Emilia hinunter in die Bassa (Po-Ebene) über Rubiera, Correggio und Novellara bis an den Po bei Guastalla. Zurück geht es am Po entlang nach Brescello (Don-Camillo-Filmdorf) und über die Reggia von Colorno und die Rocca Sanvitale in Fontanellato nach Busseto. Hügelige Apennin-Vorland-Etappen wechseln sich mit flachen Po-Ebene-Tagen ab; die hohen Apennin-Pässe (z. B. Passo della Cisa) und der steile Pfad zur Pietra di Bismantova bleiben bewusst außen vor, damit der Anspruch moderat bleibt. Höhenmeter sind Schätzungen, solange der Routingdienst keine liefert.",
   "quellen": [
     {
       "name": "Emilia Gravel – Bikepacking-Route Busseto–Piacenza–Parma–Reggio Emilia (bikepacking.com)",
@@ -36,6 +36,10 @@
     {
       "name": "Waymarked Trails – Cycling (OpenStreetMap-Radrouten Italien)",
       "url": "https://cycling.waymarkedtrails.org/"
+    },
+    {
+      "name": "Via Matildica del Volto Santo – Reggio Emilia Welcome (Canossa–Carpineti–Scandiano, Mathilde von Canossa)",
+      "url": "https://www.reggioemiliawelcome.it/en/tours-and-itineraries/hiking-and-trekking/via-matildica-del-volto-santo"
     }
   ],
   "etappen": [
@@ -43,7 +47,7 @@
       "von": "Busseto",
       "nach": "Castell'Arquato",
       "hmPlan": 0,
-      "text": "Von Busseto, Verdis Geburtsort, durch die sanften Hügel des Val d'Arda über Fidenza und das Kurbad Salsomaggiore Terme, vorbei am mittelalterlichen Weiler Vigoleno zur Burg und Altstadt von Castell'Arquato.",
+      "text": "Von Busseto, Verdis Geburtsort, über Cortemaggiore und Fiorenzuola d'Arda nach Salsomaggiore Terme, hinauf ins Hügelland von Vernasca, vorbei am mittelalterlichen Weiler Vigoleno zur Burg und Altstadt von Castell'Arquato.",
       "wegpunkte": [
         [
           44.98096,
@@ -51,14 +55,24 @@
           "Busseto"
         ],
         [
-          44.8653,
-          10.0612,
-          "Fidenza"
+          44.99422,
+          9.93689,
+          "Cortemaggiore"
         ],
         [
-          44.81313,
-          9.98412,
+          44.9239,
+          9.8864,
+          "Fiorenzuola d'Arda"
+        ],
+        [
+          44.81522,
+          9.97585,
           "Salsomaggiore Terme"
+        ],
+        [
+          44.7944,
+          9.8622,
+          "Vernasca"
         ],
         [
           44.81281,
@@ -73,73 +87,33 @@
       ],
       "sperren": [
         [
-          44.979209,
-          10.035625,
+          44.993236,
+          9.934264,
           15
         ],
         [
-          44.97535,
-          10.039407,
+          44.931645,
+          9.906218,
           15
         ],
         [
-          44.973239,
-          10.042274,
+          44.931424,
+          9.905798,
           15
         ],
         [
-          44.973021,
-          10.043074,
+          44.921147,
+          9.887074,
           15
         ],
         [
-          44.845624,
-          10.02702,
+          44.798122,
+          9.857533,
           15
         ],
         [
-          44.8447,
-          10.025196,
-          15
-        ],
-        [
-          44.815458,
-          9.983167,
-          15
-        ],
-        [
-          44.815099,
-          9.982991,
-          15
-        ],
-        [
-          44.812359,
-          9.98206,
-          15
-        ],
-        [
-          44.808898,
-          9.983048,
-          15
-        ],
-        [
-          44.980166,
-          10.041895,
-          15
-        ],
-        [
-          44.979322,
-          10.041519,
-          15
-        ],
-        [
-          44.978809,
-          10.041268,
-          15
-        ],
-        [
-          44.978593,
-          10.041256,
+          44.815657,
+          9.97652,
           15
         ]
       ]
@@ -171,9 +145,14 @@
           "Sala Baganza"
         ],
         [
-          44.70382,
-          10.23997,
+          44.70355,
+          10.24045,
           "Felino"
+        ],
+        [
+          44.75612,
+          10.23984,
+          "Abstecher bei Lemignano"
         ],
         [
           44.8015,
@@ -318,7 +297,7 @@
       "von": "Parma",
       "nach": "Canossa",
       "hmPlan": 0,
-      "text": "Auf der „Strada dei Castelli del Ducato“ über Montechiarugolo, vorbei an der Burg Torrechiara und durch die Schinken-Stadt Langhirano, über Traversetolo hinauf zur sagenumwobenen Burgruine von Canossa.",
+      "text": "Auf der „Strada dei Castelli del Ducato“ über Montechiarugolo, vorbei an der Burg Torrechiara und durch die Schinken-Stadt Langhirano, über Traversetolo und das Matilde-Schloss Bianello bei Quattro Castella hinauf zur sagenumwobenen Burgruine von Canossa.",
       "wegpunkte": [
         [
           44.8015,
@@ -344,6 +323,11 @@
           44.64243,
           10.38613,
           "Traversetolo"
+        ],
+        [
+          44.63113,
+          10.47344,
+          "Quattro Castella"
         ],
         [
           44.5802,
@@ -526,6 +510,21 @@
           44.714221,
           10.427315,
           15
+        ],
+        [
+          44.632726,
+          10.421262,
+          15
+        ],
+        [
+          44.637345,
+          10.422819,
+          15
+        ],
+        [
+          44.637859,
+          10.424254,
+          15
         ]
       ]
     },
@@ -533,7 +532,7 @@
       "von": "Canossa",
       "nach": "Scandiano",
       "hmPlan": 0,
-      "text": "Auf der Weinstraße „Strada dei Vini e dei Sapori dei Colli di Canossa e Scandiano“ über Quattro Castella und durch Reggio Emilia zur Burg von Scandiano.",
+      "text": "Auf den Spuren der „Via Matildica del Volto Santo“ durch das Hügelland der Grancontessa: über Casina und die Burg von Carpineti, dann über Viano und Baiso hinunter zur Burg von Scandiano.",
       "wegpunkte": [
         [
           44.5802,
@@ -541,14 +540,24 @@
           "Canossa"
         ],
         [
-          44.63113,
-          10.47344,
-          "Quattro Castella"
+          44.6167,
+          10.4333,
+          "Casina"
         ],
         [
-          44.69844,
-          10.63827,
-          "Reggio Emilia"
+          44.5219,
+          10.5203,
+          "Carpineti"
+        ],
+        [
+          44.5636,
+          10.5619,
+          "Viano"
+        ],
+        [
+          44.5042,
+          10.6111,
+          "Baiso"
         ],
         [
           44.59934,
@@ -578,43 +587,58 @@
           15
         ],
         [
-          44.61912,
-          10.515913,
+          44.600884,
+          10.413431,
           15
         ],
         [
-          44.664463,
-          10.614432,
+          44.60029,
+          10.413318,
           15
         ],
         [
-          44.697467,
-          10.630026,
+          44.521502,
+          10.523086,
           15
         ],
         [
-          44.699488,
-          10.63122,
+          44.521941,
+          10.523366,
           15
         ],
         [
-          44.698881,
-          10.651769,
+          44.569038,
+          10.564342,
           15
         ],
         [
-          44.696427,
-          10.673441,
+          44.568575,
+          10.563021,
           15
         ],
         [
-          44.695357,
-          10.674303,
+          44.568101,
+          10.564045,
           15
         ],
         [
-          44.692053,
-          10.687335,
+          44.573097,
+          10.589392,
+          15
+        ],
+        [
+          44.591043,
+          10.686944,
+          15
+        ],
+        [
+          44.591333,
+          10.687085,
+          15
+        ],
+        [
+          44.6087,
+          10.4191,
           15
         ],
         [
@@ -648,43 +672,108 @@
           15
         ],
         [
-          44.701177,
-          10.639972,
+          44.562382,
+          10.477266,
           15
         ],
         [
-          44.700212,
-          10.69428,
+          44.559999,
+          10.475516,
           15
         ],
         [
-          44.698108,
-          10.630833,
+          44.525862,
+          10.519338,
           15
         ],
         [
-          44.606589,
-          10.660374,
+          44.571082,
+          10.560566,
           15
         ],
         [
-          44.599143,
-          10.684306,
+          44.56867,
+          10.561374,
           15
         ],
         [
-          44.697789,
-          10.632623,
+          44.568267,
+          10.560055,
           15
         ],
         [
-          44.606272,
-          10.692101,
+          44.569865,
+          10.57459,
           15
         ],
         [
-          44.700459,
-          10.63197,
+          44.559334,
+          10.567423,
+          15
+        ],
+        [
+          44.560039,
+          10.564383,
+          15
+        ],
+        [
+          44.560193,
+          10.5641,
+          15
+        ],
+        [
+          44.558988,
+          10.568052,
+          15
+        ],
+        [
+          44.55929,
+          10.553418,
+          15
+        ],
+        [
+          44.559622,
+          10.556121,
+          15
+        ],
+        [
+          44.560176,
+          10.560278,
+          15
+        ],
+        [
+          44.560045,
+          10.560655,
+          15
+        ],
+        [
+          44.559514,
+          10.55635,
+          15
+        ],
+        [
+          44.559579,
+          10.553681,
+          15
+        ],
+        [
+          44.563481,
+          10.572414,
+          15
+        ],
+        [
+          44.56508,
+          10.572816,
+          15
+        ],
+        [
+          44.571492,
+          10.556054,
+          15
+        ],
+        [
+          44.564866,
+          10.569743,
           15
         ]
       ]
@@ -693,7 +782,7 @@
       "von": "Scandiano",
       "nach": "Guastalla",
       "hmPlan": 0,
-      "text": "Hinaus in die Bassa, die Po-Ebene: über Rubiera und Correggio, vorbei an der Burg von Novellara, bis an den Po bei Guastalla.",
+      "text": "Hinunter in die Bassa, die Po-Ebene: durch Reggio Emilia und über Rubiera und Correggio, vorbei an der Burg von Novellara, bis an den Po bei Guastalla.",
       "wegpunkte": [
         [
           44.59934,
@@ -701,14 +790,24 @@
           "Scandiano"
         ],
         [
+          44.6989,
+          10.6307,
+          "Reggio Emilia"
+        ],
+        [
+          44.68351,
+          10.70017,
+          "Abstecher bei Masone"
+        ],
+        [
           44.6533,
           10.78073,
           "Rubiera"
         ],
         [
-          44.69006,
-          10.7766,
-          "Abstecher bei San Faustino"
+          44.68009,
+          10.78049,
+          "San Faustino"
         ],
         [
           44.76897,
@@ -727,6 +826,21 @@
         ]
       ],
       "sperren": [
+        [
+          44.599143,
+          10.684306,
+          15
+        ],
+        [
+          44.606589,
+          10.660374,
+          15
+        ],
+        [
+          44.697467,
+          10.630026,
+          15
+        ],
         [
           44.739383,
           10.825508,
@@ -748,73 +862,13 @@
           15
         ],
         [
-          44.770758,
-          10.782527,
-          15
-        ],
-        [
-          44.772813,
-          10.780085,
-          15
-        ],
-        [
-          44.772606,
-          10.779954,
-          15
-        ],
-        [
-          44.772128,
-          10.77697,
-          15
-        ],
-        [
-          44.772026,
-          10.776795,
-          15
-        ],
-        [
           44.855582,
           10.728382,
           15
         ],
         [
-          44.772244,
-          10.783247,
-          15
-        ],
-        [
-          44.771592,
-          10.78057,
-          15
-        ],
-        [
-          44.771749,
-          10.779753,
-          15
-        ],
-        [
-          44.771731,
-          10.779334,
-          15
-        ],
-        [
-          44.771623,
-          10.7788,
-          15
-        ],
-        [
-          44.77173,
-          10.778104,
-          15
-        ],
-        [
-          44.771809,
-          10.777476,
-          15
-        ],
-        [
-          44.77168,
-          10.776404,
+          44.606156,
+          10.69211,
           15
         ],
         [
@@ -835,11 +889,6 @@
         [
           44.767392,
           10.77902,
-          15
-        ],
-        [
-          44.678263,
-          10.781285,
           15
         ]
       ]
